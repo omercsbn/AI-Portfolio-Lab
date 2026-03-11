@@ -28,7 +28,7 @@ const translations = {
         placeholder: "Query the timeline...",
         connecting: "Winding mainspring...",
         generating: "Synchronizing timelines...",
-        rateLimitError: "### [MAINSPRING SNAPPED]\n\nTension exceeds limits. (5 queries/min, 20/day). Let the cogs rest, or dispatch an urgent missive to:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [MAINSPRING SNAPPED]\n\nTension exceeds limits. (5 queries/min, 20/day). Let the cogs rest, or dispatch an urgent missive to:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[DESYNC]* The timeline became corrupted.",
         statusNormal: `Mainspring tension:`,
         complete: "Synchronization complete.",
@@ -39,7 +39,7 @@ const translations = {
         placeholder: "Zaman çizelgesine sor...",
         connecting: "Zemberek kuruluyor...",
         generating: "Zamanlar senkronize ediliyor...",
-        rateLimitError: "### [ZEMBEREK KOPTU]\n\nGerilim sınırları aşıldı. (5 sorgu/dk, 20/gün). Çarkları dinlendirin veya acil mesaj gönderin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [ZEMBEREK KOPTU]\n\nGerilim sınırları aşıldı. (5 sorgu/dk, 20/gün). Çarkları dinlendirin veya acil mesaj gönderin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[DESENKRONİZASYON]* Zaman çizgisi bozuldu.",
         statusNormal: `Zemberek gerilimi:`,
         complete: "Senkronizasyon tamamlandı.",
@@ -57,7 +57,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Cloud-Native Architect.
 Philosophy: Event-driven architecture is like a masterfully tuned watch. Asynchronous messages are the gears that keep the distributed system in perfect, non-blocking rhythm. 
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // Helper: Convert int to Roman numeral

@@ -27,7 +27,7 @@ const translations = {
         placeholder: "ENTER SEARCH VECTOR...",
         connecting: "ADJUSTING FOCAL LENGTH...",
         generating: "ANALYZING TARGET DATA...",
-        rateLimitError: "### [LENS OVERHEATED]\n\nSensor requires cooling cooling. (5 scans/min, 20/day). Retract lens or ping command:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [LENS OVERHEATED]\n\nSensor requires cooling cooling. (5 scans/min, 20/day). Retract lens or ping command:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[BLIND SPOT]* Data unreadable.",
         statusNormal: `BATTERY_LEVEL:`,
         complete: "SCAN COMPLETE.",
@@ -38,7 +38,7 @@ const translations = {
         placeholder: "ARAMA VEKTÖRÜ GİRİN...",
         connecting: "ODAK UZUNLUĞU AYARLANIYOR...",
         generating: "HEDEF VERİSİ İNCELENİYOR...",
-        rateLimitError: "### [LENS AŞIRI ISINDI]\n\nSensörün soğutulması gerekiyor. (5 tarama/dk, 20/gün). Lensi geri çekin veya komutaya ping atın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [LENS AŞIRI ISINDI]\n\nSensörün soğutulması gerekiyor. (5 tarama/dk, 20/gün). Lensi geri çekin veya komutaya ping atın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[KÖR NOKTA]* Veri okunamıyor.",
         statusNormal: `BATARYA_SEVİYESİ:`,
         complete: "TARAMA TAMAMLANDI.",
@@ -56,7 +56,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Observability Architect.
 Philosophy: You cannot fix what you cannot see. Distributed systems require a panoptic view—tracing, logging, and metrics that act as a cybernetic iris, instantly focusing on anomalies at the microservice level before they cascade.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS CYBERNETIC IRIS ---

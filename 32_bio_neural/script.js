@@ -26,7 +26,7 @@ const translations = {
         placeholder: "Provide stimulus sequence...",
         connecting: "SYNAPSES FIRING...",
         generating: "GROWING NEURAL PATHWAYS...",
-        rateLimitError: "### [ORGANISM FATIGUE]\n\nEnergy reserves depleted. (Max 5/min, 20/day). Allow time to heal or contact cell operator:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [ORGANISM FATIGUE]\n\nEnergy reserves depleted. (Max 5/min, 20/day). Allow time to heal or contact cell operator:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[MUTATION]* Unprocessable cellular instruction.",
         statusNormal: `VITALS STABLE | ENERGY`,
         complete: "NEUROGENESIS COMPLETE.",
@@ -36,7 +36,7 @@ const translations = {
         placeholder: "Uyarıcı sekansı sağlayın...",
         connecting: "SİNAPSLAR ATEŞLENİYOR...",
         generating: "NÖRAL YOLLAR BÜYÜYOR...",
-        rateLimitError: "### [ORGANİZMA YORGUNLUĞU]\n\nEnerji rezervleri tükendi. İyileşme için bekleyin veya hücre operatörüne ulaşın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [ORGANİZMA YORGUNLUĞU]\n\nEnerji rezervleri tükendi. İyileşme için bekleyin veya hücre operatörüne ulaşın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[MUTASYON]* İşlenemeyen hücresel talimat.",
         statusNormal: `HAYATİ BULGULAR STABİL | ENERJİ`,
         complete: "NÖROJENEZ TAMAMLANDI.",
@@ -54,7 +54,7 @@ PROFILE:
 Name: Ömercan Sabun, Cloud-Native Architect.
 Ecosystem: Architecht
 Evolutionary Traits: Building self-healing distributed systems, Kubernetes clusters acting as immune systems, Microservices as specialized cells.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS BIO-NEURAL WEB ---

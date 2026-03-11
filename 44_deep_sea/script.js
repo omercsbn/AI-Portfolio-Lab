@@ -28,7 +28,7 @@ const translations = {
         placeholder: "Send a signal into the dark...",
         connecting: "Ping transmitted...",
         generating: "Echo returning...",
-        rateLimitError: "### [OXYGEN DEPLETED]\n\nPressure limits reached. (5 dives/min, 20/day). Resurface to breathe, or send an SOS:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [OXYGEN DEPLETED]\n\nPressure limits reached. (5 dives/min, 20/day). Resurface to breathe, or send an SOS:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[CRUSH]* The signal collapsed under pressure.",
         statusNormal: `Oxygen levels:`,
         complete: "Transmission complete.",
@@ -39,7 +39,7 @@ const translations = {
         placeholder: "Karanlığa sinyal gönder...",
         connecting: "Sinyal iletildi...",
         generating: "Yankı dönüyor...",
-        rateLimitError: "### [OKSİJEN BİTTİ]\n\nBasınç sınırına ulaşıldı. (5 dalış/dk, 20/gün). Yüzeye çıkıp nefes alın veya SOS gönderin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [OKSİJEN BİTTİ]\n\nBasınç sınırına ulaşıldı. (5 dalış/dk, 20/gün). Yüzeye çıkıp nefes alın veya SOS gönderin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[BASINÇ]* Sinyal basınç altında çöktü.",
         statusNormal: `Oksijen seviyesi:`,
         complete: "İletim tamamlandı.",
@@ -57,7 +57,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Cloud-Native Architect @ Architecht.
 Philosophy: Data lakes are deep and dark. Only resilient, event-driven bioluminescent entities (microservices) can survive the pressure and bring scalable light to the system.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS DEEP SEA JELLYFISH/PARTICLES ---

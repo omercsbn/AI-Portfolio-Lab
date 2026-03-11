@@ -27,7 +27,7 @@ const translations = {
         placeholder: "Define vector input...",
         connecting: "ASSEMBLING NODES...",
         generating: "SYNTHESIZING STRUCTURE...",
-        rateLimitError: "### [SYSTEM HALT]\n\nResource limit reached. (Max 5/min, 20/day). Contact administrator:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [SYSTEM HALT]\n\nResource limit reached. (Max 5/min, 20/day). Contact administrator:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[CRITICAL]* Structural anomaly detected.",
         statusNormal: `SYSTEM STABLE | OP`,
         complete: "EXECUTION COMPLETE.",
@@ -37,7 +37,7 @@ const translations = {
         placeholder: "Vektör girdisi tanımlayın...",
         connecting: "DÜĞÜMLER TOPLANIYOR...",
         generating: "YAPI SENTEZLENİYOR...",
-        rateLimitError: "### [SİSTEM DURDURULDU]\n\nKaynak sınırına ulaşıldı. Yönetici ile iletişime geçin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [SİSTEM DURDURULDU]\n\nKaynak sınırına ulaşıldı. Yönetici ile iletişime geçin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[KRİTİK]* Yapısal anomali algılandı.",
         statusNormal: `SİSTEM KARARLI | İŞLEM`,
         complete: "YÜRÜTME TAMAMLANDI.",
@@ -56,7 +56,7 @@ Name: Ömercan Sabun, Cloud-Native Architect.
 Firm: Architecht
 Expertise: Deconstructing monolithic structures into elegant, functional microservices (Form follows function).
 Skills: Distributed Systems, K8s, Go, C#, Java, Multi-agent AI.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS GEOMETRIC SWARM ---

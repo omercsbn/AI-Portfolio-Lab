@@ -29,7 +29,7 @@ const translations = {
         placeholder: "ENTER DIRECTIVE (SHIFT+ENTER FOR NL)...",
         connecting: "ESTABLISHING_UPLINK...",
         generating: "DECRYPTING_DATA_STREAM...",
-        rateLimitError: "### [SYS_ERR_429]\n\nUplink overloaded. Max quotas reached. Contact admin: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [SYS_ERR_429]\n\nUplink overloaded. Max quotas reached. Contact admin: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[CORRUPTION_DETECTED]* Unprocessable stream.",
         statusNormal: `NET_STATUS: ONLINE | QUOTA`,
         complete: "STREAM_TERMINATED.",
@@ -40,7 +40,7 @@ const translations = {
         placeholder: "DİREKTİF GİRİN (YENİ SATIR İÇİN SHIFT+ENTER)...",
         connecting: "BAĞLANTI_KURULUYOR...",
         generating: "VERİ_AKISI_ÇÖZÜLÜYOR...",
-        rateLimitError: "### [SİS_HATA_429]\n\nBağlantı aşırı yüklü. Kota aşıldı. Yöneticiye ulaşın: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [SİS_HATA_429]\n\nBağlantı aşırı yüklü. Kota aşıldı. Yöneticiye ulaşın: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[VERİ_BOZULMASI]* İşlenemeyen veri akışı.",
         statusNormal: `AĞ_DURUMU: AKTİF | KOTA`,
         complete: "AKIŞ_SONLANDI.",
@@ -60,7 +60,7 @@ Name: Ömercan Sabun, 25.
 Class: Software Architect.
 Current Hub: Architecht (Banking Systems Infrastructure).
 Skills: Distributed Systems, EDA, Microservices, LLM Networks, Kubernetes Clusters.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS CYBERPUNK GRID ---

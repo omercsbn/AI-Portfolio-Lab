@@ -27,7 +27,7 @@ const translations = {
         placeholder: "Write on the cardboard...",
         connecting: "Unfolding geometry...",
         generating: "Sketching architecture...",
-        rateLimitError: "### [OUT OF INK]\n\nMarker ran dry. (5 strokes/min, 20/day). Grab a new pen later or tell the architect:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [OUT OF INK]\n\nMarker ran dry. (5 strokes/min, 20/day). Grab a new pen later or tell the architect:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[TEAR]* The paper ripped.",
         statusNormal: `Ink left:`,
         complete: "Diorama assembled.",
@@ -38,7 +38,7 @@ const translations = {
         placeholder: "Kartona yaz...",
         connecting: "Kartlar katlanıyor...",
         generating: "Mimari çiziliyor...",
-        rateLimitError: "### [MÜREKKEP BİTTİ]\n\nKalem kurudu. (5 çizim/dk, 20/gün). Sonra yeni kalem al veya mimara söyle:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [MÜREKKEP BİTTİ]\n\nKalem kurudu. (5 çizim/dk, 20/gün). Sonra yeni kalem al veya mimara söyle:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[YIRTILMA]* Kağıt koptu.",
         statusNormal: `Kalan mürekkep:`,
         complete: "Diorama tamamlandı.",
@@ -56,7 +56,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Cardboard Architect.
 Philosophy: You shouldn't write code until you've modeled the system in cardboard. Infrastructure as Code is just digital papercraft. If the cardboard model falls over, the real servers will too. Let's prototype.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS PAPERCRAFT DIORAMA ---

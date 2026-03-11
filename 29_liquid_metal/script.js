@@ -24,14 +24,14 @@ mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 const translations = {
     en: {
         placeholder: "drop insight here...",
-        rateLimitError: "### [SYNC ERROR]\n\nCore saturation reached. (Max 5/min, 20/day). Ping: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [SYNC ERROR]\n\nCore saturation reached. (Max 5/min, 20/day). Ping: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[FLUID ANOMALY]* Unprocessable input.",
         statusNormal: `sync: ok`,
         toggleBtn: "tr"
     },
     tr: {
         placeholder: "içgörü bırakın...",
-        rateLimitError: "### [SENKRONİZASYON HATASI]\n\nÇekirdek doygunluğa ulaştı. (Maks 5/dk, 20/gün). Ping: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [SENKRONİZASYON HATASI]\n\nÇekirdek doygunluğa ulaştı. (Maks 5/dk, 20/gün). Ping: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[SIVI ANOMALİSİ]* İşlenemeyen girdi.",
         statusNormal: `senk: ok`,
         toggleBtn: "en"
@@ -48,7 +48,7 @@ PROFILE:
 Name: Ömercan Sabun
 Role: Cloud-Native Software Architect @ Architecht
 Philosophy: Software should be like liquid—adapting to its container, healing itself, flowing around obstacles (EDA, Microservices, Kubernetes).
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS LIQUID METAL BLOB ---

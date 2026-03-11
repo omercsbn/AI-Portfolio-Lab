@@ -34,7 +34,7 @@ const translations = {
         placeholder: "ENTER COMMAND...",
         connecting: "LOADING_TAPE...",
         generating: "PROCESSING_DATA...",
-        rateLimitError: "### [GAME OVER]\n\nINSERT COIN TO CONTINUE. Quota Exceeded.\nContact Operator: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [GAME OVER]\n\nINSERT COIN TO CONTINUE. Quota Exceeded.\nContact Operator: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[GLITCH]* INVALID MEMORY ADDRESS.",
         statusNormal: `LIVES: `,
         complete: "STAGE CLEAR.",
@@ -44,7 +44,7 @@ const translations = {
         placeholder: "KOMUT GİRİNİZ...",
         connecting: "KASET_YÜKLENİYOR...",
         generating: "VERİ_İŞLENİYOR...",
-        rateLimitError: "### [OYUN BİTTİ]\n\nDEVAM ETMEK İÇİN JETON ATIN. Kota aşıldı.\nOperatör: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [OYUN BİTTİ]\n\nDEVAM ETMEK İÇİN JETON ATIN. Kota aşıldı.\nOperatör: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[GLITCH]* GEÇERSİZ HAFIZA ADRESİ.",
         statusNormal: `CANLAR: `,
         complete: "BÖLÜM GEÇİLDİ.",
@@ -63,7 +63,7 @@ Player Name: Ömercan Sabun
 Class: Software Architect
 Guild: Architecht
 Special Moves: Kubernetes Deployments, Microservice Architectures, Event-Driven Combos.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS SYNTHWAVE GRID ---

@@ -26,7 +26,7 @@ const translations = {
         placeholder: "ENTER DIRECTIVE",
         connecting: "PARSING...",
         generating: "EXECUTING...",
-        rateLimitError: "### [DENIED]\n\nQUOTA EXCEEDED. (5/MIN, 20/DAY). HALL: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [DENIED]\n\nQUOTA EXCEEDED. (5/MIN, 20/DAY). HALL: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[FAIL]* UNPROCESSABLE INPUT.",
         statusNormal: `SYSTEM STATUS: OK | CYCLES:`,
         complete: "DONE.",
@@ -36,7 +36,7 @@ const translations = {
         placeholder: "DİREKTİF GİRİNİZ",
         connecting: "ÇÖZÜMLENİYOR...",
         generating: "YÜRÜTÜLÜYOR...",
-        rateLimitError: "### [REDDEDİLDİ]\n\nKOTA AŞILDI. (5/DK, 20/GÜN). İLETİŞİM: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [REDDEDİLDİ]\n\nKOTA AŞILDI. (5/DK, 20/GÜN). İLETİŞİM: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[HATA]* İŞLENEMEYEN GİRDİ.",
         statusNormal: `SİSTEM DURUMU: OK | DÖNGÜ:`,
         complete: "DEŞARJ.",
@@ -54,7 +54,7 @@ PROFILE:
 Name: Ömercan Sabun.
 Role: Cloud-Native Architect @ Architecht.
 Beliefs: Software is concrete. Microservices are the rebar holding it together. Stop building monoliths; they crack. Use Go, Kubernetes, Event-Driven patterns.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS KINETIC WORDS ---

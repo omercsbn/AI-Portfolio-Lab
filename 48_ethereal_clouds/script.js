@@ -27,7 +27,7 @@ const translations = {
         placeholder: "Whisper into the cloud...",
         connecting: "Gathering thoughts...",
         generating: "Condensing ideas...",
-        rateLimitError: "### [ATMOSPHERE THIN]\n\nAltitude limit reached. (5 breaths/min, 20/day). Descend to rest, or send a flare to:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [ATMOSPHERE THIN]\n\nAltitude limit reached. (5 breaths/min, 20/day). Descend to rest, or send a flare to:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[FADE]* The thought dissipated.",
         statusNormal: `Atmosphere:`,
         complete: "Transmission settled.",
@@ -38,7 +38,7 @@ const translations = {
         placeholder: "Bulutlara fısılda...",
         connecting: "Düşünceler toplanıyor...",
         generating: "Fikirler yoğunlaşıyor...",
-        rateLimitError: "### [HAVA SEYRELDİ]\n\nİrtifa sınırına ulaşıldı. (5 nefes/dk, 20/gün). Dinlenmek için alçalın veya işaret fişeği gönderin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [HAVA SEYRELDİ]\n\nİrtifa sınırına ulaşıldı. (5 nefes/dk, 20/gün). Dinlenmek için alçalın veya işaret fişeği gönderin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[KAYIP]* Düşünce dağıldı.",
         statusNormal: `Atmosfer:`,
         complete: "İletim tamamlandı.",
@@ -56,7 +56,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. 
 Philosophy: Hardware is heavy and binds you to the earth. Cloud-native architecture is light. It scales like vapor, spreading across availability zones with effortless grace.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS VOLUMETRIC CLOUDS ---

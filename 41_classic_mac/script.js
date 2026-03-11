@@ -28,7 +28,7 @@ const translations = {
         placeholder: "C:\\> Type command...",
         connecting: "Waiting for server...",
         generating: "Receiving packet...",
-        rateLimitError: "### System Error\n\nApplication unexpectedly quit. Error Type: Out of memory (5/min, 20/day limit). Restart or send crash log to:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### System Error\n\nApplication unexpectedly quit. Error Type: Out of memory (5/min, 20/day limit). Restart or send crash log to:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[Bomb Icon]* A system error occurred.",
         statusNormal: `Disk Space:`,
         complete: "Transfer Complete.",
@@ -39,7 +39,7 @@ const translations = {
         placeholder: "C:\\> Komut giriniz...",
         connecting: "Sunucu bekleniyor...",
         generating: "Paket alınıyor...",
-        rateLimitError: "### Sistem Hatası\n\nUygulama beklenmedik şekilde kapandı. Hata Türü: Yetersiz bellek (5/dk, 20/gün limiti). Yeniden başlatın veya çökme raporunu iletin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### Sistem Hatası\n\nUygulama beklenmedik şekilde kapandı. Hata Türü: Yetersiz bellek (5/dk, 20/gün limiti). Yeniden başlatın veya çökme raporunu iletin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[Bomba Simgesi]* Bir sistem hatası oluştu.",
         statusNormal: `Disk Alanı:`,
         complete: "Aktarım Tamamlandı.",
@@ -57,7 +57,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Architecht -> Cloud-Native Systems.
 Note: Upgraded from Monolith OS to Event-Driven CloudOS. High availability architecture detected.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- UPDATE CLOCK ---

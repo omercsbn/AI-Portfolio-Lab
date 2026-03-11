@@ -26,7 +26,7 @@ const translations = {
         placeholder: "execute...",
         connecting: "PARSING_CMD...",
         generating: "STDOUT_STREAM...",
-        rateLimitError: "### [KERN_PANIC]\n\nSegfault: Quota exhausted. (Max 5/min, 20/day). Please wait or ping:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [KERN_PANIC]\n\nSegfault: Quota exhausted. (Max 5/min, 20/day). Please wait or ping:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[ERR]* Invalid memory reference.",
         statusNormal: `MEM: OK | CYCLES:`,
         complete: "PROCESS_EXIT_0",
@@ -36,7 +36,7 @@ const translations = {
         placeholder: "çalıştır...",
         connecting: "KOMUT_ISLENIYOR...",
         generating: "STDOUT_AKISI...",
-        rateLimitError: "### [CEKIRDEK_PANIGI]\n\nSegfault: Kota tükendi. Lütfen bekleyin veya ping atın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [CEKIRDEK_PANIGI]\n\nSegfault: Kota tükendi. Lütfen bekleyin veya ping atın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[HATA]* Geçersiz bellek referansı.",
         statusNormal: `BLLK: OK | DONGU:`,
         complete: "ISLEM_CIKISI_0",
@@ -53,7 +53,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Target: Cloud-Native Architect @ Architecht.
 Skills: Deconstructing monoliths into highly available, containerized voxel-like structures (microservices). Polyglot (Go, C#, Java).
-Ping: hello@omercan.dev
+Ping: omercansabun@icloud.com
 `;
 
 // --- THREE.JS VOXEL MATRIX ---

@@ -27,7 +27,7 @@ const translations = {
         placeholder: "AWAITING PILOT INPUT...",
         connecting: "SYNCING NEURAL LINK...",
         generating: "TARGET ACQUIRED. FIRING...",
-        rateLimitError: "### [INTERNAL BATTERY DEPLETED]\n\nUmbilical cable severed. (5 commands/min, 20/day). Retreat or request manual override:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [INTERNAL BATTERY DEPLETED]\n\nUmbilical cable severed. (5 commands/min, 20/day). Retreat or request manual override:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[ABORT]* Pilot sync lost.",
         statusNormal: `UMBC_CABLE:`,
         complete: "OPERATION COMPLETE.",
@@ -38,7 +38,7 @@ const translations = {
         placeholder: "PİLOT GİRDİSİ BEKLENİYOR...",
         connecting: "SİNİR AĞI EŞLENİYOR...",
         generating: "HEDEF KİLİTLENDİ. ATEŞLENİYOR...",
-        rateLimitError: "### [İÇ BATARYA BOŞALDI]\n\nGöbek bağı koptu. (5 komut/dk, 20/gün). Geri çekilin veya manuel geçersiz kılma isteyin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [İÇ BATARYA BOŞALDI]\n\nGöbek bağı koptu. (5 komut/dk, 20/gün). Geri çekilin veya manuel geçersiz kılma isteyin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[İPTAL]* Pilot senkronizasyonu koptu.",
         statusNormal: `GÖBEK_BAĞI:`,
         complete: "OPERASYON TAMAMLANDI.",
@@ -56,7 +56,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Commander of Cloud Architecture.
 Philosophy: An Angel attack (massive traffic spike) will destroy an unprepared Monolith. We must deploy highly mobile Microservice units with auto-scaling A.T. Fields to neutralize the threat and maintain absolute system stability.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS MECHA CORE ---

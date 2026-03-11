@@ -26,7 +26,7 @@ const translations = {
         placeholder: "ENTER QUERY...",
         connecting: "INITIALIZING...",
         generating: "COMPUTING...",
-        rateLimitError: "### 🛑 RATE LIMIT HIT\n\nYou're spamming the server. (5 req/min, 20/day).\nRefresh later or ping the admin:\n[HELLO@OMERCAN.DEV](mailto:hello@omercan.dev).",
+        rateLimitError: "### 🛑 RATE LIMIT HIT\n\nYou're spamming the server. (5 req/min, 20/day).\nRefresh later or ping the admin:\n[HELLO@OMERCAN.DEV](mailto:omercansabun@icloud.com).",
         errorDefault: "*[ERROR]* Bad Request.",
         statusNormal: `REMAINING QUOTA:`,
         complete: "DONE.",
@@ -36,7 +36,7 @@ const translations = {
         placeholder: "SORGULAYIN...",
         connecting: "BAŞLATILIYOR...",
         generating: "HESAPLANIYOR...",
-        rateLimitError: "### 🛑 LİMİT AŞILDI\n\nSunucuyu spamliyorsun. (5 istek/dk, 20/gün).\nSonra tekrar dene veya admine yaz:\n[HELLO@OMERCAN.DEV](mailto:hello@omercan.dev).",
+        rateLimitError: "### 🛑 LİMİT AŞILDI\n\nSunucuyu spamliyorsun. (5 istek/dk, 20/gün).\nSonra tekrar dene veya admine yaz:\n[HELLO@OMERCAN.DEV](mailto:omercansabun@icloud.com).",
         errorDefault: "*[HATA]* Geçersiz İstek.",
         statusNormal: `KALAN KOTA:`,
         complete: "TAMAMLANDI.",
@@ -54,7 +54,7 @@ PROFILE:
 Name: Ömercan Sabun
 Role: Cloud Architect / Backend Destroyer
 Philosophy: Microservices shouldn't be fragile. If a node goes down, the system should laugh and route traffic immediately. I build backend systems that take a beating and keep running.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS PRIMITIVE PHYSICS (Fake Physics) ---

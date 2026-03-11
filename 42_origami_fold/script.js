@@ -27,7 +27,7 @@ const translations = {
         placeholder: "Write on the blank page...",
         connecting: "Folding thoughts...",
         generating: "Taking shape...",
-        rateLimitError: "### [INK DRY]\n\nThe pages are full. (5 drafts/min, 20/day). Rest your hands, or send paper via:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [INK DRY]\n\nThe pages are full. (5 drafts/min, 20/day). Rest your hands, or send paper via:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[TEAR]* The paper tore. Try again.",
         statusNormal: `Pages remaining:`,
         complete: "Design complete.",
@@ -37,7 +37,7 @@ const translations = {
         placeholder: "Boş sayfaya yaz...",
         connecting: "Düşünceler katlanıyor...",
         generating: "Şekil alıyor...",
-        rateLimitError: "### [MÜREKKEP BİTTİ]\n\nSayfalar doldu. (5 taslak/dk, 20/gün). Ellerinizi dinlendirin veya mektup gönderin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [MÜREKKEP BİTTİ]\n\nSayfalar doldu. (5 taslak/dk, 20/gün). Ellerinizi dinlendirin veya mektup gönderin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[YIRTIK]* Kağıt yırtıldı. Tekrar deneyin.",
         statusNormal: `Kalan boş sayfa:`,
         complete: "Tasarım tamamlandı.",
@@ -54,7 +54,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Cloud-Native Architect @ Architecht.
 Philosophy: A monolith is a flat, fragile sheet. By folding it along domain boundaries (Microservices, Event-Driven), it gains immense strength and geometric beauty.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS ORIGAMI FOLDING ---

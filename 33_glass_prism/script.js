@@ -27,7 +27,7 @@ const translations = {
         placeholder: "Project beam...",
         connecting: "Focusing Light...",
         generating: "Refracting Data...",
-        rateLimitError: "### [PRISM FRACTURE]\n\nCapacity reached. (Max 5/min, 20/day). Await cooldown or contact:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [PRISM FRACTURE]\n\nCapacity reached. (Max 5/min, 20/day). Await cooldown or contact:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[FLAW]* Unprocessable optics.",
         statusNormal: `Prism intact. Quota:`,
         complete: "Projection Complete.",
@@ -37,7 +37,7 @@ const translations = {
         placeholder: "Işını yönelt...",
         connecting: "Işık Odaklanıyor...",
         generating: "Veri Kırılıyor...",
-        rateLimitError: "### [PRİZMA KIRIĞI]\n\nKapasiteye ulaşıldı. Soğumayı bekleyin veya iletişime geçin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [PRİZMA KIRIĞI]\n\nKapasiteye ulaşıldı. Soğumayı bekleyin veya iletişime geçin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[KUSUR]* İşlenemeyen optikler.",
         statusNormal: `Prizma sağlam. Kota:`,
         complete: "Projeksiyon Tamamlandı.",
@@ -55,7 +55,7 @@ PROFILE:
 Name: Ömercan Sabun, Cloud-Native Architect.
 Firm: Architecht
 Philosophy: Extreme clarity in architecture. Stripping away the unnecessary to reveal the core truth of a system (Event-Driven, Kubernetes, Go).
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS MINIMALIST GLASS PRISM ---

@@ -27,7 +27,7 @@ const translations = {
         placeholder: "ENTERING DATA...",
         connecting: "TRACKING...",
         generating: "RECOVERING SECTORS...",
-        rateLimitError: "### [TAPE END DETECTED]\n\nRecording capacity full. (5 blocks/min, 20/day). Eject tape or contact recovery lab:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [TAPE END DETECTED]\n\nRecording capacity full. (5 blocks/min, 20/day). Eject tape or contact recovery lab:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[CORRUPTED]* Unreadable sector.",
         statusNormal: `TAPE REMAINING:`,
         complete: "TRACKING ALIGNED.",
@@ -38,7 +38,7 @@ const translations = {
         placeholder: "VERİ GİRİLİYOR...",
         connecting: "İZLENİYOR...",
         generating: "SEKTÖRLER KURTARILIYOR...",
-        rateLimitError: "### [KASET SONU]\n\nKayıt kapasitesi dolu. (5 blok/dk, 20/gün). Kaseti çıkarın veya laboratuvara başvurun:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [KASET SONU]\n\nKayıt kapasitesi dolu. (5 blok/dk, 20/gün). Kaseti çıkarın veya laboratuvara başvurun:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[BOZUK]* Okunamayan sektör.",
         statusNormal: `KALAN KASET:`,
         complete: "İZLEME HİZALANDI.",
@@ -56,7 +56,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: SYSTEM_ARCHITECT >> Ömercan Sabun.
 Philosophy: THE MONOLITH IS ROTTING. Only Event-Driven distribution can save the core data. I slice the failing monolith into independent services to prevent TOTAL SYSTEM COLLAPSE.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- UPDATE VCR CLOCK ---

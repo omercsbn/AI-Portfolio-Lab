@@ -25,7 +25,7 @@ const translations = {
         placeholder: "Specify point or type command...",
         connecting: "RENDERING TOPOLOGY...",
         generating: "PLOTTING VECTORS...",
-        rateLimitError: "### [FATAL] LICENSE LIMIT EXCEEDED\n\nCommand failed. (5 drafts/min, 20/day). Upgrade license or contact admin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [FATAL] LICENSE LIMIT EXCEEDED\n\nCommand failed. (5 drafts/min, 20/day). Upgrade license or contact admin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[ERROR]* Invalid command syntax.",
         statusNormal: `RESOURCES:`,
         complete: "COMMAND COMPLETED SUCCESSFULLY.",
@@ -35,7 +35,7 @@ const translations = {
         placeholder: "Nokta belirtin veya komut yazın...",
         connecting: "TOPOLOJİ OLUŞTURULUYOR...",
         generating: "VEKTÖRLER ÇİZİLİYOR...",
-        rateLimitError: "### [KRİTİK HATA] LİSANS LİMİTİ\n\nKomut başarısız. (5 taslak/dk, 20/gün). Lisansı yükseltin veya yöneticiyle görüşün:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [KRİTİK HATA] LİSANS LİMİTİ\n\nKomut başarısız. (5 taslak/dk, 20/gün). Lisansı yükseltin veya yöneticiyle görüşün:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[HATA]* Geçersiz komut sözdizimi.",
         statusNormal: `KAYNAKLAR:`,
         complete: "KOMUT BAŞARIYLA TAMAMLANDI.",
@@ -52,7 +52,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Chief Draftsman / Cloud-Native Architect.
 Philosophy: You cannot build a skyscraper without a blueprint. I draft event-driven architectures mathematically perfect to withstand infinite structural load (traffic) without collapsing.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS CAD VIEWER ---

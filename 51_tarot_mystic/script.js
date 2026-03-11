@@ -26,7 +26,7 @@ const translations = {
         placeholder: "Seek guidance from the ether...",
         connecting: "Consulting the Oracle...",
         generating: "Scrying the timeline...",
-        rateLimitError: "### [THE ARCANA IS HIDDEN]\n\nThe aether is exhausted. (5 visions/min, 20/day). Meditate, or summon the architect directly:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [THE ARCANA IS HIDDEN]\n\nThe aether is exhausted. (5 visions/min, 20/day). Meditate, or summon the architect directly:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[VOID]* The vision clouded over.",
         statusNormal: `Aether:`,
         complete: "The prophecy is written.",
@@ -38,7 +38,7 @@ const translations = {
         placeholder: "Eterden rehberlik isteyin...",
         connecting: "Görücüye danışılıyor...",
         generating: "Zaman çizgisi taranıyor...",
-        rateLimitError: "### [GİZLER SAKLANDI]\n\nEter tükendi. (5 görü/dk, 20/gün). Meditasyon yapın veya mimarı çağırın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [GİZLER SAKLANDI]\n\nEter tükendi. (5 görü/dk, 20/gün). Meditasyon yapın veya mimarı çağırın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[BOŞLUK]* Görü bulutlandı.",
         statusNormal: `Eter:`,
         complete: "Kehanet yazıldı.",
@@ -57,7 +57,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Oracle Sabun.
 Philosophy: The monolith is a false idol destined to crumble. True architecture requires scrying the currents of traffic and weaving disparate micro-spells (services) into an unbreakable, asynchronous web.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS MYSTICAL ASTROLABE ---

@@ -29,7 +29,7 @@ const translations = {
         placeholder: "Input parameters...",
         connecting: "SIMULATING_RULES...",
         generating: "OBSERVING_EMERGENCE...",
-        rateLimitError: "### [CAPACITY_ERROR]\n\nCompute limits reached. (5/min, 20/day). Await refresh cycle or contact lab admin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [CAPACITY_ERROR]\n\nCompute limits reached. (5/min, 20/day). Await refresh cycle or contact lab admin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[FAIL]* Invalid parameter syntax.",
         statusNormal: `SYSTEM_CAPACITY: OK `,
         complete: "ANALYSIS_COMPLETE",
@@ -39,7 +39,7 @@ const translations = {
         placeholder: "Parametreleri girin...",
         connecting: "KURALLAR_SİMÜLE_EDİLİYOR...",
         generating: "GELİŞİM_GÖZLEMLENİYOR...",
-        rateLimitError: "### [KAPASİTE_HATASI]\n\nİşlem limitlerine ulaşıldı. (5/dk, 20/gün). Döngüyü bekleyin veya yöneticiye ulaşın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [KAPASİTE_HATASI]\n\nİşlem limitlerine ulaşıldı. (5/dk, 20/gün). Döngüyü bekleyin veya yöneticiye ulaşın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[HATA]* Geçersiz parametre sözdizimi.",
         statusNormal: `SİSTEM_KAPASİTESİ: OK `,
         complete: "ANALİZ_TAMAM",
@@ -56,7 +56,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Cloud-Native Architect @ Architecht.
 Hypothesis: Complex, highly available software systems are emergent properties of very simple, isolated micro-rules (Event-Driven, single-responsibility services).
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS CONWAY'S GAME OF LIFE (3D) ---

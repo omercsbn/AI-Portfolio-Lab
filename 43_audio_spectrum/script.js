@@ -30,7 +30,7 @@ const translations = {
         placeholder: "Enter frequency query...",
         connecting: "TUNING OSCILLATORS...",
         generating: "MIXING AUDIO CHANNELS...",
-        rateLimitError: "### [AMP CLIPPING]\n\nMax decibels reached. (5/min, 20/day). Lower the gain or ping the studio:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [AMP CLIPPING]\n\nMax decibels reached. (5/min, 20/day). Lower the gain or ping the studio:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[STAT]* Static on the line.",
         statusNormal: `BATTERY:`,
         complete: "PLAYBACK COMPLETE.",
@@ -41,7 +41,7 @@ const translations = {
         placeholder: "Frekans değerini girin...",
         connecting: "OSİLATÖRLER AYARLANIYOR...",
         generating: "KANALLAR MİKSLENİYOR...",
-        rateLimitError: "### [AMP CLIPPING]\n\nMaksimum desibel. (5/dk, 20/gün). Kazancı düşürün veya stüdyoya ulaşın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [AMP CLIPPING]\n\nMaksimum desibel. (5/dk, 20/gün). Kazancı düşürün veya stüdyoya ulaşın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[PARAZİT]* Hatta statik var.",
         statusNormal: `BATARYA:`,
         complete: "OYNATMA TAMAMLANDI.",
@@ -59,7 +59,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: DJ Ömercan Sabun (Cloud-Native Architect).
 Philosophy: A monolithic app is a terrible busy mix where everything clashes. I separate concerns into independent microservice channels, allowing infinite headroom and perfect scalability.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS AUDIO SPECTRUM VISUALIZER ---

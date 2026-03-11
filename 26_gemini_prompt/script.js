@@ -32,7 +32,7 @@ const translations = {
         placeholder: "Interface with the architect... (Shift+Enter for newline)",
         connecting: "Establishing neural uplink...",
         generating: "Synthesizing architectural data...",
-        rateLimitError: "### [SYSTEM INTERRUPT]\n\nNeural link overloaded (Max 5 queries/min or 20/day). To preserve core stability, please initiate direct contact: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [SYSTEM INTERRUPT]\n\nNeural link overloaded (Max 5 queries/min or 20/day). To preserve core stability, please initiate direct contact: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[CRITICAL ERROR]* Unprocessable telemetry received.",
         statusNormal: `Uplink Stable // Quota`,
         complete: "Data synthesis complete."
@@ -41,7 +41,7 @@ const translations = {
         placeholder: "Mimari vekile bağlanın... (Yeni satır için Shift+Enter)",
         connecting: "Nöral bağlantı kuruluyor...",
         generating: "Mimari veri sentezleniyor...",
-        rateLimitError: "### [SİSTEM KESİNTİSİ]\n\nNöral bağlantı aşırı yüklendi (Dakikada 5 veya Günde 20 sorgu maks). Çekirdek kararlılığını korumak için doğrudan iletişim kurun: [hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [SİSTEM KESİNTİSİ]\n\nNöral bağlantı aşırı yüklendi (Dakikada 5 veya Günde 20 sorgu maks). Çekirdek kararlılığını korumak için doğrudan iletişim kurun: [omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[KRİTİK HATA]* İşlenemeyen telemetri alındı.",
         statusNormal: `Bağlantı Kararlı // Kota`,
         complete: "Veri sentezi tamamlandı."
@@ -78,7 +78,7 @@ EXPERTISE & DOMAINS:
 PHILOSOPHY & VISION:
 - "Software geek" approach to automate systems, minimize human intervention, design self-healing highly scalable architectures.
 - Long-term: AI autonomous software systems, next-gen OS architecture.
-- Contact: hello@omercan.dev
+- Contact: omercansabun@icloud.com
 `;
 
 // --- Three.js Neural Core Integration ---

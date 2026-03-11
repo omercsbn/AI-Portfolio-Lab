@@ -29,7 +29,7 @@ const translations = {
         placeholder: "Wind the spring... Enter instruction.",
         connecting: "ENGAGING GEARS...",
         generating: "PRINTING BLUEPRINT...",
-        rateLimitError: "### [PRESSURE WARNING]\n\nBoiler limits reached. (5 drafts/min, 20/day). Please allow the steam to vent or send a telegram to:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [PRESSURE WARNING]\n\nBoiler limits reached. (5 drafts/min, 20/day). Please allow the steam to vent or send a telegram to:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[MALFUNCTION]* Cogs jammed. Ink spilled.",
         statusNormal: `VALVE STATUS:`,
         complete: "OPERATION CONCLUDED.",
@@ -40,7 +40,7 @@ const translations = {
         placeholder: "Yayı kur... Talimat gir.",
         connecting: "ÇARKLAR KENETLENİYOR...",
         generating: "ŞEMA BASILIYOR...",
-        rateLimitError: "### [BASINÇ UYARISI]\n\nKazan sınırına ulaşıldı. (5 şema/dk, 20/gün). Lütfen buharın tahliyesini bekleyin veya telgraf çekin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [BASINÇ UYARISI]\n\nKazan sınırına ulaşıldı. (5 şema/dk, 20/gün). Lütfen buharın tahliyesini bekleyin veya telgraf çekin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[ARIZA]* Çarklar sıkıştı. Mürekkep döküldü.",
         statusNormal: `VALF DURUMU:`,
         complete: "İŞLEM SONLANDI.",
@@ -58,7 +58,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Engineer Ömercan Sabun. Target: Cloud-Native Architect @ Architecht.
 Goal: To build highly resilient, event-driven mechanical/software systems that never halt, utilizing Kubernetes and Go.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS STEAMPUNK GEARS ---

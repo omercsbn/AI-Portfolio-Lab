@@ -6,7 +6,7 @@ const commands = {
     'whoami': '\n> Ömercan Sabun\n> Senior Software Architect focusing on scalable microservices.\n> Turning coffee into resilient cloud-native systems.',
     'skills': '\n> Architecture: DDD, Saga, Event-Driven\n> Backend: C#, Python, Go, Java\n> Cloud: Kubernetes, AWS, Docker',
     'projects': '\n> [1] DevAssist AI: NLP-powered DevOps orchestrator.\n> [2] Fusion Banking: Fault-tolerant fintech backend.\n> [3] AutoFinance: RAG-based conversational AI.',
-    'contact': '\n> Email: hello@omercan.dev\n> Protocol: SMTP Ready',
+    'contact': '\n> Email: omercansabun@icloud.com\n> Protocol: SMTP Ready',
 };
 
 input.addEventListener('keydown', function(e) {

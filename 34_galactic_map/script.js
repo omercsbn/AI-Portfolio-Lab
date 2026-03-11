@@ -26,7 +26,7 @@ const translations = {
         placeholder: "Enter coordinates...",
         connecting: "PLOTTING TRAJECTORY...",
         generating: "SYNTHESIZING STARLIGHT...",
-        rateLimitError: "### [FTL DRIVE COOLING]\n\nJump capability saturated. (Max 5/min, 20/day). Remain in orbit or contact:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [FTL DRIVE COOLING]\n\nJump capability saturated. (Max 5/min, 20/day). Remain in orbit or contact:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[VOID ERROR]* Signal lost in transmission.",
         statusNormal: `TELEMETRY: NOMINAL | JUMPS:`,
         complete: "TRANSMISSION RECEIVED.",
@@ -36,7 +36,7 @@ const translations = {
         placeholder: "Koordinat giriniz...",
         connecting: "ROTA ÇİZİLİYOR...",
         generating: "YILDIZ IŞIĞI SENTEZLENİYOR...",
-        rateLimitError: "### [FTL SÜRÜCÜSÜ SOĞYUYOR]\n\nAtlama kapasitesi doldu. Yörüngede kalın veya iletişime geçin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [FTL SÜRÜCÜSÜ SOĞYUYOR]\n\nAtlama kapasitesi doldu. Yörüngede kalın veya iletişime geçin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[BOŞLUK HATASI]* Sinyal iletimde kayboldu.",
         statusNormal: `TELEMETRİ: NORMAL | ATLAMA:`,
         complete: "İLETİM ALINDI.",
@@ -54,7 +54,7 @@ PROFILE:
 Name: Ömercan Sabun, Cloud-Native Architect.
 Firm: Architecht
 Philosophy: A microservice without connections is alone in the void. Architecture is forming them into working constellations.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS GALAXY CONSTELLATION ---

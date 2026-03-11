@@ -33,7 +33,7 @@ Data/Mes      : Kafka, Redis, PostgreSQL, Elasticsearch
 Architecture  : Event-Driven, DDD, Microservices`,
     
     'contact': `[ INITIATING SECURE HANDSHAKE ]
-Email: <a href="mailto:hello@omercan.dev">hello@omercan.dev</a>
+Email: <a href="mailto:omercansabun@icloud.com">omercansabun@icloud.com</a>
 Status: ACCEPTING CONTRACTS.`,
 };
 

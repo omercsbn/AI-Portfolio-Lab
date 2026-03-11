@@ -26,7 +26,7 @@ const translations = {
         placeholder: "INDUCE MAGNETIC FIELD...",
         connecting: "POLARIZING SYSTEM...",
         generating: "ALIGNING DIPOLES...",
-        rateLimitError: "### [FLUX SATURATION]\n\nMagnetic field overloaded. (5 excitations/min, 20/day). Decrease field strength or contact engineer:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [FLUX SATURATION]\n\nMagnetic field overloaded. (5 excitations/min, 20/day). Decrease field strength or contact engineer:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[DECOHERENCE]* Field collapsed.",
         statusNormal: `FLUX CAPACITY:`,
         complete: "SYSTEM EQUILIBRIUM.",
@@ -37,7 +37,7 @@ const translations = {
         placeholder: "MANYETİK ALANI UYAR...",
         connecting: "SİSTEM POLARİZE EDİLİYOR...",
         generating: "DİPOLLER HİZALANIYOR...",
-        rateLimitError: "### [AKI DOYGUNLUĞU]\n\nManyetik alan aşırı yüklendi. (5 uyarma/dk, 20/gün). Alan gücünü azaltın veya mühendise ulaşın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [AKI DOYGUNLUĞU]\n\nManyetik alan aşırı yüklendi. (5 uyarma/dk, 20/gün). Alan gücünü azaltın veya mühendise ulaşın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[DEKOHERANS]* Alan çöktü.",
         statusNormal: `AKI KAPASİTESİ:`,
         complete: "SİSTEM DENGEDE.",
@@ -55,7 +55,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. 
 Philosophy: The best systems are liquid until acted upon by force. When a traffic spike hits, my architectures react like ferrofluid near a magnet: they instantly structure themselves, scale up into sharp functional partitions, handle the load, and return to a cost-efficient resting state.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS FERROFLUID SIMULATION ---

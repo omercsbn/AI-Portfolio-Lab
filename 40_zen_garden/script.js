@@ -26,7 +26,7 @@ const translations = {
         placeholder: "Seek guidance...",
         connecting: "Raking the sand...",
         generating: "Observing the flow...",
-        rateLimitError: "### [REST]\n\nThe mind is full. (5 inquiries/min, 20/day). Please wait, or send word to:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [REST]\n\nThe mind is full. (5 inquiries/min, 20/day). Please wait, or send word to:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[VOID]* Clarity eludes us.",
         statusNormal: `Harmony:`,
         complete: "Stillness achieved.",
@@ -37,7 +37,7 @@ const translations = {
         placeholder: "Rehberlik iste...",
         connecting: "Kumlar tırmıklanıyor...",
         generating: "Akış gözlemleniyor...",
-        rateLimitError: "### [DİNLENME]\n\nZihin dolu. (5 sorgu/dk, 20/gün). Lütfen bekleyin veya iletişime geçin:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [DİNLENME]\n\nZihin dolu. (5 sorgu/dk, 20/gün). Lütfen bekleyin veya iletişime geçin:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[BOŞLUK]* Netlik bize uzak.",
         statusNormal: `Uyum:`,
         complete: "Sükunete ulaşıldı.",
@@ -55,7 +55,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Master Ömercan Sabun. Cloud-Native Architect @ Architecht.
 Philosophy: True scale is achieved without friction. Event-Driven architectures flow like rivers, bypassing rocks (failures) without halting.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS TOP-DOWN ZEN GARDEN ---

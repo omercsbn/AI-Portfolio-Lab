@@ -27,7 +27,7 @@ const translations = {
         placeholder: "ENTER EXPERIMENT PARAMETERS...",
         connecting: "CHARGING CAPACITORS...",
         generating: "CHANNELING PLASMA...",
-        rateLimitError: "### [BREAKER TRIPPED]\n\nPower grid overloaded. (5 strikes/min, 20/day). Allow capacitors to discharge or contact lead engineer:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [BREAKER TRIPPED]\n\nPower grid overloaded. (5 strikes/min, 20/day). Allow capacitors to discharge or contact lead engineer:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[FAULT]* Arc deviation detected.",
         statusNormal: `RESERVE POWER:`,
         complete: "DISCHARGE COMPLETE.",
@@ -38,7 +38,7 @@ const translations = {
         placeholder: "DENEY PARAMETRELERİNİ GİRİN...",
         connecting: "KAPASİTÖRLER ŞARJ OLUYOR...",
         generating: "PLAZMA YÖNLENDİRİLİYOR...",
-        rateLimitError: "### [SİGORTA ATTI]\n\nElektrik şebekesi aşırı yüklendi. (5 atış/dk, 20/gün). Deşarj olmasını bekleyin veya mühendise ulaşın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [SİGORTA ATTI]\n\nElektrik şebekesi aşırı yüklendi. (5 atış/dk, 20/gün). Deşarj olmasını bekleyin veya mühendise ulaşın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[HATA]* Ark sapması tespit edildi.",
         statusNormal: `YEDEK GÜÇ:`,
         complete: "DEŞARJ TAMAMLANDI.",
@@ -56,7 +56,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. High Voltage Architect.
 Philosophy: Traffic is raw voltage. A monolithic architecture is a thin wire—it will melt under load. We build distributed systems like redundant power grids, using circuit breakers, load balancers, and isolated nodes to safely route massive surges of plasma. 
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS PLASMA GLOBE ---

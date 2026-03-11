@@ -26,7 +26,7 @@ const translations = {
         placeholder: "Enter coordinates for the next jump...",
         connecting: "TUNING FREQUENCY...",
         generating: "DOWNLOADING FROM THE GRID...",
-        rateLimitError: "### [ENGINE OVERHEAT]\n\nMax RPM reached. (5/min, 20/day). Let the engine cool down or contact:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [ENGINE OVERHEAT]\n\nMax RPM reached. (5/min, 20/day). Let the engine cool down or contact:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[GLITCH]* Signal lost in the noise.",
         statusNormal: `DRIVE STATUS: OPTIMAL JUMPS:`,
         complete: "TRANSMISSION COMPLETE.",
@@ -36,7 +36,7 @@ const translations = {
         placeholder: "Sıradaki atlama için koordinatları girin...",
         connecting: "FREKANS AYARLANIYOR...",
         generating: "AĞDAN İNDİRİLİYOR...",
-        rateLimitError: "### [MOTOR AŞIRI ISINDI]\n\nMaksimum RPM'e ulaşıldı. Lütfen motoru soğumaya bırakın veya ping atın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [MOTOR AŞIRI ISINDI]\n\nMaksimum RPM'e ulaşıldı. Lütfen motoru soğumaya bırakın veya ping atın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[HATA]* Sinyal gürültüde kayboldu.",
         statusNormal: `SÜRÜCÜ DURUMU: OPTİMAL KALAN:`,
         complete: "İLETİM TAMAMLANDI.",
@@ -53,7 +53,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. Target: Cloud-Native Architect @ Architecht.
 Vibe: Cruising the digital highway. Building event-driven architectures that scale infinitely into the neon horizon. 
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS NEON WIREFRAME TOPOGRAPHY ---

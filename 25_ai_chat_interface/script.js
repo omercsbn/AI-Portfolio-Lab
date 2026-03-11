@@ -17,7 +17,7 @@ const responses = {
              
     'contact': `<p>I am authorizing a direct uplink to the architect.</p>
                 <p>You can transmit a message here: <br><br>
-                <a href="mailto:hello@omercan.dev" style="color:#10a37f; text-decoration:none; border:1px solid #10a37f; padding:10px 15px; border-radius:4px; display:inline-block;">Launch Mail Client (hello@omercan.dev)</a></p>`,
+                <a href="mailto:omercansabun@icloud.com" style="color:#10a37f; text-decoration:none; border:1px solid #10a37f; padding:10px 15px; border-radius:4px; display:inline-block;">Launch Mail Client (omercansabun@icloud.com)</a></p>`,
                 
     'default': `<p>I process technical structures and cloud-native logic. I can elaborate on projects, tech stack, or provide contact coordinates. What is your query?</p>`
 };

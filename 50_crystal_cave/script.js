@@ -27,7 +27,7 @@ const translations = {
         placeholder: "Strike the geode...",
         connecting: "Resonating frequencies...",
         generating: "Crystalizing data...",
-        rateLimitError: "### [RESONANCE SHATTERED]\n\nVibration limits exceeded. (5 strikes/min, 20/day). Let the crystals cool, or signal the architect:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [RESONANCE SHATTERED]\n\nVibration limits exceeded. (5 strikes/min, 20/day). Let the crystals cool, or signal the architect:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[FRACTURE]* The crystalline structure failed.",
         statusNormal: `Luminescence:`,
         complete: "Structure solidified.",
@@ -38,7 +38,7 @@ const translations = {
         placeholder: "Jeota vur...",
         connecting: "Frekanslar yankılanıyor...",
         generating: "Veriler kristalize ediliyor...",
-        rateLimitError: "### [YANKI PARÇALANDI]\n\nTitreşim sınırları aşıldı. (5 vuruş/dk, 20/gün). Kristalleri soğumaya bırakın veya mimara ulaşın:\n[hello@omercan.dev](mailto:hello@omercan.dev).",
+        rateLimitError: "### [YANKI PARÇALANDI]\n\nTitreşim sınırları aşıldı. (5 vuruş/dk, 20/gün). Kristalleri soğumaya bırakın veya mimara ulaşın:\n[omercansabun@icloud.com](mailto:omercansabun@icloud.com).",
         errorDefault: "*[ÇATLAK]* Kristal yapı başarısız oldu.",
         statusNormal: `Işıma:`,
         complete: "Yapı katılaştı.",
@@ -56,7 +56,7 @@ Use Markdown heavily. Format diagrams as Mermaid if requested.
 PROFILE:
 Name: Ömercan Sabun. 
 Philosophy: Data without structure is dark rock. Architecture is the process of applying immense pressure until the system becomes a flawless, transparent crystal—highly faceted microservices reflecting perfect truth.
-Contact: hello@omercan.dev
+Contact: omercansabun@icloud.com
 `;
 
 // --- THREE.JS CRYSTAL SHADERS ---
