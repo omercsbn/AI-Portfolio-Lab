@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | AI Architect Core</title>
+    
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies for parsing & animations -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <!-- Three.js for 3D Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP for smooth UI transitions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    
+    <!-- The 3D Neural Core Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Overlay UI Layer -->
+    <div class="ui-layer">
+        
+        <!-- Top Navigation Bar -->
+        <header class="glass-header">
+            <div class="brand">
+                <div class="logo-orb"></div>
+                <div class="brand-text">
+                    <span class="name">Ömercan Sabun</span>
+                    <span class="title">Autonomous Enterprise Proxy</span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="lang-switch glass-panel">
+                    <button id="lang-en" class="active">EN</button>
+                    <button id="lang-tr">TR</button>
+                </div>
+                <a href="mailto:hello@omercan.dev" class="contact-btn glass-panel">
+                    <span>Initialize Contact</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content Area (Glassmorphic) -->
+        <main class="main-content">
+            
+            <div class="content-scroll-container">
+                <!-- Welcome / Hero Area -->
+                <div class="hero-section" id="heroSection">
+                    <h1 class="hero-title">Neural Architecture <br><span class="gradient-text">Awaits Input</span></h1>
+                    <p class="hero-subtitle">
+                        I am the digital representation of Ömercan Sabun, specializing in distributed systems, AI orchestration, and high-scale enterprise architecture. What shall we design today?
+                    </p>
+                    <div class="quick-prompts">
+                        <button class="glass-btn" onclick="insertPrompt('Explain your approach to Event-Driven Architecture')">
+                            <span class="icon">⚡</span> Event-Driven Systems
+                        </button>
+                        <button class="glass-btn" onclick="insertPrompt('Draw a Mermaid diagram of a Microservice payment flow')">
+                            <span class="icon">📊</span> Architecture Diagrams
+                        </button>
+                        <button class="glass-btn" onclick="insertPrompt('What is your tech stack and primary expertise?')">
+                            <span class="icon">⚙️</span> Core Stack
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Response Display (Hidden until prompted) -->
+                <div class="response-display hidden" id="responseDisplay">
+                    <div class="response-header glass-panel">
+                        <div class="status-indicator">
+                            <div class="core-dot"></div>
+                            <div class="pulse-ring"></div>
+                        </div>
+                        <span id="responseStatus" class="status-text">Synchronizing databanks...</span>
+                    </div>
+                    
+                    <div class="response-content markdown-body glass-panel" id="responseContent">
+                        <!-- Markdown will stream here -->
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Fixed Bottom AI Input Bar -->
+        <footer class="input-area">
+            <div class="input-glass-container">
+                <div class="input-icon">⌘</div>
+                <textarea id="promptInput" rows="1" placeholder="Interface with the architect... (Shift+Enter for newline)" autofocus></textarea>
+                <button id="submitBtn" class="submit-action" aria-label="Send Query">
+                    <div class="btn-bg"></div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+            <div class="system-status">
+                <span class="status-dot"></span>
+                <span id="rateLimitStatus">Uplink Stable // Quota: 5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Luxury Minimal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-circle" id="cursor-circle"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">Ömercan<br><i>Sabun</i>.</div>
+            <nav>
+                <a href="#work" class="hover-target">Selected Work</a>
+                <a href="#studio" class="hover-target">Studio</a>
+                <a href="#journal" class="hover-target">Journal</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero -->
+            <section class="hero">
+                <h1 class="hover-target"><i>Elevating</i><br>System Arch.</h1>
+                <p>I design timeless digital architectures for enterprise brands and avant-garde startups. An intersection of clean code, scalability, and sophisticated minimalism.</p>
+            </section>
+
+            <!-- Projects -->
+            <section class="projects">
+                <article class="project hover-target">
+                    <h2>01 — DevAssist</h2>
+                    <span>AI & DevOps // 2026</span>
+                </article>
+                <article class="project hover-target">
+                    <h2>02 — Fusion Banking</h2>
+                    <span>Fintech Architecture // 2025</span>
+                </article>
+                <article class="project hover-target">
+                    <h2>03 — AutoFinance</h2>
+                    <span>RAG AI Platform // 2025</span>
+                </article>
+            </section>
+
+            <!-- Studio (About) -->
+            <section id="studio" class="studio">
+                <div class="studio-content">
+                    <h2 class="hover-target">The <i>Studio</i></h2>
+                    <p>Over 8 years of engineering excellence. Focused on delivering high-performance APIs and microservices for the global market. Rejecting abstractions in favor of pure performance.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <a href="mailto:hello@omercan.dev" class="hover-target">hello@omercan.dev</a>
+            <span>Istanbul, TR</span>
+        </footer>
+    </div>
+
+    <!-- JS for Custom Cursor -->
+    <script>
+        const dot = document.getElementById('cursor-dot');
+        const circle = document.getElementById('cursor-circle');
+        let mouseX = 0, mouseY = 0;
+        let circleX = 0, circleY = 0;
+        
+        // Track true mouse coordinates
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        });
+
+        // Add easing / trailing logic to the outer circle
+        function animate() {
+            // LERP (Linear Interpolation) for smooth following
+            circleX += (mouseX - circleX) * 0.15;
+            circleY += (mouseY - circleY) * 0.15;
+            circle.style.transform = `translate(${circleX}px, ${circleY}px)`;
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Detect hover over elements and trigger CSS classes 
+        const hoverTargets = document.querySelectorAll('.hover-target');
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => circle.classList.add('hovered'));
+            target.addEventListener('mouseleave', () => circle.classList.remove('hovered'));
+        });
+    </script>
+</body>
+</html>

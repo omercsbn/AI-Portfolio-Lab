@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | The Architect's Geode</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sharp, elegant serif for headings, clean sans for UI -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Canvas (Crystals) -->
+    <canvas id="crystal-canvas"></canvas>
+
+    <!-- UI Layer -->
+    <div class="crystal-layer">
+        
+        <header class="c-header">
+            <div class="c-brand">
+                <h1>ÖMERCAN SABUN</h1>
+                <h2>DATA REFRACTION ARCHITECT</h2>
+            </div>
+            
+            <nav class="c-nav">
+                <button id="langToggle" class="c-btn">EN</button>
+            </nav>
+        </header>
+
+        <main class="c-main">
+            <div class="c-scroller">
+                
+                <section class="c-hero" id="heroSection">
+                    <h2 class="c-headline">Crystalize<br>Your Data.</h2>
+                    <p class="c-lead">
+                        Raw data is opaque rock. Elegant architecture applies immense pressure and structure, crystalizing chaos into transparent, highly faceted APIs and data pipelines that reflect pure insight.
+                    </p>
+                    
+                    <div class="c-prompts">
+                        <button class="gem-btn" onclick="insertPrompt('Explain GraphQL caching strategies')">
+                            <span class="facet"></span> Facet: GraphQL Cache
+                        </button>
+                        <button class="gem-btn" onclick="insertPrompt('Draw a Mermaid diagram of a data lake architecture')">
+                            <span class="facet"></span> Expose: Data Lake
+                        </button>
+                    </div>
+                </section>
+
+                <section class="c-response hidden" id="responseDisplay">
+                    <div class="c-status-bar">
+                        <span class="sparkle">✧</span>
+                        <span id="responseStatus">Resonating frequencies...</span>
+                    </div>
+                    
+                    <div class="c-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="c-footer">
+            <div class="c-input-wrapper">
+                <textarea id="promptInput" rows="1" placeholder="Strike the geode..."></textarea>
+                <button id="submitBtn" class="c-submit">Resonate</button>
+            </div>
+            
+            <div class="c-telemetry">
+                <span id="rateLimitStatus">Luminescence: 5 / 5 fragments remaining</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Vignette / Darkness overlay -->
+    <div class="abyss-fade"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

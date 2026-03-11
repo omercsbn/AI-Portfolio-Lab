@@ -1,0 +1,85 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #e2e2e2; color: #111;
+    font-family: 'Archivo', sans-serif;
+    overflow-x: hidden; cursor: none; /* Hide default cursor */
+}
+
+/* Custom Cursor Blob */
+.cursor-blob {
+    position: fixed; top: 0; left: 0; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,51,102,0.8) 0%, rgba(255,51,102,0) 70%);
+    border-radius: 50%; pointer-events: none; z-index: 100;
+    transform: translate(-50%, -50%); transition: transform 0.1s ease-out, width 0.3s, height 0.3s;
+    mix-blend-mode: difference;
+}
+
+.wrapper { position: relative; z-index: 1; }
+
+.k-header {
+    display: flex; justify-content: space-between; padding: 2rem;
+    font-weight: bold; font-size: 1.2rem; text-transform: uppercase;
+}
+
+/* Kinetic Main Area */
+.k-main {
+    height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+}
+
+.text-layer {
+    font-family: 'Anton', sans-serif; font-size: 15vw; line-height: 0.8;
+    text-transform: uppercase; text-align: center; white-space: nowrap;
+    position: absolute; pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.layer-1 { top: 20%; left: 5%; color: #111; z-index: 2; }
+.layer-2 { top: 40%; right: 5%; color: #111; z-index: 3;}
+.layer-3 { top: 60%; left: 15%; z-index: 4;}
+
+.outline {
+    color: transparent; -webkit-text-stroke: 2px #111;
+}
+
+/* Float Bio Card over the text */
+.bio-card {
+    position: relative; z-index: 10; background: #111; color: #fff;
+    padding: 2rem; max-width: 400px; padding-bottom: 3rem; margin-top: 20vh;
+    transform: rotate(-2deg); box-shadow: 20px 20px 0 rgba(255,51,102,1);
+}
+.bio-card p { font-size: 1.2rem; line-height: 1.5; margin-bottom: 2rem;}
+
+.k-link {
+    color: #ff3366; text-decoration: none; font-weight: bold; font-size: 1.2rem;
+    transition: color 0.2s; position: relative; z-index: 10;
+}
+.k-link:hover { color: #fff; }
+
+/* Marquee */
+.project-marquee-section {
+    background: #111; color: #e2e2e2; padding: 5rem 0; overflow: hidden;
+    transform: rotate(2deg); margin: 5rem -2rem;
+}
+
+.k-marquee { white-space: nowrap; overflow: hidden; }
+.k-marquee-inner { display: inline-block; animation: k-scroll 10s linear infinite; }
+.k-marquee-inner span { font-family: 'Anton', sans-serif; font-size: 8rem; margin-right: 2rem; }
+
+@keyframes k-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Assuming content is doubled */
+}
+
+/* Footer */
+.k-footer { padding: 5rem 2rem; text-align: center; padding-bottom: 10rem;}
+.huge-contact { font-family: 'Anton', sans-serif; font-size: clamp(4rem, 12vw, 15rem); line-height: 0.8; margin-bottom: 2rem;}
+.contact-email { font-size: 2rem; color: #111; text-decoration: none; font-weight: bold; border-bottom: 4px solid #ff3366; padding-bottom: 5px; cursor: none;}
+.contact-email:hover { color: #ff3366;}
+
+@media (max-width: 768px) {
+    .text-layer { font-size: 20vw; position: relative; top: auto !important; left: auto !important; right: auto !important; margin-bottom: 1rem;}
+    .k-main { justify-content: flex-start; padding-top: 10vh;}
+    .bio-card { margin-top: 5vh; transform: none; box-shadow: 10px 10px 0 rgba(255,51,102,1);}
+}

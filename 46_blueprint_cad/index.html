@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Cloud Architect CAD</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Technical drafting fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS Blueprint Grid Background -->
+    <div class="bp-grid-layer"></div>
+
+    <!-- 3D CAD Wireframe -->
+    <canvas id="cad-canvas"></canvas>
+
+    <div class="cad-layer">
+        
+        <!-- Toolbar Left -->
+        <aside class="cad-toolbar-left">
+            <div class="tool-btn active" title="Select Tool"><span class="icon">⬈</span></div>
+            <div class="tool-btn" title="Measure"><span class="icon">📏</span></div>
+            <div class="tool-btn" title="Pan"><span class="icon">✋</span></div>
+            <div class="tool-btn" title="Orbit"><span class="icon">🔄</span></div>
+            <div class="toolbar-divider"></div>
+            <div class="tool-btn danger" title="Delete Node"><span class="icon">✕</span></div>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <div class="cad-workspace">
+            
+            <header class="cad-header">
+                <div class="cad-title">
+                    <h1>[PROJECT: OMER_SABUN.DWG]</h1>
+                    <span class="cad-subtitle">LAYER: CLOUD_ARCHITECTURE_V3</span>
+                </div>
+                <div class="cad-nav">
+                    <div class="coord-display">X: 10.4 Y: -3.2 Z: 0.0</div>
+                    <button class="cad-btn" id="langToggle">LANG_EN</button>
+                    <button class="cad-btn primary">EXPORT</button>
+                </div>
+            </header>
+
+            <main class="cad-main">
+                <div class="cad-scroller">
+                    
+                    <section class="cad-hero" id="heroSection">
+                        <div class="spec-sheet">
+                            <div class="spec-header">TECHNICAL SPECIFICATION // REV A</div>
+                            <h2 class="cad-headline">Scale with Precision.</h2>
+                            <p class="cad-lead">
+                                Architecting systems requires the rigor of structural engineering. I draft high-availability cloud topologies that are redundant, self-healing, and stress-tested before a single line of code is written.
+                            </p>
+                            
+                            <div class="cad-prompts">
+                                <button class="draft-btn" onclick="insertPrompt('Draft an architecture for a high-traffic e-commerce site')">
+                                    <span class="crosshair">⌖</span> DRAFT E-COMMERCE
+                                </button>
+                                <button class="draft-btn" onclick="insertPrompt('Draw a Mermaid diagram of a Kubernetes cluster')">
+                                    <span class="crosshair">⌖</span> PLOT K8S CLUSTER
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="cad-response hidden" id="responseDisplay">
+                        <div class="cad-status-bar">
+                            <span class="spinner-box"></span>
+                            <span id="responseStatus">RENDERING TOPOLOGY...</span>
+                        </div>
+                        
+                        <div class="cad-content markdown-body" id="responseContent"></div>
+                    </section>
+
+                </div>
+            </main>
+
+            <!-- Command Line Footer -->
+            <footer class="cad-footer">
+                <div class="command-line">
+                    <span class="cmd-prompt">Command:</span>
+                    <input type="text" id="promptInput" placeholder="Specify point or type command...">
+                </div>
+                
+                <div class="cad-telemetry">
+                    <div class="status-pill">ORTHO: OFF</div>
+                    <div class="status-pill">SNAP: ON</div>
+                    <div class="status-pill warning" id="rateLimitStatus">RESOURCES: 5 / 5</div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

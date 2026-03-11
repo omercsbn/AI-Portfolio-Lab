@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Liquid Core proxy</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Simplex Noise for vertex manipulation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+
+    <canvas id="liquid-canvas"></canvas>
+
+    <!-- Invisible trigger layer until hovered or active -->
+    <div class="ui-cloak">
+        
+        <header class="fluid-header">
+            <div class="fluid-brand">o.s // core</div>
+            <div class="fluid-actions">
+                <button id="langToggle">eng</button>
+            </div>
+        </header>
+
+        <main class="fluid-main">
+            <div class="scroller">
+                
+                <section class="fluid-hero" id="heroSection">
+                    <h1 class="f-title">Adaptive Systems</h1>
+                    <p class="f-p">Fluid, self-healing architecture by Ömercan Sabun. How may I shape your data today?</p>
+                    <div class="f-chips">
+                        <button onclick="insertPrompt('Explain your concept of self-healing systems')">Self-Healing</button>
+                        <button onclick="insertPrompt('Draw a Mermaid diagram of an Event-Driven flow')">Event-Driven</button>
+                        <button onclick="insertPrompt('What defines your cloud-native approach?')">Cloud-Native</button>
+                    </div>
+                </section>
+
+                <section class="fluid-response hidden" id="responseDisplay">
+                    <div class="state-orb"></div>
+                    <div class="markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="fluid-footer">
+            <div class="f-input-box">
+                <textarea id="promptInput" rows="1" placeholder="drop insight here..."></textarea>
+                <button id="submitBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+            <div class="f-status" id="rateLimitStatus">sync: ok</div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

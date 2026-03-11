@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Node Graph Matrix</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Central Viewport -->
+    <div class="matrix-viewport">
+        <!-- SVG connecting lines -->
+        <svg class="connections" xmlns="http://www.w3.org/2000/svg">
+            <line stroke="#4a5568" stroke-width="2" stroke-dasharray="5,5" x1="50%" y1="50%" x2="20%" y2="30%" />
+            <line stroke="#4a5568" stroke-width="2" stroke-dasharray="5,5" x1="50%" y1="50%" x2="80%" y2="40%" />
+            <line stroke="#4a5568" stroke-width="2" stroke-dasharray="5,5" x1="50%" y1="50%" x2="40%" y2="80%" />
+            <line stroke="#4a5568" stroke-width="2" stroke-dasharray="5,5" x1="80%" y1="40%" x2="90%" y2="70%" />
+        </svg>
+
+        <!-- Nodes Graph Map -->
+        
+        <!-- Core Hub Node -->
+        <div class="node core-node" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div class="node-ring"></div>
+            <div class="node-content">
+                <h1>ÖMERCAN</h1>
+                <span>System_Arch</span>
+            </div>
+        </div>
+
+        <!-- Satellite Node 1: DevAssist -->
+        <div class="node proj-node" style="top: 30%; left: 20%;">
+            <div class="node-content">
+                <h3>DevAssist AI</h3>
+                <p>LLM DevOps</p>
+                <div class="status-dot green"></div>
+            </div>
+        </div>
+
+        <!-- Satellite Node 2: Banking -->
+        <div class="node proj-node" style="top: 40%; left: 80%;">
+            <div class="node-content">
+                <h3>Fusion Banking</h3>
+                <p>K8s Core API</p>
+                <div class="status-dot green"></div>
+            </div>
+        </div>
+        
+        <!-- Deep Node: Auto Finance -->
+        <div class="node sub-node" style="top: 70%; left: 90%;">
+            <div class="node-content">
+                <h4>AutoFinance</h4>
+                <p>RAG Backend</p>
+            </div>
+        </div>
+
+        <!-- Satellite Node 3: Contact -->
+        <div class="node action-node" style="top: 80%; left: 40%;">
+            <div class="node-content">
+                <h3>SYS.PING()</h3>
+                <a href="mailto:hello@omercan.dev" class="link-btn">Initiate Handshake</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- UI Overlay for controls -->
+    <div class="overlay-ui">
+        <div class="hud-top">MAP VIEW // CLUSTER: OMER_SABUN // ACTIVE</div>
+        <div class="hud-bottom">Drag to pan. Zoom disabled. Graph dynamically generated from databanks.</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

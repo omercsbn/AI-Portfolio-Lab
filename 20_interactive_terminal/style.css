@@ -1,0 +1,55 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #0c0c0c;
+    color: #33ff00;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    height: 100vh;
+    padding: 20px;
+    display: flex; flex-direction: column;
+}
+
+#terminal {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex; flex-direction: column;
+}
+
+/* Hide scrollbar for a cleaner look */
+#terminal::-webkit-scrollbar { width: 8px; }
+#terminal::-webkit-scrollbar-track { background: #0c0c0c; }
+#terminal::-webkit-scrollbar-thumb { background: #33ff00; }
+
+.line {
+    margin-bottom: 5px;
+    line-height: 1.4;
+    white-space: pre-wrap; /* Preserve spaces for ASCII art */
+}
+
+.sys { color: #cccccc; }
+.error { color: #ff3333; }
+.success { color: #00ffff; }
+
+.input-line {
+    display: flex; align-items: center; margin-top: 10px;
+}
+
+.prompt {
+    color: #ff9900; margin-right: 10px; font-weight: bold; white-space: nowrap;
+}
+
+input {
+    background: transparent; border: none; outline: none;
+    color: #33ff00; font-family: inherit; font-size: inherit;
+    flex-grow: 1; caret-color: #33ff00;
+}
+
+/* Link styling within terminal */
+a { color: #00ffff; text-decoration: underline; }
+a:hover { background: #00ffff; color: #000; text-decoration: none;}
+
+@media (max-width: 600px) {
+    body { font-size: 14px; padding: 10px; }
+    .prompt { margin-right: 5px;}
+}

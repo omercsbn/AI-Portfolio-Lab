@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Galactic Architect</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Elegant mix: Serif for headers, clean sans for data -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <canvas id="galaxy-canvas"></canvas>
+
+    <div class="cosmos-layer">
+        
+        <header class="c-header">
+            <div class="c-brand">
+                <h1>Ömercan Sabun</h1>
+                <span class="c-subtitle">ARCHITECT OF MACRO-SYSTEMS</span>
+            </div>
+            <div class="orbital-controls">
+                <button id="langToggle" class="orbit-btn">EN</button>
+            </div>
+        </header>
+
+        <main class="c-main">
+            <div class="c-scroller">
+                
+                <section class="c-hero" id="heroSection">
+                    <h2 class="c-title">Navigating the Void.</h2>
+                    <p class="c-desc">
+                        Designing software architectures is like charting constellations. Individual services (stars) are meaningless without the event-driven connections (gravity) that bind them into a cohesive galaxy.
+                    </p>
+                    
+                    <div class="stargate-prompts">
+                        <button onclick="insertPrompt('Explain your cosmic philosophy on microservices')">
+                            <span class="star-icon">✦</span> Event-Driven Universe
+                        </button>
+                        <button onclick="insertPrompt('Draw a Mermaid diagram of your API Gateway routing')">
+                            <span class="star-icon">✦</span> Gateway Constellation
+                        </button>
+                        <button onclick="insertPrompt('What are your main technology pillars?')">
+                            <span class="star-icon">✦</span> Tech Pillars
+                        </button>
+                    </div>
+                </section>
+
+                <section class="c-response hidden" id="responseDisplay">
+                    <div class="c-status-bar">
+                        <div class="pulsar"></div>
+                        <span id="responseStatus">ALIGNING STARS...</span>
+                    </div>
+                    
+                    <div class="c-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="c-footer">
+            <div class="c-hud-input">
+                <span class="hud-label">TARGET:</span>
+                <textarea id="promptInput" rows="1" placeholder="Enter coordinates..."></textarea>
+                <button id="submitBtn">TRANSMIT</button>
+            </div>
+            <div class="c-telemetry">
+                <span id="rateLimitStatus">TELEMETRY: NOMINAL | JUMPS: 5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

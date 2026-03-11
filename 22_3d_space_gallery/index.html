@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | 3D Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="overlay-hud">
+        <span>ÖMERCAN SABUN // 3D GALLERY</span>
+        <span>DRAG TO ROTATE SCENE</span>
+    </div>
+
+    <div class="scene">
+        <div class="room" id="room">
+            
+            <!-- Floor -->
+            <div class="face floor">
+                <div class="grid-texture"></div>
+            </div>
+
+            <!-- Front Wall (Intro) -->
+            <div class="face wall front">
+                <h1>SYSTEM<br>ARCHITECT</h1>
+                <p>Building scalable backends since 2018.</p>
+            </div>
+
+            <!-- Left Wall (Skills) -->
+            <div class="face wall left">
+                <h2>CORE STACK</h2>
+                <div class="skill-tags">
+                    <span>Kubernetes</span><span>Docker</span><span>Go</span>
+                    <span>Python</span><span>Rust</span><span>Kafka</span>
+                </div>
+            </div>
+
+            <!-- Right Wall (Projects) -->
+            <div class="face wall right">
+                <h2>DATABANKS</h2>
+                <ul class="proj-list">
+                    <li>// DevAssist AI</li>
+                    <li>// Fusion Banking</li>
+                    <li>// AutoFinance RAG</li>
+                </ul>
+            </div>
+
+            <!-- Back Wall (Contact) -->
+            <div class="face wall back">
+                <h2>UPLINK</h2>
+                <a href="mailto:hello@omercan.dev" class="contact-btn">hello@omercan.dev</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

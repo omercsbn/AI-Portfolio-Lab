@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Cellular Logic</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Scientific, clinical monospace font -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <canvas id="life-canvas"></canvas>
+
+    <div class="dash-layer">
+        
+        <header class="d-header">
+            <div class="d-title">
+                <h1>OSABUN_LABS</h1>
+                <span class="d-sub">EMERGENT_SYSTEMS_R&D</span>
+            </div>
+            <div class="d-controls">
+                <span id="genCounter">GEN: 000</span>
+                <span id="popCounter">POP: 000</span>
+                <button id="langToggle" class="d-btn">LOCALE:EN</button>
+            </div>
+        </header>
+
+        <main class="d-main">
+            <div class="d-scroller">
+                
+                <section class="d-hero" id="heroSection">
+                    <h2 class="d-headline">COMPLEXITY FROM<br>SIMPLE RULES.</h2>
+                    <p class="d-lead">
+                        > Initiating observer protocol. 
+                        <br>> Analyzing subject: Ömercan Sabun. Target domain: Cloud-Native Microservices.
+                        <br>> Finding: Robust macro-systems emerge from strictly defined, independent micro-rules.
+                    </p>
+                    
+                    <div class="d-prompts">
+                        <button onclick="insertPrompt('Define your rule set for microservice isolation')">
+                            [RUN]: ISOLATION_RULES
+                        </button>
+                        <button onclick="insertPrompt('Draw a Mermaid diagram of your emergent system topology')">
+                            [VISUALIZE]: TOPOLOGY
+                        </button>
+                        <button onclick="insertPrompt('List core dependencies active in current generation')">
+                            [QUERY]: STACK_DEPS
+                        </button>
+                    </div>
+                </section>
+
+                <section class="d-response hidden" id="responseDisplay">
+                    <div class="d-status-bar">
+                        <span class="pulse-indicator"></span>
+                        <span id="responseStatus">ANALYSIS_RUNNING</span>
+                    </div>
+                    
+                    <div class="d-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="d-footer">
+            <div class="d-input-box">
+                <span class="d-prompt-char">?</span>
+                <textarea id="promptInput" rows="1" placeholder="Input parameters..."></textarea>
+                <button id="submitBtn" class="d-submit">INJECT</button>
+            </div>
+            <div class="d-telemetry border-top">
+                <span id="rateLimitStatus">SYSTEM_CAPACITY: OK [5/5]</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- UI Grid Overlay -->
+    <div class="grid-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

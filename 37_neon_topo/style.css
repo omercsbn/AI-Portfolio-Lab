@@ -1,0 +1,175 @@
+/* NEON WIREFRAME / SYNTHWAVE THEME */
+:root {
+    --sw-bg: #0b021a; /* Very deep purple */
+    --sw-grid: #ff00ff; /* Bright magenta */
+    --sw-cyan: #00ffff;
+    --sw-yellow: #ffb703;
+    --sw-text: #f8f8ff;
+    --sw-text-dim: #a78bfa;
+    --font-heading: 'Righteous', cursive;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--sw-bg);
+    color: var(--sw-text);
+    font-family: var(--font-body);
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    /* subtle CRT glow */
+    text-shadow: 0 0 2px rgba(255,255,255,0.3);
+}
+
+/* Background elements */
+.synth-sun {
+    position: absolute;
+    bottom: 30%; left: 50%;
+    transform: translateX(-50%);
+    width: 60vh; height: 60vh;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #ffea00 0%, #ff00ff 100%);
+    box-shadow: 0 0 100px #ff00ff, inset 0 0 50px #ffea00;
+    z-index: 0;
+    /* The classic striped sun effect */
+    mask-image: linear-gradient(transparent 0%, transparent 2%, black 2%, black 100%), repeating-linear-gradient(to bottom, black 0%, black 5%, transparent 5%, transparent 6%);
+    -webkit-mask-image: repeating-linear-gradient(to bottom, black 0px, black 15px, transparent 15px, transparent 19px);
+    opacity: 0.8;
+}
+
+#synth-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none;
+}
+
+.scanlines {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 100;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none; opacity: 0.5;
+}
+
+/* UI Layer */
+.outrun-layer {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%;
+    /* Gradient overlay from top so text is readable */
+    background: linear-gradient(to bottom, rgba(11,2,26,0.9) 0%, rgba(11,2,26,0.4) 40%, transparent 100%);
+}
+
+.s-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 3rem; 
+}
+.s-logo {
+    font-family: var(--font-heading); font-size: 2rem;
+    color: var(--sw-cyan); text-shadow: 0 0 10px var(--sw-cyan);
+    letter-spacing: 2px;
+}
+.s-nav { display: flex; align-items: center; gap: 20px; }
+.s-badge { font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 3px; color: var(--sw-grid); border: 1px solid var(--sw-grid); padding: 5px 10px; border-radius: 3px; box-shadow: 0 0 5px var(--sw-grid) inset;}
+.s-btn {
+    background: transparent; border: 2px solid var(--sw-cyan); color: var(--sw-cyan);
+    font-family: var(--font-heading); padding: 5px 15px; cursor: pointer;
+    text-shadow: 0 0 5px var(--sw-cyan); box-shadow: 0 0 10px rgba(0,255,255,0.3);
+    transition: 0.3s;
+}
+.s-btn:hover { background: var(--sw-cyan); color: var(--sw-bg); }
+
+/* Main Content */
+.s-main { flex-grow: 1; display: flex; justify-content: center; overflow: hidden; }
+.s-scroller { width: 100%; max-width: 800px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 2rem 1rem;}
+.s-scroller::-webkit-scrollbar { display: none; }
+
+.s-hero { text-align: center; margin-top: 5vh;}
+
+/* Chrome Text Effect */
+.chrome-text {
+    font-family: var(--font-heading);
+    font-size: 5rem; line-height: 1; margin-bottom: 2rem;
+    background: linear-gradient(to bottom, #cfd8dc 0%, #ffffff 45%, #607d8b 50%, #263238 55%, #cfd8dc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.8));
+    /* Stroke effect */
+    -webkit-text-stroke: 1px var(--sw-cyan);
+}
+
+.s-lead { color: var(--sw-text); font-size: 1.2rem; line-height: 1.6; max-width: 600px; margin: 0 auto 3rem; text-shadow: 1px 1px 0 #000; }
+
+.s-prompts { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+.s-prompts button {
+    background: rgba(11,2,26,0.8); border: 1px solid var(--sw-grid);
+    color: var(--sw-text); font-family: var(--font-body); font-weight: 700;
+    padding: 12px 20px; border-radius: 4px; cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,0,255,0.2); transition: 0.3s;
+    display: flex; align-items: center; gap: 8px;
+}
+.s-prompts button:hover {
+    background: var(--sw-grid); color: #fff;
+    box-shadow: 0 0 20px var(--sw-grid); transform: translateY(-2px);
+}
+
+/* Response Section */
+.s-response { margin: 2rem 0; background: rgba(11,2,26,0.7); backdrop-filter: blur(10px); border: 2px solid var(--sw-cyan); border-radius: 8px; box-shadow: 0 0 30px rgba(0,255,255,0.1); }
+.s-response.hidden { display: none; }
+
+.s-status-bar {
+    background: rgba(0,255,255,0.1); border-bottom: 2px solid var(--sw-cyan);
+    padding: 10px 20px; font-family: var(--font-heading); color: var(--sw-cyan);
+    display: flex; align-items: center; gap: 15px; text-shadow: 0 0 5px var(--sw-cyan);
+}
+.tape-reel { width: 12px; height: 12px; border: 2px dashed var(--sw-cyan); border-radius: 50%; animation: spin 2s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.s-content { padding: 3rem; }
+
+/* Markdown Overrides */
+.markdown-body { color: var(--sw-text); font-size: 1.1rem; line-height: 1.7; text-shadow: 1px 1px 2px #000; }
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-heading); color: var(--sw-grid); font-weight: normal; margin: 2rem 0 1rem; border-bottom: 1px solid rgba(255,0,255,0.3); padding-bottom: 0.5rem; text-shadow: 0 0 10px var(--sw-grid);}
+.markdown-body h3 { font-family: var(--font-heading); color: var(--sw-yellow); }
+.markdown-body p { margin-bottom: 1.5rem; }
+.markdown-body a { color: var(--sw-cyan); text-decoration: none; border-bottom: 1px solid var(--sw-cyan); }
+.markdown-body a:hover { text-shadow: 0 0 8px var(--sw-cyan); }
+.markdown-body ul li { margin-bottom: 10px; }
+.markdown-body ul li::marker { content: '▶ '; color: var(--sw-yellow); }
+
+.markdown-body pre { background: rgba(0,0,0,0.6); border: 1px solid var(--sw-cyan); padding: 1.5rem; margin: 2rem 0; overflow-x: auto; border-radius: 4px; box-shadow: inset 0 0 20px rgba(0,255,255,0.1); }
+.markdown-body code { background: rgba(255,0,255,0.2); padding: 2px 6px; color: var(--sw-text); border-radius: 2px;}
+.markdown-body pre code { background: transparent; color: var(--sw-cyan); text-shadow: none; }
+
+.mermaid { background: rgba(0,0,0,0.5); padding: 2rem; border: 1px solid var(--sw-grid); margin: 2rem 0; border-radius: 8px;}
+
+/* Footer Input */
+.s-footer { padding: 2rem; background: linear-gradient(to top, rgba(11,2,26,1) 0%, transparent 100%); }
+.s-input-group { display: flex; max-width: 800px; margin: 0 auto; gap: 15px; }
+.input-glow {
+    flex-grow: 1; background: rgba(0,0,0,0.5); border: 2px solid var(--sw-grid);
+    border-radius: 4px; box-shadow: 0 0 15px rgba(255,0,255,0.2);
+    display: flex; align-items: stretch; padding: 5px;
+}
+textarea {
+    width: 100%; border: none; outline: none; background: transparent;
+    color: var(--sw-text); font-family: var(--font-body); font-size: 1.1rem;
+    padding: 10px; resize: none; max-height: 120px;
+}
+textarea::placeholder { color: var(--sw-text-dim); }
+
+.s-submit {
+    background: var(--sw-cyan); color: var(--sw-bg); font-family: var(--font-heading);
+    font-size: 1.2rem; border: none; padding: 0 25px; border-radius: 4px;
+    cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(0,255,255,0.4);
+}
+.s-submit:hover { background: #fff; box-shadow: 0 0 25px #fff; }
+
+.s-telemetry { text-align: center; margin-top: 15px; font-family: var(--font-body); font-size: 0.8rem; color: var(--sw-text-dim); letter-spacing: 2px;}
+.s-telemetry .error { color: #ff0055; text-shadow: 0 0 10px #ff0055; font-weight: 700;}
+
+@media (max-width: 768px) {
+    .s-header { padding: 1rem; flex-direction: column; gap:10px; }
+    .chrome-text { font-size: 3rem; }
+    .s-input-group { flex-direction: column; }
+    .s-submit { padding: 15px; }
+}

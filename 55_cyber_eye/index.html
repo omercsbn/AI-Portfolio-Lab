@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN_OPTICS // SYSTEM FOCUS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sharp, technical and surveillance style fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- Camera Reticle / HUD Elements (Overlayed) -->
+    <div class="reticle top-left"></div>
+    <div class="reticle top-right"></div>
+    <div class="reticle bottom-left"></div>
+    <div class="reticle bottom-right"></div>
+    <div class="center-focus-ring"></div>
+
+    <!-- 3D Canvas (The Iris) -->
+    <div class="eye-container">
+        <canvas id="iris-canvas"></canvas>
+    </div>
+
+    <!-- UI Layer -->
+    <div class="cam-layer">
+        
+        <header class="o-header">
+            <div class="o-brand">
+                <h1>OPTIC.ARCHITECT_SABUN</h1>
+                <div class="o-lens-data">F/1.4 | 50MM | ISO_100</div>
+            </div>
+            
+            <nav class="o-nav">
+                <span class="rec-indicator blink">● REC</span>
+                <span id="focalStatus">FOCAL_LOCK: STABLE</span>
+                <button id="langToggle" class="o-btn">SYS.EN</button>
+            </nav>
+        </header>
+
+        <main class="o-main">
+            <div class="o-scroller">
+                
+                <section class="o-hero" id="heroSection">
+                    <div class="target-box">
+                        <h2 class="o-headline">HYPER_FOCUS <br> ARCHITECTURE.</h2>
+                        <p class="o-lead">
+                            Scale requires vision. I build observability systems that act as an unblinking eye over your infrastructure. Tracing, logging, matrices—when traffic spikes or a pod dies, the system dilates to absorb the context and auto-corrects before humans even notice.
+                        </p>
+                        
+                        <div class="o-prompts">
+                            <button class="lens-btn" onclick="insertPrompt('Explain distributed tracing using OpenTelemetry')">
+                                <span class="bracket">[</span> TRACE_OPENTELEMETRY <span class="bracket">]</span>
+                            </button>
+                            <button class="lens-btn" onclick="insertPrompt('Draw a Mermaid diagram of ELK stack logging')">
+                                <span class="bracket">[</span> FOCUS_LOG_PIPELINE <span class="bracket">]</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="o-response hidden" id="responseDisplay">
+                    <div class="o-status-bar">
+                        <span class="scan-bar"></span>
+                        <span id="responseStatus">ANALYZING TARGET...</span>
+                    </div>
+                    
+                    <div class="o-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="o-footer">
+            <div class="o-input-unit">
+                <div class="input-crosshair">+</div>
+                <textarea id="promptInput" rows="1" placeholder="ENTER SEARCH VECTOR..."></textarea>
+                <button id="submitBtn" class="o-submit">SCAN</button>
+            </div>
+            
+            <div class="o-telemetry">
+                <span id="rateLimitStatus">BATTERY_LEVEL: 5/5 SCANS</span>
+                <div class="lens-flare-deco"></div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Glitch / Sensor Dust overlay -->
+    <div class="sensor-noise"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

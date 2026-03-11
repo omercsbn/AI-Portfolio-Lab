@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | The Architect of the Deep</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Elegant, flowing sans-serif for the deep sea vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Background - Glowing Jellyfish/Particles -->
+    <canvas id="abyss-canvas"></canvas>
+
+    <div class="abyss-layer">
+        
+        <header class="ds-header">
+            <div class="ds-logo">
+                <h1>Ömercan Sabun</h1>
+                <span class="ds-title">Navigating the Data Lake</span>
+            </div>
+            <div class="ds-nav">
+                <div class="sonar-ping"></div>
+                <button id="langToggle" class="ds-btn">EN</button>
+            </div>
+        </header>
+
+        <main class="ds-main">
+            <div class="ds-scroller">
+                
+                <section class="ds-hero" id="heroSection">
+                    <h2 class="ds-headline">Clarity in<br>the Depths.</h2>
+                    <p class="ds-lead">
+                        Modern data ecosystems are vast, dark, and under immense pressure. I build bioluminescent architectures—Event-Driven systems that shine a light on complexity and survive the crush of high traffic.
+                    </p>
+                    
+                    <div class="ds-prompts">
+                        <button class="aqua-btn" onclick="insertPrompt('Explain your strategy for massive data lakes')">
+                            Ping: Data Strategy
+                        </button>
+                        <button class="aqua-btn" onclick="insertPrompt('Draw a Mermaid diagram of an isolated microservice pod')">
+                            Sonar: Diagram Pod
+                        </button>
+                    </div>
+                </section>
+
+                <section class="ds-response hidden" id="responseDisplay">
+                    <div class="ds-status-bar">
+                        <span class="bubble-icon">०Oo</span>
+                        <span id="responseStatus">Echo returning...</span>
+                    </div>
+                    
+                    <div class="ds-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="ds-footer">
+            <div class="ds-input-wrapper">
+                <textarea id="promptInput" rows="1" placeholder="Send a signal into the dark..."></textarea>
+                <button id="submitBtn" class="ds-submit">Transmit</button>
+            </div>
+            <div class="ds-telemetry">
+                <span id="rateLimitStatus">Oxygen levels: 5 / 5 Dives remaining</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Soft radial gradient overlay to simulate deep water -->
+    <div class="water-vignette"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

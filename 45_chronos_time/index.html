@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Chronos Architecture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Elegant serif for numerals and headings, clean sans for UI -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Background - Exploded Pocket Watch -->
+    <canvas id="clock-canvas"></canvas>
+
+    <div class="time-layer">
+        
+        <header class="c-header">
+            <div class="c-brand">
+                <h1>Ö. SABUN</h1>
+                <h2>CHRONOMETRE / ARCHITECT</h2>
+            </div>
+            
+            <div class="header-right">
+                <div class="time-display" id="localTime">XII : 00 : 00</div>
+                <button id="langToggle" class="c-btn">EN</button>
+            </div>
+        </header>
+
+        <main class="c-main">
+            <div class="c-scroller">
+                
+                <section class="c-hero" id="heroSection">
+                    <h2 class="c-headline">Mastering<br>Latency.</h2>
+                    <p class="c-lead">
+                        In distributed systems, time is relative. An event in one microservice must perfectly synchronize with another. I craft asynchronous architectures that tick with absolute precision, ensuring perfect consistency across the cluster.
+                    </p>
+                    
+                    <div class="c-prompts">
+                        <button class="gold-btn" onclick="insertPrompt('Explain your approach to Event Sourcing')">
+                            <span class="roman">I.</span> Event Sourcing
+                        </button>
+                        <button class="gold-btn" onclick="insertPrompt('Draw a Mermaid sequence diagram showing asynchronous message flow')">
+                            <span class="roman">II.</span> Async Sequence
+                        </button>
+                    </div>
+                </section>
+
+                <section class="c-response hidden" id="responseDisplay">
+                    <div class="c-status-bar">
+                        <div class="pendulum"></div>
+                        <span id="responseStatus">Winding mainspring...</span>
+                    </div>
+                    
+                    <div class="c-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="c-footer">
+            <div class="c-input-area">
+                <textarea id="promptInput" rows="1" placeholder="Query the timeline..."></textarea>
+                <button id="submitBtn" class="c-submit">Engage</button>
+            </div>
+            
+            <div class="c-telemetry">
+                <span id="rateLimitStatus">Mainspring tension: 5 / 5 uses remaining</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Vignette overlay for dramatic lighting -->
+    <div class="shadow-vignette"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

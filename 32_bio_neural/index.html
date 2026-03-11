@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Bio-Neural Core</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Montserrat:wght@200;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Add MeshLine for glowing neural paths -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/meshline/1.4.0/THREE.MeshLine.js"></script>
+</head>
+<body>
+
+    <canvas id="neural-canvas"></canvas>
+    
+    <!-- Organic Vignette -->
+    <div class="bio-vignette"></div>
+
+    <div class="bio-layer">
+        
+        <header class="bio-header">
+            <div class="bio-brand">
+                <div class="nucleus"></div>
+                <h2>ORGANISM: Ö. SABUN</h2>
+                <span class="subtext">Evolutionary Architecture</span>
+            </div>
+            <div class="bio-tools">
+                <button id="langToggle" class="node-btn">DNA: TR</button>
+            </div>
+        </header>
+
+        <main class="bio-main">
+            <div class="bio-scroll">
+                
+                <section class="bio-hero" id="heroSection">
+                    <h1 class="bio-title">LIVING SYSTEMS</h1>
+                    <p class="bio-desc">
+                        Software architecture should mirror nature—resilient, adaptable, and self-regulating. I engineer distributed neural networks of microservices mimicking organic growth.
+                    </p>
+                    
+                    <div class="synapse-prompts">
+                        <button onclick="insertPrompt('Explain your approach to system resilience')">
+                            <span class="dot"></span> Resilience
+                        </button>
+                        <button onclick="insertPrompt('Draw a Mermaid diagram of a self-healing cluster')">
+                            <span class="dot"></span> Self-Healing
+                        </button>
+                        <button onclick="insertPrompt('What are your primary technology genes?')">
+                            <span class="dot"></span> Technology Genes
+                        </button>
+                    </div>
+                </section>
+
+                <section class="bio-response hidden" id="responseDisplay">
+                    <div class="bio-status-bar">
+                        <div class="pulse-ring"></div>
+                        <span id="responseStatus">GROWING SYNAPSES...</span>
+                    </div>
+                    
+                    <div class="bio-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="bio-footer">
+            <div class="bio-input-cell">
+                <textarea id="promptInput" rows="1" placeholder="Provide stimulus sequence..."></textarea>
+                <button id="submitBtn" class="inject-btn">INJECT</button>
+            </div>
+            <div class="bio-vitals">
+                <span id="rateLimitStatus">VITALS STABLE | ENERGY: 5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

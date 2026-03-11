@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN-01 | TACTICAL UI</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Technical/Mecha fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D HUD Element (Mecha Core) -->
+    <div class="hud-container">
+        <canvas id="mecha-canvas"></canvas>
+    </div>
+
+    <!-- UI Overlay Layer -->
+    <div class="eva-layer">
+        
+        <!-- Top Left Status -->
+        <div class="status-block top-left">
+            <div class="eva-warning blink-fast">WARNING</div>
+            <div class="pilot-data">
+                <span class="label">UNIT:</span> SABUN-01<br>
+                <span class="label">SYNC:</span> <span id="syncRate">400%</span>
+            </div>
+        </div>
+
+        <!-- Top Right Hex Grid -->
+        <div class="status-block top-right">
+            <button id="langToggle" class="eva-btn">ENG_SYS</button>
+            <div class="hex-readout">TARGET_ACQ</div>
+        </div>
+
+        <!-- Left Target Info -->
+        <aside class="side-panel left-panel">
+            <div class="panel-header">VITAL_STATS</div>
+            <ul class="stat-list">
+                <li><span class="label">AT_FIELD</span>: DEPLOYED</li>
+                <li><span class="label">PN_CORE</span>: STABLE</li>
+                <li><span class="label">EXT_PWR</span>: CONNECTED</li>
+                <li><span class="label">INT_BAT</span>: SECURE</li>
+            </ul>
+            <div class="vertical-text">PROJECT E.V.A</div>
+        </aside>
+
+        <!-- Right Tool Panel -->
+        <aside class="side-panel right-panel">
+            <div class="panel-header">TACTICAL</div>
+            <button class="tactical-btn" onclick="insertPrompt('Initialize synchronization sequence')">
+                <span class="arrow">▶</span> SYNC_START
+            </button>
+            <button class="tactical-btn" onclick="insertPrompt('Draw a Mermaid state diagram of the Eva launch sequence')">
+                <span class="arrow">▶</span> PLOT_STATE
+            </button>
+            <div class="crosshair-deco"></div>
+        </aside>
+
+        <!-- Main Center Area -->
+        <main class="eva-main">
+            <div class="eva-scroller">
+                
+                <section class="eva-hero" id="heroSection">
+                    <h2 class="eva-headline">ABSOLUTE TERROR <br> ARCHITECTURE.</h2>
+                    <p class="eva-lead">
+                        Monoliths are Angels—rigid entities bound to fall. I pilot microservice architectures protected by unbreachable A.T. Fields (API Gateways). When the load strikes, the system does not break; it adapts.
+                    </p>
+                </section>
+
+                <section class="eva-response hidden" id="responseDisplay">
+                    <div class="eva-status-bar">
+                        <span class="pulse-dot"></span>
+                        <span id="responseStatus" class="orange-text">PROCESSING...</span>
+                    </div>
+                    
+                    <div class="eva-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Bottom Input Area -->
+        <footer class="eva-footer">
+            <div class="target-bracket left"></div>
+            
+            <div class="eva-input-zone">
+                <div class="cmd-label">DIRECTIVE:</div>
+                <textarea id="promptInput" rows="1" placeholder="Awaiting pilot input..."></textarea>
+                <button id="submitBtn" class="eva-submit">ENGAGE</button>
+            </div>
+            
+            <div class="target-bracket right"></div>
+            
+            <div class="eva-telemetry" id="rateLimitStatus">
+                UMBC_CABLE: 5/5 REMAINING
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Background CRT/Grid lines -->
+    <div class="hud-grid"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

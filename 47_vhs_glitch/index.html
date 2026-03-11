@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | UNRECOVERED_TAPE_01</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- VCR OSD style fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS Scanlines and Static -->
+    <div class="vhs-scanlines"></div>
+    <div class="vhs-flicker"></div>
+
+    <!-- 3D Canvas - Corrupted Object -->
+    <canvas id="glitch-canvas"></canvas>
+
+    <!-- VHS OSD (On Screen Display) -->
+    <div class="vhs-osd top-left">
+        <span class="play-icon blink">▶ PLAY</span><br>
+        SP <span id="localTime">12:00 AM</span>
+    </div>
+    
+    <div class="vhs-osd top-right">
+        ÖMERCAN_SABUN<br>
+        <span class="vcr-counter">CH 3</span>
+    </div>
+
+    <!-- UI Layer -->
+    <div class="tape-layer">
+        
+        <header class="v-header">
+            <button id="langToggle" class="v-btn">LANG_EN</button>
+        </header>
+
+        <main class="v-main">
+            <div class="v-scroller">
+                
+                <section class="v-hero" id="heroSection">
+                    <h2 class="v-headline glitch-text" data-text="SYSTEM FAILURE.">SYSTEM FAILURE.</h2>
+                    <p class="v-lead">
+                        Monolithic legacy systems inevitably degrade. Data corrupts. Connections drop. I salvage these forgotten architectures, breaking them down into resilient, event-driven microservices before the tape runs out completely.
+                    </p>
+                    
+                    <div class="v-prompts">
+                        <button class="tape-btn" onclick="insertPrompt('How do you rescue a failing legacy system?')">
+                            [EXTRACT: LEGACY RECOVERY]
+                        </button>
+                        <button class="tape-btn" onclick="insertPrompt('Draw a Mermaid sequence diagram of error recovery in an event queue')">
+                            [DIAGRAM: EVENT RETRY MECHANISM]
+                        </button>
+                    </div>
+                </section>
+
+                <section class="v-response hidden" id="responseDisplay">
+                    <div class="v-status-bar">
+                        <span id="responseStatus">TRACKING...</span>
+                    </div>
+                    
+                    <div class="v-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="v-footer">
+            <div class="input-container">
+                <span class="prompt-arrow">»</span>
+                <textarea id="promptInput" rows="1" placeholder="ENTERING DATA..."></textarea>
+                <button id="submitBtn" class="v-submit">EXECUTE</button>
+            </div>
+            
+            <div class="v-telemetry">
+                <span id="rateLimitStatus">TAPE REMAINING: 5 / 5 BLOCKS</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

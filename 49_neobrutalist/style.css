@@ -1,0 +1,181 @@
+/* NEOBRUTALISM THEME */
+:root {
+    --b-bg: #fff000; /* Mustard Yellow */
+    --b-purple: #c4a1ff;
+    --b-teal: #00ffcc;
+    --b-pink: #ff6b6b;
+    --b-border: 4px solid #000; /* Thick black borders */
+    --b-shadow: 8px 8px 0px #000; /* Hard drop shadow */
+    --font-brutal: 'Space Grotesk', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--b-bg);
+    color: #000;
+    font-family: var(--font-brutal);
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    font-weight: 700;
+}
+
+/* Base Brutalist Styles */
+.brutal-box {
+    border: var(--b-border);
+    box-shadow: var(--b-shadow);
+    background: #fff;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+.brutal-box:active {
+    transform: translate(6px, 6px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+/* 3D Canvas */
+#brutal-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none;
+}
+
+/* UI Layer */
+.brutal-layer {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%; pointer-events: none;
+    padding: 20px;
+}
+.brutal-layer > * { pointer-events: auto; }
+
+/* Header */
+.b-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 30px; margin-bottom: 20px;
+}
+.b-brand { font-size: 2.5rem; letter-spacing: -2px; text-transform: uppercase; }
+.b-nav { display: flex; align-items: center; gap: 15px; }
+
+.bad-badge {
+    background: var(--b-teal); border: var(--b-border); box-shadow: 4px 4px 0 #000;
+    padding: 8px 15px; font-size: 1.2rem; transform: rotate(-3deg);
+}
+.bad-badge.black { background: #000; color: #fff; transform: rotate(2deg); }
+
+.b-btn {
+    background: var(--b-pink); color: #000;
+    padding: 10px 20px; font-size: 1.2rem; cursor: pointer; text-transform: uppercase;
+}
+.b-btn.round { border-radius: 50px; }
+
+/* Main Content */
+.b-main { flex-grow: 1; display: flex; justify-content: center; overflow: hidden; position: relative;}
+.b-scroller { width: 100%; max-width: 900px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 1rem 1rem 5rem 1rem;}
+.b-scroller::-webkit-scrollbar { display: none; }
+
+.b-hero { background: var(--b-purple); padding: 0; display: flex; flex-direction: column; overflow: hidden; margin-bottom: 20px;}
+
+/* Marquee */
+.marquee-container {
+    width: 100%; background: #000; color: var(--b-teal); border-bottom: var(--b-border);
+    padding: 15px 0; overflow: hidden; white-space: nowrap;
+}
+.marquee-text {
+    display: inline-block; animation: marquee 10s linear infinite;
+    font-size: 1.5rem; letter-spacing: 2px;
+}
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.hero-content { padding: 40px; text-align: center; }
+
+.b-headline { font-size: 5rem; line-height: 0.9; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -3px; text-shadow: 4px 4px 0px #fff;}
+.b-lead { font-size: 1.4rem; line-height: 1.5; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;}
+.b-lead strong { background: var(--b-teal); border: 2px solid #000; padding: 0 5px;}
+
+.b-prompts { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.b-action-btn {
+    background: #fff; font-family: var(--font-brutal); font-size: 1.2rem;
+    padding: 15px 25px; cursor: pointer; text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px; flex: 1; min-width: 250px; justify-content: center;
+}
+.b-action-btn.primary { background: var(--b-teal); }
+.b-action-btn:hover { background: var(--b-bg); }
+.b-action-btn .arrow { font-size: 1.5rem; font-weight: 900; }
+
+/* Response Section */
+.b-response { margin: 20px 0; background: #fff; padding: 0; overflow: hidden; }
+.b-response.hidden { display: none; }
+
+.b-status-bar {
+    padding: 15px 20px; background: var(--b-pink); border-bottom: var(--b-border);
+    display: flex; align-items: center; gap: 20px; font-size: 1.4rem;
+}
+.loading-blocks { display: flex; gap: 5px; }
+.loading-blocks span { width: 15px; height: 15px; background: #000; border: 2px solid #000; animation: blockBounce 0.6s infinite alternate; }
+.loading-blocks span:nth-child(2) { animation-delay: 0.2s; }
+.loading-blocks span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes blockBounce { to { transform: translateY(-10px); background: #fff; } }
+
+.b-content { padding: 40px; text-align: left; }
+
+/* Markdown Overrides - Brutalist */
+.markdown-body { color: #000; font-size: 1.2rem; line-height: 1.6; }
+.markdown-body h1, .markdown-body h2 { font-size: 2.5rem; text-transform: uppercase; border-bottom: var(--b-border); margin: 2rem 0 1rem; padding-bottom: 10px; letter-spacing: -1px; background: var(--b-purple); display: inline-block; padding: 5px 15px; box-shadow: 4px 4px 0 #000;}
+.markdown-body h3 { font-size: 1.8rem; margin: 1.5rem 0 1rem; text-decoration: underline wavy var(--b-teal); text-underline-offset: 5px;}
+.markdown-body p { margin-bottom: 1.5rem; font-weight: 400;}
+.markdown-body a { color: #000; background: var(--b-bg); border: 2px solid #000; padding: 0 4px; text-decoration: none; box-shadow: 2px 2px 0 #000;}
+.markdown-body a:hover { background: var(--b-pink); }
+.markdown-body ul { margin-left: 20px; margin-bottom: 1.5rem;}
+.markdown-body ul li { margin-bottom: 10px; font-weight: 400;}
+.markdown-body ul li::marker { content: '■ '; color: var(--b-pink); font-size: 1.2em; }
+
+.markdown-body pre { background: #000; color: var(--b-teal); border: var(--b-border); box-shadow: var(--b-shadow); padding: 1.5rem; margin: 2rem 0; overflow-x: auto; font-family: monospace; font-size: 1.1rem; font-weight: normal;}
+.markdown-body code { background: #ddd; padding: 2px 6px; font-family: monospace; color: #000; border: 2px solid #000;}
+.markdown-body pre code { background: transparent; color: inherit; border: none; padding: 0;}
+
+.mermaid { background: #fff; border: var(--b-border); box-shadow: var(--b-shadow); padding: 20px; margin: 2rem 0; display: flex; justify-content: center;}
+
+/* Footer Input */
+.b-footer { display: flex; gap: 20px; align-items: stretch; margin-top: auto; padding-top: 20px;}
+.b-input-group {
+    display: flex; flex-grow: 1; padding: 0; overflow: hidden;
+    background: #fff; box-shadow: var(--b-shadow);
+}
+#promptInput {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: #000; font-family: var(--font-brutal); font-size: 1.5rem; font-weight: 700;
+    padding: 20px; resize: none; text-transform: uppercase;
+}
+#promptInput::placeholder { color: #aaa; }
+
+.b-submit {
+    background: var(--b-teal); color: #000; border: none; border-left: var(--b-border);
+    padding: 0 40px; font-family: var(--font-brutal); font-size: 1.5rem; cursor: pointer;
+    box-shadow: none; /* Inherits main box shadow */
+}
+.b-submit:hover { background: var(--b-bg); }
+.b-submit:active { transform: none; box-shadow: none; background: #fff;} /* Override default brutal active for this compound element */
+
+.b-telemetry {
+    background: var(--b-pink); padding: 20px 30px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; white-space: nowrap;
+}
+.b-telemetry .error { background: #000; color: #fff;}
+
+/* Decorative Stickers */
+.sticker { position: absolute; z-index: 100; pointer-events: none; padding: 15px; font-size: 1.5rem; background: var(--b-teal); transform: rotate(15deg); }
+.sticker.circle { border-radius: 50%; width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; text-align: center; line-height: 1; background: var(--b-pink);}
+.s1 { top: 10%; right: 10%; animation: floatSticker 3s infinite ease-in-out alternate; }
+.s2 { bottom: 20%; left: 5%; transform: rotate(-10deg); background: #fff;}
+
+@keyframes floatSticker { 100% { transform: rotate(20deg) scale(1.1); } }
+
+@media (max-width: 768px) {
+    .b-header { flex-direction: column; gap: 20px; text-align: center; }
+    .bad-badge.black { display: none; }
+    .b-headline { font-size: 3.5rem; }
+    .b-prompts { flex-direction: column; }
+    .b-footer { flex-direction: column; }
+    .b-input-group { flex-direction: column; box-shadow: var(--b-shadow); }
+    .b-submit { border-left: none; border-top: var(--b-border); padding: 20px; }
+    .sticker { display: none; } /* Hide on mobile to save space */
+}

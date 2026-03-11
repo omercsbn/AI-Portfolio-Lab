@@ -1,0 +1,145 @@
+/* BIO-NEURAL THEME */
+:root {
+    --bio-bg: #010a05;
+    --bio-text: #e8f5e9;
+    --bio-accent: #69f0ae; /* Bioluminescent Green */
+    --bio-glow: rgba(105, 240, 174, 0.4);
+    --bio-danger: #ff5252;
+    --font-bio: 'Exo 2', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bio-bg);
+    color: var(--bio-text);
+    font-family: var(--font-bio);
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    font-weight: 300;
+}
+
+/* 3D Canvas */
+#neural-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none;
+}
+
+/* Organic Vignette */
+.bio-vignette {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 40%, rgba(1, 10, 5, 0.95) 100%);
+    z-index: 2; pointer-events: none;
+}
+
+/* UI Layer */
+.bio-layer {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+    height: 100vh; width: 100%; pointer-events: none;
+}
+.bio-layer > * { pointer-events: auto; }
+
+/* Header */
+.bio-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 2rem 3rem; background: linear-gradient(to bottom, rgba(1,10,5,0.8), transparent);
+}
+.bio-brand { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;}
+.nucleus {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, var(--bio-accent));
+    box-shadow: 0 0 15px var(--bio-accent);
+}
+.bio-brand h2 { font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: 2px; font-weight: 600; color: var(--bio-accent); }
+.subtext { font-size: 0.8rem; color: #81c784; opacity: 0.8; letter-spacing: 1px; text-transform: uppercase;}
+
+.node-btn {
+    background: rgba(105, 240, 174, 0.05); border: 1px solid var(--bio-accent);
+    color: var(--bio-accent); font-family: var(--font-bio); border-radius: 20px;
+    padding: 8px 16px; cursor: pointer; transition: 0.3s; font-size: 0.9rem;
+}
+.node-btn:hover { background: var(--bio-accent); color: var(--bio-bg); box-shadow: 0 0 20px var(--bio-glow); }
+
+/* Main */
+.bio-main { flex-grow: 1; display: flex; justify-content: center; overflow: hidden; }
+.bio-scroll { width: 100%; max-width: 800px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 2rem; border-left: 1px dashed rgba(105,240,174,0.1); border-right: 1px dashed rgba(105,240,174,0.1); }
+.bio-scroll::-webkit-scrollbar { display: none; }
+
+/* Hero */
+.bio-hero { margin-top: 5vh; display: flex; flex-direction: column; gap: 2rem; background: rgba(1,10,5,0.5); backdrop-filter: blur(10px); padding: 3rem; border-radius: 30px; border: 1px solid rgba(105,240,174,0.1); }
+.bio-title { font-family: var(--font-heading); font-size: 3.5rem; letter-spacing: 4px; font-weight: 200; color: #fff; text-shadow: 0 0 20px var(--bio-glow); }
+.bio-desc { font-size: 1.15rem; line-height: 1.7; color: #a5d6a7; }
+
+.synapse-prompts { display: flex; flex-direction: column; gap: 15px; }
+.synapse-prompts button {
+    background: transparent; border: none; color: var(--bio-accent); font-family: var(--font-bio);
+    font-size: 1.05rem; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 10px;
+    transition: 0.3s; width: fit-content; opacity: 0.8;
+}
+.synapse-prompts button .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--bio-accent); transition: 0.3s;
+}
+.synapse-prompts button:hover { opacity: 1; transform: translateX(10px); text-shadow: 0 0 10px var(--bio-glow); }
+.synapse-prompts button:hover .dot { box-shadow: 0 0 15px var(--bio-accent); transform: scale(1.5); }
+
+/* Response */
+.bio-response { margin: 2rem 0; background: rgba(1, 15, 8, 0.6); backdrop-filter: blur(15px); border-radius: 20px; border: 1px solid rgba(105,240,174,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.bio-response.hidden { display: none; }
+
+.bio-status-bar {
+    display: flex; align-items: center; gap: 15px; padding: 15px 25px;
+    border-bottom: 1px solid rgba(105,240,174,0.2); font-family: var(--font-heading); letter-spacing: 2px; font-size: 0.85rem; color: var(--bio-accent);
+}
+.pulse-ring { width: 12px; height: 12px; border-radius: 50%; background: var(--bio-accent); animation: org-pulse 1.5s infinite alternate; }
+@keyframes org-pulse { 0% { box-shadow: 0 0 5px var(--bio-accent); transform: scale(1); } 100% { box-shadow: 0 0 20px var(--bio-accent); transform: scale(1.2); } }
+
+.bio-content { padding: 3rem; }
+
+/* Markdown Overrides */
+.markdown-body { color: #c8e6c9; font-size: 1.1rem; line-height: 1.8; }
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-heading); font-weight: 200; font-size: 2rem; color: #fff; margin: 2rem 0 1rem; border-bottom: 1px dashed rgba(105,240,174,0.3); padding-bottom: 0.5rem; text-shadow: 0 0 10px var(--bio-glow); }
+.markdown-body h3 { color: var(--bio-accent); font-weight: 400; }
+.markdown-body p { margin-bottom: 1.5rem; }
+.markdown-body a { color: var(--bio-accent); text-decoration: none; border-bottom: 1px solid var(--bio-accent); }
+.markdown-body ul li { margin-bottom: 10px; }
+.markdown-body ul li::marker { color: var(--bio-accent); }
+
+.markdown-body pre { background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(105,240,174,0.1); margin: 2rem 0; overflow-x: auto; }
+.markdown-body code { font-family: monospace; background: rgba(105,240,174,0.1); padding: 2px 6px; border-radius: 4px; color: var(--bio-accent); }
+.markdown-body pre code { background: transparent; padding: 0; color: #a5d6a7; }
+
+/* Mermaid */
+.mermaid { background: rgba(0,0,0,0.3); padding: 2rem; border-radius: 12px; border: 1px solid rgba(105,240,174,0.2); margin: 2rem 0; }
+
+/* Footer Input */
+.bio-footer { padding: 2rem; display: flex; flex-direction: column; align-items: center; background: linear-gradient(to top, rgba(1,10,5,0.9), transparent); }
+.bio-input-cell {
+    display: flex; align-items: stretch; background: rgba(1, 15, 8, 0.8);
+    border: 1px solid var(--bio-accent); border-radius: 30px; padding: 5px 5px 5px 20px;
+    width: 100%; max-width: 800px; box-shadow: 0 0 20px var(--bio-glow); transition: 0.3s;
+}
+.bio-input-cell:focus-within { box-shadow: 0 0 35px var(--bio-glow); }
+textarea {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: #fff; font-family: var(--font-bio); font-size: 1.1rem; resize: none; max-height: 150px; padding: 12px 0;
+}
+textarea::placeholder { color: #81c784; opacity: 0.5; }
+
+.inject-btn {
+    background: var(--bio-accent); color: var(--bio-bg); border: none;
+    border-radius: 25px; padding: 0 25px; font-family: var(--font-heading); font-weight: 600;
+    cursor: pointer; letter-spacing: 1px; transition: 0.3s; margin-left: 10px;
+}
+.inject-btn:hover { background: #fff; box-shadow: 0 0 20px #fff; }
+
+.bio-vitals { margin-top: 15px; font-family: var(--font-heading); font-size: 0.75rem; letter-spacing: 1px; color: #81c784; }
+.bio-vitals .error { color: var(--bio-danger); text-shadow: 0 0 10px var(--bio-danger); }
+
+@media (max-width: 768px) {
+    .bio-header { flex-direction: column; gap: 15px; padding: 1.5rem; }
+    .bio-title { font-size: 2.5rem; }
+    .bio-hero { padding: 2rem; border-radius: 20px; }
+}

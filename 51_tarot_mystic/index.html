@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | The Architect's Oracle</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Mystical/Medieval serif display font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Canvas (Tarot Astrolabe) -->
+    <canvas id="tarot-canvas"></canvas>
+
+    <!-- CSS Stars/Dust background -->
+    <div class="cosmic-dust"></div>
+
+    <!-- UI Layer -->
+    <div class="tarot-layer">
+        
+        <header class="t-header">
+            <h1 class="t-brand">Ömercan</h1>
+            <nav class="t-nav">
+                <span class="t-title">Grand Architect of the Cloud</span>
+                <button id="langToggle" class="t-btn">EN</button>
+            </nav>
+        </header>
+
+        <main class="t-main">
+            <div class="t-scroller">
+                
+                <section class="t-hero" id="heroSection">
+                    <div class="t-ornament top">✥</div>
+                    <h2 class="t-headline">Divining the<br>Architecture.</h2>
+                    <p class="t-lead">
+                        True scalable systems are not guessed; they are foreseen. I read the currents of data and the alignment of microservices to design architectures that withstand the chaos of the unknown future. Look into the ether.
+                    </p>
+                    
+                    <div class="t-prompts">
+                        <button class="tarot-btn" onclick="insertPrompt('What does the future hold for monolithic architectures?')">
+                            <span class="moon">☽</span> Fate of the Monolith
+                        </button>
+                        <button class="tarot-btn" onclick="insertPrompt('Draw a Mermaid sequence diagram of an asynchronous event bus.')">
+                            <span class="sun">☼</span> Reveal the Event Bus
+                        </button>
+                    </div>
+                    <div class="t-ornament bottom">✥</div>
+                </section>
+
+                <section class="t-response hidden" id="responseDisplay">
+                    <div class="t-status-bar">
+                        <span class="eye-icon">◉</span>
+                        <span id="responseStatus">Consulting the Oracle...</span>
+                    </div>
+                    
+                    <div class="t-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="t-footer">
+            <div class="t-input-frame">
+                <textarea id="promptInput" rows="1" placeholder="Seek guidance from the ether..."></textarea>
+                <button id="submitBtn" class="t-submit">Divine</button>
+            </div>
+            
+            <div class="t-telemetry">
+                <span id="rateLimitStatus">Aether: V / V visions remaining</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Edge framing -->
+    <div class="gold-frame"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | [ROOT_ACCESS]</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="hacker-layer">
+        
+        <header class="h-header">
+            <div class="sys-info">
+                <span>USER: ROOT // OSabun_v9.2</span>
+                <span class="blinking-cursor">_</span>
+            </div>
+            <button id="langToggle" class="cli-btn">[LANG=EN]</button>
+        </header>
+
+        <main class="h-main">
+            <div class="h-scroller">
+                
+                <section class="h-hero" id="heroSection">
+                    <pre class="ascii-art">
+   ____.   ________.    _____..   ___  ___  __.
+  / __ \  /  ____   |  / ____  ) |   |/  / |  |
+ / /_ \ \ |  |____| | | (___/ /  |      /  |  |
+ \____/_/ |________/   \_____/   |__|\__\  |__|
+                    </pre>
+                    <h1 class="h-title">> SEEING THE CODE</h1>
+                    <p class="h-desc">
+                        $ cat /var/log/career.log | grep -i "architecture"
+                        <br>> System architect specializing in deconstructing reality into scalable, cloud-native voxels of logic.
+                    </p>
+                    
+                    <div class="cmd-prompts">
+                        <button onclick="insertPrompt('./explain_architecture.sh')">./explain_architecture.sh</button>
+                        <button onclick="insertPrompt('cat /etc/mermaid/topology.conf')">cat /etc/mermaid/topology.conf</button>
+                        <button onclick="insertPrompt('env | grep TECH_STACK')">env | grep TECH_STACK</button>
+                    </div>
+                </section>
+
+                <section class="h-response hidden" id="responseDisplay">
+                    <div class="h-status-bar">
+                        <span>[PROCESS_ID: 9942] STDOUT:</span>
+                        <span id="responseStatus" class="pulse-text">EXECUTING...</span>
+                    </div>
+                    
+                    <div class="h-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="h-footer">
+            <div class="cli-input-line">
+                <span class="prompt-char">root@nexus:~#</span>
+                <textarea id="promptInput" rows="1" placeholder="execute..."></textarea>
+                <button id="submitBtn" class="cli-btn">[RUN]</button>
+            </div>
+            <div class="cli-footer-info">
+                <span id="rateLimitStatus">MEM: OK | CYCLES: 5/5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

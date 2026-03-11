@@ -1,0 +1,76 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Hide vertical scrollbar, force horizontal scroll through track */
+body {
+    background: #0f0f11; color: #fff;
+    font-family: 'Jost', sans-serif;
+    overflow-x: hidden;
+}
+
+.fixed-nav {
+    position: fixed; top: 0; left: 0; width: 100%; padding: 2rem;
+    display: flex; justify-content: space-between; z-index: 100;
+    pointer-events: none; mix-blend-mode: difference;
+}
+
+.logo { font-family: 'Syncopate', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -2px;}
+.status { font-size: 0.9rem; letter-spacing: 2px; opacity: 0.5; }
+
+/* The horizontal trick without JS! */
+/* We set the wrapper height to match the total width, and use sticky positioning */
+.gallery-wrapper {
+    width: 100%; height: 500vw; /* 5 slides * 100vw */
+    position: relative;
+}
+
+.gallery-track {
+    position: sticky; top: 0; left: 0;
+    height: 100vh; width: 500vw;
+    display: flex;
+    /* CSS animation linking vertical scroll to horizontal scroll via modern animation-timeline (experimental) but we'll use transform fallback */
+    /* Since we can't reliably use Scroll-Timeline without polyfill yet, we fallback to pure overflow-x */
+}
+
+/* Let's actually use native horizontal scroll for simplicity and performance in CSS */
+body { overflow-x: auto; overflow-y: hidden; }
+.gallery-wrapper { height: 100vh; width: max-content;}
+.gallery-track { position: relative; height: 100vh; width: auto;}
+
+/* --- ^ Resetting to native horizontal scroll --- */
+.slide {
+    width: 60vw; min-width: 85vw; height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 4rem; position: relative;
+}
+.text-slide { width: 100vw; }
+.end-slide { width: 80vw;}
+
+/* Content */
+h1, h2 { font-family: 'Syncopate', sans-serif; font-size: 8rem; line-height: 0.9; text-transform: uppercase; margin-bottom: 2rem;}
+.text-slide p { font-size: 2rem; max-width: 600px; opacity: 0.6; line-height: 1.4;}
+
+/* Custom Image Hover effect */
+.img-wrapper {
+    width: 100%; height: 60vh; overflow: hidden; position: relative;
+    border-radius: 4px;
+}
+
+.img-wrapper img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(100%); transition: all 0.8s ease; transform: scale(1.1);
+}
+
+.slide:hover .img-wrapper img {
+    filter: grayscale(0%); transform: scale(1);
+}
+
+.caption {
+    font-family: 'Syncopate', sans-serif; font-size: 1.2rem; margin-top: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.outline-btn {
+    display: inline-block; padding: 1rem 3rem; border: 1px solid #fff; border-radius: 50px;
+    color: #fff; text-decoration: none; font-size: 1.5rem; transition: all 0.3s;
+}
+.outline-btn:hover { background: #fff; color: #000; }

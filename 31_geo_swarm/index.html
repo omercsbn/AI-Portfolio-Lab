@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Geometric Swarm</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <canvas id="swarm-canvas"></canvas>
+
+    <div class="bauhaus-layer">
+        
+        <header class="b-header">
+            <div class="b-brand">
+                <div class="shape-logo"></div>
+                <h1>Ömercan Sabun // Form & Function</h1>
+            </div>
+            <button id="langToggle" class="b-btn outline">EN_TR</button>
+        </header>
+
+        <main class="b-main">
+            <div class="b-scroll">
+                
+                <section class="b-hero" id="heroSection">
+                    <h2 class="b-title">Algorithmic Harmony</h2>
+                    <p class="b-desc">
+                        Engineering distributed systems that self-organize, balance loads, and form a cohesive whole from independent micro-components.
+                    </p>
+                    <div class="b-prompts">
+                        <button class="b-btn" onclick="insertPrompt('Explain your strategy for load balancing')">Load Strategy</button>
+                        <button class="b-btn" onclick="insertPrompt('Draw a Mermaid diagram of autonomous agents')">Agent Topology</button>
+                        <button class="b-btn" onclick="insertPrompt('What are your main tech stacks?')">Resource Stack</button>
+                    </div>
+                </section>
+
+                <section class="b-response hidden" id="responseDisplay">
+                    <div class="b-status-bar">
+                        <span id="responseStatus">GATHERING NODES...</span>
+                    </div>
+                    <div class="b-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="b-footer">
+            <div class="b-input-container">
+                <div class="color-block red"></div>
+                <textarea id="promptInput" rows="1" placeholder="Define vector input..."></textarea>
+                <button id="submitBtn" class="b-submit-btn">
+                    <div class="color-block yellow"></div>
+                    <span>EXECUTE</span>
+                </button>
+            </div>
+            <div class="b-sys-info">
+                <span class="color-dot blue"></span>
+                <span id="rateLimitStatus">SYSTEM STABLE | OP: 5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

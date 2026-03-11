@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | OS 95</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    </style>
+</head>
+<body>
+    <div class="desktop">
+        <!-- Desktop Icons -->
+        <div class="icon" onclick="openWindow('about')">
+            <div class="icon-img">👤</div>
+            <span>About.exe</span>
+        </div>
+        <div class="icon" onclick="openWindow('projects')">
+            <div class="icon-img">📁</div>
+            <span>Projects.dir</span>
+        </div>
+        <div class="icon" onclick="openWindow('contact')">
+            <div class="icon-img">✉️</div>
+            <span>Contact.net</span>
+        </div>
+
+        <!-- Windows -->
+        <div class="window hidden" id="win-about">
+            <div class="title-bar">
+                <span>About Ömercan Sabun</span>
+                <button onclick="closeWindow('about')">X</button>
+            </div>
+            <div class="window-content">
+                <h2>SOFTWARE ARCHITECT</h2>
+                <p>System Architect specializing in Cloud-Native environments, high-performance computing, and AI-driven platforms. I build robust backends that don't crash under pressure.</p>
+                <hr>
+                <p><strong>Skills:</strong> Kubernetes, Docker, Go, Python, C#, AWS, Kafka, Microservices.</p>
+            </div>
+        </div>
+
+        <div class="window hidden" id="win-projects">
+            <div class="title-bar">
+                <span>Selected Works</span>
+                <button onclick="closeWindow('projects')">X</button>
+            </div>
+            <div class="window-content">
+                <table class="classic-table">
+                    <tr><th>Project Name</th><th>Tech Stack</th><th>Status</th></tr>
+                    <tr><td>DevAssist AI</td><td>Python, RAG, React</td><td>[OK]</td></tr>
+                    <tr><td>Fusion Banking</td><td>Go, Kafka, K8s</td><td>[ACTIVE]</td></tr>
+                    <tr><td>AutoFinance</td><td>C#, .NET 8, MSSQL</td><td>[STABLE]</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="window hidden" id="win-contact">
+            <div class="title-bar">
+                <span>Transmission</span>
+                <button onclick="closeWindow('contact')">X</button>
+            </div>
+            <div class="window-content text-center">
+                <h2>PING ME</h2>
+                <p>Ready to initialize a new instance?</p>
+                <br>
+                <a href="mailto:hello@omercan.dev" class="classic-btn">SEND EMAIL</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="taskbar">
+        <button class="start-btn"><b>Start</b></button>
+        <div class="time" id="clock">12:00 AM</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

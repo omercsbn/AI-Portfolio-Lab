@@ -1,0 +1,67 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #03060c; color: #fff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh; overflow-x: hidden;
+}
+
+.scroll-container {
+    position: relative; width: 100%; min-height: 300vh; /* Long scroll */
+}
+
+/* Base path styling */
+.data-path {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0; pointer-events: none;
+}
+
+#draw-path {
+    stroke-dasharray: 4000; /* Will be set dynamically by JS, large number for now */
+    stroke-dashoffset: 4000;
+}
+
+/* Chapters */
+.chapter {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 10; padding: 2rem;
+}
+
+.story-block {
+    max-width: 600px; padding: 3rem; background: rgba(3, 6, 12, 0.8);
+    backdrop-filter: blur(10px); border: 1px solid rgba(0,255,204,0.1);
+    border-radius: 8px; opacity: 0; transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+/* Added dynamically by JS when scrolled into view */
+.story-block.visible { opacity: 1; transform: translateY(0); }
+
+.left-chapter { justify-content: flex-start; padding-left: 15vw; }
+.right-chapter { justify-content: flex-end; padding-right: 15vw; }
+.text-center { text-align: center; }
+
+h1 { font-size: 4rem; letter-spacing: -1px; margin-bottom: 1.5rem; background: linear-gradient(90deg, #fff, #00ffcc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #00ffcc; font-weight: 300;}
+p { font-size: 1.2rem; line-height: 1.8; color: #a0aec0;}
+
+.chapter-no { display: block; font-family: monospace; color: rgba(0,255,204,0.5); letter-spacing: 2px; margin-bottom: 1rem;}
+
+.scroll-indicator {
+    font-size: 2rem; margin-top: 3rem; color: #00ffcc;
+    animation: bounce 2s infinite; opacity: 0.5;
+}
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(15px); } }
+
+.story-btn {
+    display: inline-block; padding: 1.2rem 3rem; margin-top: 2rem;
+    border: 1px solid #00ffcc; color: #00ffcc; text-decoration: none; font-weight: bold;
+    letter-spacing: 2px; transition: all 0.3s;
+}
+.story-btn:hover { background: #00ffcc; color: #000; box-shadow: 0 0 30px rgba(0,255,204,0.5);}
+
+@media (max-width: 768px) {
+    .left-chapter, .right-chapter { justify-content: center; padding: 2rem; }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+}

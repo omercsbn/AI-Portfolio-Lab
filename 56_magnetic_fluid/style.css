@@ -1,0 +1,138 @@
+/* FERROFLUID THEME */
+:root {
+    --f-bg: #e2e8f0; /* Clinical, bright metallic grey background */
+    --f-text: #1a202c; /* Dark iron text */
+    --f-brand: #000000;
+    --f-accent: #3182ce; /* Magnetic blue */
+    --font-head: 'Syncopate', sans-serif;
+    --font-body: 'Jura', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--f-bg);
+    color: var(--f-text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    /* Clean metallic gradient */
+    background: radial-gradient(circle at top right, #ffffff, #cbd5e1);
+}
+
+/* 3D Canvas (Ferrofluid) */
+#fluid-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none;
+    mix-blend-mode: multiply; /* Makes the black reflections look better against the bright bg */
+}
+
+/* UI Layer */
+.ferro-layer {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%; pointer-events: none; padding: 40px;
+}
+.ferro-layer > * { pointer-events: auto; }
+
+/* Header */
+.f-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-bottom: 20px; border-bottom: 2px solid var(--f-brand);
+}
+.f-brand { font-family: var(--font-head); font-size: 1.8rem; font-weight: 700; letter-spacing: 5px; color: var(--f-brand); }
+.f-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 8px;}
+.f-title { font-size: 1rem; letter-spacing: 3px; font-weight: 700; color: #718096;}
+
+.f-btn {
+    background: #000; color: #fff; border: none;
+    font-family: var(--font-body); font-size: 0.9rem; padding: 4px 12px; cursor: pointer; transition: 0.2s; font-weight: 700;
+}
+.f-btn:hover { background: var(--f-accent); }
+
+/* Main Content Area */
+.f-main { flex-grow: 1; display: flex; justify-content: flex-start; overflow: hidden; position: relative;}
+.f-scroller { width: 100%; max-width: 600px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 40px 20px 40px 0;}
+.f-scroller::-webkit-scrollbar { display: none; }
+
+.f-hero { margin-bottom: 40px;}
+.f-headline {
+    font-family: var(--font-head); font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px;
+    font-weight: 700; color: var(--f-brand); letter-spacing: -1px;
+}
+.f-lead { font-size: 1.2rem; line-height: 1.6; color: #4a5568; margin-bottom: 30px; font-weight: 500;}
+
+.f-prompts { display: flex; flex-direction: column; gap: 15px; }
+.mag-btn {
+    background: rgba(255,255,255,0.5); border: 2px solid var(--f-brand);
+    color: var(--f-brand); font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+    padding: 12px 20px; cursor: pointer; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex; justify-content: flex-start; backdrop-filter: blur(5px);
+}
+.mag-btn:hover { background: var(--f-brand); color: #fff; padding-left: 30px; }
+
+/* Response Section */
+.f-response { margin: 2rem 0; background: rgba(255,255,255,0.85); border: 2px solid var(--f-brand); box-shadow: 10px 10px 0 rgba(0,0,0,0.1); backdrop-filter: blur(10px);}
+.f-response.hidden { display: none; }
+
+.f-status-bar {
+    padding: 12px 20px; background: var(--f-brand); color: #fff;
+    display: flex; align-items: center; gap: 15px; font-family: var(--font-body); font-weight: 700; letter-spacing: 2px;
+}
+.magnetic-field { font-family: monospace; animation: fieldShift 0.5s infinite alternate; font-size: 1.2rem;}
+@keyframes fieldShift { from { letter-spacing: 0px; } to { letter-spacing: 5px; } }
+
+.f-content { padding: 30px; text-align: left; }
+
+/* Markdown Overrides - Clean, structured */
+.markdown-body { color: var(--f-text); font-size: 1.1rem; line-height: 1.6; font-weight: 500;}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-head); font-weight: 700; font-size: 1.8rem; color: var(--f-brand); margin: 2rem 0 1rem; text-transform: uppercase; border-bottom: 2px solid var(--f-brand); padding-bottom: 5px;}
+.markdown-body h3 { font-family: var(--font-head); font-weight: 700; color: var(--f-accent); font-size: 1.3rem; margin-top: 1.5rem;}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body a { color: var(--f-accent); text-decoration: none; border-bottom: 2px solid var(--f-accent); transition: 0.2s;}
+.markdown-body a:hover { color: #fff; background: var(--f-accent); }
+.markdown-body ul { margin-left: 20px; }
+.markdown-body ul li { margin-bottom: 5px; }
+.markdown-body ul li::marker { content: '■ '; color: var(--f-brand); font-size: 0.8em;}
+
+.markdown-body pre { background: #f1f5f9; border: 1px solid #cbd5e1; border-left: 4px solid var(--f-accent); padding: 1.5rem; margin: 2rem 0; overflow-x: auto;}
+.markdown-body code { background: #e2e8f0; padding: 2px 6px; font-family: monospace; font-size: 0.9em; color: var(--f-brand); font-weight: 700;}
+.markdown-body pre code { background: transparent; border: none; padding: 0;}
+
+.mermaid { background: #fff; border: 2px solid #cbd5e1; padding: 2rem; margin: 2rem 0; display: flex; justify-content: center;}
+.mermaid * { font-family: var(--font-body) !important;}
+
+/* Footer Input */
+.f-footer { border-top: 2px solid var(--f-brand); padding-top: 20px; display: flex; flex-direction: column; width: 100%; max-width: 600px;}
+.f-input-field {
+    display: flex; align-items: stretch; background: #fff; border: 2px solid var(--f-brand);
+    transition: 0.3s; box-shadow: 5px 5px 0 rgba(0,0,0,0.1);
+}
+.f-input-field:focus-within { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 rgba(0,0,0,0.15); border-color: var(--f-accent);}
+
+textarea {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: var(--f-brand); font-family: var(--font-body); font-size: 1.1rem; font-weight: 700;
+    padding: 15px; resize: none; max-height: 120px;
+}
+textarea::placeholder { color: #a0aec0; }
+
+.f-submit {
+    background: var(--f-brand); color: #fff; border: none;
+    padding: 0 30px; font-family: var(--font-head); font-weight: 700; font-size: 1rem;
+    cursor: pointer; transition: 0.2s;
+}
+.f-submit:hover { background: var(--f-accent); }
+
+.f-telemetry { margin-top: 15px; font-size: 0.8rem; color: #718096; font-weight: 700;}
+.f-telemetry .error { color: #e53e3e; background: #fff; padding: 2px 8px; border: 2px solid #e53e3e;}
+
+@media (max-width: 768px) {
+    .ferro-layer { padding: 20px; }
+    .f-header { flex-direction: column; gap: 10px; align-items: flex-start;}
+    .f-nav { align-items: flex-start;}
+    .f-headline { font-size: 2.8rem; }
+    .f-input-field { flex-direction: column; }
+    .f-submit { padding: 15px;}
+}

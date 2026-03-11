@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | TYPE_CORE</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Extremely bold and compact font for brutalist typo look -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- TextGeometry / FontLoader for 3D Text -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/geometries/TextGeometry.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <!-- Kinetic Typography Background -->
+    <canvas id="type-canvas"></canvas>
+
+    <div class="brutal-layer">
+        
+        <header class="k-header">
+            <h1 class="marquee"><marquee scrollamount="10">ÖMERCAN SABUN // THE ARCHITECT // ÖMERCAN SABUN // THE ARCHITECT // ÖMERCAN SABUN</marquee></h1>
+            <button id="langToggle" class="k-btn-outline">EN</button>
+        </header>
+
+        <main class="k-main">
+            <div class="k-content-area">
+                
+                <section class="k-hero" id="heroSection">
+                    <h2 class="k-headline">LOUD<br>LOGIC.</h2>
+                    <p class="k-sub">
+                        Brutalist architecture in code. Microservices exposed. No hidden Magic. Just raw, scalable, unyielding structure.
+                    </p>
+                    
+                    <div class="k-prompts">
+                        <button class="k-action" onclick="insertPrompt('Explain your brutalist approach to microservices')">EXPLAIN_BRUTALISM</button>
+                        <button class="k-action solid" onclick="insertPrompt('Draw a Mermaid diagram of your infrastructure')">SHOW_INFRASTRUCTURE</button>
+                    </div>
+                </section>
+
+                <section class="k-response hidden" id="responseDisplay">
+                    <div class="k-tape border-bottom">
+                        <span id="responseStatus" class="blink">LOADING...</span>
+                    </div>
+                    <div class="k-markdown markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="k-footer">
+            <div class="k-input-grid">
+                <div class="k-input-box">
+                    <textarea id="promptInput" rows="1" placeholder="ENTER DIRECTIVE"></textarea>
+                </div>
+                <button id="submitBtn" class="k-submit-btn">SEND</button>
+            </div>
+            <div class="k-ticker border-top">
+                <span id="rateLimitStatus">SYSTEM READY [5]</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- SVG Filter for harsh noise/grain (Brutalist style) -->
+    <svg style="display:none;">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.2 0" />
+        </filter>
+    </svg>
+    <div class="noise-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

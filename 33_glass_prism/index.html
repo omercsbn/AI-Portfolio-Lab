@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Prism Core</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <div class="gradient-bg"></div>
+    <canvas id="prism-canvas"></canvas>
+
+    <div class="glass-layer">
+        
+        <header class="prism-header">
+            <div class="p-brand">Ömercan Sabun <span class="dim">//</span> Optics</div>
+            <button id="langToggle" class="p-btn">Language</button>
+        </header>
+
+        <main class="prism-main">
+            <div class="p-scroller">
+                
+                <section class="p-hero" id="heroSection">
+                    <h1 class="p-title">Absolute Clarity.</h1>
+                    <p class="p-desc">
+                        Distilling complex enterprise logic into transparent, light-weight, and brilliant architectural layers.
+                    </p>
+                    
+                    <div class="p-tags">
+                        <button onclick="insertPrompt('How do you achieve architectural clarity?')">Clarity</button>
+                        <button onclick="insertPrompt('Draw a Mermaid diagram of your clean architecture')">Structure</button>
+                        <button onclick="insertPrompt('Detail your Go backend optimizations')">Performance</button>
+                    </div>
+                </section>
+
+                <section class="p-response hidden" id="responseDisplay">
+                    <div class="p-header-bar">
+                        <div class="shimmer-dot"></div>
+                        <span id="responseStatus">Refracting...</span>
+                    </div>
+                    
+                    <div class="p-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="prism-footer">
+            <div class="p-glass-box">
+                <textarea id="promptInput" rows="1" placeholder="Project beam..."></textarea>
+                <div class="p-divider"></div>
+                <button id="submitBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+            <div class="p-status">
+                <span id="rateLimitStatus">Prism intact.</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

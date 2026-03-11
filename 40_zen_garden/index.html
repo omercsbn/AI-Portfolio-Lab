@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Zen Architecture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Elegant, flowing serif for headings, clean geometric sans for text -->
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <canvas id="zen-canvas"></canvas>
+
+    <div class="zen-layer">
+        
+        <header class="z-header">
+            <h1 class="z-logo">Ömercan Sabun</h1>
+            <div class="z-nav">
+                <span class="z-enso"></span>
+                <button id="langToggle" class="z-btn">EN</button>
+            </div>
+        </header>
+
+        <main class="z-main">
+            <div class="z-scroller">
+                
+                <section class="z-hero" id="heroSection">
+                    <h2 class="z-title">Tranquility<br>in Structure.</h2>
+                    <p class="z-lead">
+                        True scalable architecture requires no force. Like water flowing through a garden, Event-Driven microservices route seamlessly around obstacles. Find peace in decoupled systems.
+                    </p>
+                    
+                    <div class="z-prompts">
+                        <button onclick="insertPrompt('Explain the philosophy of decoupled systems')">
+                            <span class="z-icon">静</span> Decoupled Systems
+                        </button>
+                        <button onclick="insertPrompt('Draw a Mermaid diagram of a tranquil event-driven flow')">
+                            <span class="z-icon">流</span> Event Flow
+                        </button>
+                    </div>
+                </section>
+
+                <section class="z-response hidden" id="responseDisplay">
+                    <div class="z-status-bar">
+                        <span id="responseStatus">Raking the sand...</span>
+                    </div>
+                    
+                    <div class="z-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="z-footer">
+            <div class="z-input-area">
+                <textarea id="promptInput" rows="1" placeholder="Seek guidance..."></textarea>
+                <button id="submitBtn" class="z-submit">Meditate</button>
+            </div>
+            <div class="z-telemetry">
+                <span id="rateLimitStatus">Harmony: 5 / 5 Meditations remain</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Soft vignette -->
+    <div class="vignette"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    background: #050505; color: #f5f5f5; 
+    font-family: 'Inter', sans-serif; 
+    cursor: none; /* Hide default cursor to use custom HTML elements */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Cursor Elements */
+.cursor-dot {
+    width: 6px; height: 6px; background: #fff; border-radius: 50%;
+    position: fixed; top: -3px; left: -3px; pointer-events: none; z-index: 100;
+}
+.cursor-circle {
+    width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%;
+    position: fixed; top: -20px; left: -20px; pointer-events: none; z-index: 99;
+    /* CSS transition only applies to properties not driven by JS requestAnimationFrame */
+    transition: width 0.3s, height 0.3s, top 0.3s, left 0.3s, background 0.3s, border-color 0.3s;
+}
+
+/* When hovering over an interactive element */
+.cursor-circle.hovered {
+    width: 80px; height: 80px; top: -40px; left: -40px; 
+    background: rgba(255,255,255,0.05); border-color: transparent;
+}
+
+/* Layout Container */
+.container { 
+    padding: 4vw; min-height: 100vh; display: flex; flex-direction: column; 
+    max-width: 1400px; margin: 0 auto;
+}
+
+header { 
+    display: flex; justify-content: space-between; align-items: flex-start; 
+    margin-bottom: 20vh; 
+}
+
+.logo { 
+    font-family: 'Playfair Display', serif; font-size: 1.5rem; line-height: 1.2; 
+}
+.logo i { color: rgba(255,255,255,0.5); }
+
+nav { display: flex; gap: 3rem; }
+nav a { 
+    color: #f5f5f5; text-decoration: none; font-size: 0.85rem; 
+    letter-spacing: 0.1em; text-transform: uppercase; 
+}
+
+main { flex-grow: 1; }
+
+.hero { margin-bottom: 25vh; max-width: 900px;}
+h1 { 
+    font-family: 'Playfair Display', serif; font-size: clamp(4rem, 10vw, 10rem); 
+    font-weight: 400; line-height: 1.1; margin-bottom: 3rem; 
+}
+h1 i { font-style: italic; color: rgba(255,255,255,0.4); }
+
+.hero p { 
+    font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 300; 
+    max-width: 600px; line-height: 1.6; color: rgba(255,255,255,0.7); 
+}
+
+/* Projects List */
+.projects { border-top: 1px solid rgba(255,255,255,0.1); }
+.project { 
+    padding: 3.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex; justify-content: space-between; align-items: baseline;
+    transition: padding-left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                color 0.4s ease, opacity 0.4s ease;
+    cursor: none; opacity: 0.7;
+}
+
+.project:hover { 
+    padding-left: 2rem; color: #fff; opacity: 1;
+}
+
+.project h2 { 
+    font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; 
+}
+.project span { 
+    font-size: 0.85rem; letter-spacing: 0.05em; opacity: 0.5; font-family: 'Inter', sans-serif;
+}
+
+/* Studio Section */
+.studio { padding: 15vh 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.studio h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; margin-bottom: 2rem; }
+.studio p { font-size: 1.2rem; font-weight: 300; max-width: 600px; line-height: 1.6; color: rgba(255,255,255,0.7); }
+
+/* Footer */
+footer { 
+    display: flex; justify-content: space-between; align-items: center; 
+    margin-top: 10vh; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.1); 
+    font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;
+}
+footer a { color: #fff; text-decoration: none; transition: opacity 0.3s; }
+footer a:hover { opacity: 0.5; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero { margin-bottom: 15vh; }
+    .project { flex-direction: column; gap: 1rem; }
+    .project h2 { font-size: 1.8rem; }
+    nav { display: none; }
+}

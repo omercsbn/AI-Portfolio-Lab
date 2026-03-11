@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Cloud Architect</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Soft, airy, elegant sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Cloud Background -->
+    <canvas id="cloud-canvas"></canvas>
+
+    <!-- Frosted Glass UI Layer -->
+    <div class="sky-layer">
+        
+        <header class="e-header">
+            <h1 class="e-logo">Ömercan</h1>
+            <nav class="e-nav">
+                <span class="e-subtitle">Cloud-Native Architect</span>
+                <button id="langToggle" class="e-btn">EN</button>
+            </nav>
+        </header>
+
+        <main class="e-main">
+            <div class="e-scroller">
+                
+                <section class="e-hero" id="heroSection">
+                    <h2 class="e-headline">Ascend to<br>the Cloud.</h2>
+                    <p class="e-lead">
+                        True scalability feels weightless. I design cloud-native systems that float above hardware limitations, using event-driven microservices to create architectures that are as boundless and adaptable as the sky itself.
+                    </p>
+                    
+                    <div class="e-prompts">
+                        <button class="cloud-btn" onclick="insertPrompt('Explain the transition to Serverless architecture')">
+                            Serverless Ascent
+                        </button>
+                        <button class="cloud-btn" onclick="insertPrompt('Draw a Mermaid diagram of AWS/GCP cloud multi-region failover')">
+                            Multi-Region Diagram
+                        </button>
+                    </div>
+                </section>
+
+                <section class="e-response hidden" id="responseDisplay">
+                    <div class="e-status-bar">
+                        <div class="halo-ring"></div>
+                        <span id="responseStatus">Gathering thoughts...</span>
+                    </div>
+                    
+                    <div class="e-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="e-footer">
+            <div class="e-input-glass">
+                <textarea id="promptInput" rows="1" placeholder="Whisper into the cloud..."></textarea>
+                <button id="submitBtn" class="e-submit">Send</button>
+            </div>
+            
+            <div class="e-telemetry">
+                <span id="rateLimitStatus">Atmosphere: 5 / 5 breaths remaining</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Soft ambient light overlay -->
+    <div class="heaven-glow"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

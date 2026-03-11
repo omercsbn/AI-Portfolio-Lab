@@ -1,0 +1,146 @@
+/* ZEN GARDEN THEME */
+:root {
+    --z-bg: #f5f2eb; /* Warm sand / off-white */
+    --z-text: #2c302e; /* Soft almost-black ink */
+    --z-accent: #8b998a; /* Sage green */
+    --z-stone: #4a4e4d; /* Dark stone */
+    --font-serif: 'Shippori Mincho', serif;
+    --font-sans: 'Lato', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--z-bg);
+    color: var(--z-text);
+    font-family: var(--font-sans);
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    font-weight: 300;
+}
+
+/* 3D Canvas */
+#zen-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none; opacity: 0.85;
+}
+
+.vignette {
+    position: absolute; top:0; left:0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 40%, rgba(200, 190, 180, 0.4) 120%);
+    pointer-events: none; z-index: 5;
+}
+
+/* UI Layer */
+.zen-layer {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%; pointer-events: none;
+}
+.zen-layer > * { pointer-events: auto; }
+
+/* Header */
+.z-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 3rem 4rem; 
+}
+.z-logo {
+    font-family: var(--font-serif); font-size: 1.8rem;
+    color: var(--z-stone); font-weight: 400; letter-spacing: 2px;
+}
+
+.z-nav { display: flex; align-items: center; gap: 30px; }
+
+/* CSS Enso circle */
+.z-enso {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 3px solid var(--z-stone);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%); /* Imperfect closing */
+    transform: rotate(45deg); opacity: 0.8;
+}
+
+.z-btn {
+    background: transparent; border: none; color: var(--z-accent);
+    font-family: var(--font-sans); letter-spacing: 3px; cursor: pointer;
+    font-size: 0.9rem; transition: 0.3s;
+}
+.z-btn:hover { color: var(--z-text); }
+
+/* Main Content */
+.z-main { flex-grow: 1; display: flex; justify-content: center; overflow: hidden; }
+.z-scroller { width: 100%; max-width: 700px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 2rem 1rem;}
+.z-scroller::-webkit-scrollbar { display: none; }
+
+.z-hero { text-align: center; margin-top: 10vh; }
+.z-title { font-family: var(--font-serif); font-size: 4rem; line-height: 1.2; color: var(--z-stone); font-weight: 400; margin-bottom: 2.5rem; }
+.z-lead { font-size: 1.2rem; line-height: 1.8; color: var(--z-text); opacity: 0.8; margin-bottom: 4rem; }
+
+.z-prompts { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.z-prompts button {
+    background: transparent; border: 1px solid var(--z-accent);
+    color: var(--z-text); font-family: var(--font-sans); padding: 10px 20px;
+    cursor: pointer; transition: 0.4s; border-radius: 50px; /* Pillow shape */
+    display: flex; align-items: center; gap: 10px; opacity: 0.8;
+}
+.z-prompts button:hover { background: var(--z-stone); color: var(--z-bg); border-color: var(--z-stone); opacity: 1;}
+.z-icon { font-family: var(--font-serif); font-size: 1.2rem; opacity: 0.6;}
+
+/* Response Section */
+.z-response { margin: 2rem 0; background: rgba(245, 242, 235, 0.7); backdrop-filter: blur(10px); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
+.z-response.hidden { display: none; }
+
+.z-status-bar {
+    padding: 20px 40px; text-align: center; font-family: var(--font-serif);
+    color: var(--z-accent); font-size: 1.1rem; border-bottom: 1px solid rgba(139, 153, 138, 0.2);
+    font-style: italic;
+}
+
+.z-content { padding: 3rem 4rem; }
+
+/* Markdown Overrides - Elegant & Clean */
+.markdown-body { color: var(--z-text); font-size: 1.1rem; line-height: 2; }
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-serif); font-weight: 400; color: var(--z-stone); margin: 2.5rem 0 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 10px;}
+.markdown-body h3 { font-family: var(--font-sans); color: var(--z-accent); font-weight: 400; letter-spacing: 1px;}
+.markdown-body p { margin-bottom: 1.5rem; }
+.markdown-body a { color: var(--z-accent); text-decoration: none; border-bottom: 1px solid var(--z-accent); transition: 0.2s;}
+.markdown-body a:hover { color: var(--z-stone); border-color: var(--z-stone); }
+.markdown-body ul li { margin-bottom: 12px; }
+.markdown-body ul li::marker { content: '◦ '; color: var(--z-accent); }
+
+.markdown-body pre { background: rgba(0,0,0,0.02); padding: 2rem; margin: 2rem 0; overflow-x: auto; border-radius: 8px; border-left: 2px solid var(--z-accent); }
+.markdown-body code { background: rgba(0,0,0,0.05); padding: 2px 8px; font-family: monospace; font-size: 0.9em; color: var(--z-stone); border-radius: 4px;}
+.markdown-body pre code { background: transparent; padding: 0; }
+
+.mermaid { background: transparent; padding: 2rem; margin: 2rem 0; display: flex; justify-content: center; }
+
+/* Footer Input */
+.z-footer { padding: 2rem 4rem 4rem 4rem; display: flex; flex-direction: column; align-items: center; }
+.z-input-area {
+    display: flex; width: 100%; max-width: 600px;
+    border-bottom: 1px solid var(--z-stone); padding-bottom: 5px; transition: 0.3s;
+}
+.z-input-area:focus-within { border-bottom-color: var(--z-accent); }
+
+textarea {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: var(--z-text); font-family: var(--font-serif); font-size: 1.3rem;
+    padding: 5px; resize: none; max-height: 120px;
+}
+textarea::placeholder { color: rgba(44,48,46, 0.3); font-style: italic; }
+
+.z-submit {
+    background: transparent; color: var(--z-stone); font-family: var(--font-sans);
+    font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; border: none;
+    cursor: pointer; transition: 0.2s; padding: 0 10px;
+}
+.z-submit:hover { color: var(--z-accent); }
+
+.z-telemetry { margin-top: 20px; font-size: 0.8rem; letter-spacing: 2px; color: var(--z-accent); opacity: 0.7; }
+.z-telemetry .error { color: #d64933; opacity: 1; }
+
+@media (max-width: 768px) {
+    .z-header { padding: 1.5rem 2rem; }
+    .z-title { font-size: 3rem; }
+    .z-footer { padding: 2rem; }
+    .z-content { padding: 2rem; }
+}

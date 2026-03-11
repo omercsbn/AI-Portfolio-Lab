@@ -1,0 +1,26 @@
+* { box-sizing: border-box; }
+body { 
+    background: #000; color: #0f0; 
+    font-family: 'Courier New', Courier, monospace; 
+    margin: 0; padding: 20px; height: 100vh; overflow: hidden;
+}
+
+#terminal {
+    height: 100%; display: flex; flex-direction: column;
+}
+
+.output {
+    flex-grow: 1; overflow-y: auto; padding-bottom: 20px;
+}
+
+.output p, .output pre { margin: 5px 0; font-size: 14px;}
+.ascii-art { font-size: 10px; line-height: 1.2; font-weight: bold; margin-bottom: 20px;}
+
+.input-line { display: flex; align-items: center; }
+.prompt { margin-right: 10px; font-weight: bold; }
+input { 
+    flex-grow: 1; background: transparent; border: none; 
+    color: #0f0; font-family: inherit; font-size: 14px; outline: none;
+}
+
+::selection { background: #0f0; color: #000; }

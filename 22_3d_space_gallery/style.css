@@ -1,0 +1,81 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #000; color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100vh; overflow: hidden;
+    cursor: grab;
+}
+body:active { cursor: grabbing; }
+
+.overlay-hud {
+    position: fixed; top: 0; left: 0; width: 100%; padding: 2rem;
+    display: flex; justify-content: space-between; z-index: 100;
+    pointer-events: none; opacity: 0.5; font-size: 0.9rem; letter-spacing: 2px;
+}
+
+/* 3D Scene Setup */
+.scene {
+    width: 100vw; height: 100vh;
+    perspective: 800px;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.room {
+    width: 600px; height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-300px); /* Push back so we sit inside */
+    transition: transform 0.1s linear; /* Smooth mouse tracking */
+}
+
+/* Room Faces */
+.face {
+    position: absolute; width: 600px; height: 400px;
+    background: rgba(10, 10, 15, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 100px rgba(0,0,0,1);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 2rem;
+    backface-visibility: hidden;
+}
+
+/* Positioning Walls */
+.front  { transform: rotateY(  0deg) translateZ(300px); }
+.right  { transform: rotateY( 90deg) translateZ(300px); }
+.back   { transform: rotateY(180deg) translateZ(300px); }
+.left   { transform: rotateY(-90deg) translateZ(300px); }
+
+/* Floor */
+.floor {
+    width: 600px; height: 600px; top: -100px;
+    transform: rotateX(-90deg) translateZ(200px);
+    background: #050505; border: none; box-shadow: none;
+}
+
+.grid-texture {
+    width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(500px) rotateX(60deg);
+}
+
+/* Typography & Content */
+h1 { font-size: 4rem; line-height: 1; margin-bottom: 1rem; color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.5);}
+h2 { font-size: 2rem; margin-bottom: 2rem; letter-spacing: 4px; color: #888;}
+p { font-size: 1.2rem; color: #ccc;}
+
+.skill-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;}
+.skill-tags span { padding: 5px 15px; border: 1px solid #333; border-radius: 20px; font-size: 1.1rem;}
+
+.proj-list { list-style: none; text-align: left; }
+.proj-list li { font-size: 1.5rem; margin-bottom: 1rem; color: #fff; }
+
+.contact-btn {
+    display: inline-block; padding: 1rem 3rem; background: #fff; color: #000;
+    text-decoration: none; font-weight: bold; font-size: 1.5rem; border-radius: 4px;
+    transition: transform 0.2s;
+}
+.contact-btn:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(255,255,255,0.8);}

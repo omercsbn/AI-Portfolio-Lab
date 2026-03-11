@@ -1,0 +1,166 @@
+/* PLASMA GLOBE THEME */
+:root {
+    --v-bg: #030108; /* Very dark void purple/black */
+    --v-text: #b3c2ff; /* Cool tech blue/white */
+    --v-plasma: #aa33ff; /* Deep purple plasma */
+    --v-spark: #33aaff; /* Bright cyan lightning */
+    --v-glass: rgba(170, 51, 255, 0.1);
+    --font-head: 'Exo 2', sans-serif;
+    --font-body: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--v-bg);
+    color: var(--v-text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Base Grid */
+body::before {
+    content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+    background-image: 
+        linear-gradient(rgba(51, 170, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(51, 170, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none; z-index: 0;
+}
+
+/* CSS Flicker Overlay for High Voltage effect */
+.electric-flicker {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 100;
+    pointer-events: none; background: #fff; opacity: 0;
+    mix-blend-mode: overlay;
+}
+.electric-flicker.active { animation: voltFlicker 0.2s infinite; }
+@keyframes voltFlicker {
+    0% { opacity: 0; }
+    5% { opacity: 0.8; }
+    10% { opacity: 0; }
+    50% { opacity: 0; }
+    55% { opacity: 0.3; }
+    60% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* 3D Canvas */
+#plasma-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none;
+}
+
+/* UI Layer */
+.lab-layer {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%; pointer-events: none; padding: 20px 40px;
+}
+.lab-layer > * { pointer-events: auto; }
+
+/* Header */
+.v-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 20px; border-bottom: 1px solid rgba(51, 170, 255, 0.3);
+}
+.v-brand { font-family: var(--font-head); font-size: 2rem; color: #fff; font-weight: 700; letter-spacing: 2px; text-shadow: 0 0 10px var(--v-spark);}
+.v-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+.v-status { color: var(--v-plasma); text-shadow: 0 0 5px var(--v-plasma); letter-spacing: 1px;}
+
+.v-btn {
+    background: transparent; border: 1px solid var(--v-spark); color: var(--v-spark);
+    font-family: var(--font-body); font-size: 0.9rem; padding: 2px 10px; cursor: pointer; transition: 0.2s;
+}
+.v-btn:hover { background: var(--v-spark); color: #000; box-shadow: 0 0 15px var(--v-spark);}
+
+/* Main Content Area */
+.v-main { flex-grow: 1; display: flex; justify-content: flex-start; overflow: hidden; position: relative;}
+.v-scroller { width: 100%; max-width: 650px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 40px 20px 0 0;}
+.v-scroller::-webkit-scrollbar { display: none; }
+
+.v-hero { padding: 30px; background: rgba(5, 2, 15, 0.8); border: 1px solid rgba(51, 170, 255, 0.2); border-left: 4px solid var(--v-spark); backdrop-filter: blur(5px);}
+.v-headline {
+    font-family: var(--font-head); font-size: 4rem; line-height: 1; margin-bottom: 20px;
+    font-weight: 300; color: #fff; text-shadow: 0 0 20px rgba(51,170,255,0.5); letter-spacing: 5px;
+}
+.v-lead { font-size: 1.1rem; line-height: 1.6; color: var(--v-text); margin-bottom: 30px; text-align: justify;}
+
+.v-prompts { display: flex; flex-direction: column; gap: 15px; }
+.volt-btn {
+    background: rgba(0,0,0,0.5); border: 1px solid rgba(51,170,255,0.3);
+    color: var(--v-spark); font-family: var(--font-body); font-size: 0.95rem;
+    padding: 12px 20px; cursor: pointer; transition: 0.2s; text-align: left;
+    display: flex; align-items: center; justify-content: flex-start;
+}
+.volt-btn:hover { border-color: var(--v-spark); background: rgba(51,170,255,0.1); box-shadow: inset 0 0 10px rgba(51,170,255,0.2), 0 0 15px rgba(51,170,255,0.3); padding-left: 25px;}
+
+/* Response Section */
+.v-response { margin: 2rem 0; background: rgba(10, 5, 20, 0.9); border: 1px solid var(--v-plasma); box-shadow: 0 0 30px rgba(170,51,255,0.2); border-radius: 4px; overflow: hidden;}
+.v-response.hidden { display: none; }
+
+.v-status-bar {
+    padding: 10px 20px; background: rgba(170,51,255,0.2); border-bottom: 1px solid var(--v-plasma);
+    display: flex; align-items: center; gap: 10px; color: #fff; font-family: var(--font-head); letter-spacing: 2px;
+}
+.warning-icon { color: #fff; text-shadow: 0 0 10px #fff; animation: zapp 0.1s infinite alternate;}
+@keyframes zapp { from { opacity: 0.5; transform: translateX(-1px);} to { opacity: 1; transform: translateX(1px);} }
+
+.v-content { padding: 30px; text-align: left; }
+
+/* Markdown Overrides - Laboratory Style */
+.markdown-body { color: var(--v-text); font-size: 1.05rem; line-height: 1.6; }
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-head); font-weight: 400; font-size: 2rem; color: #fff; margin: 2rem 0 1rem; border-bottom: 1px solid var(--v-spark); padding-bottom: 5px; text-shadow: 0 0 10px var(--v-spark);}
+.markdown-body h3 { font-family: var(--font-head); font-weight: 300; color: var(--v-plasma); font-size: 1.5rem; margin-top: 1.5rem;}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body a { color: var(--v-spark); text-decoration: none; border-bottom: 1px solid rgba(51,170,255,0.5); transition: 0.2s; }
+.markdown-body a:hover { background: rgba(51,170,255,0.2); }
+.markdown-body ul { margin-left: 20px; }
+.markdown-body ul li { margin-bottom: 5px; }
+.markdown-body ul li::marker { content: '[+] '; color: var(--v-plasma); }
+
+.markdown-body pre { background: rgba(0,0,0,0.8); border: 1px solid rgba(51,170,255,0.3); padding: 1.5rem; margin: 2rem 0; overflow-x: auto; box-shadow: inset 0 0 20px rgba(0,0,0,1);}
+.markdown-body code { background: rgba(170,51,255,0.2); padding: 2px 6px; font-family: monospace; font-size: 0.9em; color: #e6ccff; border: 1px solid rgba(170,51,255,0.3);}
+.markdown-body pre code { background: transparent; color: var(--v-spark); border: none; padding: 0;}
+
+.mermaid { background: #000; padding: 2rem; border: 1px solid rgba(51,170,255,0.3); margin: 2rem 0; display: flex; justify-content: center; border-radius: 5px;}
+.mermaid * { font-family: var(--font-body) !important;}
+
+/* Footer Input */
+.v-footer { padding-top: 20px; border-top: 1px solid rgba(51, 170, 255, 0.3); width: 100%; max-width: 650px;}
+.v-input-group {
+    display: flex; align-items: stretch; background: rgba(0,0,0,0.6);
+    border: 1px solid var(--v-spark); transition: 0.3s;
+}
+.v-input-group:focus-within { box-shadow: 0 0 20px rgba(51,170,255,0.3); background: rgba(10,5,20,0.8);}
+
+textarea {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: #fff; font-family: var(--font-body); font-size: 1.1rem;
+    padding: 15px; resize: none; max-height: 120px;
+}
+textarea::placeholder { color: rgba(51,170,255,0.4); }
+
+.v-submit {
+    background: rgba(51,170,255,0.1); color: var(--v-spark); border: none; border-left: 1px solid var(--v-spark);
+    padding: 0 25px; font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; letter-spacing: 2px;
+    cursor: pointer; transition: 0.2s;
+}
+.v-submit:hover { background: var(--v-spark); color: #000; box-shadow: 0 0 20px var(--v-spark);}
+
+.v-telemetry { margin-top: 10px; font-size: 0.8rem; color: #5577aa; letter-spacing: 1px;}
+.v-telemetry .error { color: #ff3333; text-shadow: 0 0 10px #ff3333; animation: blinker 0.5s steps(2, start) infinite;}
+@keyframes blinker { to { visibility: hidden; } }
+
+@media (max-width: 768px) {
+    .lab-layer { padding: 15px; }
+    .v-header { flex-direction: column; gap: 10px; border: none;}
+    .v-nav { align-items: flex-start; }
+    .v-scroller { padding-right: 0;}
+    .v-headline { font-size: 2.5rem; }
+    .v-footer { max-width: 100%; }
+    .v-input-group { flex-direction: column; }
+    .v-submit { border-left: none; border-top: 1px solid var(--v-spark); padding: 15px; }
+}

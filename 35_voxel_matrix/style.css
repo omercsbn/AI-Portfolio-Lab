@@ -1,0 +1,138 @@
+/* VOXEL ASCII HACKER THEME */
+:root {
+    --m-bg: #000500; /* Deepest green-black */
+    --m-text: #00ff00; /* Classic terminal green */
+    --m-text-dim: #008800; /* Dimmer green */
+    --m-dark: #001a00; /* Super dark green background elements */
+    --m-error: #ff0033; /* Hacker red */
+    --font-mono: 'Fira Code', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--m-bg);
+    color: var(--m-text);
+    font-family: var(--font-mono);
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    /* Simulate a slightly blurry old phosphor display */
+    text-shadow: 0 0 5px rgba(0,255,0,0.5);
+}
+
+/* 3D Canvas */
+#matrix-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none; opacity: 0.4; /* Let the UI pop */
+}
+
+/* Scanlines */
+.scanlines {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    z-index: 100; pointer-events: none; opacity: 0.6;
+}
+
+/* UI Layer */
+.hacker-layer {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+    height: 100vh; width: 100%; pointer-events: none;
+}
+.hacker-layer > * { pointer-events: auto; }
+
+/* Header */
+.h-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2rem; border-bottom: 1px dotted var(--m-text-dim);
+    background: rgba(0,5,0,0.8);
+}
+.sys-info { font-weight: 700; display: flex; align-items: center; gap: 5px;}
+.blinking-cursor { animation: blink 1s step-end infinite; display: inline-block;}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.cli-btn {
+    background: transparent; border: none; color: var(--m-text);
+    font-family: var(--font-mono); font-size: 1rem; cursor: pointer;
+    font-weight: 700; transition: 0.2s;
+}
+.cli-btn:hover { background: var(--m-text); color: var(--m-bg); text-shadow: none; }
+
+/* Main */
+.h-main { flex-grow: 1; display: flex; justify-content: center; overflow: hidden; }
+.h-scroller { width: 100%; max-width: 800px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 2rem; }
+.h-scroller::-webkit-scrollbar { display: none; }
+
+/* Hero */
+.h-hero { margin-top: 5vh; }
+.ascii-art { font-size: 0.6rem; line-height: 1.2; color: var(--m-text-dim); margin-bottom: 2rem; white-space: pre; font-weight: bold;}
+.h-title { font-size: 2rem; margin-bottom: 2rem; font-weight: 700; border-bottom: 2px solid var(--m-text); padding-bottom: 10px; display: inline-block;}
+.h-desc { font-size: 1rem; line-height: 1.8; margin-bottom: 3rem; color: #a3f7a3; }
+
+.cmd-prompts { display: flex; flex-direction: column; gap: 10px; }
+.cmd-prompts button {
+    background: var(--m-dark); border: 1px solid var(--m-text-dim);
+    color: var(--m-text); font-family: var(--font-mono); text-align: left;
+    padding: 10px 15px; cursor: pointer; transition: 0.2s;
+}
+.cmd-prompts button:before { content: '$ '; color: var(--m-text-dim); }
+.cmd-prompts button:hover { border-color: var(--m-text); background: rgba(0,255,0,0.1); box-shadow: inset 0 0 10px rgba(0,255,0,0.2); }
+
+/* Response */
+.h-response { margin: 2rem 0; background: var(--m-bg); border: 1px solid var(--m-text); box-shadow: 5px 5px 0 var(--m-text-dim); }
+.h-response.hidden { display: none; }
+
+.h-status-bar {
+    background: var(--m-text); color: var(--m-bg); padding: 5px 15px;
+    font-weight: 700; font-size: 0.9rem; display: flex; justify-content: space-between; text-shadow: none;
+}
+.pulse-text { animation: blink 0.5s step-end infinite; }
+
+.h-content { padding: 2rem; }
+
+/* Markdown Overrides */
+.markdown-body { color: var(--m-text); font-size: 1rem; line-height: 1.6; }
+.markdown-body h1, .markdown-body h2 { border-bottom: 1px dashed var(--m-text-dim); padding-bottom: 0.5rem; margin: 2rem 0 1rem; font-weight: 700; color: #fff;}
+.markdown-body h1:before, .markdown-body h2:before { content: '### '; color: var(--m-text-dim); }
+.markdown-body h3 { color: #a3f7a3; }
+.markdown-body p { margin-bottom: 1.5rem; }
+.markdown-body a { color: #fff; text-decoration: underline; text-decoration-color: var(--m-text); text-underline-offset: 4px; }
+.markdown-body a:hover { background: var(--m-text); color: var(--m-bg); text-decoration: none;}
+.markdown-body ul li { margin-bottom: 10px; list-style-type: none; }
+.markdown-body ul li:before { content: '[-] '; color: var(--m-text-dim); font-weight: bold; }
+
+.markdown-body pre { background: var(--m-dark); border: 1px solid var(--m-text-dim); padding: 1rem; margin: 2rem 0; overflow-x: auto; font-size: 0.9rem;}
+.markdown-body code { background: rgba(0,255,0,0.1); padding: 2px 4px; color: #fff; }
+.markdown-body pre code { background: transparent; padding: 0; color: var(--m-text); }
+
+/* Mermaid */
+.mermaid { background: var(--m-dark); border: 1px solid var(--m-text-dim); padding: 2rem; margin: 2rem 0; }
+.mermaid * { color: var(--m-text) !important; font-family: var(--font-mono) !important; font-size: 10px !important; text-shadow: none; }
+.mermaid path { stroke: var(--m-text) !important; stroke-width: 1px !important; }
+.mermaid rect { fill: var(--m-bg) !important; stroke: var(--m-text-dim) !important; }
+
+/* Footer Input */
+.h-footer { padding: 1.5rem 2rem; background: rgba(0,5,0,0.9); border-top: 1px dotted var(--m-text-dim); }
+.cli-input-line { display: flex; align-items: flex-start; max-width: 800px; margin: 0 auto; gap: 10px; }
+.prompt-char { color: var(--m-text-dim); font-weight: 700; padding-top: 2px;}
+
+textarea {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: var(--m-text); font-family: var(--font-mono); font-size: 1rem;
+    resize: none; max-height: 150px; text-shadow: inherit; font-weight: 400; padding-top:2px;
+}
+textarea::placeholder { color: rgba(0,255,0,0.3); }
+
+#submitBtn { padding: 2px 10px; border: 1px solid var(--m-text); height: fit-content; }
+
+.cli-footer-info { max-width: 800px; margin: 10px auto 0; font-size: 0.75rem; color: var(--m-text-dim); }
+#rateLimitStatus.error { color: var(--m-error); animation: blink 1s step-end infinite; }
+
+@media (max-width: 768px) {
+    .h-header { padding: 1rem; }
+    .h-hero { margin-top: 2vh; }
+    .ascii-art { font-size: 0.4rem; }
+    .prompt-char { display: none; } /* Space saving on mobile */
+}

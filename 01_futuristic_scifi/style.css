@@ -1,0 +1,75 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; color: #00ffcc; font-family: 'Share Tech Mono', monospace; overflow: hidden; }
+
+/* 3D Canvas Layer */
+#canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+
+/* CRT Scanline Overlay */
+.scanlines { 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); 
+    background-size: 100% 2px, 3px 100%; 
+    z-index: 2; pointer-events: none; 
+}
+
+/* UI Overlay */
+.overlay { 
+    position: relative; z-index: 3; width: 100%; height: 100%; 
+    display: flex; flex-direction: column; padding: 2rem; 
+    overflow-y: auto;
+}
+
+header { 
+    display: flex; justify-content: space-between; align-items: center; 
+    border-bottom: 1px solid rgba(0,255,204,0.3); padding-bottom: 1rem; 
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+nav a { 
+    color: #00ffcc; text-decoration: none; margin-left: 1rem; 
+    transition: all 0.2s; padding: 0.5rem;
+}
+
+nav a:hover { 
+    background: rgba(0,255,204,0.2); text-shadow: 0 0 10px #00ffcc; 
+}
+
+main { flex-grow: 1; display: flex; flex-direction: column; gap: 6rem; padding: 4rem 1rem; max-width: 900px; margin: 0 auto;}
+
+.sec-block { text-align: left; width: 100%; }
+.sec-block h2 { margin-bottom: 2rem; font-size: 2rem; border-bottom: 1px dashed rgba(0,255,204,0.3); padding-bottom: 0.5rem; text-shadow: 0 0 5px #00ffcc;}
+
+#hero { text-align: center; }
+
+h1.glitch { 
+    font-size: clamp(3rem, 6vw, 6rem); 
+    text-shadow: 0 0 15px rgba(0,255,204,0.8); 
+    margin: 1rem 0; position: relative;
+}
+
+.blink { animation: blinker 1s linear infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
+
+.desc { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.8; line-height: 1.6;}
+
+/* Bounding box grid for projects */
+.action-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;
+}
+
+.project-grid-item {
+    border: 1px solid rgba(0,255,204,0.5);
+    padding: 1.5rem;
+    background: rgba(0,255,204,0.05);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.project-grid-item:hover {
+    background: #00ffcc; color: #000; box-shadow: 0 0 20px #00ffcc;
+}
+
+footer {
+    text-align: center; margin-top: auto; border-top: 1px solid rgba(0,255,204,0.3); padding-top: 1rem; font-size: 0.8rem; opacity: 0.6;
+}

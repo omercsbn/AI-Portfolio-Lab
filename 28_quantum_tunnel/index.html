@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Quantum Architecture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <!-- Infinite Tunnel 3D Canvas -->
+    <canvas id="tunnel-canvas"></canvas>
+
+    <!-- Frosted Overlay UI Layer -->
+    <div class="quantum-layer">
+        
+        <header class="q-header">
+            <div class="q-brand">
+                <svg class="hex-logo" viewBox="0 0 100 100">
+                    <polygon points="50 0 93.3 25 93.3 75 50 100 6.7 75 6.7 25" fill="none" stroke="var(--q-primary)" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="10" fill="var(--q-primary)"/>
+                </svg>
+                <div class="q-brand-text">
+                    <span class="q-name">ÖMERCAN SABUN</span>
+                    <span class="q-tagline">Quantum Infrastructure Proxy // Active</span>
+                </div>
+            </div>
+            
+            <div class="q-controls">
+                <button id="langToggle" class="hex-btn">EN</button>
+                <a href="mailto:hello@omercan.dev" class="hex-btn primary">UPLINK</a>
+            </div>
+        </header>
+
+        <main class="q-main">
+            <div class="q-scroll-area">
+                
+                <section class="q-hero" id="heroSection">
+                    <div class="q-data-card">
+                        <div class="data-ring"></div>
+                        <h1 class="q-title">High Velocity<br>Data Processing</h1>
+                        <p class="q-desc">
+                            Welcome to the data core. I analyze, route, and orchestrate massive datasets utilizing modern cloud-native approaches. What data stream would you like to access?
+                        </p>
+                        
+                        <div class="q-actions">
+                            <button onclick="insertPrompt('Explain your high-performance data processing approach')">
+                                <span class="arr">»</span> Data Strategies
+                            </button>
+                            <button onclick="insertPrompt('Draw a Mermaid architecture for a scalable system')">
+                                <span class="arr">»</span> System Topologies
+                            </button>
+                            <button onclick="insertPrompt('What are the core technologies you use?')">
+                                <span class="arr">»</span> Technology Matrix
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="q-response hidden" id="responseDisplay">
+                    <div class="q-status-bar">
+                        <span id="responseStatus" class="q-status-text">INITIALIZING QUANTUM ROUTING...</span>
+                        <div class="q-loader"></div>
+                    </div>
+                    
+                    <div class="q-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="q-footer">
+            <div class="q-input-group">
+                <div class="q-icon">◈</div>
+                <textarea id="promptInput" rows="1" placeholder="Inject parameter sequence... (Shift+Enter for multi-line)"></textarea>
+                <button id="submitBtn" class="q-submit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
+            </div>
+            <div class="q-system-info">
+                <span id="rateLimitStatus">NODE_READY // Q_AVAILABLE: 5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

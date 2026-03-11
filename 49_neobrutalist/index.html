@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÖMERCAN SABUN | BRUTAL.ARCHITECT</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Loud, blocky sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Physics Canvas -->
+    <canvas id="brutal-canvas"></canvas>
+
+    <div class="brutal-layer">
+        
+        <header class="b-header brutal-box">
+            <h1 class="b-brand">Ö.SABUN*</h1>
+            <nav class="b-nav">
+                <span class="bad-badge">CLOUD</span>
+                <span class="bad-badge black">ARCHITECT</span>
+                <button id="langToggle" class="b-btn brutal-box round">EN</button>
+            </nav>
+        </header>
+
+        <main class="b-main">
+            <div class="b-scroller">
+                
+                <section class="b-hero brutal-box" id="heroSection">
+                    <div class="marquee-container">
+                        <div class="marquee-text">
+                            NO FILLER CONTENT. RAW PERFORMANCE. 0 B.S. ARCHITECTURE.
+                            NO FILLER CONTENT. RAW PERFORMANCE. 0 B.S. ARCHITECTURE.
+                            NO FILLER CONTENT. RAW PERFORMANCE. 0 B.S. ARCHITECTURE.
+                        </div>
+                    </div>
+
+                    <div class="hero-content">
+                        <h2 class="b-headline">SOLID<br>FOUNDATIONS.</h2>
+                        <p class="b-lead">
+                            Web3 and high-load servers don't care about pretty code. They care about <strong>uptime</strong>. I build unapologetically resilient architectures using robust event-driven models that survive absolute chaos.
+                        </p>
+                        
+                        <div class="b-prompts">
+                            <button class="b-action-btn brutal-box popup" onclick="insertPrompt('Explain robust server failover strategies')">
+                                <span class="arrow">↓</span> FAILOVER STRATEGY
+                            </button>
+                            <button class="b-action-btn brutal-box popup primary" onclick="insertPrompt('Draw a Mermaid diagram of an API Gateway router')">
+                                <span class="arrow">↓</span> PLOT GATEWAY
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="b-response hidden brutal-box" id="responseDisplay">
+                    <div class="b-status-bar">
+                        <div class="loading-blocks">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span id="responseStatus" class="status-alert">INITIALIZING...</span>
+                    </div>
+                    
+                    <div class="b-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="b-footer">
+            <div class="b-input-group brutal-box">
+                <textarea id="promptInput" rows="1" placeholder="ENTER QUERY..."></textarea>
+                <button id="submitBtn" class="b-submit brutal-box">SEND IT</button>
+            </div>
+            
+            <div class="b-telemetry brutal-box inline">
+                <span id="rateLimitStatus">REMAINING QUOTA: 5/5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Decorative brutalist stickers -->
+    <div class="sticker s1 brutal-box circle">100%<br>UPTIME</div>
+    <div class="sticker s2 brutal-box">A+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

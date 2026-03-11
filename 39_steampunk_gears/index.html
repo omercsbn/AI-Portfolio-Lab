@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Clockwork Architect</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Victorian Serif and a mechanical looking sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <canvas id="steampunk-canvas"></canvas>
+    <div id="steam-overlay"></div>
+
+    <div class="brass-layer">
+        
+        <header class="sp-header">
+            <div class="sp-logo">
+                <h1>Ömercan Sabun</h1>
+                <span class="sp-title">Chief Engineer of Cloud Mechanics</span>
+            </div>
+            <div class="sp-dials">
+                <div class="dial"><div class="needle" id="pressure-needle"></div><span>PRESSURE</span></div>
+                <button id="langToggle" class="brass-btn">ENGLISH</button>
+            </div>
+        </header>
+
+        <main class="sp-main">
+            <div class="sp-scroller">
+                
+                <section class="sp-hero" id="heroSection">
+                    <h2 class="sp-headline">THE MACHINE<br>NEVER SLEEPS.</h2>
+                    <p class="sp-lead">
+                        Precision engineering for the modern æther. I forge cloud-native architectures that run like clockwork, utilizing Event-Driven cogs and highly resilient microservice pistons.
+                    </p>
+                    
+                    <div class="sp-prompts">
+                        <button class="brass-btn" onclick="insertPrompt('Explain your blueprint for a resilient system')">
+                            Explain Resilient Systems
+                        </button>
+                        <button class="brass-btn" onclick="insertPrompt('Draw a Mermaid diagram of a steam-powered (event-driven) architecture')">
+                            Draft Architecture Blueprint
+                        </button>
+                    </div>
+                </section>
+
+                <section class="sp-response hidden" id="responseDisplay">
+                    <div class="sp-frame">
+                        <div class="sp-status-bar">
+                            <span class="gear-icon">⚙</span>
+                            <span id="responseStatus">CALCULATING TRAJECTORY...</span>
+                        </div>
+                        
+                        <div class="sp-content markdown-body" id="responseContent"></div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="sp-footer">
+            <div class="sp-input-housing">
+                <textarea id="promptInput" rows="1" placeholder="Wind the spring... Enter instruction."></textarea>
+                <button id="submitBtn" class="brass-btn primary">PULL LEVER</button>
+            </div>
+            <div class="sp-telemetry">
+                <span id="rateLimitStatus">VALVE STATUS: 5/5 PERMITTED RELEASES</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

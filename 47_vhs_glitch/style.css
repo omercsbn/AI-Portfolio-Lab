@@ -1,0 +1,201 @@
+/* VHS GLITCH / ANALOG HORROR THEME */
+:root {
+    --v-bg: #0000aa; /* Classic VCR blue screen */
+    --v-text: #ffffff;
+    --v-osd: #00ff00; /* VCR green text */
+    --v-glitch1: #ff00ff; /* Magenta channel */
+    --v-glitch2: #00ffff; /* Cyan channel */
+    --font-vhs: 'VT323', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--v-bg);
+    color: var(--v-text);
+    font-family: var(--font-vhs);
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    /* Soft CRT curvature illusion */
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+}
+
+/* Base VHS CSS Effects */
+.vhs-scanlines {
+    position: absolute; top:0; left:0; width: 100%; height: 100%; z-index: 50;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px; pointer-events: none;
+}
+.vhs-flicker {
+    position: absolute; top:0; left:0; width: 100%; height: 100%; z-index: 51;
+    background: rgba(255,255,255,0.02); pointer-events: none;
+    animation: flicker 0.15s infinite;
+}
+@keyframes flicker {
+    0% { opacity: 0.05; }
+    50% { opacity: 0.1; }
+    100% { opacity: 0.02; }
+}
+
+/* 3D Canvas */
+#glitch-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none; mix-blend-mode: screen;
+}
+
+/* VHS OSD (On Screen Display) */
+.vhs-osd {
+    position: absolute; z-index: 40; color: var(--v-text); font-size: 2.5rem;
+    pointer-events: none; text-shadow: 2px 2px 0 rgba(0,0,0,0.8);
+    line-height: 1.2;
+}
+.vhs-osd.top-left { top: 40px; left: 50px; }
+.vhs-osd.top-right { top: 40px; right: 50px; text-align: right; }
+.play-icon { font-size: 3rem; }
+.vcr-counter { color: var(--v-osd); }
+
+.blink { animation: blinker 1s cubic-bezier(0.5, 0, 1, 1) infinite alternate; }
+@keyframes blinker { 100% { opacity: 0; } }
+
+/* UI Layer */
+.tape-layer {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%; pointer-events: none;
+    /* Chromatic aberration overlay */
+    text-shadow: 1px 0px var(--v-glitch1), -1px 0px var(--v-glitch2);
+}
+.tape-layer > * { pointer-events: auto; }
+
+/* Header */
+.v-header {
+    display: flex; justify-content: flex-end; padding: 2rem 50px; 
+}
+.v-btn {
+    background: transparent; border: none; color: var(--v-text);
+    font-family: var(--font-vhs); font-size: 1.5rem; cursor: pointer;
+    text-shadow: inherit; border-bottom: 2px solid transparent;
+}
+.v-btn:hover { color: var(--v-osd); border-bottom-color: var(--v-osd); }
+
+/* Main Content */
+.v-main { flex-grow: 1; display: flex; justify-content: flex-start; overflow: hidden; }
+.v-scroller { width: 100%; max-width: 800px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 2rem 50px;}
+.v-scroller::-webkit-scrollbar { display: none; }
+
+.v-hero { margin-top: 10vh; }
+
+/* CSS Glitch Text */
+.glitch-text {
+    position: relative; font-size: 4.5rem; line-height: 1.1; margin-bottom: 2rem;
+    color: #fff; letter-spacing: -2px; text-transform: uppercase;
+}
+.glitch-text::before, .glitch-text::after {
+    content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+.glitch-text::before {
+    left: 4px; text-shadow: -2px 0 var(--v-glitch1);
+    clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch-text::after {
+    left: -4px; text-shadow: -2px 0 var(--v-glitch2);
+    clip: rect(44px, 450px, 56px, 0); animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim {
+    0% { clip: rect(69px, 9999px, 81px, 0); }
+    20% { clip: rect(10px, 9999px, 99px, 0); }
+    40% { clip: rect(44px, 9999px, 3px, 0); }
+    60% { clip: rect(72px, 9999px, 86px, 0); }
+    80% { clip: rect(3px, 9999px, 12px, 0); }
+    100% { clip: rect(89px, 9999px, 73px, 0); }
+}
+@keyframes glitch-anim2 {
+    0% { clip: rect(39px, 9999px, 11px, 0); }
+    20% { clip: rect(90px, 9999px, 59px, 0); }
+    40% { clip: rect(24px, 9999px, 73px, 0); }
+    60% { clip: rect(52px, 9999px, 16px, 0); }
+    80% { clip: rect(83px, 9999px, 42px, 0); }
+    100% { clip: rect(19px, 9999px, 33px, 0); }
+}
+
+.v-lead { font-size: 1.5rem; line-height: 1.4; color: #ddd; margin-bottom: 3rem; background: rgba(0,0,0,0.5); padding: 5px;}
+
+.v-prompts { display: flex; flex-direction: column; gap: 15px; }
+.tape-btn {
+    background: #000; border: 2px solid #fff; color: #fff;
+    font-family: var(--font-vhs); font-size: 1.3rem; text-align: left;
+    padding: 10px 15px; cursor: pointer; transition: 0.1s; text-shadow: inherit;
+}
+.tape-btn:hover { background: #fff; color: #000; text-shadow: none; }
+.tape-btn:active { transform: translateX(5px); } /* Tape slip feeling */
+
+/* Response Section */
+.v-response { margin: 2rem 0; background: rgba(0,0,0,0.8); border: 2px solid #555; }
+.v-response.hidden { display: none; }
+
+.v-status-bar {
+    padding: 5px 15px; background: #fff; color: #000;
+    font-size: 1.2rem; display: flex; align-items: center; border-bottom: 2px solid #000;
+}
+
+.v-content { padding: 20px; }
+
+/* Markdown Overrides - Terminal / Teletext style */
+.markdown-body { color: var(--v-text); font-size: 1.4rem; line-height: 1.3; }
+.markdown-body h1, .markdown-body h2 { font-size: 2rem; color: var(--v-osd); margin: 1.5rem 0 0.5rem; text-transform: uppercase; background: #000; display: inline-block; padding: 0 10px;}
+.markdown-body h3 { font-size: 1.5rem; color: #fff;}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body a { color: var(--v-glitch2); text-decoration: underline; text-decoration-style: dashed; }
+.markdown-body ul li { margin-bottom: 5px; }
+.markdown-body ul li::marker { content: '> '; color: var(--v-osd); }
+
+.markdown-body pre { background: #0a0a0a; border: 1px dotted #888; padding: 1rem; margin: 1.5rem 0; overflow-x: auto; }
+.markdown-body code { background: #222; padding: 2px 6px; font-size: 0.9em; color: var(--v-glitch1); border: 1px solid #444;}
+.markdown-body pre code { background: transparent; color: var(--v-text); border: none;}
+
+.mermaid { background: #fff; padding: 10px; border: 3px solid #000; margin: 1.5rem 0; display: flex; justify-content: center; filter: contrast(1.5) grayscale(1);}
+.mermaid * { font-family: var(--font-vhs) !important; font-size: 1.2rem; }
+
+/* Footer Input */
+.v-footer { padding: 1rem 50px 3rem 50px; background: rgba(0,0,0,0.7); border-top: 3px solid #555;}
+.input-container { display: flex; align-items: flex-end; width: 100%; max-width: 800px; gap: 10px; border-bottom: 2px solid #fff; padding-bottom: 5px;}
+.prompt-arrow { font-size: 2rem; color: var(--v-osd); line-height: 1;}
+#promptInput {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: var(--v-text); font-family: var(--font-vhs); font-size: 1.6rem;
+    padding: 0; resize: none; max-height: 100px; line-height: 1.2; text-shadow: inherit; text-transform: uppercase;
+}
+#promptInput::placeholder { color: #888; }
+
+.v-submit {
+    background: var(--v-text); color: #000; border: none;
+    padding: 5px 15px; font-family: var(--font-vhs); font-size: 1.4rem;
+    cursor: pointer; transition: 0.1s;
+}
+.v-submit:hover { background: var(--v-osd); }
+
+.v-telemetry { margin-top: 10px; font-size: 1.2rem; color: #888; }
+.v-telemetry .error { color: #ff0000; text-shadow: 0 0 5px #ff0000;}
+
+/* Aggressive visual glitch classes toggled by JS */
+body.heavy-glitch { animation: bgGlitch 0.2s infinite; }
+body.heavy-glitch .tape-layer { transform: skewX(-5deg); filter: contrast(200%) saturate(200%); }
+body.heavy-glitch .vhs-osd { opacity: 0; }
+@keyframes bgGlitch {
+    0% { background-color: var(--v-bg); }
+    25% { background-color: #5500aa; }
+    50% { background-color: #00aa55; }
+    75% { background-color: #222; }
+    100% { background-color: var(--v-bg); }
+}
+
+@media (max-width: 768px) {
+    .vhs-osd { font-size: 1.5rem; }
+    .vhs-osd.top-left { top: 20px; left: 20px; }
+    .vhs-osd.top-right { top: 20px; right: 20px; }
+    .v-header { padding: 1rem 20px; }
+    .v-scroller { padding: 1rem 20px; }
+    .glitch-text { font-size: 3rem; }
+    .v-footer { padding: 1rem 20px 2rem 20px; }
+    #promptInput { font-size: 1.2rem; }
+}

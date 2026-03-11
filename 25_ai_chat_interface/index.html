@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | AI Protocol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="chat-app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="ai-icon">OS</div>
+                <span>DevAssist-OS</span>
+            </div>
+            
+            <div class="history">
+                <p class="h-label">Context Memory</p>
+                <div class="h-item">System Architecture Specs</div>
+                <div class="h-item">K8s Deployment Logs</div>
+                <div class="h-item">AutoFinance RAG Model</div>
+            </div>
+
+            <div class="user-profile">
+                <div class="status-dot"></div>
+                Guest User
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <header class="chat-header">
+                <h2>Ömercan Sabun — Digital Proxy v2.6</h2>
+                <a href="mailto:hello@omercan.dev" class="human-override">Bypass to Human (hello@omercan.dev)</a>
+            </header>
+
+            <div class="chat-window" id="chatWindow">
+                <!-- Messages will be injected here by JS -->
+                <div class="message ai-msg">
+                    <div class="msg-avatar">OS</div>
+                    <div class="msg-bubble">
+                        <p>System initialized. I am the digital proxy for Ömercan Sabun, Software Architect.</p>
+                        <p>I have direct access to his databanks concerning <strong>Cloud-Native Infrastructure, Go, Kubernetes, and AI Orchestration</strong>.</p>
+                        <p>What would you like to know about his work?</p>
+                        <div class="chip-container">
+                            <span class="chip" onclick="askQuestion('What are your main projects?')">View Projects</span>
+                            <span class="chip" onclick="askQuestion('What is your tech stack?')">View Tech Stack</span>
+                            <span class="chip" onclick="askQuestion('Create a contact link.')">Initiate Contact</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="input-box">
+                    <input type="text" id="userInput" placeholder="Query DevAssist-OS...">
+                    <button id="sendBtn" onclick="processInput()">SEND</button>
+                </div>
+                <p class="disclaimer">DevAssist-OS may produce highly technical abstractions. For direct inquiries, bypass to human.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

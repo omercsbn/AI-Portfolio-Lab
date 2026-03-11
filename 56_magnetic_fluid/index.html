@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN | FERROFLUID ARCHITECTURE</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sleek, industrial sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Jura:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Simplex Noise for procedural fluid spikes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Canvas (Ferrofluid Object) -->
+    <canvas id="fluid-canvas"></canvas>
+
+    <!-- UI Layer -->
+    <div class="ferro-layer">
+        
+        <header class="f-header">
+            <h1 class="f-brand">ÖMERCAN_SABUN</h1>
+            <nav class="f-nav">
+                <span class="f-title">MAGNETIC DYNAMICS</span>
+                <button id="langToggle" class="f-btn">EN.POLE</button>
+            </nav>
+        </header>
+
+        <main class="f-main">
+            <div class="f-scroller">
+                
+                <section class="f-hero" id="heroSection">
+                    <h2 class="f-headline">FLUID <br> STRUCTURES.</h2>
+                    <p class="f-lead">
+                        Rigid databases shatter under pressure. True scale requires fluid dynamics. Like ferrofluid reacting to unseen magnetic fields, I design architectures that instantly restructure themselves to align with incoming data streams—spiking in capacity exactly where needed, then resting back to zero.
+                    </p>
+                    
+                    <div class="f-prompts">
+                        <button class="mag-btn" onclick="insertPrompt('Explain database sharding and partitioning')">
+                            POLARIZE: SHARDING STRATEGY
+                        </button>
+                        <button class="mag-btn" onclick="insertPrompt('Draw a Mermaid diagram of an auto-scaling Kubernetes cluster')">
+                            INDUCE: K8S DIAGRAM
+                        </button>
+                    </div>
+                </section>
+
+                <section class="f-response hidden" id="responseDisplay">
+                    <div class="f-status-bar">
+                        <span class="magnetic-field">|||</span>
+                        <span id="responseStatus" class="f-status-text">ALIGNING DIPOLES...</span>
+                    </div>
+                    
+                    <div class="f-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="f-footer">
+            <div class="f-input-field">
+                <textarea id="promptInput" rows="1" placeholder="INDUCE MAGNETIC FIELD..."></textarea>
+                <button id="submitBtn" class="f-submit">EXCITE</button>
+            </div>
+            
+            <div class="f-telemetry">
+                <span id="rateLimitStatus">FLUX CAPACITY: 5/5 Wb</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

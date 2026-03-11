@@ -1,0 +1,75 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #fdfdfd; color: #111;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    display: flex; justify-content: center;
+}
+
+.journal-wrapper {
+    max-width: 1200px; width: 100%; padding: 4rem 2rem;
+    position: relative;
+}
+
+/* Vertical grid lines mimicking newspaper */
+.journal-wrapper::before, .journal-wrapper::after {
+    content: ''; position: fixed; top: 0; width: 1px; height: 100vh; background: rgba(0,0,0,0.05); z-index: -1;
+}
+.journal-wrapper::before { left: 10%; }
+.journal-wrapper::after { right: 10%; }
+
+
+/* Header / Masthead */
+.masthead { border-bottom: 2px solid #111; padding-bottom: 2rem; margin-bottom: 3rem; text-align: center;}
+
+.mast-top { 
+    display: flex; justify-content: space-between; border-top: 1px solid #111; border-bottom: 1px solid #111;
+    padding: 0.5rem 0; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 2rem;
+}
+
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(4rem, 10vw, 8rem); font-weight: 700; line-height: 1; letter-spacing: -2px; margin-bottom: 1rem;}
+.sub-headline { font-size: 1.5rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;}
+
+/* Layout */
+.grid-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
+
+/* Main Article */
+.col-main p { font-size: 1.25rem; font-weight: 300; margin-bottom: 2rem; text-align: justify; hyphens: auto;}
+
+.drop-cap::first-letter {
+    font-family: 'Playfair Display', serif; font-size: 6rem; font-weight: 700; float: left;
+    line-height: 0.8; padding-right: 0.8rem; padding-top: 0.5rem; color: #111;
+}
+
+h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-top: 3rem; margin-bottom: 1rem; font-style: italic;}
+
+.separator { width: 50px; height: 1px; background: #111; margin: 3rem auto; }
+
+.classic-link { color: #111; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s;}
+.classic-link:hover { color: #888; text-decoration: none;}
+
+/* Sidebar */
+.col-side { border-left: 1px solid rgba(0,0,0,0.1); padding-left: 3rem; }
+
+.side-box { margin-bottom: 3rem; border-top: 2px solid #111; padding-top: 1rem;}
+.side-box h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 1rem; letter-spacing: 1px;}
+.side-box p { font-size: 1rem; font-weight: 300; color: #444;}
+
+.side-box ul { list-style: none; }
+.side-box li { margin-bottom: 0.8rem; border-bottom: 1px dotted rgba(0,0,0,0.2); padding-bottom: 0.5rem;}
+.side-box a { color: #111; text-decoration: none; font-weight: 600; transition: opacity 0.2s;}
+.side-box a:hover { opacity: 0.5;}
+
+.img-box img { width: 100%; filter: grayscale(100%); mix-blend-mode: multiply; margin-bottom: 0.5rem;}
+.caption { font-size: 0.85rem !important; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;}
+
+.journal-footer { text-align: center; margin-top: 5rem; padding-top: 2rem; border-top: 1px solid #111; font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .grid-layout { grid-template-columns: 1fr; gap: 2rem;}
+    .col-side { border-left: none; padding-left: 0; }
+    .side-box { border-top: 1px solid #111;}
+    .mast-top { flex-direction: column; text-align: center; gap: 0.5rem;}
+}

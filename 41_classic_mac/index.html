@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | OS 9 Architecture</title>
+    
+    <!-- Using Chicago or similar pixel fonts for the authentic Mac OS 9 vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Background - maybe a rotating Macintosh or Floppy disk -->
+    <canvas id="mac-canvas"></canvas>
+
+    <!-- OS 9 Top Menu Bar -->
+    <div class="mac-menubar">
+        <div class="menu-items">
+            <span class="apple-logo"></span>
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Special</span>
+            <span>Help</span>
+        </div>
+        <div class="menu-right">
+            <button id="langToggle" class="menu-btn">EN</button>
+            <span id="clock" class="menu-clock">12:00 PM</span>
+        </div>
+    </div>
+
+    <!-- Desktop Area -->
+    <div class="mac-desktop">
+        
+        <!-- Icons on desktop -->
+        <div class="desktop-icon" style="top: 20px; right: 20px;">
+            <div class="icon-img hdd"></div>
+            <span>Macintosh HD</span>
+        </div>
+        <div class="desktop-icon" style="top: 100px; right: 20px;">
+            <div class="icon-img trash"></div>
+            <span>Trash</span>
+        </div>
+
+        <!-- Main "Finder" Window -->
+        <main class="mac-window active-window" id="mainWindow">
+            
+            <!-- Window Title Bar -->
+            <div class="window-titlebar">
+                <div class="window-controls">
+                    <div class="close-box"></div>
+                </div>
+                <div class="window-title">System Profiler: Ömercan Sabun</div>
+                <div class="window-controls-right">
+                    <div class="collapse-box"></div>
+                </div>
+            </div>
+
+            <!-- Window Content -->
+            <div class="window-content">
+                <div class="m-scroller">
+                    
+                    <section class="m-hero" id="heroSection">
+                        <h2>Welcome to Macintosh Architecture</h2>
+                        <p class="m-lead">
+                            System initialized. Cloud-Native extensions loaded. Emulating Event-Driven protocols...
+                        </p>
+                        
+                        <div class="m-prompts">
+                            <button class="mac-btn" onclick="insertPrompt('Open ControlPanel -> Microservices')">
+                                [Run] Microservices
+                            </button>
+                            <button class="mac-btn" onclick="insertPrompt('Execute script: compile_topology.md')">
+                                [Exec] Topology Blueprint
+                            </button>
+                            <button class="mac-btn" onclick="insertPrompt('Show system dependencies')">
+                                [View] Tech Stack
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="m-response hidden" id="responseDisplay">
+                        <div class="m-status-bar">
+                            <span id="responseStatus">Processing task...</span>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" id="macProgress"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="m-content markdown-body" id="responseContent"></div>
+                    </section>
+
+                </div>
+            </div>
+
+            <!-- Scrollbar track (visual only) -->
+            <div class="scroll-track-right">
+                <div class="scroll-arrow up"></div>
+                <div class="scroll-thumb"></div>
+                <div class="scroll-arrow down"></div>
+            </div>
+            <div class="scroll-track-bottom">
+                 <div class="scroll-arrow left"></div>
+                 <div class="scroll-thumb horizontal"></div>
+                 <div class="scroll-arrow right"></div>
+            </div>
+            <div class="resize-handle"></div>
+
+        </main>
+
+        <!-- Command Line / Simple Text Input Window -->
+        <div class="mac-window input-window" id="inputWindow">
+            <div class="window-titlebar">
+                <div class="window-controls"><div class="close-box"></div></div>
+                <div class="window-title">Terminal Input</div>
+            </div>
+            <div class="window-content input-content">
+                <textarea id="promptInput" rows="2" placeholder="C:\> Type query here..."></textarea>
+                <div class="input-actions">
+                    <span id="rateLimitStatus">Quota: Okay</span>
+                    <button id="submitBtn" class="mac-btn default">Execute</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

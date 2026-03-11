@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | High Voltage Labs</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Scientific/clean fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Canvas -->
+    <canvas id="plasma-canvas"></canvas>
+
+    <div class="lab-layer">
+        
+        <header class="v-header">
+            <h1 class="v-brand">ÖMERCAN_SABUN</h1>
+            <nav class="v-nav">
+                <span class="v-status">SYSTEM: ONLINE [240V]</span>
+                <button id="langToggle" class="v-btn">EN</button>
+            </nav>
+        </header>
+
+        <main class="v-main">
+            <div class="v-scroller">
+                
+                <section class="v-hero" id="heroSection">
+                    <h2 class="v-headline">HIGH<br>VOLTAGE<br>ARCHITECTURE.</h2>
+                    <p class="v-lead">
+                        Managing high-traffic distributed systems is like controlling raw plasma. Without proper grounding and routing, surges destroy everything. I design resilient architectures that channel massive energy (data) safely to terrestrial endpoints.
+                    </p>
+                    
+                    <div class="v-prompts">
+                        <button class="volt-btn" onclick="insertPrompt('Explain circuit breakers in microservices')">
+                            [!] DEPLOY CIRCUIT BREAKER
+                        </button>
+                        <button class="volt-btn" onclick="insertPrompt('Draw a Mermaid flowchart of a load-balanced API')">
+                            [~] TRACE LOAD BALANCER
+                        </button>
+                    </div>
+                </section>
+
+                <section class="v-response hidden" id="responseDisplay">
+                    <div class="v-status-bar">
+                        <span class="warning-icon">⚡</span>
+                        <span id="responseStatus">CHARGING CAPACITORS...</span>
+                    </div>
+                    
+                    <div class="v-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="v-footer">
+            <div class="v-input-group">
+                <textarea id="promptInput" rows="1" placeholder="ENTER EXPERIMENT PARAMETERS..."></textarea>
+                <button id="submitBtn" class="v-submit">DISCHARGE</button>
+            </div>
+            
+            <div class="v-telemetry">
+                <span id="rateLimitStatus">RESERVE POWER: 5/5 MW</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Flicker Overlay via CSS -->
+    <div class="electric-flicker"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

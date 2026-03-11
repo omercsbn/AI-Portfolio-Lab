@@ -1,0 +1,102 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #02050a; color: #e2e8f0;
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh; overflow-x: hidden;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* Simulated Deep Server Room Background */
+.video-bg {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+    background: radial-gradient(circle at 50% 50%, #0a1128 0%, #010308 100%);
+    opacity: 0.8;
+}
+.video-bg::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: repeating-linear-gradient(rgba(0,0,0,0) 0, rgba(0,0,0,0) 2px, rgba(0, 255, 255, 0.05) 3px, rgba(0,0,0,0) 4px);
+    pointer-events: none;
+}
+
+.vault-container {
+    width: 90%; max-width: 1200px;
+    padding: 2rem;
+}
+
+.vault-header {
+    display: flex; justify-content: space-between; border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    padding-bottom: 1rem; margin-bottom: 3rem; font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px; text-shadow: 0 0 10px rgba(0,255,255,0.5);
+}
+.auth { color: #00ffcc; }
+
+/* Grid */
+.vault-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+}
+
+.span-2 { grid-column: span 2; }
+
+/* Glassmorphism Modules */
+.glass-module {
+    background: rgba(10, 17, 40, 0.6);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    border-radius: 4px; padding: 2.5rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 255, 255, 0.05);
+    position: relative; overflow: hidden;
+}
+
+.glass-module::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffcc, transparent);
+    opacity: 0.5;
+}
+
+.flex-center { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;}
+
+/* Typography */
+.glitch-text {
+    font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 900;
+    color: #fff; text-shadow: 0 0 20px rgba(0,255,255,0.8); margin-bottom: 0.5rem;
+}
+
+.sub-label { font-size: 1.2rem; color: #00ffcc; letter-spacing: 3px; margin-bottom: 2rem; border-left: 3px solid #00ffcc; padding-left: 10px;}
+.crypto-text { font-size: 1.1rem; line-height: 1.6; opacity: 0.8; font-family: monospace;}
+
+/* Visuals */
+.ring-chart {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: conic-gradient(#00ffcc 99%, #333 0);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem; box-shadow: 0 0 30px rgba(0,255,255,0.2);
+}
+.ring-inner {
+    width: 100px; height: 100px; border-radius: 50%; background: #0a1128;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #00ffcc;
+}
+.chart-label { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; letter-spacing: 2px;}
+
+/* Lists */
+.list-module h3 { font-family: 'Orbitron', sans-serif; margin-bottom: 1.5rem; color: #00ffcc; border-bottom: 1px dotted rgba(0,255,255,0.3); padding-bottom: 0.5rem;}
+.list-module ul { list-style: none; }
+.list-module li { margin-bottom: 1.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;}
+.dot { width: 8px; height: 8px; background: #00ffcc; border-radius: 50%; box-shadow: 0 0 10px #00ffcc; display: inline-block;}
+
+/* Buttons */
+.cyber-button {
+    display: inline-block; padding: 1rem 2rem; margin-top: 1rem;
+    background: rgba(0, 255, 255, 0.1); border: 1px solid #00ffcc;
+    color: #00ffcc; font-family: 'Orbitron', sans-serif; text-decoration: none;
+    font-weight: bold; letter-spacing: 2px; transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(0,255,255,0.5); box-shadow: 0 0 15px rgba(0,255,255,0.2);
+}
+.cyber-button:hover { background: #00ffcc; color: #000; box-shadow: 0 0 30px rgba(0,255,255,0.6);}
+
+@media (max-width: 1024px) {
+    .vault-grid { grid-template-columns: 1fr; }
+    .span-2 { grid-column: span 1; }
+    .glitch-text { font-size: 2.5rem; }
+}

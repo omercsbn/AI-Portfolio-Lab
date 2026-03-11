@@ -1,0 +1,139 @@
+/* BRUTALIST KINETIC TYPOGRAPHY THEME */
+:root {
+    --k-bg: #eceae3; /* Off-white paper/concrete */
+    --k-text: #111111; /* Very dark grey, almost black */
+    --k-pop: #ff3300; /* Safety orange / brutalist red */
+    --k-blue: #0000ff; /* Web blue */
+    --font-head: 'Oswald', sans-serif;
+    --font-body: 'IBM Plex Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--k-bg);
+    color: var(--k-text);
+    font-family: var(--font-body);
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    font-weight: 400;
+}
+
+/* 3D Canvas (Background Text) */
+#type-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none; opacity: 0.15; /* Subtle background noise */
+    /* Give it a slight halftone/grain feel via CSS if needed, or rely on overlay */
+    mix-blend-mode: multiply;
+}
+
+/* Noise Overlay */
+.noise-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 100;
+    pointer-events: none;
+    filter: url(#noiseFilter);
+    opacity: 0.4;
+}
+
+/* UI Layer */
+.brutal-layer {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+    height: 100vh; width: 100%;
+}
+
+/* Header */
+.k-header {
+    display: flex; align-items: stretch; height: 60px;
+    border-bottom: 4px solid var(--k-text); background: var(--k-pop);
+}
+.marquee {
+    flex-grow: 1; display: flex; align-items: center;
+    font-family: var(--font-head); font-size: 2rem; color: var(--k-bg); text-transform: uppercase; white-space: nowrap; overflow: hidden; padding: 0 20px;
+}
+.k-btn-outline {
+    background: var(--k-bg); color: var(--k-text); font-family: var(--font-head);
+    font-size: 1.5rem; border: none; border-left: 4px solid var(--k-text);
+    cursor: pointer; padding: 0 30px; transition: 0.2s;
+}
+.k-btn-outline:hover { background: var(--k-text); color: var(--k-bg); }
+
+/* Main */
+.k-main { flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; }
+.k-content-area { width: 100%; height: 100%; overflow-y: auto; padding: 3rem 10vw; scrollbar-width: none;}
+.k-content-area::-webkit-scrollbar { display: none; }
+
+/* Hero */
+.k-headline { font-family: var(--font-head); font-size: 12vw; line-height: 0.85; text-transform: uppercase; letter-spacing: -2px; color: var(--k-text); margin-bottom: 2rem; }
+.k-sub { font-size: 1.5rem; max-width: 600px; line-height: 1.5; font-weight: 700; padding: 20px; background: var(--k-text); color: var(--k-bg); margin-bottom: 3rem; }
+
+.k-prompts { display: flex; gap: 20px; flex-wrap: wrap; }
+.k-action {
+    background: transparent; color: var(--k-text); font-family: var(--font-head); font-size: 1.5rem;
+    border: 4px solid var(--k-text); padding: 10px 20px; cursor: pointer; text-transform: uppercase;
+    transition: 0.1s;
+}
+.k-action.solid { background: var(--k-text); color: var(--k-bg); }
+.k-action:hover { transform: translate(-5px, -5px); box-shadow: 10px 10px 0 var(--k-pop); }
+.k-action.solid:hover { background: var(--k-pop); border-color: var(--k-pop); box-shadow: 10px 10px 0 var(--k-text); color: var(--k-bg); }
+
+/* Response */
+.k-response { border: 4px solid var(--k-text); background: var(--k-bg); margin-bottom: 50px;}
+.k-response.hidden { display: none; }
+
+.k-tape { padding: 10px 20px; background: var(--k-text); color: var(--k-bg); font-family: var(--font-head); font-size: 1.2rem; display: flex; align-items: center;}
+.border-bottom { border-bottom: 4px solid var(--k-text); }
+.border-top { border-top: 4px solid var(--k-text); }
+.blink { animation: blinker 1s linear infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
+
+.k-markdown { padding: 3rem; }
+
+/* Markdown Overrides (Brutalist) */
+.markdown-body { color: var(--k-text); font-size: 1.1rem; line-height: 1.6; }
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-head); font-size: 3rem; text-transform: uppercase; margin: 2rem 0 1rem; background: var(--k-text); color: var(--k-bg); display: inline-block; padding: 5px 15px;}
+.markdown-body h3 { font-family: var(--font-head); font-size: 2rem; color: var(--k-pop); text-transform: uppercase;}
+.markdown-body p { margin-bottom: 1.5rem; font-weight: 400; }
+.markdown-body a { color: var(--k-blue); text-decoration: none; border-bottom: 2px solid var(--k-blue); font-weight: 700;}
+.markdown-body a:hover { background: var(--k-blue); color: #fff; }
+.markdown-body ul li { margin-bottom: 10px; }
+
+.markdown-body pre { background: var(--k-text); color: #fff; padding: 2rem; margin: 2rem 0; overflow-x: auto; font-family: var(--font-body); }
+.markdown-body pre code { background: transparent; color: #00ff00; }
+.markdown-body code { background: rgba(0,0,0,0.1); padding: 2px 6px; font-weight: 700; color: var(--k-pop); }
+
+.mermaid { border: 4px solid var(--k-text); background: #fff; padding: 2rem; margin: 2rem 0; }
+.mermaid * { font-family: var(--font-body) !important; }
+
+/* Footer Input */
+.k-footer { background: var(--k-bg); }
+.k-input-grid { display: flex; align-items: stretch; border-top: 4px solid var(--k-text); height: 100px; }
+.k-input-box { flex-grow: 1; border-right: 4px solid var(--k-text); padding: 20px;}
+
+textarea {
+    width: 100%; height: 100%; border: none; outline: none; background: transparent;
+    color: var(--k-text); font-family: var(--font-head); font-size: 2rem; text-transform: uppercase;
+    resize: none;
+}
+textarea::placeholder { color: var(--k-blue); opacity: 0.5; }
+
+.k-submit-btn {
+    width: 150px; background: var(--k-bg); color: var(--k-text); border: none;
+    font-family: var(--font-head); font-size: 2.5rem; font-weight: 700; cursor: pointer; transition: 0.1s;
+}
+.k-submit-btn:hover { background: var(--k-pop); color: #fff; }
+.k-submit-btn:active { background: var(--k-text); }
+
+.k-ticker { padding: 10px 20px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; background: var(--k-text); color: var(--k-pop);}
+#rateLimitStatus.error { color: #fff; background: var(--k-pop); display: inline-block; padding: 0 10px; animation: blinker 0.5s infinite;}
+
+@media (max-width: 768px) {
+    .k-headline { font-size: 5rem; }
+    .k-action { font-size: 1rem; }
+    .marquee { font-size: 1.2rem; }
+    .k-input-grid { height: 80px; }
+    textarea { font-size: 1.5rem; }
+    .k-submit-btn { width: 100px; font-size: 1.5rem; }
+}

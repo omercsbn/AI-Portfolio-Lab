@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Cyberpunk Proxy</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+
+    <canvas id="cyber-canvas"></canvas>
+
+    <div class="hud-layer">
+        
+        <header class="cyber-header">
+            <div class="glitch-brand" data-text="SYS_ARCH::ÖMERCAN">SYS_ARCH::ÖMERCAN</div>
+            <div class="system-stats">
+                <span id="lang-ind">LANG::TR</span>
+                <span class="blinking-block">_</span>
+            </div>
+            <div class="controls">
+                <button id="langToggle">TOGGLE_LANG</button>
+                <a href="mailto:hello@omercan.dev" class="cyber-btn">INIT_CONTACT</a>
+            </div>
+            
+            <svg class="corner corner-tl" viewBox="0 0 20 20"><path d="M0,20 L0,0 L20,0" fill="none" stroke="var(--neon-cyan)" stroke-width="2"/></svg>
+            <svg class="corner corner-tr" viewBox="0 0 20 20"><path d="M0,0 L20,0 L20,20" fill="none" stroke="var(--neon-cyan)" stroke-width="2"/></svg>
+            <svg class="corner corner-bl" viewBox="0 0 20 20"><path d="M0,0 L0,20 L20,20" fill="none" stroke="var(--neon-cyan)" stroke-width="2"/></svg>
+            <svg class="corner corner-br" viewBox="0 0 20 20"><path d="M20,0 L20,20 L0,20" fill="none" stroke="var(--neon-cyan)" stroke-width="2"/></svg>
+        </header>
+
+        <main class="console-content">
+            
+            <div class="terminal-scroll">
+                
+                <div class="hero-module" id="heroSection">
+                    <h1 class="hero-text" data-text="CYBERNETIC CONSTRUCT">CYBERNETIC CONSTRUCT</h1>
+                    <div class="target-box">
+                        <p class="hero-desc">Identify: Ömercan Sabun. Class: Cloud-Native Architect. Objective: High-scale infrastructure orchestrations.</p>
+                        <div class="quick-hacks">
+                            <button onclick="insertPrompt('Dump system architecture data')">> RUN SEC_AUDIT</button>
+                            <button onclick="insertPrompt('Generate Mermaid diagram of microservice mesh')">> VISUALIZE_MESH</button>
+                            <button onclick="insertPrompt('List primary tech stack protocols')">> LIST_PROTOCOLS</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-feed hidden" id="responseDisplay">
+                    <div class="feed-header">
+                        <span class="pulse-square"></span>
+                        <span id="responseStatus">ESTABLISHING_UPLINK...</span>
+                    </div>
+                    
+                    <div class="feed-content markdown-body" id="responseContent"></div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="cli-input">
+            <div class="input-wrapper">
+                <span class="prompt-arrow">➜</span>
+                <textarea id="promptInput" rows="1" placeholder="ENTER DIRECTIVE (SHIFT+ENTER FOR NL)..." autofocus></textarea>
+                <button id="submitBtn" class="exec-btn">EXEC</button>
+            </div>
+            <div class="quota-bar">
+                <span id="rateLimitStatus">NET_STATUS: ONLINE | QUOTA: 5</span>
+            </div>
+            <svg class="corner corner-tl" viewBox="0 0 20 20"><path d="M0,20 L0,0 L20,0" fill="none" stroke="var(--neon-pink)" stroke-width="2"/></svg>
+            <svg class="corner corner-tr" viewBox="0 0 20 20"><path d="M0,0 L20,0 L20,20" fill="none" stroke="var(--neon-pink)" stroke-width="2"/></svg>
+            <svg class="corner corner-bl" viewBox="0 0 20 20"><path d="M0,0 L0,20 L20,20" fill="none" stroke="var(--neon-pink)" stroke-width="2"/></svg>
+            <svg class="corner corner-br" viewBox="0 0 20 20"><path d="M20,0 L20,20 L0,20" fill="none" stroke="var(--neon-pink)" stroke-width="2"/></svg>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+/* MECHA HUD / RETRO ANIME THEME */
+:root {
+    --h-bg: #050a0f; /* Deep space/cockpit black */
+    --h-orange: #ff5500; /* Evangelion warning orange */
+    --h-green: #00ff66; /* Radar green */
+    --h-red: #ff0033; /* Critical red */
+    --h-blue: #00bbff; /* Data blue */
+    --h-panel: rgba(0, 20, 40, 0.7);
+    --font-heading: 'Teko', sans-serif;
+    --font-data: 'Share Tech Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--h-bg);
+    color: var(--h-green);
+    font-family: var(--font-data);
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    /* Soft CRT scanline */
+    background-image: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,255,102,0.02) 50%);
+    background-size: 100% 4px;
+}
+
+/* Base HUD Grid */
+.hud-grid {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+    pointer-events: none; opacity: 0.15;
+    background-image: 
+        linear-gradient(var(--h-green) 1px, transparent 1px),
+        linear-gradient(90deg, var(--h-green) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center center;
+}
+/* Screen edge vignette */
+.hud-grid::after {
+    content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
+    box-shadow: inset 0 0 100px #000;
+}
+
+/* 3D Canvas Container */
+.hud-container {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 600px; height: 600px; z-index: 1; pointer-events: none;
+    /* Circular radar frame */
+    border: 2px solid rgba(0,255,102,0.3); border-radius: 50%;
+    box-shadow: 0 0 50px rgba(0,255,102,0.1), inset 0 0 50px rgba(0,255,102,0.1);
+}
+#mecha-canvas { width: 100%; height: 100%; }
+/* Crosshairs inside radar */
+.hud-container::before {
+    content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px;
+    background: rgba(0,255,102,0.2);
+}
+.hud-container::after {
+    content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+    background: rgba(0,255,102,0.2);
+}
+
+/* UI Layer */
+.eva-layer {
+    position: relative; z-index: 10; height: 100vh; width: 100%; pointer-events: none;
+}
+.eva-layer > * { pointer-events: auto; }
+
+/* Status Blocks (Corners) */
+.status-block {
+    position: absolute; background: var(--h-panel); border: 2px solid var(--h-orange);
+    padding: 10px; font-family: var(--font-data); color: var(--h-orange);
+}
+.status-block.top-left { top: 20px; left: 20px; border-left: 8px solid var(--h-orange); }
+.status-block.top-right { top: 20px; right: 20px; border-right: 8px solid var(--h-green); border-color: var(--h-green); color: var(--h-green); display: flex; flex-direction: column; align-items: flex-end; gap: 5px;}
+
+.eva-warning {
+    font-family: var(--font-heading); font-size: 2.5rem; line-height: 1;
+    background: var(--h-orange); color: #000; padding: 0 15px; margin-bottom: 5px;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+.pilot-data { font-size: 0.9rem; line-height: 1.4; }
+.pilot-data .label { color: #888; }
+#syncRate { color: #fff; font-weight: bold; }
+
+.eva-btn {
+    background: transparent; border: 1px solid var(--h-green); color: var(--h-green);
+    font-family: var(--font-data); font-size: 0.9rem; padding: 2px 10px; cursor: pointer; transition: 0.1s;
+}
+.eva-btn:hover { background: var(--h-green); color: #000; }
+.hex-readout { font-size: 1.2rem; font-family: var(--font-heading); letter-spacing: 2px;}
+
+/* Animations */
+.blink-fast { animation: blinker 0.3s steps(2, start) infinite; }
+.blink-slow { animation: blinker 1s steps(2, start) infinite; }
+@keyframes blinker { to { visibility: hidden; } }
+
+/* Side Panels */
+.side-panel {
+    position: absolute; top: 150px; width: 200px; background: transparent;
+    font-size: 0.85rem; color: var(--h-blue);
+}
+.panel-header {
+    background: var(--h-blue); color: #000; font-family: var(--font-heading);
+    font-size: 1.5rem; padding: 0 10px; line-height: 1.2; margin-bottom: 10px;
+}
+.left-panel { left: 20px; border-right: 1px solid rgba(0,187,255,0.3); padding-right: 10px;}
+.right-panel { right: 20px; border-left: 1px solid rgba(0,187,255,0.3); padding-left: 10px; text-align: right;}
+.right-panel .panel-header { background: var(--h-orange); color: #000; text-align: right;}
+
+.stat-list { list-style: none; }
+.stat-list li { margin-bottom: 5px; border-bottom: 1px dashed rgba(0,187,255,0.2); padding-bottom: 2px;}
+.stat-list .label { color: rgba(255,255,255,0.6); }
+
+.vertical-text {
+    position: absolute; left: -10px; top: 150px; transform: rotate(-90deg); transform-origin: top left;
+    font-family: var(--font-heading); font-size: 3rem; color: rgba(255,255,255,0.05); white-space: nowrap; letter-spacing: 5px;
+}
+
+.tactical-btn {
+    display: block; width: 100%; background: transparent; border: 1px solid var(--h-orange);
+    color: var(--h-orange); font-family: var(--font-data); font-size: 0.8rem;
+    padding: 8px; margin-bottom: 10px; cursor: pointer; text-align: right; transition: 0.1s;
+}
+.tactical-btn:hover { background: var(--h-orange); color: #000;}
+.tactical-btn .arrow { float: left; }
+
+.crosshair-deco {
+    width: 100%; height: 50px; border: 1px solid rgba(255,85,0,0.3); margin-top: 20px;
+    position: relative;
+}
+.crosshair-deco::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(255,85,0,0.5); }
+.crosshair-deco::after { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255,85,0,0.5); }
+
+/* Main Content Area */
+.eva-main {
+    position: absolute; top: 0; left: 250px; right: 250px; bottom: 120px;
+    display: flex; justify-content: center; overflow: hidden;
+}
+.eva-scroller { width: 100%; max-width: 800px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 20px;}
+.eva-scroller::-webkit-scrollbar { display: none; }
+
+.eva-hero { margin-top: 20vh; text-align: center; background: rgba(0,0,0,0.6); border: 1px solid var(--h-green); padding: 30px; backdrop-filter: blur(5px);}
+.eva-headline {
+    font-family: var(--font-heading); font-size: 5rem; line-height: 0.9; margin-bottom: 20px;
+    color: var(--h-green); text-shadow: 0 0 10px var(--h-green); letter-spacing: -2px;
+}
+.eva-lead { font-size: 1.1rem; line-height: 1.6; color: #fff; text-shadow: 1px 1px 0 #000; text-align: justify; text-align-last: center;}
+
+/* Response Section */
+.eva-response {
+    margin-top: 20vh; background: rgba(0, 10, 0, 0.9); border: 2px solid var(--h-green);
+    box-shadow: 0 0 20px rgba(0,255,102,0.2), inset 0 0 20px #000;
+}
+.eva-response.hidden { display: none; }
+
+.eva-status-bar {
+    padding: 5px 15px; background: var(--h-green); border-bottom: 2px solid #000;
+    display: flex; align-items: center; gap: 10px;
+}
+.pulse-dot { width: 10px; height: 10px; background: #000; border-radius: 50%; animation: pulseData 1s infinite alternate;}
+@keyframes pulseData { from { transform: scale(0.8); opacity: 0.5;} to { transform: scale(1.2); opacity: 1;} }
+
+.orange-text { color: #000; font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 2px; line-height: 1;}
+
+.eva-content { padding: 30px; text-align: left; }
+
+/* Markdown Overrides - Green Terminal */
+.markdown-body { color: var(--h-green); font-size: 1.1rem; line-height: 1.6;}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-heading); font-size: 2.5rem; color: #fff; margin: 2rem 0 1rem; border-bottom: 1px solid var(--h-green); padding-bottom: 5px; text-transform: uppercase;}
+.markdown-body h3 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--h-orange); margin-top: 1.5rem;}
+.markdown-body p { margin-bottom: 1.5rem; color: #ccffdd; }
+.markdown-body a { color: var(--h-orange); text-decoration: none; border-bottom: 1px solid var(--h-orange); }
+.markdown-body a:hover { background: var(--h-orange); color: #000; }
+.markdown-body ul li { margin-bottom: 8px; }
+.markdown-body ul li::marker { content: '>> '; color: var(--h-blue); }
+
+.markdown-body pre { background: rgba(0,255,102,0.05); border: 1px solid rgba(0,255,102,0.3); padding: 1.5rem; margin: 2rem 0; overflow-x: auto; border-left: 4px solid var(--h-green);}
+.markdown-body code { background: rgba(0,0,0,0.5); padding: 2px 6px; font-family: monospace; font-size: 0.9em; color: var(--h-blue); border: 1px solid rgba(0,187,255,0.3);}
+.markdown-body pre code { background: transparent; color: inherit; border: none; padding:0;}
+
+.mermaid { background: #000; padding: 2rem; border: 1px dashed var(--h-green); margin: 2rem 0; display: flex; justify-content: center;}
+.mermaid * { font-family: var(--font-data) !important; color: var(--h-green) !important; stroke: var(--h-green) !important;}
+
+/* Bottom Footer Interface */
+.eva-footer {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    width: 800px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.eva-input-zone {
+    width: 100%; display: flex; align-items: stretch; background: var(--h-panel);
+    border: 2px solid var(--h-green); padding: 5px; position: relative;
+}
+/* Corner brackets */
+.target-bracket { position: absolute; width: 20px; height: 50px; border: 2px solid var(--h-orange); top: 5px; pointer-events: none;}
+.target-bracket.left { left: 0; border-right: none; }
+.target-bracket.right { right: 0; border-left: none; }
+
+.cmd-label {
+    background: var(--h-green); color: #000; font-family: var(--font-heading);
+    font-size: 1.5rem; padding: 0 15px; display: flex; align-items: center; line-height: 1;
+}
+
+#promptInput {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: #fff; font-family: var(--font-data); font-size: 1.2rem;
+    padding: 10px 15px; resize: none; text-transform: uppercase;
+}
+#promptInput::placeholder { color: rgba(0,255,102,0.4); }
+
+.eva-submit {
+    background: transparent; color: var(--h-orange); border: 2px solid var(--h-orange);
+    padding: 0 30px; font-family: var(--font-heading); font-size: 1.5rem; cursor: pointer; transition: 0.1s;
+}
+.eva-submit:hover { background: var(--h-orange); color: #000; }
+
+.eva-telemetry {
+    font-size: 0.8rem; color: #888; letter-spacing: 2px; background: #000; padding: 2px 10px; border: 1px solid #333;
+}
+.eva-telemetry.error { color: var(--h-red); border-color: var(--h-red); animation: blinker 0.5s steps(2, start) infinite;}
+
+/* Theme Switcher Classes via JS */
+body.combat-mode {
+    --h-green: var(--h-red); /* Switch green to red */
+    --h-blue: var(--h-orange);
+    background-color: #1a0000;
+}
+body.combat-mode .hud-container { border-color: rgba(255,0,51,0.5); box-shadow: 0 0 50px rgba(255,0,51,0.2) inset; }
+body.combat-mode .eva-hero { border-color: var(--h-red); }
+
+@media (max-width: 1200px) {
+    .side-panel { display: none; } /* Hide complex panels on smaller screens */
+    .eva-main { left: 50px; right: 50px; }
+}
+@media (max-width: 768px) {
+    .status-block { position: relative; top: auto; left: auto; right: auto; margin: 10px; width: calc(100% - 20px);}
+    .hud-container { width: 100vw; height: 100vw; opacity: 0.3; }
+    .eva-main { left: 10px; right: 10px; bottom: 150px;}
+    .eva-footer { width: calc(100% - 20px); bottom: 10px;}
+    .cmd-label { display: none; }
+    .eva-headline { font-size: 3rem; }
+}

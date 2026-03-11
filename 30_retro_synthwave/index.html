@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | SYNTH_ARCHITECT</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Pixel Font and 80s Script Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Vampiro+One&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <!-- Retro sunset background fixed -->
+    <div class="sunset-bg"></div>
+
+    <canvas id="synth-canvas"></canvas>
+
+    <div class="arcade-layer">
+        
+        <header class="retro-header">
+            <div class="logo-box">
+                <span class="logo-neon">O.S.</span>
+                <span class="logo-text">SYNTH_CORE V1.0</span>
+            </div>
+            
+            <div class="controls">
+                <div class="retro-score">SCORE: <span id="scoreVal">0000</span></div>
+                <button id="langToggle" class="pixel-btn">LANG:EN</button>
+            </div>
+        </header>
+
+        <main class="arcade-main">
+            <div class="screen-container">
+                
+                <section class="retro-hero" id="heroSection">
+                    <h1 class="synth-title">ARCHITECT</h1>
+                    <p class="pixel-p">INSERT COIN TO INITIALIZE BACKEND ENGINEERING MODULE...</p>
+                    
+                    <div class="menu-options">
+                        <button onclick="insertPrompt('Explain your Microservice Architecture')">
+                            1 PLAYER GAME <span>(Microservices)</span>
+                        </button>
+                        <button onclick="insertPrompt('Draw a Mermaid diagram of your API Gateway')">
+                            2 PLAYER GAME <span>(API Gateway)</span>
+                        </button>
+                        <button onclick="insertPrompt('What are your main tech stacks?')">
+                            OPTIONS <span>(Tech Stack)</span>
+                        </button>
+                    </div>
+                </section>
+
+                <section class="retro-response hidden" id="responseDisplay">
+                    <div class="window-top">
+                        <span class="win-title" id="responseStatus">LOADING_TAPE...</span>
+                        <div class="win-controls">
+                            <span>_</span><span>[ ]</span><span>X</span>
+                        </div>
+                    </div>
+                    <div class="markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="arcade-footer">
+            <div class="pixel-input-wrapper">
+                <span class="blinking-cursor">»</span>
+                <textarea id="promptInput" rows="1" placeholder="ENTER COMMAND..."></textarea>
+                <button id="submitBtn" class="pixel-btn action-btn">SEND</button>
+            </div>
+            <div class="footer-stats">
+                <span id="rateLimitStatus">LIVES: 5</span>
+                <span>CREDITS: 99</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scanline overlay for that authentic CRT feel -->
+    <div class="crt-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Synthwave Architect</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Retro 80s fonts: Outrun style display font and a clean sans for text -->
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Simplex Noise for terrain generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+
+    <!-- Retro Sun -->
+    <div class="synth-sun"></div>
+
+    <canvas id="synth-canvas"></canvas>
+
+    <div class="outrun-layer">
+        
+        <header class="s-header">
+            <h1 class="s-logo">ÖMERCAN SABUN</h1>
+            <div class="s-nav">
+                <span class="s-badge">ARCHITECT_V1.0</span>
+                <button id="langToggle" class="s-btn">EN</button>
+            </div>
+        </header>
+
+        <main class="s-main">
+            <div class="s-scroller">
+                
+                <section class="s-hero" id="heroSection">
+                    <h2 class="chrome-text">DRIVING DEEP<br>INTO DATA.</h2>
+                    <p class="s-lead">
+                        Cruising the digital highway. Building high-octane, scalable event-driven architectures that never hit the brakes.
+                    </p>
+                    
+                    <div class="s-prompts">
+                        <button onclick="insertPrompt('Explain your event-driven architecture approach')">
+                            <span class="icon">⚡</span> Event-Driven
+                        </button>
+                        <button onclick="insertPrompt('Draw a Mermaid diagram of your ideal topology')">
+                            <span class="icon">🌐</span> Topology Map
+                        </button>
+                        <button onclick="insertPrompt('What defines your tech stack in 2026?')">
+                            <span class="icon">🚀</span> Core Stack
+                        </button>
+                    </div>
+                </section>
+
+                <section class="s-response hidden" id="responseDisplay">
+                    <div class="s-status-bar">
+                        <div class="tape-reel"></div>
+                        <span id="responseStatus">PROCESSING...</span>
+                    </div>
+                    
+                    <div class="s-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="s-footer">
+            <div class="s-input-group">
+                <div class="input-glow">
+                    <textarea id="promptInput" rows="1" placeholder="Enter coordinates for the next jump..."></textarea>
+                </div>
+                <button id="submitBtn" class="s-submit">ENGAGE</button>
+            </div>
+            <div class="s-telemetry">
+                <span id="rateLimitStatus">DRIVE STATUS: OPTIMAL [5/5]</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scanline overlay for that VHS look -->
+    <div class="scanlines"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

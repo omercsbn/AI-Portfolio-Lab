@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | 432Hz Architecture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Modern tech / DJ font -->
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <canvas id="eq-canvas"></canvas>
+
+    <div class="dj-layer">
+        
+        <header class="eq-header">
+            <div class="eq-brand">
+                <h1>OSABUN <span class="hz">432Hz</span></h1>
+                <div class="subtitle">AUDIO / ARCHITECTURE / FREQUENCY</div>
+            </div>
+            <div class="eq-nav">
+                <div class="vu-meter">
+                    <div class="vu-led"></div><div class="vu-led"></div><div class="vu-led"></div><div class="vu-led"></div>
+                    <div class="vu-led yellow"></div><div class="vu-led red"></div>
+                </div>
+                <button id="langToggle" class="eq-btn">EN</button>
+            </div>
+        </header>
+
+        <main class="eq-main">
+            <div class="eq-scroller">
+                
+                <section class="eq-hero" id="heroSection">
+                    <h2 class="eq-headline">Tuning<br>The Cloud.</h2>
+                    <p class="eq-lead">
+                        High-traffic architectures are like complex audio mixes. You need headroom, zero latency, and the ability to isolate channels. I mix Event-Driven microservices to prevent your servers from clipping.
+                    </p>
+                    
+                    <div class="eq-prompts">
+                        <button class="dj-btn" onclick="insertPrompt('How do you balance server load (EQ)?')">
+                            [CH 1] LOAD BALANCING
+                        </button>
+                        <button class="dj-btn" onclick="insertPrompt('Draw a Mermaid diagram of an asynchronous event queue (Reverb/Delay in audio)')">
+                            [CH 2] ASYNC QUEUES (MERMAID)
+                        </button>
+                    </div>
+                </section>
+
+                <section class="eq-response hidden" id="responseDisplay">
+                    <div class="eq-status-bar">
+                        <div class="play-btn pulsing">▶</div>
+                        <span id="responseStatus">MIXING AUDIO...</span>
+                    </div>
+                    
+                    <div class="eq-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="eq-footer">
+            <div class="eq-deck">
+                <div class="deck-knobs">
+                    <div class="knob"></div>
+                    <div class="knob"></div>
+                    <div class="knob"></div>
+                </div>
+                
+                <div class="eq-input-area">
+                    <textarea id="promptInput" rows="1" placeholder="Enter frequency query..."></textarea>
+                    <button id="submitBtn" class="deck-btn">SAMPLE</button>
+                </div>
+                
+                <div class="deck-slider-container">
+                    <div class="deck-slider">
+                        <div class="fader"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eq-telemetry">
+                <span id="rateLimitStatus">BATTERY: 5/5 SAMPLERS READY</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- UI Scanlines specific to music gear -->
+    <div class="gear-scanlines"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

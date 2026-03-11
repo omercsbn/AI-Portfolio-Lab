@@ -1,0 +1,83 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #0b0f19; color: #a0aec0;
+    font-family: 'Space Mono', monospace, Arial;
+    width: 100vw; height: 100vh; overflow: hidden;
+    /* Graph paper grid */
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.matrix-viewport {
+    position: relative; width: 100vw; height: 100vh;
+    cursor: grab;
+}
+
+.matrix-viewport:active { cursor: grabbing; }
+
+/* SVG Lines */
+.connections {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
+    pointer-events: none;
+}
+
+/* Base Nodes */
+.node {
+    position: absolute; z-index: 10;
+    padding: 1.5rem; border-radius: 8px;
+    background: rgba(11, 15, 25, 0.9);
+    border: 1px solid rgba(160, 174, 192, 0.2);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+
+.node:hover {
+    transform: scale(1.05) translateY(-5px);
+    border-color: #63b3ed;
+    z-index: 20;
+}
+
+/* Core Node overrides */
+.core-node {
+    width: 250px; height: 250px; border-radius: 50%;
+    border: 2px solid #63b3ed; text-align: center;
+    box-shadow: 0 0 40px rgba(99, 179, 237, 0.2), inset 0 0 20px rgba(99, 179, 237, 0.1);
+}
+
+.node-ring {
+    position: absolute; width: 120%; height: 120%; top: -10%; left: -10%;
+    border: 1px dashed rgba(99, 179, 237, 0.3); border-radius: 50%;
+    animation: rotateSlow 20s linear infinite; pointer-events: none;
+}
+@keyframes rotateSlow { 100% { transform: rotate(360deg); } }
+
+.core-node h1 { font-size: 2rem; color: #fff; margin-bottom: 0.5rem; letter-spacing: 2px;}
+.core-node span { font-size: 0.9rem; color: #63b3ed; text-transform: uppercase;}
+
+/* Project Satellite Nodes */
+.proj-node { width: 220px; }
+.proj-node h3 { color: #fff; font-size: 1.2rem; margin-bottom: 0.5rem;}
+.proj-node p { font-size: 0.85rem; }
+
+.sub-node { padding: 1rem; border-color: rgba(160, 174, 192, 0.1); }
+.sub-node h4 { color: #cbd5e0; font-size: 1rem; margin-bottom: 0.2rem;}
+.sub-node p { font-size: 0.75rem; opacity: 0.7; }
+
+/* Action Node */
+.action-node { border-color: #f56565; }
+.action-node h3 { color: #f56565; margin-bottom: 1rem;}
+.link-btn { display: inline-block; padding: 0.5rem 1rem; background: rgba(245, 101, 101, 0.1); border: 1px solid #f56565; color: #fff; text-decoration: none; font-size: 0.8rem; transition: background 0.3s;}
+.link-btn:hover { background: #f56565; color: #000; }
+
+.status-dot { width: 8px; height: 8px; border-radius: 50%; position: absolute; top: 1rem; right: 1rem; }
+.green { background: #48bb78; box-shadow: 0 0 10px #48bb78; }
+
+/* HUD Overlay */
+.overlay-ui { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; display: flex; flex-direction: column; justify-content: space-between; padding: 2rem;}
+.hud-top { font-size: 0.8rem; letter-spacing: 2px; color: #63b3ed; text-shadow: 0 0 5px #63b3ed;}
+.hud-bottom { font-size: 0.8rem; color: #718096; text-align: right;}

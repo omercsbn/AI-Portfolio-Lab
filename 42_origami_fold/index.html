@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Origami Architecture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Clean, elegant Japanese-inspired sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Origami Background -->
+    <canvas id="origami-canvas"></canvas>
+
+    <div class="paper-layer">
+        
+        <header class="o-header">
+            <h1 class="o-logo">Ömercan Sabun</h1>
+            <div class="o-nav">
+                <span class="o-subtitle">Architect of Folds</span>
+                <button id="langToggle" class="o-btn">EN</button>
+            </div>
+        </header>
+
+        <main class="o-main">
+            <div class="o-scroller">
+                
+                <section class="o-hero" id="heroSection">
+                    <h2 class="o-headline">Simplicity<br>From Complexity.</h2>
+                    <p class="o-lead">
+                        Every system is a flat sheet of paper. Elegance emerges only when we carefully fold it. I build transformative, scalable architectures that reshape themselves to meet the load.
+                    </p>
+                    
+                    <div class="o-prompts">
+                        <button class="paper-btn" onclick="insertPrompt('How do you transform a monolith into microservices?')">
+                            <span class="icon">▱ -> ⬡</span> Unfolding Monoliths
+                        </button>
+                        <button class="paper-btn" onclick="insertPrompt('Draw a Mermaid diagram of a folded event topology')">
+                            <span class="icon">📐</span> Blueprint
+                        </button>
+                    </div>
+                </section>
+
+                <section class="o-response hidden" id="responseDisplay">
+                    <div class="o-status-bar">
+                        <span class="o-dot"></span>
+                        <span id="responseStatus">Folding thoughts...</span>
+                    </div>
+                    
+                    <div class="o-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="o-footer">
+            <div class="o-input-wrap">
+                <textarea id="promptInput" rows="1" placeholder="Write on the blank page..."></textarea>
+                <button id="submitBtn" class="o-submit">Fold</button>
+            </div>
+            <div class="o-telemetry">
+                <span id="rateLimitStatus">Pages remaining: 5 / 5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

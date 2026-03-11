@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan | Cardboard Architect</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Quirky hand-drawn style font -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS animated background texture (slight wobble for stop-motion feel) -->
+    <div class="kraft-bg"></div>
+
+    <!-- 3D Canvas -->
+    <canvas id="paper-canvas"></canvas>
+
+    <div class="paper-layer">
+        
+        <header class="p-header">
+            <h1 class="p-brand">Ömercan Sabun</h1>
+            <nav class="p-nav paper-scrap">
+                <span class="p-title">Cloud Tinkerer</span>
+                <button id="langToggle" class="p-btn">EN</button>
+            </nav>
+        </header>
+
+        <main class="p-main">
+            <div class="p-scroller">
+                
+                <section class="p-hero paper-card" id="heroSection">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='20'><path d='M0,10 Q25,0 50,10 T100,10' fill='none' stroke='black' stroke-width='2'/></svg>" class="tape tape-top" alt="">
+                    
+                    <h2 class="p-headline">Prototyping<br>Reality.</h2>
+                    <p class="p-lead">
+                        Before the code is committed, the architecture must be folded, cut, and assembled conceptually. I treat cloud infrastructure like a massive cardboard diorama—rapidly prototyping robust systems before making them concrete. 
+                    </p>
+                    
+                    <div class="p-prompts">
+                        <button class="sketch-btn drawn-box" onclick="insertPrompt('Explain the difference between IaC (Infrastructure as Code) and manual setup')">
+                            Infrastructure as Code
+                        </button>
+                        <button class="sketch-btn drawn-box" onclick="insertPrompt('Draw a Mermaid flowchart of a CI/CD pipeline')">
+                            Sketch CI/CD Pipeline
+                        </button>
+                    </div>
+                </section>
+
+                <section class="p-response paper-card hidden" id="responseDisplay">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='20'><path d='M0,10 Q25,20 50,10 T100,10' fill='none' stroke='black' stroke-width='2'/></svg>" class="tape tape-bottom" alt="">
+                    
+                    <div class="p-status-bar">
+                        <span class="pencil-icon">✎</span>
+                        <span id="responseStatus">Sketching diagram...</span>
+                    </div>
+                    
+                    <div class="p-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="p-footer">
+            <div class="p-input-box paper-scrap">
+                <textarea id="promptInput" rows="1" placeholder="Write on the cardboard..."></textarea>
+                <button id="submitBtn" class="drawn-btn">Send</button>
+            </div>
+            
+            <div class="p-telemetry">
+                <span id="rateLimitStatus">Ink left: 5/5 strokes</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Decorative paper scraps scattered -->
+    <div class="scrap s1">Cloud</div>
+    <div class="scrap s2">Scale</div>
+    <div class="scrap s3">AWS</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

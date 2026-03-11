@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Sci-Fi Terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <div class="scanlines"></div>
+    <div class="overlay">
+        <header>
+            <div class="sys-status">SYS.ONLINE // OMERCAN_SABUN_V1</div>
+            <nav>
+                <a href="#about">[ INIT.ABOUT ]</a>
+                <a href="#projects">[ EXEC.PROJECTS ]</a>
+                <a href="#contact">[ PING.CONTACT ]</a>
+            </nav>
+        </header>
+        <main>
+            <section id="hero" class="sec-block">
+                <p class="blink">> IDENTIFICATION ACCEPTED</p>
+                <h1 class="glitch" data-text="OMERCAN_SABUN">OMERCAN_SABUN</h1>
+                <p class="desc">> Architecting the systems of tomorrow. Software architect specializing in Cloud-Native microservices and AI-driven platforms.</p>
+            </section>
+            
+            <section id="about" class="sec-block">
+                <h2>[ INIT.ABOUT ]</h2>
+                <p class="desc">> Over 8 years of experience building resilient backend architectures. Deep expertise in Domain-Driven Design, Saga Patterns, and Kubernetes orchestration.</p>
+            </section>
+
+            <section id="projects" class="sec-block">
+                <h2>[ EXEC.PROJECTS ]</h2>
+                <div class="action-grid">
+                    <div class="project-grid-item">PROJECT: DEV_ASSIST_AI<br><span style="font-size:0.8em;opacity:0.6">> Status: Active</span></div>
+                    <div class="project-grid-item">PROJECT: FUSION_BANKING<br><span style="font-size:0.8em;opacity:0.6">> Status: Deployed</span></div>
+                    <div class="project-grid-item">PROJECT: AUTOFINANCE_RAG<br><span style="font-size:0.8em;opacity:0.6">> Status: Stable</span></div>
+                </div>
+            </section>
+
+            <section id="contact" class="sec-block">
+                <h2>[ PING.CONTACT ]</h2>
+                <p class="desc">> Awaiting connection...</p>
+                <a href="mailto:hello@omercan.dev" class="project-grid-item" style="text-decoration:none; display:inline-block;">> ESTABLISH UPLINK (hello@omercan.dev)</a>
+            </section>
+        </main>
+        <footer>
+            <p>CONNECTION: ENCRYPTED // 2026</p>
+        </footer>
+    </div>
+
+    <!-- Three.js for 3D Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+        
+        // Torus knot wireframe
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshBasicMaterial({color: 0x00ffcc, wireframe: true, transparent: true, opacity: 0.15});
+        const torusKnot = new THREE.Mesh(geometry, material);
+        scene.add(torusKnot);
+        camera.position.z = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            torusKnot.rotation.x += 0.002;
+            torusKnot.rotation.y += 0.005;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
