@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN.IO // SHATTER</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sharp, harsh sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Karla:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Canvas (Floating Glass Shards) -->
+    <canvas id="shatter-canvas"></canvas>
+
+    <!-- CSS UI Layer -->
+    <div class="shatter-ui">
+        
+        <header class="s-header">
+            <div class="s-brand clip-poly-1">
+                <h1>ÖMERCAN SABUN</h1>
+                <span class="s-subtitle">DISRUPTIVE ENGINEERING</span>
+            </div>
+            <nav class="s-nav clip-poly-2">
+                <span id="systemStatus" class="s-status">INTEGRITY: 100%</span>
+                <button id="langToggle" class="s-btn">L0C4L3: 3N</button>
+            </nav>
+        </header>
+
+        <main class="s-main">
+            <div class="s-scroller">
+                
+                <section class="s-hero clip-box" id="heroSection">
+                    <h2 class="s-headline">BREAKING<br>MONOLITHS.</h2>
+                    <p class="s-lead">
+                        Legacy systems are rigid glass. When pressure builds, they shatter. I specialize in identifying fault lines and refactoring monolithic beasts into resilient, splintered microservices before catastrophe strikes.
+                    </p>
+                    
+                    <div class="s-prompts">
+                        <button class="shard-btn" onclick="insertPrompt('Explain the Strangler Fig pattern for breaking monoliths')">
+                            // STRANGLER.FIG
+                        </button>
+                        <button class="shard-btn" onclick="insertPrompt('Draw a flowchart of a monolithic architecture cracking into microservices')">
+                            // SPLINTER.ARCH
+                        </button>
+                    </div>
+                </section>
+
+                <section class="s-response hidden clip-box" id="responseDisplay">
+                    <div class="s-status-bar">
+                        <span class="s-icon flicker">⚡</span>
+                        <span id="responseStatus">FRACTURING DATA...</span>
+                    </div>
+                    
+                    <div class="s-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="s-footer">
+            <div class="s-input-shard clip-input">
+                <textarea id="promptInput" rows="1" placeholder="INITIATE FRACTURE..."></textarea>
+                <button id="submitBtn" class="s-submit">SHATTER</button>
+            </div>
+            
+            <div class="s-telemetry">
+                <span id="rateLimitStatus">STRESS LIMIT: 5/5 CALLS</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

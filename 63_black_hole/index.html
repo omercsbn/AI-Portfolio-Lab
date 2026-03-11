@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN.DEV // SINGULARITY</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sci-fi minimalist fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Canvas (The Black Hole / Accretion Disk) -->
+    <canvas id="singularity-canvas"></canvas>
+
+    <!-- CSS Gravitational Lensing / Vignette -->
+    <div class="event-horizon-overlay"></div>
+
+    <!-- UI Layer -->
+    <div class="void-ui">
+        
+        <header class="v-header">
+            <div class="v-brand">
+                <h1>ÖMERCAN SABUN</h1>
+                <span class="v-subtitle">DATA GRAVITY ARCHITECT</span>
+            </div>
+            <nav class="v-nav">
+                <span id="massStatus" class="v-status">MASS: STABLE</span>
+                <button id="langToggle" class="v-btn">LANG: EN</button>
+            </nav>
+        </header>
+
+        <main class="v-main">
+            <div class="v-scroller">
+                
+                <section class="v-hero" id="heroSection">
+                    <div class="glass-orb">
+                        <h2 class="v-headline">BEYOND THE<br>EVENT HORIZON.</h2>
+                        <p class="v-lead">
+                            Data has gravity. The more you accumulate, the harder it is to move. I design data lakes and streaming architectures capable of absorbing massive throughput without collapsing into an unmanageable singularity.
+                        </p>
+                        
+                        <div class="v-prompts">
+                            <button class="orb-btn" onclick="insertPrompt('Explain the concept of Data Gravity')">
+                                [ OBSERVE: GRAVITY ]
+                            </button>
+                            <button class="orb-btn" onclick="insertPrompt('Design a high-throughput event streaming architecture using Mermaid')">
+                                [ MAP: EVENT STREAM ]
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="v-response hidden" id="responseDisplay">
+                    <div class="v-status-bar">
+                        <span class="v-icon pulse">◎</span>
+                        <span id="responseStatus">ACCRETING DATA...</span>
+                    </div>
+                    
+                    <div class="v-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="v-footer">
+            <div class="v-input-ring">
+                <textarea id="promptInput" rows="1" placeholder="TRANSMIT TO THE SINGULARITY..."></textarea>
+                <button id="submitBtn" class="v-submit">TRANSMIT</button>
+            </div>
+            
+            <div class="v-telemetry">
+                <span id="rateLimitStatus">ENERGY: 5/5 TEV</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

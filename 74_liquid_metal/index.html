@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN /// MIMETIC_ALLOY</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sleek, futuristic geometric font -->
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Jura:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+
+    <!-- Hidden SVG Filter for Gooey Effect on DOM elements -->
+    <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- ThreeJS Chrome Background Canvas -->
+    <canvas id="mercuryCanvas"></canvas>
+
+    <div class="mercury-ui-wrapper">
+        
+        <div class="mercury-container gooey-container">
+            
+            <header class="m-header droplet">
+                <div class="m-brand">
+                    <h1 class="logo">ÖMERCAN SABUN</h1>
+                    <span class="m-subtitle">MIMETIC POLYALLOY ENGINEER</span>
+                </div>
+                
+                <div class="m-status-box">
+                    <span id="systemStatus" class="m-val blink">STABLE</span>
+                    <button id="langToggle" class="m-btn">[ORG: EN]</button>
+                    <div class="m-telemetry">
+                        <span class="m-label">VISCOSITY:</span>
+                        <span id="rateLimitStatus" class="m-val">5/5</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="m-main">
+                <div class="m-scroller">
+                    
+                    <section class="m-hero droplet" id="heroSection">
+                        <h2 class="m-headline">FLUID METALLURGY.</h2>
+                        <p class="m-lead">
+                            Code that shifts and shapes. I build highly adaptable, metamorphic architectures that can reconstitute themselves after catastrophic failures. Unkillable backend systems.
+                        </p>
+                        
+                        <div class="m-prompts">
+                            <button class="m-action" onclick="insertPrompt('Design an auto-healing distributed database')">
+                                <span class="blob"></span> INIT_AUTO_HEAL
+                            </button>
+                            <button class="m-action" onclick="insertPrompt('Explain morphing polymorphism in OOP')">
+                                <span class="blob"></span> INIT_POLYMORPHISM
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="m-response hidden" id="responseDisplay">
+                        <div class="m-status-bar droplet">
+                            <span id="responseStatus">MORPHING DATA...</span>
+                        </div>
+                        
+                        <div class="m-content markdown-body droplet" id="responseContent"></div>
+                    </section>
+
+                </div>
+            </main>
+
+            <footer class="m-footer droplet">
+                <div class="m-input-group">
+                    <textarea id="promptInput" rows="1" placeholder="INJECT DIRECTIVES..."></textarea>
+                    <!-- Apply filter to button to make it look "gooey" when clicked/hovered near other blobs -->
+                    <button id="submitBtn" class="m-submit">ASSIMILATE</button>
+                </div>
+            </footer>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

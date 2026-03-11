@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN // VOXEL_OS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playful, blocky monospace -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Varela+Round&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Canvas (Isometric Voxel City) -->
+    <canvas id="voxel-canvas"></canvas>
+
+    <!-- Post-processing overlays (Scanlines/Vignette) -->
+    <div class="voxel-overlay"></div>
+
+    <!-- UI Layer -->
+    <div class="voxel-ui">
+        
+        <header class="x-header">
+            <div class="x-brand">
+                <h1>ÖMERCAN_SABUN</h1>
+                <span class="x-subtitle">CITY PLANNER / SYSTEM ARCHITECT</span>
+            </div>
+            <nav class="x-nav">
+                <span id="gridStatus" class="x-status blink-slow">GRID: NOMINAL</span>
+                <button id="langToggle" class="x-btn">LOCALE: EN</button>
+            </nav>
+        </header>
+
+        <main class="x-main">
+            <div class="x-scroller">
+                
+                <section class="x-hero" id="heroSection">
+                    <div class="floating-panel">
+                        <div class="panel-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        </div>
+                        <h2 class="x-headline">BUILDING<br>METROPOLISES.</h2>
+                        <p class="x-lead">
+                            Every function is a brick. Every microservice is a neighborhood. I am the city planner laying down the transit networks (APIs) and power grids (Databases) to ensure a thriving, scalable digital metropolis.
+                        </p>
+                        
+                        <div class="x-prompts">
+                            <button class="block-btn" onclick="insertPrompt('Explain database sharding as if zoning a city')">
+                                [ ZONE: DATABASE ]
+                            </button>
+                            <button class="block-btn" onclick="insertPrompt('Design an API Gateway traffic routing map')">
+                                [ ROUTE: TRAFFIC ]
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="x-response hidden" id="responseDisplay">
+                    <div class="x-status-bar">
+                        <span class="x-icon">🏗️</span>
+                        <span id="responseStatus">CONSTRUCTING...</span>
+                    </div>
+                    
+                    <div class="x-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="x-footer">
+            <div class="x-input-block">
+                <span class="x-prompt-char">$</span>
+                <textarea id="promptInput" rows="1" placeholder="DRAFT BLUEPRINT..."></textarea>
+                <button id="submitBtn" class="x-submit">BUILD</button>
+            </div>
+            
+            <div class="x-telemetry">
+                <span id="rateLimitStatus">RESOURCES: 5/5 BLOCKS</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN_MED /// DIAGNOSTIC_IMAGING</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Cold, clinical monospace fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+    <!-- Backlight box holding the "X-Ray" -->
+    <div class="light-box-bg"></div>
+    
+    <!-- Scanline overlay mimicking CRT medical displays -->
+    <div class="mri-scanlines"></div>
+
+    <div class="mri-container">
+        
+        <!-- The main diagnostic display -->
+        <div class="diagnostic-panel">
+            
+            <header class="x-header">
+                <div class="x-brand">
+                    <h1 class="logo">PATIENT: ÖMERCAN SABUN</h1>
+                    <span class="x-subtitle">DOB: //--//-- // ID: SYS_ARCH // SCAN: DEEP_BACKEND</span>
+                </div>
+                
+                <div class="x-telemetry">
+                    <div class="vital-block">
+                        <span class="v-label">BPM</span>
+                        <span id="vitalPulse" class="v-val blink">60</span>
+                    </div>
+                    <div class="vital-block">
+                        <span class="v-label">EXPOSURE</span>
+                        <span id="rateLimitStatus" class="v-val">5/5</span>
+                    </div>
+                    <button id="langToggle" class="x-btn">[ LOC: EN ]</button>
+                </div>
+            </header>
+            
+            <div class="scanning-bar" id="scanBar"></div>
+
+            <main class="x-main">
+                
+                <!-- Flashing crosshairs/targeting brackets -->
+                <div class="reticle topleft"></div>
+                <div class="reticle topright"></div>
+                <div class="reticle botleft"></div>
+                <div class="reticle botright"></div>
+
+                <div class="x-scroller">
+                    
+                    <section class="x-hero" id="heroSection">
+                        <h2 class="x-headline">STRUCTURAL<br>DIAGNOSTICS.</h2>
+                        <p class="x-lead">
+                            Looking past the skin to examine the bone. I specialize in deep systemic diagnostics, mapping out robust backend skeletons, identifying performance fractures before they break, and ensuring the core architecture is fundamentally healthy.
+                        </p>
+                        
+                        <div class="x-prompts">
+                            <button class="x-action" onclick="insertPrompt('Diagnose a severe memory leak in Node.js')">
+                                > INIT_SCAN: MEM_LEAK
+                            </button>
+                            <button class="x-action" onclick="insertPrompt('Explain the anatomy of a secure JWT implementation')">
+                                > INIT_MRI: AUTH_ANATOMY
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="x-response hidden" id="responseDisplay">
+                        <div class="x-status-container">
+                            <span class="x-pulse-icon">●</span>
+                            <span id="responseStatus">INITIATING DEEP TISSUE SCAN...</span>
+                        </div>
+                        
+                        <div class="x-content markdown-body" id="responseContent"></div>
+                    </section>
+
+                </div>
+            </main>
+
+            <footer class="x-footer">
+                <div class="x-input-group">
+                    <span class="x-prompt">DIAGNOSIS_QUERY:</span>
+                    <textarea id="promptInput" rows="1" placeholder="ENTER SYMPTOMS..."></textarea>
+                    <button id="submitBtn" class="x-submit">SCAN</button>
+                </div>
+            </footer>
+            
+        </div>
+    </div>
+
+    <!-- The actual X-Ray skeleton background overlay, slowly rotating/moving -->
+    <div class="skeleton-overlay" id="skeletonOverlay">
+        <!-- SVG or CSS graphic representing an abstract skeleton/spine made of tech/code lines -->
+        <div class="tech-spine">
+            <div class="vertebra"></div>
+            <div class="vertebra"></div>
+            <div class="vertebra"></div>
+            <div class="vertebra"></div>
+            <div class="vertebra"></div>
+            <div class="vertebra"></div>
+            <div class="vertebra"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN // ARCADE OS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 8-Bit / Pixel fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- CRT Effects Overlay (Scanlines, curved screen, RGB shift) -->
+    <div class="crt-overlay"></div>
+    <div class="crt-flicker"></div>
+    <div class="crt-frame"></div> <!-- The physical plastic bezel -->
+
+    <!-- 3D Canvas (Rotating Coin/Token) -->
+    <canvas id="arcade-canvas"></canvas>
+
+    <!-- UI Layer -->
+    <div class="arcade-ui">
+        
+        <header class="a-header">
+            <div class="a-brand">
+                <h1>SABUN.DEV</h1>
+                <span class="a-score">HI-SCORE: 999999</span>
+            </div>
+            <nav class="a-nav">
+                <span id="creditStatus" class="a-credits blink">INSERT COIN</span>
+                <button id="langToggle" class="a-btn">P1 START (EN)</button>
+            </nav>
+        </header>
+
+        <main class="a-main">
+            <div class="a-scroller">
+                
+                <section class="a-hero" id="heroSection">
+                    <div class="arcade-box">
+                        <h2 class="a-headline">FINAL<br>BOSS<br>ARCHITECTURE</h2>
+                        <p class="a-lead">
+                            I don't just write code; I beat the hardest levels of cloud infrastructure. From monolithic dungeons to distributed microservice arenas, I architect systems that never see a "Game Over" screen.
+                        </p>
+                        
+                        <div class="a-prompts">
+                            <button class="pixel-btn" onclick="insertPrompt('How do you defeat the Monolith Boss using Kubernetes?')">
+                                > SELECT WEAPON: K8S
+                            </button>
+                            <button class="pixel-btn" onclick="insertPrompt('Explain your strategy for load balancing high player counts')">
+                                > STRATEGY: LOAD BALANCING
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="a-response hidden" id="responseDisplay">
+                    <div class="a-status-bar">
+                        <span class="a-icon">👾</span>
+                        <span id="responseStatus">LOADING STAGE...</span>
+                    </div>
+                    
+                    <div class="a-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="a-footer">
+            <div class="a-input-vial">
+                <span class="a-cursor">></span>
+                <textarea id="promptInput" rows="1" placeholder="ENTER COMMAND..."></textarea>
+                <button id="submitBtn" class="a-submit">EXECUTE</button>
+            </div>
+            
+            <div class="a-telemetry">
+                <span id="rateLimitStatus">LIVES LEFT: 5/5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN_ENGINEERING // CHAIN_REACTION</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Quirky, mechanical and steampunk adjacent fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Rye&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS Rendered Factory Background -->
+    <div class="factory-bg">
+        <div class="gear gear-1">⚙️</div>
+        <div class="gear gear-2">⚙️</div>
+        <div class="gear gear-3">⚙️</div>
+    </div>
+
+    <div class="machine-container">
+        
+        <!-- The UI is structured like parts of a contraption -->
+        <header class="rg-part header-block">
+            <div class="rg-screw topleft"></div>
+            <div class="rg-screw topright"></div>
+            
+            <h1 class="rg-brand">ÖMERCAN SABUN</h1>
+            <p class="rg-tag">COMPLEXITY ENGINEER & CONTRAPTIONIST</p>
+            
+            <div class="rg-gauge-container">
+                <span class="gauge-label">PRESSURE</span>
+                <div class="rg-gauge"><div class="gauge-needle blink"></div></div>
+                <button id="langToggle" class="rg-toggle-switch">VALVE: EN</button>
+            </div>
+            
+            <div class="rg-screw botleft"></div>
+            <div class="rg-screw botright"></div>
+            
+            <!-- Connection to the next block -->
+            <div class="rg-pipe pipe-down"></div>
+        </header>
+
+        <main class="rg-main">
+            
+            <!-- The domino / ball-drop sequence -->
+            <div class="chain-reaction-box" id="reactionSequence">
+                <div class="marble" id="machineMarble"></div>
+                <div class="ramp ramp-1"></div>
+                <div class="ramp ramp-2"></div>
+                <div class="funnel">V</div>
+            </div>
+
+            <section class="rg-part hero-block" id="heroSection">
+                <div class="rg-screw topleft"></div><div class="rg-screw topright"></div>
+                
+                <h2 class="rg-headline">OVER-ENGINEERED PERFECTION.</h2>
+                <p class="rg-lead">
+                    Why build a simple script when you can build a massive, interconnected chain reaction of microservices? 
+                    I specialize in orchestration. Every container is a domino, every webhook is a string, and when the marble drops, it runs flawlessly.
+                </p>
+                
+                <div class="rg-prompts">
+                    <button class="rg-lever" onclick="insertPrompt('Design a ridiculously complex CI/CD pipeline')">
+                        <span class="lever-handle"></span> [PULL] CI/CD
+                    </button>
+                    <button class="rg-lever" onclick="insertPrompt('Draw an over-engineered microservice flowchart')">
+                        <span class="lever-handle"></span> [PULL] MICROSERVICES
+                    </button>
+                </div>
+                
+                <div class="rg-screw botleft"></div><div class="rg-screw botright"></div>
+            </section>
+
+            <section class="rg-part response-block hidden" id="responseDisplay">
+                <div class="rg-screw topleft"></div><div class="rg-screw topright"></div>
+                
+                <div class="rg-status-bar">
+                    <span id="responseStatus">MACHINE IDLE. AWAITING INPUT.</span>
+                </div>
+                
+                <div class="rg-content markdown-body" id="responseContent"></div>
+                
+                <div class="rg-screw botleft"></div><div class="rg-screw botright"></div>
+            </section>
+
+        </main>
+
+        <footer class="rg-footer">
+            <div class="rg-pipe pipe-up"></div>
+            
+            <div class="rg-part input-block">
+                <div class="rg-screw topleft"></div><div class="rg-screw topright"></div>
+                
+                <div class="rg-input-mechanism">
+                    <textarea id="promptInput" rows="1" placeholder="LOAD BLUEPRINT..."></textarea>
+                    
+                    <button id="submitBtn" class="rg-big-button">
+                        <div class="btn-top">DROP MARBLE</div>
+                        <div class="btn-base"></div>
+                    </button>
+                </div>
+                
+                <div class="rg-telemetry">
+                    <span>COGS: <span id="rateLimitStatus">5/5</span></span>
+                </div>
+                
+                <div class="rg-screw botleft"></div><div class="rg-screw botright"></div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

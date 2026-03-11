@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun | Paper Marbling (Ebru) Architecture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Elegant, traditional serif fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <!-- Include simplex noise for the fluid simulation math -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+
+    <!-- 2D Canvas for Fluid/Marbling effect -->
+    <canvas id="ebru-canvas"></canvas>
+
+    <!-- UI Layer -->
+    <div class="ebru-ui">
+        
+        <header class="e-header">
+            <div class="e-brand">
+                <h1>Ömercan Sabun</h1>
+                <span class="e-subtitle">Fluid Architectures</span>
+            </div>
+            <nav class="e-nav">
+                <span id="inkStatus" class="e-status">INK: BRIGHT</span>
+                <button id="langToggle" class="e-btn">EN</button>
+            </nav>
+        </header>
+
+        <main class="e-main">
+            <div class="e-scroller">
+                
+                <section class="e-hero" id="heroSection">
+                    <div class="parchment-box">
+                        <h2 class="e-headline">THE ART OF<br>FLOW.</h2>
+                        <p class="e-lead">
+                            Like the traditional Ebru painters of Istanbul, I believe that true architecture is drawn on the surface of water. It must be fluid, capable of absorbing sudden impacts and gracefully expanding without breaking its surface tension.
+                        </p>
+                        
+                        <div class="e-prompts">
+                            <button class="ink-btn" onclick="insertPrompt('Explain Serverless architecture using the metaphor of flowing watercolors')">
+                                DROP: SERVERLESS
+                            </button>
+                            <button class="ink-btn" onclick="insertPrompt('Describe an event-driven data pipeline')">
+                                DRAW: PIPELINE
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="e-response hidden" id="responseDisplay">
+                    <div class="e-status-bar">
+                        <span class="e-icon">✾</span>
+                        <span id="responseStatus">MIXING COLORS...</span>
+                    </div>
+                    
+                    <div class="e-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="e-footer">
+            <div class="e-input-wrapper">
+                <textarea id="promptInput" rows="1" placeholder="Drip your thoughts here..."></textarea>
+                <button id="submitBtn" class="e-submit">IMPRINT</button>
+            </div>
+            
+            <div class="e-telemetry">
+                <span id="rateLimitStatus">DROPS REMAINING: 5/5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Parchment Texture Overlay -->
+    <div class="parchment-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

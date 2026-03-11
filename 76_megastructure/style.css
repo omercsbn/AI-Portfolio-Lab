@@ -1,0 +1,186 @@
+/* MEGASTRUCTURE / BRUTALISM THEME */
+:root {
+    --g-bg: #111518; /* Smoggy dark grey/blue sky */
+    --g-concrete: #8b9298; /* Unpainted concrete */
+    --g-concrete-dark: #373e44; /* Shadowed concrete */
+    --g-rust: #c0392b; /* Rusted metal accent */
+    --g-text: #ecf0f1;
+    --g-accent: #f1c40f; /* Warning yellow */
+    --font-mega: 'Teko', sans-serif;
+    --font-body: 'Oswald', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--g-bg);
+    color: var(--g-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex; justify-content: center; align-items: flex-end; /* Ground focused */
+}
+
+/* Cinematic Fog Overlay */
+.fog-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(17, 21, 24, 0) 0%, rgba(17, 21, 24, 0.8) 80%, var(--g-bg) 100%);
+    z-index: 5; pointer-events: none;
+}
+
+/* Background Brutalist Megastructures */
+.mega-bg {
+    position: absolute; top: -50%; left: 0; width: 100vw; height: 200vh;
+    z-index: 0; overflow: hidden;
+    perspective: 1000px;
+}
+
+/* Base style for a concrete block */
+.mega-block {
+    position: absolute; background: var(--g-concrete-dark);
+    box-shadow: inset 10px 10px 50px rgba(0,0,0,0.8), -20px 20px 30px rgba(0,0,0,0.9);
+    border-left: 5px solid var(--g-concrete); /* Light catching the edge */
+    background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 100px, rgba(0,0,0,0.2) 100px, rgba(0,0,0,0.2) 110px);
+}
+
+/* Initial static setup before Anime.js takes over */
+.p-1 { width: 400px; height: 800px; bottom: 0; left: -100px; z-index: 1; filter: brightness(0.5); }
+.p-2 { width: 300px; height: 1200px; bottom: 0; left: 15%; z-index: 3; filter: brightness(1.2); border-left: 10px solid var(--g-concrete);}
+.p-3 { width: 600px; height: 1500px; bottom: -200px; right: -50px; z-index: 2; filter: brightness(0.8); }
+.p-4 { width: 250px; height: 900px; bottom: 0; right: 25%; z-index: 4; filter: brightness(1.4); }
+.p-5 { width: 800px; height: 2000px; bottom: -500px; left: 30%; z-index: 0; filter: brightness(0.3); opacity: 0.8;}
+
+/* The structural framework on blocks */
+.mega-block::after {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        repeating-linear-gradient(180deg, transparent 0, transparent 40px, rgba(0,0,0,0.4) 40px, rgba(0,0,0,0.4) 45px);
+    pointer-events: none;
+}
+
+/* Main UI Frame Container */
+.mega-container {
+    position: relative; z-index: 10; width: 100%; max-width: 900px;
+    height: 90vh; display: flex; flex-direction: column;
+}
+
+/* Extreme typography */
+.mega-text { font-family: var(--font-mega); text-transform: uppercase; line-height: 0.8; letter-spacing: 1px;}
+
+/* Header */
+.g-header {
+    padding: 30px; display: flex; justify-content: space-between; align-items: flex-start;
+    border-bottom: 8px solid var(--g-rust); background: rgba(17, 21, 24, 0.8); backdrop-filter: blur(10px);
+}
+
+.logo { font-size: 5rem; color: var(--g-text); text-shadow: 5px 5px 0px rgba(0,0,0,1);}
+.g-subtitle { display: block; font-size: 1.2rem; letter-spacing: 5px; color: var(--g-concrete); font-weight: bold; margin-top: 10px;}
+
+.g-status-corner { display: flex; flex-direction: column; align-items: flex-end; gap: 10px;}
+.g-val { font-family: var(--font-mega); font-size: 2.5rem; letter-spacing: 2px; color: var(--g-accent); text-shadow: 2px 2px 0px #000;}
+
+.g-btn {
+    background: transparent; color: var(--g-concrete); border: 2px solid var(--g-concrete-dark);
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: bold; padding: 4px 10px; cursor: pointer; transition: 0.2s;
+}
+.g-btn:hover { border-color: var(--g-text); color: var(--g-text); background: rgba(255,255,255,0.1);}
+
+.blink { animation: steadyPulse 2s infinite alternate; }
+@keyframes steadyPulse { 0% { opacity: 0.5;} 100% { opacity: 1; text-shadow: 0 0 10px var(--g-accent), 2px 2px 0px #000;} }
+
+/* Main Reading Area */
+.g-main { flex-grow: 1; position: relative; overflow: hidden; }
+
+/* The actual scroll view is a massive concrete slab */
+.g-scroller {
+    width: 100%; height: 100%; overflow-y: auto; scrollbar-width: none;
+    padding: 40px; display: flex; align-items: flex-start;
+}
+.g-scroller::-webkit-scrollbar { display: none; }
+
+.g-hero {
+    background: var(--g-concrete-dark); border-left: 15px solid var(--g-concrete);
+    padding: 50px; box-shadow: 10px 10px 30px rgba(0,0,0,0.8), inset -5px -5px 15px rgba(0,0,0,0.5);
+    position: relative; overflow: hidden; margin-bottom: 20px; width: 100%;
+}
+/* Grid lines on slab */
+.g-hero::before {
+    content: ""; position: absolute; top:0; left:0; width: 100%; height: 100%; opacity: 0.1;
+    background-image: radial-gradient(var(--g-text) 2px, transparent 2px); background-size: 30px 30px; pointer-events: none;
+}
+
+.g-headline { font-size: 8rem; color: var(--g-bg); text-shadow: -2px -2px 0px var(--g-text); margin-bottom: 30px;}
+.g-lead { font-size: 1.4rem; line-height: 1.6; color: var(--g-text); font-weight: bold; margin-bottom: 40px; text-shadow: 1px 1px 2px #000;}
+
+/* Massive structural input buttons */
+.g-prompts { display: flex; flex-direction: column; gap: 20px; }
+.g-action {
+    background: var(--g-bg); border: none; border-left: 8px solid var(--g-accent);
+    color: var(--g-text); font-family: var(--font-body); font-size: 1.2rem; font-weight: bold; letter-spacing: 2px;
+    padding: 20px 30px; cursor: pointer; text-align: left; transition: 0.2s;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
+}
+.g-action:hover { background: #1a2025; border-left-width: 15px; border-color: var(--g-text); color: var(--g-accent);}
+
+/* Response Slab */
+.g-response {
+    background: #1e2429; border-left: 15px solid var(--g-rust);
+    padding: 50px; box-shadow: 10px 10px 30px rgba(0,0,0,0.8); width: 100%;
+}
+.g-response.hidden { display: none; }
+.g-status-bar { border-bottom: 4px solid #000; padding-bottom: 15px; margin-bottom: 30px; font-size: 1.5rem; letter-spacing: 3px; font-weight: bold; color: var(--g-rust);}
+
+/* Markdown Styling */
+.markdown-body { color: var(--g-text); font-size: 1.2rem; line-height: 1.6;}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-mega); font-size: 4rem; color: var(--g-accent); margin: 2rem 0 1rem; line-height: 0.9; text-transform: uppercase;}
+.markdown-body h3 { font-family: var(--font-mega); font-size: 2.5rem; color: var(--g-concrete); margin-top: 1.5rem; line-height: 1;}
+.markdown-body p { margin-bottom: 1.5rem; }
+.markdown-body a { color: var(--g-accent); text-decoration: none; border-bottom: 2px solid var(--g-accent); font-weight: bold;}
+.markdown-body a:hover { background: var(--g-accent); color: var(--g-bg);}
+
+.markdown-body ul { margin-left: 30px; margin-bottom: 1.5rem; list-style-type: square;}
+.markdown-body li { margin-bottom: 10px; }
+
+.markdown-body pre { background: #0b0d0f; border-left: 5px solid var(--g-concrete); padding: 2rem; margin: 2rem 0; overflow-x: auto;}
+.markdown-body code { background: #0b0d0f; padding: 2px 8px; font-family: monospace; font-size: 0.9em; color: var(--g-accent);}
+.markdown-body pre code { background: transparent; padding: 0;}
+
+.mermaid { background: var(--g-concrete-dark); border: 10px solid #000; padding: 2rem; margin: 2.5rem 0; display: flex; justify-content: center; box-shadow: inset 0 0 30px rgba(0,0,0,0.8);}
+
+/* Footer Controls */
+.g-footer {
+    background: rgba(17, 21, 24, 0.95); padding: 30px; border-top: 8px solid var(--g-concrete-dark);
+}
+
+.g-input-group { display: flex; align-items: stretch; gap: 20px;}
+
+textarea {
+    flex-grow: 1; border: 4px solid var(--g-concrete-dark); background: transparent;
+    color: var(--g-text); font-family: var(--font-body); font-size: 1.5rem; font-weight: bold;
+    padding: 20px; outline: none; resize: none; min-height: 80px; letter-spacing: 1px;
+    transition: 0.2s;
+}
+textarea:focus { border-color: var(--g-text); background: rgba(255,255,255,0.05);}
+textarea::placeholder { color: #555; }
+
+.g-submit {
+    background: var(--g-bg); color: var(--g-text); border: 8px solid var(--g-text);
+    font-size: 3rem; padding: 0 40px; cursor: pointer; transition: 0.2s; box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
+}
+.g-submit:hover { background: var(--g-text); color: var(--g-bg); border-color: var(--g-accent);}
+.g-submit:active { transform: scale(0.98); }
+
+.g-telemetry { margin-top: 20px; text-align: right; font-weight: bold; font-size: 1.2rem; letter-spacing: 2px; color: #555;}
+.g-telemetry .error { color: var(--g-rust); }
+
+@media (max-width: 768px) {
+    .g-header { padding: 20px;}
+    .logo { font-size: 4rem;}
+    .g-scroller { padding: 20px; }
+    .g-hero { padding: 30px; }
+    .g-headline { font-size: 5rem; line-height: 0.9;}
+    .g-input-group { flex-direction: column;}
+    .g-submit { height: 80px; }
+}

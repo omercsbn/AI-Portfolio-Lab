@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN_LABS // BIO_SYSTEMS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Clean, clinical sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 3D Canvas (Petri Dish) -->
+    <canvas id="bio-canvas"></canvas>
+
+    <!-- Glass Overlay -->
+    <div class="glass-layer"></div>
+
+    <!-- UI Layer -->
+    <div class="lab-ui">
+        
+        <header class="b-header">
+            <div class="b-brand">
+                <h1>SABUN_LABS</h1>
+                <span class="b-subtitle">ORGANIC SYSTEMS ARCHITECTURE</span>
+            </div>
+            <nav class="b-nav">
+                <span id="cultureStatus" class="b-status pulse">CULTURE: STABLE</span>
+                <button id="langToggle" class="b-btn">EN.SEQ</button>
+            </nav>
+        </header>
+
+        <main class="b-main">
+            <div class="b-scroller">
+                
+                <section class="b-hero" id="heroSection">
+                    <div class="clinical-box">
+                        <h2 class="b-headline">EVOLUTIONARY<br>CODE.</h2>
+                        <p class="b-lead">
+                            Software is not static; it grows, mutates, and adapts. I treat microservices like biological cells—independent yet connected, capable of mitosis (scaling) under load and isolating (circuit breaking) when infected. 
+                        </p>
+                        
+                        <div class="b-prompts">
+                            <button class="pill-btn" onclick="insertPrompt('Explain Kubernetes Pod scaling as cellular mitosis')">
+                                INJECT: MITOSIS (K8S)
+                            </button>
+                            <button class="pill-btn" onclick="insertPrompt('Draw a Mermaid flowchart of an immune system routing strategy')">
+                                CULTURE: ROUTING
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="b-response hidden" id="responseDisplay">
+                    <div class="b-status-bar">
+                        <span class="dna-icon">🧬</span>
+                        <span id="responseStatus">SEQUENCING DATA...</span>
+                    </div>
+                    
+                    <div class="b-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="b-footer">
+            <div class="b-input-vial">
+                <div class="vial-cap"></div>
+                <textarea id="promptInput" rows="1" placeholder="INJECT PROMPT SEQUENCE..."></textarea>
+                <button id="submitBtn" class="b-submit">SYNTHESIZE</button>
+            </div>
+            
+            <div class="b-telemetry">
+                <span id="rateLimitStatus">REAGENT LVL: 5/5 ML</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Microscope Vignette -->
+    <div class="microscope-vignette"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

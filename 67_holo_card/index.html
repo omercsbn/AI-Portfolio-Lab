@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN_///_HOLO_CARD</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sci-fi / Trading Card Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,800;1,400&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS Moving Cyber Background -->
+    <div class="cyber-grid"></div>
+
+    <!-- UI Layer: The Holographic Card -->
+    <div class="card-container" id="cardContainer">
+        
+        <div class="holo-card" id="holoCard">
+            <!-- Holographic overlay foil -->
+            <div class="holo-foil" id="holoFoil"></div>
+            
+            <header class="h-header">
+                <div class="h-name">ÖMERCAN SABUN</div>
+                <div class="h-type">MTHIC / ARCHITECT</div>
+            </header>
+
+            <div class="h-image-frame">
+                <!-- Inner foil for the image -->
+                <div class="holo-foil inner-foil"></div>
+                <!-- Main textual UI acts as the card art -->
+                <div class="h-art-content">
+                    <h2 class="h-headline">FULL STACK SUMMONER</h2>
+                    <p class="h-lead">
+                        Ability: <strong>Scalable Deployment</strong><br>
+                        "When this unit enters the cloud, double the throughput of all adjacent microservices and negate latency."
+                    </p>
+                    <div class="h-stats">
+                        <span class="stat"><span class="icon">⚡</span> INT: 99</span>
+                        <span class="stat"><span class="icon">🛡️</span> DEF: 85</span>
+                    </div>
+                </div>
+            </div>
+
+            <main class="h-main">
+                <div class="h-controls">
+                    <button class="h-btn" onclick="insertPrompt('Explain dependency injection like a magic spell')">Cast: Injection</button>
+                    <button class="h-btn" onclick="insertPrompt('Draw a flowchart of a React component lifecycle')">Summon: Diagram</button>
+                </div>
+                
+                <div class="h-response hidden" id="responseDisplay">
+                    <div class="h-status-bar">
+                        <span id="responseStatus">CHANNELING MANA...</span>
+                    </div>
+                    <div class="h-content markdown-body" id="responseContent"></div>
+                </div>
+            </main>
+
+            <footer class="h-footer">
+                <div class="h-input-bar">
+                    <textarea id="promptInput" rows="1" placeholder="SPEAK YOUR INCANTATION..."></textarea>
+                    <button id="submitBtn" class="h-submit">CAST</button>
+                </div>
+                <div class="h-telemetry">
+                    <span id="rateLimitStatus">MANA: 5/5</sp>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <!-- Instructions overlay -->
+    <div class="instruction-overlay">MOVE CURSOR TO TILT CARD</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

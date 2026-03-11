@@ -1,0 +1,160 @@
+/* ASCII MATRIX CLI THEME */
+:root {
+    --m-bg: #000000; /* Pure black */
+    --m-text: #0f0; /* Matrix Green */
+    --m-dim: #005500; /* Dim Green */
+    --font-sys: 'Fira Code', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--m-bg);
+    color: var(--m-text);
+    font-family: var(--font-sys);
+    font-size: 14px;
+    line-height: 1.2;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+/* CSS Scanlines */
+.terminal-scanlines {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 100; pointer-events: none;
+    background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.4) 50%);
+    background-size: 100% 4px;
+}
+
+/* ASCII Container - Where the magic happens */
+#ascii-container {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none;
+    white-space: pre; /* CRITICAL for ASCII art to align */
+    font-family: var(--font-sys);
+    font-size: 10px; /* Small font for high resolution ASCII */
+    line-height: 10px;
+    letter-spacing: 2px;
+    color: var(--m-dim);
+    display: flex; justify-content: center; align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* UI Layer */
+.cli-ui {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%; padding: 30px;
+    pointer-events: none;
+    background: transparent;
+    text-shadow: 0 0 5px var(--m-text); /* Global terminal glow */
+}
+.cli-ui > * { pointer-events: auto; }
+
+/* Header */
+.m-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 20px; border-bottom: 1px dashed var(--m-dim);
+}
+.m-brand h1 { font-family: var(--font-sys); font-size: 1.2rem; color: var(--m-text); font-weight: bold;}
+
+.m-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 8px;}
+.m-status { font-size: 0.9rem; color: var(--m-text); }
+.blinking-slow { animation: blink 2s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+
+.m-btn {
+    background: transparent; border: none; color: var(--m-dim);
+    font-family: var(--font-sys); font-size: 0.9rem; cursor: pointer;
+}
+.m-btn:hover { color: #fff; }
+
+/* Main Content Area */
+.m-main { flex-grow: 1; display: flex; justify-content: flex-start; overflow: hidden; position: relative;}
+.m-scroller { width: 100%; max-width: 800px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 40px 20px 40px 0;}
+.m-scroller::-webkit-scrollbar { display: none; }
+
+.m-hero { margin-bottom: 40px;}
+
+.ascii-art {
+    font-size: 12px; line-height: 14px; margin-bottom: 30px; color: var(--m-text);
+    text-shadow: 0 0 8px var(--m-text); font-weight: bold;
+}
+
+.m-lead { font-size: 1rem; line-height: 1.8; color: var(--m-dim); margin-bottom: 40px;}
+
+.m-prompts { display: flex; flex-direction: column; gap: 15px; }
+.cmd-btn {
+    background: transparent; border: none; text-align: left;
+    color: var(--m-text); font-family: var(--font-sys); font-size: 1rem;
+    cursor: pointer; transition: 0.1s;
+}
+.cmd-btn:hover { background: var(--m-text); color: var(--m-bg); text-shadow: none; }
+
+/* Response Section */
+.m-response { margin: 2rem 0; background: rgba(0,0,0,0.8); border: 1px solid var(--m-dim); padding: 10px;}
+.m-response.hidden { display: none; }
+
+.m-status-bar {
+    padding: 10px; border-bottom: 1px dashed var(--m-dim);
+    display: flex; align-items: center; gap: 15px; font-weight: bold;
+}
+.animate-spin { display: inline-block; animation: cli-spin 0.5s steps(4) infinite; font-weight: normal;}
+@keyframes cli-spin { 0% { content: "|"; transform: rotate(0deg); } 25% { content: "/"; transform: rotate(90deg); } 50% { content: "-"; transform: rotate(180deg); } 75% { content: "\\"; transform: rotate(270deg); } 100% {content: "|"; transform: rotate(360deg);}}
+
+.m-content { padding: 20px 10px; text-align: left; }
+
+/* Markdown Overrides - Strict CLI */
+.markdown-body { color: #ddd; font-size: 1rem; line-height: 1.6; }
+.markdown-body h1, .markdown-body h2 { color: #fff; margin: 2rem 0 1rem; border-bottom: 1px solid var(--m-dim); padding-bottom: 5px; text-transform: uppercase;}
+.markdown-body h1::before, .markdown-body h2::before { content: "### "; color: var(--m-text);}
+.markdown-body h3 { color: var(--m-text); margin-top: 1.5rem;}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body a { color: #55ff55; text-decoration: underline;}
+.markdown-body a:hover { background: #55ff55; color: #000; text-decoration: none;}
+.markdown-body ul { margin-left: 20px; list-style-type: none;}
+.markdown-body ul li { margin-bottom: 5px; }
+.markdown-body ul li::before { content: "[*] "; color: var(--m-dim);}
+
+.markdown-body pre { background: transparent; border: 1px solid var(--m-dim); padding: 1rem; margin: 2rem 0; overflow-x: auto;}
+.markdown-body code { background: rgba(0,255,0,0.1); padding: 2px 4px; color: var(--m-text);}
+.markdown-body pre code { background: transparent; color: #fff;}
+
+.mermaid { background: #fff; padding: 1rem; margin: 2rem 0; display: flex; justify-content: center; filter: invert(1) hue-rotate(180deg); /* Dark mode mermaid */}
+
+/* Footer Input */
+.m-footer { border-top: 1px dashed var(--m-dim); padding-top: 20px; width: 100%; max-width: 800px;}
+.m-input-line {
+    display: flex; align-items: center; width: 100%; position: relative;
+}
+
+.m-prompt-char { color: var(--m-text); margin-right: 10px; font-weight: bold;}
+
+textarea {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: #fff; font-family: var(--font-sys); font-size: 1rem;
+    padding: 0; resize: none; line-height: 1.2; text-shadow: none; height: 1.2em; /* Single line mimicking CLI */
+    overflow: hidden;
+}
+textarea::placeholder { color: var(--m-dim); }
+
+/* Blinking block cursor mimicking terminal */
+.m-cursor-block {
+    width: 10px; height: 16px; background: var(--m-text);
+    animation: blink 1s steps(2, start) infinite;
+    position: absolute; pointer-events: none;
+    display: none; /* Handled via JS if we want to get fancy, but native textarea cursor is okay too for now. Let's just use native */
+}
+
+/* Hide the actual button, submit via Enter */
+.m-submit { display: none; }
+
+.m-telemetry { margin-top: 10px; font-size: 0.8rem; color: var(--m-dim);}
+.m-telemetry .error { color: #ff0000; text-shadow: 0 0 5px #ff0000;}
+
+@media (max-width: 768px) {
+    .cli-ui { padding: 15px; }
+    .m-brand h1 { font-size: 0.9rem; }
+    .ascii-art { font-size: 8px; line-height: 10px; }
+}

@@ -1,0 +1,166 @@
+/* HOLOGRAPHIC CARD THEME */
+:root {
+    --h-bg: #0d1117; /* Deep Git Hub dark */
+    --h-text: #c9d1d9;
+    --h-gold: #ffd700;
+    --h-cyan: #00f0ff;
+    --h-magenta: #ff0055;
+    --font-head: 'Orbitron', sans-serif;
+    --font-body: 'Exo 2', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--h-bg);
+    color: var(--h-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* Background Cyber Grid */
+.cyber-grid {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0; pointer-events: none;
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(500px) rotateX(60deg) translateY(100px) translateZ(-200px);
+    animation: gridMove 20s linear infinite;
+    opacity: 0.3;
+}
+@keyframes gridMove { from { background-position: 0 0; } to { background-position: 0 50px; } }
+
+/* Instruction Overlay */
+.instruction-overlay {
+    position: absolute; top: 20px; width: 100%; text-align: center;
+    font-family: var(--font-head); font-size: 1.2rem; color: var(--h-cyan);
+    letter-spacing: 4px; pointer-events: none; z-index: 5; opacity: 0.5;
+}
+
+/* 3D Scene setup */
+.card-container {
+    perspective: 1500px; /* Strong perspective for card tilt */
+    width: 450px; min-height: 650px; padding: 20px; display: flex;
+    z-index: 10;
+}
+
+/* The Card Itself */
+.holo-card {
+    width: 100%;
+    background: #161b22;
+    border-radius: 20px;
+    border: 2px solid #58a6ff;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0, 240, 255, 0.2);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out; /* Smooth follow */
+    display: flex; flex-direction: column; overflow: hidden;
+}
+
+/* Holo Foil Effect using mix-blend-mode and gradients */
+.holo-foil {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 50; pointer-events: none;
+    background: linear-gradient(
+        115deg, 
+        transparent 20%, 
+        rgba(255, 215, 0, 0.2) 25%, 
+        rgba(0, 240, 255, 0.2) 40%, 
+        rgba(255, 0, 85, 0.2) 60%, 
+        transparent 80%
+    );
+    background-size: 300% 300%;
+    mix-blend-mode: color-dodge;
+    opacity: 0; /* JS will modulate this based on tilt */
+    transition: opacity 0.2s;
+}
+
+.inner-foil { z-index: 10; opacity: 0.8 !important; mix-blend-mode: overlay; background-size: 200% 200%;}
+
+/* Header */
+.h-header {
+    padding: 20px; border-bottom: 2px solid #30363d; display: flex; justify-content: space-between; align-items: flex-end;
+    transform: translateZ(30px); /* Pop out slightly */
+}
+.h-name { font-family: var(--font-head); font-size: 1.8rem; font-weight: 900; color: #fff;}
+.h-type { font-size: 0.8rem; color: var(--h-gold); letter-spacing: 2px; border: 1px solid var(--h-gold); padding: 2px 5px; border-radius: 4px;}
+
+/* Card Art / Main Content Area */
+.h-image-frame {
+    margin: 15px; background: #010409; border: 2px solid #30363d; border-radius: 10px;
+    position: relative; overflow: hidden;
+    transform: translateZ(20px);
+}
+.h-art-content { padding: 25px 20px;}
+.h-headline { font-family: var(--font-head); font-size: 1.5rem; color: var(--h-cyan); margin-bottom: 10px; letter-spacing: 1px;}
+.h-lead { font-size: 0.95rem; line-height: 1.5; color: #8b949e; margin-bottom: 20px; font-style: italic;}
+.h-lead strong { color: #fff; font-style: normal;}
+
+.h-stats { display: flex; justify-content: space-between; border-top: 1px dashed #30363d; padding-top: 15px; font-family: var(--font-head); font-size: 1.2rem; color: var(--h-gold);}
+.icon { font-size: 1.2em; vertical-align: middle;}
+
+/* Prompts / Abilities */
+.h-main { flex-grow: 1; padding: 0 15px; transform: translateZ(40px); display: flex; flex-direction: column; overflow: hidden;}
+.h-controls { display: flex; gap: 10px; margin-bottom: 15px;}
+.h-btn {
+    flex: 1; background: #21262d; border: 1px solid #30363d; color: var(--h-text);
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: bold; padding: 10px; cursor: pointer; border-radius: 6px; transition: 0.2s;
+}
+.h-btn:hover { background: #30363d; border-color: #58a6ff; color: #fff; box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);}
+
+/* Telemetry & Output */
+.h-response { flex-grow: 1; background: rgba(1, 4, 9, 0.8); border: 1px solid #30363d; border-radius: 8px; margin-bottom: 15px; display: flex; flex-direction: column; overflow: hidden;}
+.h-response.hidden { display: none; }
+
+.h-status-bar { padding: 8px 15px; border-bottom: 1px solid #30363d; font-family: var(--font-head); font-size: 0.8rem; color: var(--h-cyan); background: rgba(0,240,255,0.05);}
+.h-content { padding: 15px; overflow-y: auto; scrollbar-width: thin; flex-grow: 1; max-height: 250px;}
+
+/* Markdown - Code Editor Style */
+.markdown-body { color: #c9d1d9; font-size: 0.95rem; line-height: 1.5;}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-head); font-size: 1.2rem; color: #fff; border-bottom: 1px solid #30363d; padding-bottom: 5px; margin: 1rem 0 0.5rem;}
+.markdown-body h3 { font-family: var(--font-head); font-size: 1rem; color: var(--h-cyan); margin-top: 1rem;}
+.markdown-body p { margin-bottom: 1rem; }
+.markdown-body a { color: var(--h-cyan); text-decoration: none;}
+.markdown-body a:hover { text-decoration: underline;}
+.markdown-body ul { margin-left: 20px; margin-bottom: 1rem; color: #8b949e;}
+.markdown-body ul li { margin-bottom: 4px; }
+
+.markdown-body pre { background: #010409; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; margin: 1rem 0; overflow-x: auto;}
+.markdown-body code { background: rgba(110, 118, 129, 0.4); padding: 2px 4px; font-family: monospace; font-size: 0.9em; border-radius: 4px; color: #a5d6ff;}
+.markdown-body pre code { background: transparent; padding: 0;}
+
+.mermaid { background: #fff; padding: 10px; margin: 1rem 0; display: flex; justify-content: center; border-radius: 6px; mix-blend-mode: screen;}
+
+/* Footer / Action Bar */
+.h-footer { padding: 15px; border-top: 2px solid #30363d; background: #0d1117; border-radius: 0 0 18px 18px; transform: translateZ(50px);}
+
+.h-input-bar { display: flex; gap: 10px; margin-bottom: 10px;}
+textarea {
+    flex-grow: 1; background: #010409; border: 1px solid #30363d; border-radius: 6px;
+    color: #fff; font-family: var(--font-body); font-size: 1rem; padding: 10px;
+    resize: none; outline: none; transition: 0.2s;
+}
+textarea:focus { border-color: var(--h-cyan); box-shadow: 0 0 10px rgba(0,240,255,0.2);}
+textarea::placeholder { color: #484f58; font-family: var(--font-head); text-transform: uppercase;}
+
+.h-submit {
+    background: var(--h-cyan); color: #000; border: none; font-family: var(--font-head); font-weight: 900;
+    padding: 0 20px; border-radius: 6px; cursor: pointer; transition: 0.2s;
+}
+.h-submit:hover { background: #fff; box-shadow: 0 0 15px var(--h-cyan);}
+
+.h-telemetry { display: flex; justify-content: space-between; font-size: 0.8rem; color: #8b949e; font-family: var(--font-head);}
+.error { color: var(--h-magenta) !important; font-weight: bold;}
+
+@media (max-width: 768px) {
+    .card-container { width: 100vw; min-height: 100vh; padding: 10px;}
+    .instruction-overlay { display: none; }
+    /* Disable 3D transforms on mobile for usability */
+    .holo-card, .h-header, .h-image-frame, .h-main, .h-footer { transform: none !important; }
+}

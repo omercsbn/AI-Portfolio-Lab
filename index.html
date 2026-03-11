@@ -3,81 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ömercan Sabun | AI Portfolio Concepts</title>
+    <title>AI Portfolio Lab | 76 Concepts</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 40px; }
-        h1 { text-align: center; color: #38bdf8; font-size: 2.5rem; margin-bottom: 10px; }
-        p.subtitle { text-align: center; color: #94a3b8; font-size: 1.1rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;}
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 20px; text-decoration: none; color: #e2e8f0; transition: 0.2s; display: flex; align-items: center; }
-        .card:hover { transform: translateY(-3px); border-color: #38bdf8; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); background: #2dd4bf; color: #0f172a; font-weight: bold;}
-        .card span { font-size: 1.2rem; font-weight: 500; }
-        .card .num { font-size: 0.9rem; opacity: 0.7; margin-right: 15px; font-variant-numeric: tabular-nums; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px;}
-        .card:hover .num { color: #0f172a; border-color: #0f172a; opacity: 1;}
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; padding: 40px; }
+        h1 { text-align: center; margin-bottom: 40px; background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
+        .card { background: #1e293b; border-radius: 12px; padding: 20px; text-decoration: none; color: white; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #334155; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); border-color: #38bdf8; }
+        .concept-num { font-size: 0.9rem; color: #94a3b8; font-weight: bold; margin-bottom: 5px; }
+        .concept-title { font-size: 1.25rem; font-weight: 600; text-transform: capitalize;}
+        .footer { text-align: center; margin-top: 60px; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <h1>AI Portfolio Laboratory</h1>
-    <p class="subtitle">A collection of 56 distinct, highly creative, and interactive 3D web concepts integrating Next-Gen UI and real-time AI generation via the Gemini API. 
-    <br><br><b>Note:</b> Since this is hosted statically, you will be prompted to enter your own Gemini API key locally to interact with the models.</p>
-    
+    <h1>AI Portfolio Lab - 76 Architectures</h1>
     <div class="grid">
-        <a href="./01_futuristic_scifi/index.html" class="card"><span class="num">01</span><span>Futuristic Scifi</span></a>
-        <a href="./02_brutalist_minimal/index.html" class="card"><span class="num">02</span><span>Brutalist Minimal</span></a>
-        <a href="./03_abstract_fluid/index.html" class="card"><span class="num">03</span><span>Abstract Fluid</span></a>
-        <a href="./04_immersive_scroll/index.html" class="card"><span class="num">04</span><span>Immersive Scroll</span></a>
-        <a href="./05_luxury_motion/index.html" class="card"><span class="num">05</span><span>Luxury Motion</span></a>
-        <a href="./06_ascii_cli/index.html" class="card"><span class="num">06</span><span>Ascii Cli</span></a>
-        <a href="./07_typographic_minimal/index.html" class="card"><span class="num">07</span><span>Typographic Minimal</span></a>
-        <a href="./08_kinetic_fluid/index.html" class="card"><span class="num">08</span><span>Kinetic Fluid</span></a>
-        <a href="./09_abstract_3d/index.html" class="card"><span class="num">09</span><span>Abstract 3D</span></a>
-        <a href="./10_cyber_dashboard/index.html" class="card"><span class="num">10</span><span>Cyber Dashboard</span></a>
-        <a href="./11_retro_os/index.html" class="card"><span class="num">11</span><span>Retro Os</span></a>
-        <a href="./12_bento_grid/index.html" class="card"><span class="num">12</span><span>Bento Grid</span></a>
-        <a href="./13_infinite_gallery/index.html" class="card"><span class="num">13</span><span>Infinite Gallery</span></a>
-        <a href="./14_neumorphic_panel/index.html" class="card"><span class="num">14</span><span>Neumorphic Panel</span></a>
-        <a href="./15_node_graph_matrix/index.html" class="card"><span class="num">15</span><span>Node Graph Matrix</span></a>
-        <a href="./16_glass_vault/index.html" class="card"><span class="num">16</span><span>Glass Vault</span></a>
-        <a href="./17_brutalist_grid/index.html" class="card"><span class="num">17</span><span>Brutalist Grid</span></a>
-        <a href="./18_holographic_display/index.html" class="card"><span class="num">18</span><span>Holographic Display</span></a>
-        <a href="./19_monochrome_journal/index.html" class="card"><span class="num">19</span><span>Monochrome Journal</span></a>
-        <a href="./20_interactive_terminal/index.html" class="card"><span class="num">20</span><span>Interactive Terminal</span></a>
-        <a href="./21_scrollytelling_journey/index.html" class="card"><span class="num">21</span><span>Scrollytelling Journey</span></a>
-        <a href="./22_3d_space_gallery/index.html" class="card"><span class="num">22</span><span>3D Space Gallery</span></a>
-        <a href="./23_interactive_blueprint/index.html" class="card"><span class="num">23</span><span>Interactive Blueprint</span></a>
-        <a href="./24_kinetic_typography/index.html" class="card"><span class="num">24</span><span>Kinetic Typography</span></a>
-        <a href="./25_ai_chat_interface/index.html" class="card"><span class="num">25</span><span>Ai Chat Interface</span></a>
-        <a href="./26_gemini_prompt/index.html" class="card"><span class="num">26</span><span>Gemini Prompt</span></a>
-        <a href="./27_cyber_hologram/index.html" class="card"><span class="num">27</span><span>Cyber Hologram</span></a>
-        <a href="./28_quantum_tunnel/index.html" class="card"><span class="num">28</span><span>Quantum Tunnel</span></a>
-        <a href="./29_liquid_metal/index.html" class="card"><span class="num">29</span><span>Liquid Metal</span></a>
-        <a href="./30_retro_synthwave/index.html" class="card"><span class="num">30</span><span>Retro Synthwave</span></a>
-        <a href="./31_geo_swarm/index.html" class="card"><span class="num">31</span><span>Geo Swarm</span></a>
-        <a href="./32_bio_neural/index.html" class="card"><span class="num">32</span><span>Bio Neural</span></a>
-        <a href="./33_glass_prism/index.html" class="card"><span class="num">33</span><span>Glass Prism</span></a>
-        <a href="./34_galactic_map/index.html" class="card"><span class="num">34</span><span>Galactic Map</span></a>
-        <a href="./35_voxel_matrix/index.html" class="card"><span class="num">35</span><span>Voxel Matrix</span></a>
-        <a href="./36_kinetic_typography/index.html" class="card"><span class="num">36</span><span>Kinetic Typography</span></a>
-        <a href="./37_neon_topo/index.html" class="card"><span class="num">37</span><span>Neon Topo</span></a>
-        <a href="./38_cellular_growth/index.html" class="card"><span class="num">38</span><span>Cellular Growth</span></a>
-        <a href="./39_steampunk_gears/index.html" class="card"><span class="num">39</span><span>Steampunk Gears</span></a>
-        <a href="./40_zen_garden/index.html" class="card"><span class="num">40</span><span>Zen Garden</span></a>
-        <a href="./41_classic_mac/index.html" class="card"><span class="num">41</span><span>Classic Mac</span></a>
-        <a href="./42_origami_fold/index.html" class="card"><span class="num">42</span><span>Origami Fold</span></a>
-        <a href="./43_audio_spectrum/index.html" class="card"><span class="num">43</span><span>Audio Spectrum</span></a>
-        <a href="./44_deep_sea/index.html" class="card"><span class="num">44</span><span>Deep Sea</span></a>
-        <a href="./45_chronos_time/index.html" class="card"><span class="num">45</span><span>Chronos Time</span></a>
-        <a href="./46_blueprint_cad/index.html" class="card"><span class="num">46</span><span>Blueprint Cad</span></a>
-        <a href="./47_vhs_glitch/index.html" class="card"><span class="num">47</span><span>Vhs Glitch</span></a>
-        <a href="./48_ethereal_clouds/index.html" class="card"><span class="num">48</span><span>Ethereal Clouds</span></a>
-        <a href="./49_neobrutalist/index.html" class="card"><span class="num">49</span><span>Neobrutalist</span></a>
-        <a href="./50_crystal_cave/index.html" class="card"><span class="num">50</span><span>Crystal Cave</span></a>
-        <a href="./51_tarot_mystic/index.html" class="card"><span class="num">51</span><span>Tarot Mystic</span></a>
-        <a href="./52_mecha_hud/index.html" class="card"><span class="num">52</span><span>Mecha Hud</span></a>
-        <a href="./53_papercraft/index.html" class="card"><span class="num">53</span><span>Papercraft</span></a>
-        <a href="./54_plasma_globe/index.html" class="card"><span class="num">54</span><span>Plasma Globe</span></a>
-        <a href="./55_cyber_eye/index.html" class="card"><span class="num">55</span><span>Cyber Eye</span></a>
-        <a href="./56_magnetic_fluid/index.html" class="card"><span class="num">56</span><span>Magnetic Fluid</span></a>
+
+        <a href="01_futuristic_scifi/index.html" class="card">
+            <span class="concept-num">Concept 01</span>
+            <span class="concept-title">futuristic scifi</span>
+        </a>
+        
+        <a href="02_brutalist_minimal/index.html" class="card">
+            <span class="concept-num">Concept 02</span>
+            <span class="concept-title">brutalist minimal</span>
+        </a>
+        
+        <a href="03_abstract_fluid/index.html" class="card">
+            <span class="concept-num">Concept 03</span>
+            <span class="concept-title">abstract fluid</span>
+        </a>
+        
+        <a href="04_immersive_scroll/index.html" class="card">
+            <span class="concept-num">Concept 04</span>
+            <span class="concept-title">immersive scroll</span>
+        </a>
+        
+        <a href="05_luxury_motion/index.html" class="card">
+            <span class="concept-num">Concept 05</span>
+            <span class="concept-title">luxury motion</span>
+        </a>
+        
+        <a href="06_ascii_cli/index.html" class="card">
+            <span class="concept-num">Concept 06</span>
+            <span class="concept-title">ascii cli</span>
+        </a>
+        
+        <a href="07_typographic_minimal/index.html" class="card">
+            <span class="concept-num">Concept 07</span>
+            <span class="concept-title">typographic minimal</span>
+        </a>
+        
+        <a href="08_kinetic_fluid/index.html" class="card">
+            <span class="concept-num">Concept 08</span>
+            <span class="concept-title">kinetic fluid</span>
+        </a>
+        
+        <a href="09_abstract_3d/index.html" class="card">
+            <span class="concept-num">Concept 09</span>
+            <span class="concept-title">abstract 3d</span>
+        </a>
+        
+        <a href="10_cyber_dashboard/index.html" class="card">
+            <span class="concept-num">Concept 10</span>
+            <span class="concept-title">cyber dashboard</span>
+        </a>
+        
+        <a href="11_retro_os/index.html" class="card">
+            <span class="concept-num">Concept 11</span>
+            <span class="concept-title">retro os</span>
+        </a>
+        
+        <a href="12_bento_grid/index.html" class="card">
+            <span class="concept-num">Concept 12</span>
+            <span class="concept-title">bento grid</span>
+        </a>
+        
+        <a href="13_infinite_gallery/index.html" class="card">
+            <span class="concept-num">Concept 13</span>
+            <span class="concept-title">infinite gallery</span>
+        </a>
+        
+        <a href="14_neumorphic_panel/index.html" class="card">
+            <span class="concept-num">Concept 14</span>
+            <span class="concept-title">neumorphic panel</span>
+        </a>
+        
+        <a href="15_node_graph_matrix/index.html" class="card">
+            <span class="concept-num">Concept 15</span>
+            <span class="concept-title">node graph matrix</span>
+        </a>
+        
+        <a href="16_glass_vault/index.html" class="card">
+            <span class="concept-num">Concept 16</span>
+            <span class="concept-title">glass vault</span>
+        </a>
+        
+        <a href="17_brutalist_grid/index.html" class="card">
+            <span class="concept-num">Concept 17</span>
+            <span class="concept-title">brutalist grid</span>
+        </a>
+        
+        <a href="18_holographic_display/index.html" class="card">
+            <span class="concept-num">Concept 18</span>
+            <span class="concept-title">holographic display</span>
+        </a>
+        
+        <a href="19_monochrome_journal/index.html" class="card">
+            <span class="concept-num">Concept 19</span>
+            <span class="concept-title">monochrome journal</span>
+        </a>
+        
+        <a href="20_interactive_terminal/index.html" class="card">
+            <span class="concept-num">Concept 20</span>
+            <span class="concept-title">interactive terminal</span>
+        </a>
+        
+        <a href="21_scrollytelling_journey/index.html" class="card">
+            <span class="concept-num">Concept 21</span>
+            <span class="concept-title">scrollytelling journey</span>
+        </a>
+        
+        <a href="22_3d_space_gallery/index.html" class="card">
+            <span class="concept-num">Concept 22</span>
+            <span class="concept-title">3d space gallery</span>
+        </a>
+        
+        <a href="23_interactive_blueprint/index.html" class="card">
+            <span class="concept-num">Concept 23</span>
+            <span class="concept-title">interactive blueprint</span>
+        </a>
+        
+        <a href="24_kinetic_typography/index.html" class="card">
+            <span class="concept-num">Concept 24</span>
+            <span class="concept-title">kinetic typography</span>
+        </a>
+        
+        <a href="25_ai_chat_interface/index.html" class="card">
+            <span class="concept-num">Concept 25</span>
+            <span class="concept-title">ai chat interface</span>
+        </a>
+        
+        <a href="26_gemini_prompt/index.html" class="card">
+            <span class="concept-num">Concept 26</span>
+            <span class="concept-title">gemini prompt</span>
+        </a>
+        
+        <a href="27_cyber_hologram/index.html" class="card">
+            <span class="concept-num">Concept 27</span>
+            <span class="concept-title">cyber hologram</span>
+        </a>
+        
+        <a href="28_quantum_tunnel/index.html" class="card">
+            <span class="concept-num">Concept 28</span>
+            <span class="concept-title">quantum tunnel</span>
+        </a>
+        
+        <a href="29_liquid_metal/index.html" class="card">
+            <span class="concept-num">Concept 29</span>
+            <span class="concept-title">liquid metal</span>
+        </a>
+        
+        <a href="30_retro_synthwave/index.html" class="card">
+            <span class="concept-num">Concept 30</span>
+            <span class="concept-title">retro synthwave</span>
+        </a>
+        
+        <a href="31_geo_swarm/index.html" class="card">
+            <span class="concept-num">Concept 31</span>
+            <span class="concept-title">geo swarm</span>
+        </a>
+        
+        <a href="32_bio_neural/index.html" class="card">
+            <span class="concept-num">Concept 32</span>
+            <span class="concept-title">bio neural</span>
+        </a>
+        
+        <a href="33_glass_prism/index.html" class="card">
+            <span class="concept-num">Concept 33</span>
+            <span class="concept-title">glass prism</span>
+        </a>
+        
+        <a href="34_galactic_map/index.html" class="card">
+            <span class="concept-num">Concept 34</span>
+            <span class="concept-title">galactic map</span>
+        </a>
+        
+        <a href="35_voxel_matrix/index.html" class="card">
+            <span class="concept-num">Concept 35</span>
+            <span class="concept-title">voxel matrix</span>
+        </a>
+        
+        <a href="36_kinetic_typography/index.html" class="card">
+            <span class="concept-num">Concept 36</span>
+            <span class="concept-title">kinetic typography</span>
+        </a>
+        
+        <a href="37_neon_topo/index.html" class="card">
+            <span class="concept-num">Concept 37</span>
+            <span class="concept-title">neon topo</span>
+        </a>
+        
+        <a href="38_cellular_growth/index.html" class="card">
+            <span class="concept-num">Concept 38</span>
+            <span class="concept-title">cellular growth</span>
+        </a>
+        
+        <a href="39_steampunk_gears/index.html" class="card">
+            <span class="concept-num">Concept 39</span>
+            <span class="concept-title">steampunk gears</span>
+        </a>
+        
+        <a href="40_zen_garden/index.html" class="card">
+            <span class="concept-num">Concept 40</span>
+            <span class="concept-title">zen garden</span>
+        </a>
+        
+        <a href="41_classic_mac/index.html" class="card">
+            <span class="concept-num">Concept 41</span>
+            <span class="concept-title">classic mac</span>
+        </a>
+        
+        <a href="42_origami_fold/index.html" class="card">
+            <span class="concept-num">Concept 42</span>
+            <span class="concept-title">origami fold</span>
+        </a>
+        
+        <a href="43_audio_spectrum/index.html" class="card">
+            <span class="concept-num">Concept 43</span>
+            <span class="concept-title">audio spectrum</span>
+        </a>
+        
+        <a href="44_deep_sea/index.html" class="card">
+            <span class="concept-num">Concept 44</span>
+            <span class="concept-title">deep sea</span>
+        </a>
+        
+        <a href="45_chronos_time/index.html" class="card">
+            <span class="concept-num">Concept 45</span>
+            <span class="concept-title">chronos time</span>
+        </a>
+        
+        <a href="46_blueprint_cad/index.html" class="card">
+            <span class="concept-num">Concept 46</span>
+            <span class="concept-title">blueprint cad</span>
+        </a>
+        
+        <a href="47_vhs_glitch/index.html" class="card">
+            <span class="concept-num">Concept 47</span>
+            <span class="concept-title">vhs glitch</span>
+        </a>
+        
+        <a href="48_ethereal_clouds/index.html" class="card">
+            <span class="concept-num">Concept 48</span>
+            <span class="concept-title">ethereal clouds</span>
+        </a>
+        
+        <a href="49_neobrutalist/index.html" class="card">
+            <span class="concept-num">Concept 49</span>
+            <span class="concept-title">neobrutalist</span>
+        </a>
+        
+        <a href="50_crystal_cave/index.html" class="card">
+            <span class="concept-num">Concept 50</span>
+            <span class="concept-title">crystal cave</span>
+        </a>
+        
+        <a href="51_tarot_mystic/index.html" class="card">
+            <span class="concept-num">Concept 51</span>
+            <span class="concept-title">tarot mystic</span>
+        </a>
+        
+        <a href="52_mecha_hud/index.html" class="card">
+            <span class="concept-num">Concept 52</span>
+            <span class="concept-title">mecha hud</span>
+        </a>
+        
+        <a href="53_papercraft/index.html" class="card">
+            <span class="concept-num">Concept 53</span>
+            <span class="concept-title">papercraft</span>
+        </a>
+        
+        <a href="54_plasma_globe/index.html" class="card">
+            <span class="concept-num">Concept 54</span>
+            <span class="concept-title">plasma globe</span>
+        </a>
+        
+        <a href="55_cyber_eye/index.html" class="card">
+            <span class="concept-num">Concept 55</span>
+            <span class="concept-title">cyber eye</span>
+        </a>
+        
+        <a href="56_magnetic_fluid/index.html" class="card">
+            <span class="concept-num">Concept 56</span>
+            <span class="concept-title">magnetic fluid</span>
+        </a>
+        
+        <a href="57_microbiology/index.html" class="card">
+            <span class="concept-num">Concept 57</span>
+            <span class="concept-title">microbiology</span>
+        </a>
+        
+        <a href="58_arcade_cabinet/index.html" class="card">
+            <span class="concept-num">Concept 58</span>
+            <span class="concept-title">arcade cabinet</span>
+        </a>
+        
+        <a href="59_paper_marbling/index.html" class="card">
+            <span class="concept-num">Concept 59</span>
+            <span class="concept-title">paper marbling</span>
+        </a>
+        
+        <a href="60_ascii_matrix/index.html" class="card">
+            <span class="concept-num">Concept 60</span>
+            <span class="concept-title">ascii matrix</span>
+        </a>
+        
+        <a href="61_stained_glass/index.html" class="card">
+            <span class="concept-num">Concept 61</span>
+            <span class="concept-title">stained glass</span>
+        </a>
+        
+        <a href="62_kinetic_poster/index.html" class="card">
+            <span class="concept-num">Concept 62</span>
+            <span class="concept-title">kinetic poster</span>
+        </a>
+        
+        <a href="63_black_hole/index.html" class="card">
+            <span class="concept-num">Concept 63</span>
+            <span class="concept-title">black hole</span>
+        </a>
+        
+        <a href="64_voxel_city/index.html" class="card">
+            <span class="concept-num">Concept 64</span>
+            <span class="concept-title">voxel city</span>
+        </a>
+        
+        <a href="65_broken_glass/index.html" class="card">
+            <span class="concept-num">Concept 65</span>
+            <span class="concept-title">broken glass</span>
+        </a>
+        
+        <a href="66_polaroid_scrapbook/index.html" class="card">
+            <span class="concept-num">Concept 66</span>
+            <span class="concept-title">polaroid scrapbook</span>
+        </a>
+        
+        <a href="67_holo_card/index.html" class="card">
+            <span class="concept-num">Concept 67</span>
+            <span class="concept-title">holo card</span>
+        </a>
+        
+        <a href="68_synthwave/index.html" class="card">
+            <span class="concept-num">Concept 68</span>
+            <span class="concept-title">synthwave</span>
+        </a>
+        
+        <a href="69_wireframe/index.html" class="card">
+            <span class="concept-num">Concept 69</span>
+            <span class="concept-title">wireframe</span>
+        </a>
+        
+        <a href="70_sonar_submarine/index.html" class="card">
+            <span class="concept-num">Concept 70</span>
+            <span class="concept-title">sonar submarine</span>
+        </a>
+        
+        <a href="71_rube_goldberg/index.html" class="card">
+            <span class="concept-num">Concept 71</span>
+            <span class="concept-title">rube goldberg</span>
+        </a>
+        
+        <a href="72_cassette_tape/index.html" class="card">
+            <span class="concept-num">Concept 72</span>
+            <span class="concept-title">cassette tape</span>
+        </a>
+        
+        <a href="73_seismograph/index.html" class="card">
+            <span class="concept-num">Concept 73</span>
+            <span class="concept-title">seismograph</span>
+        </a>
+        
+        <a href="74_liquid_metal/index.html" class="card">
+            <span class="concept-num">Concept 74</span>
+            <span class="concept-title">liquid metal</span>
+        </a>
+        
+        <a href="75_xray_scan/index.html" class="card">
+            <span class="concept-num">Concept 75</span>
+            <span class="concept-title">xray scan</span>
+        </a>
+        
+        <a href="76_megastructure/index.html" class="card">
+            <span class="concept-num">Concept 76</span>
+            <span class="concept-title">megastructure</span>
+        </a>
+        
     </div>
+    <div class="footer">Built by Ömercan Sabun. All concepts run locally via UI abstraction and prompt injection.</div>
 </body>
 </html>

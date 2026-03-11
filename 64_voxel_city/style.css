@@ -1,0 +1,171 @@
+/* VOXEL CITY THEME */
+:root {
+    --x-bg: #e1e5ee; /* Soft architectural grey */
+    --x-text: #2c3e50; /* Slate block */
+    --x-accent: #e74c3c; /* Brick red */
+    --x-brand: #3498db; /* Blueprint blue */
+    --x-glass: rgba(255, 255, 255, 0.85);
+    --font-head: 'Varela Round', sans-serif;
+    --font-data: 'Share Tech Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--x-bg);
+    color: var(--x-text);
+    font-family: var(--font-data);
+    font-size: 16px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    /* Soft grid background */
+    background-image: 
+        linear-gradient(rgba(52, 152, 219, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(52, 152, 219, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* 3D Canvas -> Voxel City */
+#voxel-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none;
+}
+
+/* Post Processing */
+.voxel-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 2; pointer-events: none;
+    /* Tilt-shift / Vignette effect to make it look like a miniature toy city */
+    background: radial-gradient(circle at center, transparent 40%, rgba(225, 229, 238, 0.8) 100%);
+}
+
+/* UI Layer */
+.voxel-ui {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%; padding: 30px;
+    pointer-events: none;
+}
+.voxel-ui > * { pointer-events: auto; }
+
+/* Header */
+.x-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 20px;
+}
+.x-brand { background: var(--x-text); color: #fff; padding: 10px 20px; border-radius: 8px; box-shadow: 4px 4px 0 var(--x-brand);}
+.x-brand h1 { font-family: var(--font-head); font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 2px;}
+.x-subtitle { font-family: var(--font-data); font-size: 0.8rem; color: #bdc3c7;}
+
+.x-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 10px;}
+.x-status { background: #fff; border: 2px solid var(--x-text); padding: 5px 10px; border-radius: 5px; font-weight: bold; color: var(--x-brand); box-shadow: 2px 2px 0 var(--x-text);}
+.blink-slow { animation: slowBlink 2s infinite; }
+@keyframes slowBlink { 50% { opacity: 0.5; } }
+
+.x-btn {
+    background: var(--x-glass); border: 2px solid var(--x-text); color: var(--x-text);
+    font-family: var(--font-data); font-weight: bold; padding: 8px 15px; cursor: pointer; border-radius: 5px; box-shadow: 2px 2px 0 var(--x-text); transition: 0.1s;
+}
+.x-btn:hover { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--x-text); }
+
+/* Main Content Area */
+.x-main { flex-grow: 1; display: flex; justify-content: flex-start; overflow: hidden; position: relative;}
+.x-scroller { width: 100%; max-width: 650px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 40px 20px 40px 0;}
+.x-scroller::-webkit-scrollbar { display: none; }
+
+.x-hero { margin-bottom: 40px;}
+
+.floating-panel {
+    background: var(--x-glass); border: 3px solid var(--x-text);
+    border-radius: 10px; padding: 30px; backdrop-filter: blur(10px);
+    box-shadow: 8px 8px 0 rgba(44, 62, 80, 0.2);
+}
+
+.panel-header { display: flex; gap: 8px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px dashed var(--x-text);}
+.dot { width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--x-text); }
+.dot.red { background: var(--x-accent); }
+.dot.yellow { background: #f1c40f; }
+.dot.green { background: #2ecc71; }
+
+.x-headline {
+    font-family: var(--font-head); font-size: 3rem; line-height: 1.1; margin-bottom: 20px;
+    color: var(--x-text);
+}
+.x-lead { font-family: var(--font-head); font-size: 1.1rem; line-height: 1.6; color: #555; margin-bottom: 30px;}
+
+.x-prompts { display: flex; flex-direction: column; gap: 10px; }
+.block-btn {
+    background: var(--x-brand); border: 3px solid var(--x-text);
+    color: #fff; font-family: var(--font-data); font-size: 1rem; font-weight: bold;
+    padding: 12px 20px; cursor: pointer; transition: 0.1s; border-radius: 8px; text-align: left;
+    box-shadow: 4px 4px 0 var(--x-text);
+}
+.block-btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--x-text); background: #2980b9;}
+
+/* Response Section */
+.x-response { margin: 2rem 0; background: var(--x-glass); border: 3px solid var(--x-text); border-radius: 10px; box-shadow: 8px 8px 0 rgba(44, 62, 80, 0.2); overflow: hidden; backdrop-filter: blur(10px);}
+.x-response.hidden { display: none; }
+
+.x-status-bar {
+    padding: 15px 20px; background: #fff; border-bottom: 3px solid var(--x-text);
+    display: flex; align-items: center; gap: 15px; font-weight: bold; color: var(--x-text);
+}
+.x-icon { font-size: 1.5rem; animation: bounceSite 1s infinite alternate; }
+@keyframes bounceSite { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+
+.x-content { padding: 30px; text-align: left; }
+
+/* Markdown Overrides - Architectural/Blueprint Style */
+.markdown-body { color: var(--x-text); font-size: 1.05rem; line-height: 1.6; font-family: var(--font-head);}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-data); font-weight: bold; font-size: 1.5rem; color: var(--x-brand); margin: 2rem 0 1rem; text-transform: uppercase; border-bottom: 2px dashed #ccc; padding-bottom: 5px;}
+.markdown-body h3 { font-family: var(--font-data); color: var(--x-accent); font-size: 1.2rem; margin-top: 1.5rem;}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body a { color: var(--x-brand); text-decoration: none; border-bottom: 2px solid var(--x-brand); font-weight: bold;}
+.markdown-body a:hover { color: #fff; background: var(--x-brand); }
+.markdown-body ul { margin-left: 20px; margin-bottom: 1.5rem; padding: 10px; background: rgba(52, 152, 219, 0.05); border-left: 4px solid var(--x-brand); border-radius: 4px;}
+.markdown-body ul li { margin-bottom: 5px; list-style-type: none; position: relative;}
+.markdown-body ul li::before { content: "■"; position: absolute; left: -20px; color: var(--x-brand); font-size: 0.8em; top: 2px;}
+
+.markdown-body pre { background: var(--x-text); border-radius: 8px; border: 2px solid #555; padding: 1.5rem; margin: 2rem 0; overflow-x: auto; box-shadow: inset 0 5px 15px rgba(0,0,0,0.5);}
+.markdown-body code { background: #ecf0f1; padding: 2px 6px; font-family: var(--font-data); font-size: 0.9em; color: var(--x-accent); border-radius: 4px; font-weight: bold;}
+.markdown-body pre code { background: transparent; color: #ecf0f1; font-weight: normal;}
+
+.mermaid { background: #fff; padding: 1rem; margin: 2rem 0; display: flex; justify-content: center; border: 3px solid var(--x-text); border-radius: 8px; box-shadow: 4px 4px 0 rgba(44, 62, 80, 0.2);}
+.mermaid * { font-family: var(--font-data) !important; font-weight: bold;}
+
+/* Footer Input */
+.x-footer { padding-top: 20px; width: 100%; max-width: 650px;}
+.x-input-block {
+    display: flex; align-items: stretch; width: 100%; background: #fff; border: 3px solid var(--x-text); border-radius: 10px; padding: 5px; transition: 0.1s; box-shadow: 6px 6px 0 rgba(44, 62, 80, 0.2);
+}
+.x-input-block:focus-within { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 rgba(44, 62, 80, 0.2);}
+
+.x-prompt-char { padding: 10px 15px; font-weight: bold; color: var(--x-brand); font-size: 1.2rem;}
+
+textarea {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: var(--x-text); font-family: var(--font-data); font-size: 1.1rem; font-weight: bold;
+    padding: 10px 0; resize: none; max-height: 120px; line-height: 1.5;
+}
+textarea::placeholder { color: #bdc3c7; font-weight: normal;}
+
+.x-submit {
+    background: var(--x-accent); color: #fff; border: 3px solid var(--x-text); border-radius: 8px; cursor: pointer;
+    padding: 0 20px; font-family: var(--font-data); font-size: 1.2rem; font-weight: bold; transition: 0.1s;
+    box-shadow: 2px 2px 0 var(--x-text);
+}
+.x-submit:hover { background: #c0392b; transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--x-text);}
+
+.x-telemetry { margin-top: 10px; font-family: var(--font-data); font-size: 0.8rem; font-weight: bold; color: #7f8c8d; text-align: right;}
+.x-telemetry .error { color: var(--x-accent); }
+
+@media (max-width: 768px) {
+    .voxel-ui { padding: 15px; }
+    .x-header { flex-direction: column; gap: 15px;}
+    .x-nav { align-items: flex-start;}
+    .x-headline { font-size: 2.2rem; }
+    .floating-panel { padding: 20px; }
+    .x-input-block { flex-direction: column; align-items: stretch;}
+    .x-prompt-char { display: none;}
+    .x-submit { margin-top: 10px; padding: 15px;}
+}

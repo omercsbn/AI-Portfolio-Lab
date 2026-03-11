@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN /// MEGASTRUCTURE</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Heavy, brutal, monumental fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <!-- anime.js for slow, massive cinematic panning -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+
+    <!-- Cinematic Fog/Atmosphere -->
+    <div class="fog-overlay"></div>
+
+    <!-- The Megastructure Background - Huge Brutalist Blocks -->
+    <div class="mega-bg" id="megaBg">
+        <!-- These blocks will slowly pan upwards to simulate looking up at a colossal building -->
+        <div class="mega-block p-1"></div>
+        <div class="mega-block p-2"></div>
+        <div class="mega-block p-3"></div>
+        <div class="mega-block p-4"></div>
+        <div class="mega-block p-5"></div>
+    </div>
+
+    <!-- Foreground Content Container -->
+    <div class="mega-container">
+        
+        <header class="g-header">
+            <h1 class="logo mega-text">ÖMERCAN SABUN</h1>
+            <span class="g-subtitle">CHIEF_ARCHITECT /// SECTOR_07</span>
+            
+            <div class="g-status-corner">
+                <span id="systemStatus" class="g-val blink">ONLINE</span>
+                <button id="langToggle" class="g-btn">[COMM: EN]</button>
+            </div>
+        </header>
+
+        <main class="g-main">
+            <div class="g-scroller">
+                
+                <section class="g-hero" id="heroSection">
+                    <h2 class="g-headline mega-text">MONUMENTAL<br>SCALE.</h2>
+                    <p class="g-lead">
+                        I don't build temporary structures; I build towering, brutalist logic systems. My backend architectures look like cinematic megastructures—designed to hold up skies of data and outlast the frameworks built around them.
+                    </p>
+                    
+                    <div class="g-prompts">
+                        <button class="g-action" onclick="insertPrompt('Draft an architecture diagram for an international banking system')">
+                            [ ERECT: GLOBAL_BANKING_CORE ]
+                        </button>
+                        <button class="g-action" onclick="insertPrompt('Explain monolithic versus microservice scaling strategies')">
+                            [ ERECT: SCALING_THEORY ]
+                        </button>
+                    </div>
+                </section>
+
+                <section class="g-response hidden" id="responseDisplay">
+                    <div class="g-status-bar">
+                        <span id="responseStatus">CONSTRUCTING LOGIC...</span>
+                    </div>
+                    
+                    <!-- Content block looks like a massive concrete slab -->
+                    <div class="g-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="g-footer">
+            <div class="g-input-group">
+                <textarea id="promptInput" rows="1" placeholder="TRANSMIT BLUEPRINT..."></textarea>
+                <button id="submitBtn" class="g-submit mega-text">BUILD</button>
+            </div>
+            
+            <div class="g-telemetry">
+                <span>STRUCTURAL BUDGET: <span id="rateLimitStatus" class="g-val">5/5 BLOCKS</span></span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

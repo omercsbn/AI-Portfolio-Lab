@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root@sabun:~# matrix_architecture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Hardcore terminal font -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS Scanlines -->
+    <div class="terminal-scanlines"></div>
+
+    <!-- 3D Canvas (ASCII Torus) -->
+    <div id="ascii-container"></div>
+    <canvas id="matrix-canvas" style="display:none;"></canvas>
+
+    <!-- UI Layer -->
+    <div class="cli-ui">
+        
+        <header class="m-header">
+            <div class="m-brand">
+                <h1>[root@sabun.dev ~]# ./execute_architect</h1>
+            </div>
+            <nav class="m-nav">
+                <span id="memStatus" class="m-status blinking-slow">MEM: ALLOCATED</span>
+                <button id="langToggle" class="m-btn">[LANG=EN]</button>
+            </nav>
+        </header>
+
+        <main class="m-main">
+            <div class="m-scroller">
+                
+                <section class="m-hero" id="heroSection">
+                    <div class="terminal-box">
+                        <pre class="ascii-art">
+   _____          ____  _    __  _   __ 
+  / ___/   ____  / __ )/ /  / / / | / / 
+  \__ \   / __/ / __  / /  / / /  |/ /  
+ ___/ /  / /   / /_/ / /__/ /_/ /|  /   
+/____/  /_/   /_____/_____/\____/_/ |_/ 
+                                        
+                        </pre>
+                        <p class="m-lead">
+                            > User 'guest' has logged in.<br>
+                            > Accessing Sabun Cloud Architect Profile...<br>
+                            > GUI Disabled. Raw data flow initiated.<br>
+                            > Architecting infrastructure without the illusion of interfaces.
+                        </p>
+                        
+                        <div class="m-prompts">
+                            <button class="cmd-btn" onclick="insertPrompt('sudo rm -rf monolith && docker compose up microservices')">
+                                > ./script_monolith_to_microservices.sh
+                            </button>
+                            <button class="cmd-btn" onclick="insertPrompt('Display the system architecture for a highly available database cluster')">
+                                > cat /etc/architecture/ha_database_cluster.md
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="m-response hidden" id="responseDisplay">
+                    <div class="m-status-bar">
+                        <span class="m-icon animate-spin">|</span>
+                        <span id="responseStatus">COMPILING PIPELINE...</span>
+                    </div>
+                    
+                    <div class="m-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="m-footer">
+            <div class="m-input-line">
+                <span class="m-prompt-char">guest@sabun:~$ </span>
+                <textarea id="promptInput" rows="1" placeholder="Type a command or natural language query..."></textarea>
+                <div class="m-cursor-block"></div>
+                <button id="submitBtn" class="m-submit" style="display:none;">[ENTER]</button>
+            </div>
+            
+            <div class="m-telemetry">
+                <span id="rateLimitStatus">API_QUOTA: 5/5 CALLS_PER_MIN</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

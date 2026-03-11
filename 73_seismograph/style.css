@@ -1,0 +1,219 @@
+/* SEISMOGRAPH / GEOLOGICAL THEME */
+:root {
+    --eq-bg: #8c92ac; /* Dusty/Industrial Grey-Blue */
+    --eq-panel: #d1d5db; /* Light instrument metal */
+    --eq-accent: #f59e0b; /* Warning Orange */
+    --eq-danger: #ef4444; /* High alert Red */
+    --eq-paper: #fefce8; /* Paper roll color */
+    --eq-ink: #1e3a8a; /* Seismograph ink blue */
+    --font-ui: 'Oswald', sans-serif;
+    --font-data: 'Inconsolata', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--eq-bg);
+    color: #111;
+    font-family: var(--font-data);
+    font-size: 16px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* Base shake animation triggered by JS during generation */
+.earthquake-mode {
+    animation: eqShake 0.1s linear infinite;
+}
+@keyframes eqShake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Grungy wall background */
+.monitor-background {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0; pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(0,0,0,0.5) 100%),
+                url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+    opacity: 0.2; mix-blend-mode: multiply;
+}
+
+/* Main Container */
+.drum-container {
+    position: relative; z-index: 10; width: 100%; max-width: 900px;
+    padding: 20px; display: flex; flex-direction: column;
+}
+
+/* Sturdy Instrument Panel */
+.instrument-panel {
+    width: 100%; background: var(--eq-panel);
+    border: 8px solid #4b5563; border-radius: 8px;
+    box-shadow: 
+        15px 15px 0px rgba(0,0,0,0.2), 
+        inset 2px 2px 10px #fff,
+        inset -5px -5px 15px rgba(0,0,0,0.3);
+    display: flex; flex-direction: column; overflow: hidden;
+}
+
+/* Header */
+.eq-header {
+    background: #e5e7eb; padding: 15px 25px; border-bottom: 4px solid #9ca3af;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 5;
+}
+
+.eq-branding { display: flex; flex-direction: column;}
+.eq-logo { font-family: var(--font-ui); font-size: 2.5rem; letter-spacing: -1px; line-height: 1; color: #1f2937; text-transform: uppercase;}
+.eq-model { font-family: var(--font-data); font-size: 0.9rem; color: #6b7280; font-weight: bold;}
+
+.eq-status {
+    background: #111; border: 4px solid #374151; border-radius: 4px;
+    padding: 10px 20px; display: flex; align-items: center; gap: 15px;
+    box-shadow: inset 0 0 15px #000;
+}
+.eq-label { font-family: var(--font-ui); font-size: 1rem; color: #9ca3af; text-transform: uppercase;}
+.eq-val { font-family: var(--font-data); font-size: 2.2rem; line-height: 1;}
+.eq-val.stable { color: #10b981; text-shadow: 0 0 10px #10b981;}
+.eq-val.warning { color: var(--eq-accent); text-shadow: 0 0 10px var(--eq-accent);}
+.eq-val.danger { color: var(--eq-danger); text-shadow: 0 0 15px var(--eq-danger);}
+
+.eq-btn {
+    background: #374151; color: #d1d5db; border: 2px solid #1f2937;
+    font-family: var(--font-data); font-size: 0.8rem; padding: 4px 8px; cursor: pointer; transition: 0.2s;
+}
+.eq-btn:hover { background: var(--eq-accent); color: #111;}
+
+/* Main Panel Area */
+.eq-main {
+    flex-grow: 1; display: flex; flex-direction: column; background: #9ca3af;
+    position: relative;
+}
+
+/* The Live Seismograph Output (Paper Drum) */
+.seismograph-wrapper {
+    width: 100%; height: 150px; background: var(--eq-paper);
+    border-bottom: 4px solid #4b5563; position: relative; overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Background grid for the drum paper */
+.seismograph-wrapper::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(239, 68, 68, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239, 68, 68, 0.2) 1px, transparent 1px);
+    background-size: 20px 20px; pointer-events: none;
+    animation: paperScroll 2s linear infinite;
+}
+@keyframes paperScroll { from { background-position: 0 0; } to { background-position: -20px 0; } }
+
+/* The Canvas taking up the drum */
+canvas#seismoCanvas { width: 100%; height: 100%; vertical-align: bottom;}
+
+/* The mechanical arm pivoting to draw the line */
+.needle-arm {
+    position: absolute; right: 20px; top: 50%; width: 150px; height: 4px;
+    background: #374151; transform-origin: right center; z-index: 5;
+    /* JS transforms rotation to follow the canvas drawing Y value */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+.needle-tip {
+    position: absolute; left: -10px; top: -8px; width: 20px; height: 20px;
+    background: var(--eq-ink); border-radius: 50%; border: 2px solid #111;
+}
+
+.drum-shadow {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, transparent 5%, transparent 95%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none; z-index: 10;
+}
+
+/* Content Area */
+.eq-content-area {
+    width: 100%; height: 350px; background: #f3f4f6; overflow: hidden; position: relative;
+}
+/* Subtle grid for content area */
+.eq-content-area::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; opacity: 0.5; background-image: radial-gradient(#d1d5db 1px, transparent 1px); background-size: 10px 10px; pointer-events: none;}
+
+.eq-scroller { width: 100%; height: 100%; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #6b7280 transparent; padding: 30px; position: relative; z-index: 5;}
+
+.eq-headline { font-family: var(--font-ui); font-size: 3.5rem; color: #1f2937; line-height: 0.9; margin-bottom: 20px; text-transform: uppercase;}
+.eq-lead { font-size: 1.15rem; line-height: 1.6; color: #4b5563; margin-bottom: 30px;}
+
+.eq-prompts { display: flex; flex-direction: column; gap: 10px; }
+.eq-action-btn {
+    background: #e5e7eb; border: 2px solid #9ca3af; color: #1f2937;
+    font-family: var(--font-data); font-size: 1.1rem; font-weight: bold;
+    padding: 12px; cursor: pointer; text-align: left; transition: 0.2s; border-radius: 4px;
+}
+.eq-action-btn:hover { background: var(--eq-accent); color: #fff; border-color: #d97706;}
+
+/* Response Display */
+.eq-response { margin-top: 10px;}
+.eq-response.hidden { display: none; }
+.eq-status-bar { font-family: var(--font-data); font-size: 1.2rem; color: #1f2937; font-weight: bold; padding-bottom: 10px; margin-bottom: 20px; border-bottom: 2px dashed #9ca3af; display: flex; align-items: center; gap: 15px;}
+
+.eq-alert-light { width: 15px; height: 15px; border-radius: 50%; background: #9ca3af; border: 2px solid #4b5563; box-shadow: inset 1px 1px 3px rgba(0,0,0,0.5);}
+.eq-alert-light.active { background: var(--eq-danger); border-color: #991b1b; animation: lightFlash 0.5s infinite alternate; box-shadow: 0 0 15px var(--eq-danger);}
+@keyframes lightFlash { to { filter: brightness(1.5); box-shadow: 0 0 25px var(--eq-danger); } }
+
+/* Markdown Styling */
+.markdown-body { color: #374151; font-size: 1.1rem; line-height: 1.6;}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-ui); font-size: 2rem; color: #111; margin: 1.5rem 0 0.5rem; border-bottom: 3px solid #111;}
+.markdown-body h3 { font-family: var(--font-ui); font-size: 1.5rem; color: #374151; margin-top: 1rem;}
+.markdown-body p { margin-bottom: 1rem; }
+.markdown-body a { color: var(--eq-accent); text-decoration: underline; font-weight: bold;}
+
+.markdown-body ul { margin-left: 20px; margin-bottom: 1.5rem; list-style-type: square;}
+
+.markdown-body pre { background: #1f2937; border: 2px solid #111; padding: 1rem; margin: 1.5rem 0; overflow-x: auto; border-radius: 4px;}
+.markdown-body code { background: #e5e7eb; padding: 2px 4px; font-family: monospace; font-size: 0.9em; font-weight: bold; border-radius: 2px;}
+.markdown-body pre code { background: transparent; padding: 0; color: #d1d5db; font-weight: normal;}
+
+.mermaid { background: #fff; padding: 1rem; margin: 1.5rem 0; border: 2px solid #9ca3af; display: flex; justify-content: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.1);}
+
+/* Footer Controls */
+.eq-controls {
+    background: #d1d5db; padding: 20px; border-top: 4px solid #4b5563;
+    display: flex; flex-direction: column; gap: 15px;
+}
+
+.eq-input-deck { display: flex; align-items: center; gap: 15px;}
+.inline-label { color: #4b5563; font-weight: bold;}
+
+textarea {
+    flex-grow: 1; border: 3px solid #6b7280; background: #fff; border-radius: 4px;
+    color: #111; font-family: var(--font-data); font-size: 1.2rem; font-weight: bold;
+    padding: 10px; outline: none; resize: none; min-height: 50px;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1); transition: 0.2s;
+}
+textarea:focus { border-color: var(--eq-danger); }
+
+.eq-submit-btn {
+    background: var(--eq-danger); color: #fff; border: 4px solid #7f1d1d; border-radius: 8px;
+    font-family: var(--font-ui); font-size: 1.5rem; padding: 10px 20px;
+    cursor: pointer; transition: 0.1s; box-shadow: 0 6px 0 #7f1d1d, 0 10px 10px rgba(0,0,0,0.3); text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.eq-submit-btn:active, .eq-submit-btn.pressed { transform: translateY(6px); box-shadow: 0 0px 0 #7f1d1d;}
+
+.eq-telemetry { display: flex; justify-content: flex-end; font-family: var(--font-data); font-size: 1.1rem; font-weight: bold; color: #4b5563;}
+.eq-telemetry .error { color: var(--eq-danger); }
+
+@media (max-width: 768px) {
+    .drum-container { padding: 10px; }
+    .eq-header { flex-direction: column; gap: 15px;}
+    .eq-input-deck { flex-direction: column; align-items: stretch;}
+    .eq-submit-btn { width: 100%; }
+}

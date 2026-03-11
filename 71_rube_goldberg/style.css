@@ -1,0 +1,208 @@
+/* RUBE GOLDBERG / CONTRAPTION THEME */
+:root {
+    --rg-bg: #2c3e50; /* Factory wall */
+    --rg-metal: #7f8c8d; /* Base metal */
+    --rg-light-metal: #bdc3c7;
+    --rg-brass: #d35400; /* Rust/Brass */
+    --rg-wood: #8e44ad;
+    --rg-text: #ecf0f1;
+    --rg-alert: #e74c3c;
+    --font-head: 'Rye', cursive;
+    --font-body: 'Cutive Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--rg-bg);
+    color: var(--rg-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    min-height: 100vh; width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    display: flex; justify-content: center;
+    background-image: radial-gradient(#34495e 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Background Factory Gears */
+.factory-bg {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0; pointer-events: none; overflow: hidden;
+}
+.gear {
+    position: absolute; font-size: 20rem; color: rgba(0,0,0,0.1);
+    animation: spinGear 30s linear infinite; line-height: 1;
+}
+.gear-1 { top: -100px; left: -100px; }
+.gear-2 { bottom: -150px; right: -50px; animation-direction: reverse; font-size: 30rem;}
+.gear-3 { top: 40%; left: 60%; font-size: 15rem; animation-duration: 20s;}
+@keyframes spinGear { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Main Container */
+.machine-container {
+    position: relative; z-index: 10; width: 100%; max-width: 800px;
+    padding: 40px 20px; display: flex; flex-direction: column; align-items: center;
+}
+
+/* Base Machine Part Styling */
+.rg-part {
+    background: var(--rg-metal);
+    border: 4px solid #222;
+    border-radius: 10px;
+    box-shadow: 
+        10px 10px 0px rgba(0,0,0,0.5),
+        inset 2px 2px 5px rgba(255,255,255,0.3),
+        inset -5px -5px 15px rgba(0,0,0,0.4);
+    position: relative;
+    padding: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Screws in the corners */
+.rg-screw {
+    position: absolute; width: 15px; height: 15px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ecf0f1, #333);
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.8), 1px 1px 1px rgba(255,255,255,0.2);
+}
+.rg-screw::after {
+    content: ""; position: absolute; top: 50%; left: 20%; width: 60%; height: 2px;
+    background: rgba(0,0,0,0.6); transform: translateY(-50%) rotate(45deg);
+}
+.topleft { top: 10px; left: 10px; }
+.topright { top: 10px; right: 10px; transform: rotate(30deg);}
+.botleft { bottom: 10px; left: 10px; transform: rotate(-20deg);}
+.botright { bottom: 10px; right: 10px; transform: rotate(80deg);}
+
+/* Pipes connecting parts */
+.rg-pipe {
+    width: 40px; height: 40px; background: linear-gradient(90deg, #555 0%, #aaa 20%, #777 50%, #444 80%, #222 100%);
+    border-left: 2px solid #111; border-right: 2px solid #111;
+    margin: 0 auto; z-index: 5;
+}
+.pipe-down { margin-bottom: -20px; position: relative; top: -10px;}
+.pipe-up { margin-top: -20px; position: relative; bottom: -10px;}
+
+/* Header Block */
+.header-block { text-align: center; background: #34495e;}
+.rg-brand { font-family: var(--font-head); font-size: 3.5rem; color: var(--rg-brass); text-shadow: 2px 2px 0 #000; line-height: 1;}
+.rg-tag { font-family: var(--font-body); font-weight: bold; background: #222; color: var(--rg-brass); padding: 5px 10px; display: inline-block; margin-top: 10px; border: 2px solid #000; border-radius: 4px;}
+
+.rg-gauge-container { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 20px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;}
+.gauge-label { font-weight: bold; }
+.rg-gauge { width: 50px; height: 50px; border-radius: 50%; background: #fff; border: 4px solid #222; position: relative; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);}
+.gauge-needle { position: absolute; bottom: 5px; left: 50%; width: 4px; height: 25px; background: var(--rg-alert); transform-origin: bottom center; transform: translateX(-50%) rotate(-45deg); transition: transform 0.5s ease-in-out;}
+.blink { animation: needleTwitch 2s infinite; }
+@keyframes needleTwitch { 0%, 100% { transform: translateX(-50%) rotate(-45deg); } 50% { transform: translateX(-50%) rotate(-35deg); } }
+
+.rg-toggle-switch { background: var(--rg-brass); color: #fff; border: 2px solid #000; padding: 5px 15px; font-family: var(--font-body); font-weight: bold; cursor: pointer; border-radius: 3px; box-shadow: 0 4px 0 #000; transition: 0.1s;}
+.rg-toggle-switch:active { transform: translateY(4px); box-shadow: 0 0px 0 #000;}
+
+/* Main Area */
+.rg-main { width: 100%; display: flex; flex-direction: column; align-items: center;}
+
+/* The Chain Reaction Animation Box */
+.chain-reaction-box {
+    width: 200px; height: 150px; background: transparent; position: relative;
+    border-left: 4px solid #222; border-right: 4px solid #222;
+    background: rgba(0,0,0,0.1); display: none; margin: -10px 0; z-index: 5;
+}
+.chain-reaction-box.active { display: block; }
+
+.marble {
+    position: absolute; top: 0; left: 20px; width: 25px; height: 25px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ecf0f1, #7f8c8d); border: 2px solid #222;
+    z-index: 10;
+}
+/* The CSS Animation for the marble */
+.marble.drop { animation: marblePath 2s forwards ease-in; }
+
+.ramp { position: absolute; height: 8px; background: var(--rg-brass); border: 2px solid #222;}
+.ramp-1 { top: 40px; left: 0; width: 140px; transform: rotate(15deg); transform-origin: left top;}
+.ramp-2 { top: 90px; right: 0; width: 140px; transform: rotate(-15deg); transform-origin: right top;}
+.funnel { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); font-family: var(--font-head); font-size: 2rem; color: #222;}
+
+@keyframes marblePath {
+    0%   { top: 0; left: 20px; }
+    20%  { top: 45px; left: 130px; } /* Falls off ramp 1 */
+    35%  { top: 90px; left: 140px; } /* Hits ramp 2 */
+    60%  { top: 120px; left: 95px; } /* Rolls into funnel */
+    80%  { top: 140px; left: 95px; opacity: 1;}
+    100% { top: 160px; left: 95px; opacity: 0;} /* Disappears */
+}
+
+/* Hero Content */
+.hero-block { background: #95a5a6; }
+.rg-headline { font-family: var(--font-head); font-size: 3rem; color: #222; margin-bottom: 15px; line-height: 1;}
+.rg-lead { font-size: 1.1rem; line-height: 1.6; color: #222; font-weight: bold; margin-bottom: 25px;}
+
+.rg-prompts { display: flex; flex-direction: column; gap: 15px; }
+.rg-lever {
+    background: #bdc3c7; border: 3px solid #222; color: #222; font-family: var(--font-body); font-weight: bold; font-size: 1.1rem;
+    padding: 10px; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 15px; transition: 0.2s;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.5); border-radius: 5px;
+}
+.lever-handle { width: 15px; height: 15px; background: var(--rg-alert); border: 2px solid #222; border-radius: 50%; display: inline-block; transition: 0.2s;}
+.rg-lever:hover { background: var(--rg-brass); color: #fff; transform: translateY(2px); box-shadow: 2px 2px 0 rgba(0,0,0,0.5);}
+.rg-lever:hover .lever-handle { background: #f1c40f;}
+
+/* Response Output */
+.response-block { background: #222; color: #ecf0f1; border-color: var(--rg-brass);}
+.response-block.hidden { display: none; }
+.rg-status-bar { border-bottom: 2px dashed #555; padding-bottom: 10px; margin-bottom: 20px; color: var(--rg-alert); font-weight: bold; font-size: 1.2rem;}
+
+.markdown-body { font-size: 1.05rem; line-height: 1.6;}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-head); font-size: 2rem; color: var(--rg-brass); border-bottom: 1px solid #555; padding-bottom: 5px; margin: 2rem 0 1rem; }
+.markdown-body h3 { font-size: 1.4rem; color: var(--rg-light-metal); margin-top: 1.5rem;}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body a { color: var(--rg-brass); text-decoration: underline;}
+
+.markdown-body ul { margin-left: 20px; margin-bottom: 1.5rem; list-style-type: square;}
+
+.markdown-body pre { background: #111; border: 2px solid #555; padding: 1.5rem; margin: 2rem 0; overflow-x: auto; box-shadow: inset 0 0 10px #000;}
+.markdown-body code { background: #333; padding: 2px 6px; font-family: monospace; font-size: 0.9em; border: 1px solid #555;}
+.markdown-body pre code { background: transparent; border: none; padding: 0;}
+
+.mermaid { background: #bdc3c7; padding: 10px; margin: 2rem 0; border: 4px solid #222; display: flex; justify-content: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.2);}
+
+/* Footer Input - The Activator */
+.input-block { background: #7f8c8d; display: flex; flex-direction: column; gap: 15px;}
+.rg-input-mechanism { display: flex; gap: 15px; align-items: stretch;}
+
+textarea {
+    flex-grow: 1; border: 4px solid #222; background: #ecf0f1; border-radius: 5px;
+    color: #222; font-family: var(--font-body); font-weight: bold; font-size: 1.2rem;
+    padding: 15px; resize: none; min-height: 80px; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
+}
+textarea::placeholder { color: #95a5a6; }
+
+/* Big Red Button */
+.rg-big-button {
+    background: transparent; border: none; cursor: pointer; position: relative; width: 120px;
+    display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+}
+.btn-top {
+    background: var(--rg-alert); border: 4px solid #222; border-radius: 50% 50% 10px 10px;
+    width: 100px; height: 80px; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-family: var(--font-head); font-size: 1.2rem; line-height: 1;
+    text-shadow: 1px 1px 0 #000; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);
+    position: relative; top: 10px; transition: 0.1s; z-index: 2;
+}
+.btn-base {
+    background: #333; border: 4px solid #222; width: 110px; height: 20px; border-radius: 5px; z-index: 1;
+}
+.rg-big-button:hover .btn-top { filter: brightness(1.2); }
+.rg-big-button:active .btn-top { top: 20px; height: 70px;}
+
+.rg-telemetry { display: flex; justify-content: center; font-weight: bold; font-size: 1.2rem; background: #222; color: var(--rg-brass); padding: 5px; border: 2px solid #000; border-radius: 5px; width: fit-content; margin: 0 auto;}
+.rg-telemetry .error { color: var(--rg-alert); }
+
+@media (max-width: 768px) {
+    .machine-container { padding: 10px; }
+    .rg-input-mechanism { flex-direction: column; align-items: center;}
+    .rg-big-button { width: 100%; height: 100px;}
+    .btn-base { width: 100%; }
+    .btn-top { width: 90%; }
+}

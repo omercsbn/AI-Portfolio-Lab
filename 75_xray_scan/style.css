@@ -1,0 +1,208 @@
+/* X-RAY / MRI SCAN THEME */
+:root {
+    --x-bg: #000c14; /* Deep radiograph blue/black */
+    --x-light: #d1f5ff; /* Pale glowing white/blue of bone */
+    --x-scanline: rgba(209, 245, 255, 0.05);
+    --x-accent: #00e5ff; /* Cyan UI elements */
+    --x-danger: #ff0055; /* Anomaly detected red */
+    --font-ui: 'Share Tech Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--x-bg);
+    color: var(--x-light);
+    font-family: var(--font-body);
+    font-size: 16px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* Base Backlight (looks like a doctor's light box) */
+.light-box-bg {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(circle at center, #001f33 0%, var(--x-bg) 80%);
+    z-index: 0; pointer-events: none;
+}
+
+/* CRT Scanlines across the whole screen */
+.mri-scanlines {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(to bottom, var(--x-scanline) 50%, transparent 50%);
+    background-size: 100% 4px;
+    z-index: 100; pointer-events: none; opacity: 0.8;
+}
+
+/* The Glowing Tech Skeleton */
+.skeleton-overlay {
+    position: absolute; right: 10%; top: 50%; transform: translateY(-50%);
+    height: 80vh; width: 200px; z-index: 1; opacity: 0.15;
+    display: flex; justify-content: center; align-items: center;
+    transition: opacity 1s;
+}
+.skeleton-overlay.active { opacity: 0.6; filter: drop-shadow(0 0 10px var(--x-accent)); }
+
+.tech-spine {
+    display: flex; flex-direction: column; gap: 40px; align-items: center;
+    position: relative; height: 100%;
+}
+/* The Spinal Cord */
+.tech-spine::before {
+    content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 6px; height: 100%; background: var(--x-light);
+    box-shadow: 0 0 15px var(--x-light); border-radius: 3px;
+}
+.vertebra {
+    width: 80px; height: 15px; background: var(--x-light); border-radius: 10px;
+    position: relative; z-index: 2; box-shadow: 0 0 10px var(--x-light);
+}
+.vertebra::before {
+    content: ""; position: absolute; top: 50%; left: -30px; transform: translateY(-50%);
+    width: 20px; height: 8px; background: var(--x-light); border-radius: 4px;
+}
+.vertebra::after {
+    content: ""; position: absolute; top: 50%; right: -30px; transform: translateY(-50%);
+    width: 20px; height: 8px; background: var(--x-light); border-radius: 4px;
+}
+
+/* Main Container */
+.mri-container {
+    position: relative; z-index: 10; width: 100%; max-width: 900px;
+    height: 90vh; padding: 20px;
+}
+
+/* The Panel UI */
+.diagnostic-panel {
+    width: 100%; height: 100%; border: 1px solid rgba(0, 229, 255, 0.3);
+    background: rgba(0, 12, 20, 0.6); backdrop-filter: blur(5px);
+    display: flex; flex-direction: column; position: relative; overflow: hidden;
+    border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0, 229, 255, 0.1);
+}
+
+/* The sweeping scan bar (triggered during generation) */
+.scanning-bar {
+    position: absolute; left: 0; width: 100%; height: 8px;
+    background: var(--x-accent); box-shadow: 0 0 20px 5px var(--x-accent);
+    z-index: 50; opacity: 0; pointer-events: none;
+}
+.scanning-bar.active {
+    opacity: 0.8; animation: scanSweep 2s ease-in-out infinite alternate;
+}
+@keyframes scanSweep {
+    0% { top: 10%; } 10% { height: 2px; } 50% { height: 10px; } 90% { height: 2px;} 100% { top: 90%; }
+}
+
+/* Header */
+.x-header {
+    border-bottom: 1px solid rgba(0, 229, 255, 0.3); padding: 15px 25px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    background: rgba(0, 229, 255, 0.05);
+}
+
+.logo { font-family: var(--font-ui); font-size: 2rem; color: var(--x-light); line-height: 1; text-shadow: 0 0 5px var(--x-light);}
+.x-subtitle { font-family: var(--font-ui); font-size: 0.9rem; color: var(--x-accent);}
+
+.x-telemetry { display: flex; gap: 20px; align-items: center;}
+.vital-block { display: flex; flex-direction: column; align-items: flex-end;}
+.v-label { font-family: var(--font-ui); font-size: 0.7rem; color: #666; letter-spacing: 1px;}
+.v-val { font-family: var(--font-ui); font-size: 1.5rem; color: var(--x-light);}
+
+.blink { animation: pulseHeart 1s infinite alternate; }
+@keyframes pulseHeart { 0% { transform: scale(1); opacity: 0.8;} 100% { transform: scale(1.1); opacity: 1; color: var(--x-accent);} }
+
+.x-btn {
+    background: transparent; color: var(--x-accent); border: 1px solid var(--x-accent);
+    font-family: var(--font-ui); font-size: 0.8rem; padding: 4px 8px; cursor: pointer; transition: 0.2s;
+    border-radius: 4px;
+}
+.x-btn:hover { background: var(--x-accent); color: var(--x-bg); box-shadow: 0 0 10px var(--x-accent);}
+
+/* Main Scroller */
+.x-main {
+    flex-grow: 1; position: relative; overflow: hidden; padding: 20px;
+}
+.x-scroller { width: 100%; height: 100%; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--x-accent) transparent; position: relative; z-index: 5; padding-right: 15px;}
+.x-scroller::-webkit-scrollbar { width: 6px; }
+.x-scroller::-webkit-scrollbar-thumb { background-color: var(--x-accent); border-radius: 3px; }
+
+/* Diagnostic Reticles */
+.reticle { position: absolute; width: 30px; height: 30px; border: 2px solid var(--x-accent); z-index: 2; opacity: 0.5; transition: opacity 0.3s;}
+.topleft { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.topright { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+.botleft { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+.botright { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+.x-main:hover .reticle { opacity: 1; box-shadow: 0 0 10px inset var(--x-accent), 0 0 10px var(--x-accent); }
+
+/* Hero Text */
+.x-headline { font-family: var(--font-ui); font-size: 3rem; font-weight: normal; margin-bottom: 20px; line-height: 1; color: var(--x-light); text-shadow: 0 0 8px var(--x-light);}
+.x-lead { font-size: 1.1rem; line-height: 1.6; color: #88bbcc; margin-bottom: 30px;}
+
+.x-prompts { display: flex; flex-direction: column; gap: 10px; }
+.x-action {
+    background: transparent; border: 1px solid rgba(0, 229, 255, 0.2); color: var(--x-accent);
+    font-family: var(--font-ui); font-size: 1rem; padding: 12px; cursor: pointer; text-align: left;
+    transition: 0.2s; border-radius: 4px;
+}
+.x-action:hover { background: rgba(0, 229, 255, 0.1); border-color: var(--x-accent); box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.2);}
+
+/* Response */
+.x-response { margin-top: 10px;}
+.x-response.hidden { display: none; }
+.x-status-container { display: flex; align-items: center; gap: 15px; font-family: var(--font-ui); font-size: 1.2rem; color: var(--x-light); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px dashed rgba(209, 245, 255, 0.2);}
+.x-pulse-icon { color: var(--x-accent); animation: pulseHeart 1s infinite alternate; }
+
+/* Markdown Styling (Medical Chart) */
+.markdown-body { color: #d1f5ff; font-size: 1.05rem; line-height: 1.6;}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-ui); font-size: 1.8rem; color: var(--x-light); margin: 1.5rem 0 0.5rem; text-shadow: 0 0 5px var(--x-light); text-transform: uppercase;}
+.markdown-body h3 { font-family: var(--font-ui); font-size: 1.3rem; color: var(--x-accent); margin-top: 1rem;}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body a { color: var(--x-accent); text-decoration: underline;}
+
+.markdown-body ul { margin-left: 20px; margin-bottom: 1.5rem; list-style-type: none;}
+.markdown-body ul li { position: relative; margin-bottom: 5px;}
+.markdown-body ul li::before { content: "+"; position: absolute; left: -15px; color: var(--x-accent);}
+
+.markdown-body pre { background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); padding: 1.5rem; margin: 1.5rem 0; overflow-x: auto; border-radius: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);}
+.markdown-body code { background: rgba(0, 229, 255, 0.1); padding: 2px 4px; font-family: var(--font-ui); font-size: 0.9em; border-radius: 2px;}
+.markdown-body pre code { background: transparent; padding: 0;}
+
+.mermaid { background: rgba(0, 229, 255, 0.02); padding: 1rem; margin: 1.5rem 0; border: 1px solid var(--x-accent); display: flex; justify-content: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.5);}
+
+/* Footer Controls */
+.x-footer {
+    border-top: 1px solid rgba(0, 229, 255, 0.3); padding: 20px 25px;
+    background: rgba(0, 229, 255, 0.05);
+}
+.x-input-group { display: flex; align-items: stretch; gap: 15px;}
+.x-prompt { font-family: var(--font-ui); font-size: 1rem; color: var(--x-accent); display: flex; align-items: center;}
+
+textarea {
+    flex-grow: 1; border: 1px solid rgba(0, 229, 255, 0.3); background: rgba(0,0,0,0.5); border-radius: 4px;
+    color: var(--x-light); font-family: var(--font-ui); font-size: 1.2rem;
+    padding: 10px 15px; outline: none; resize: none; min-height: 50px;
+    transition: 0.2s;
+}
+textarea:focus { border-color: var(--x-accent); box-shadow: 0 0 10px rgba(0, 229, 255, 0.2), inset 0 0 10px rgba(0,0,0,0.8);}
+textarea::placeholder { color: #555; }
+
+.x-submit {
+    background: transparent; color: var(--x-accent); border: 1px solid var(--x-accent); border-radius: 4px;
+    font-family: var(--font-ui); font-size: 1.2rem; font-weight: bold; padding: 0 30px;
+    cursor: pointer; transition: 0.2s;
+}
+.x-submit:hover { background: var(--x-accent); color: var(--x-bg); box-shadow: 0 0 15px var(--x-accent);}
+
+.x-telemetry .error { color: var(--x-danger); text-shadow: 0 0 10px var(--x-danger);}
+
+@media (max-width: 768px) {
+    .skeleton-overlay { display: none; } /* Hide spine on mobile */
+    .diagnostic-panel { border-radius: 0; border: none; }
+    .x-header { flex-direction: column; gap: 15px;}
+    .x-input-group { flex-direction: column; align-items: stretch;}
+    .x-prompt { display: none; }
+    .x-submit { padding: 15px; }
+}

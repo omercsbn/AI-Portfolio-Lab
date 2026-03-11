@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN_///_KINETIC</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Ultra Bold, high-impact sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <!-- For crazy text animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS Moving Background Gradients -->
+    <div class="color-warp"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Kinetic Typography Background Layer (Driven by JS/CSS) -->
+    <div id="kinetic-bg" class="kinetic-container" aria-hidden="true">
+        <!-- Spans injected by JS -->
+    </div>
+
+    <!-- UI Layer -->
+    <div class="k-ui">
+        
+        <header class="k-header">
+            <div class="k-brand">
+                <h1 class="glitch" data-text="ÖMERCAN_SABUN">ÖMERCAN_SABUN</h1>
+                <span class="k-subtitle">FULL STACK DYNAMISM</span>
+            </div>
+            <nav class="k-nav">
+                <span id="motionStatus" class="k-status">MOTION: IDLE</span>
+                <button id="langToggle" class="k-btn">EN>TR</button>
+            </nav>
+        </header>
+
+        <main class="k-main">
+            <div class="k-scroller">
+                
+                <section class="k-hero" id="heroSection">
+                    <div class="brutal-box">
+                        <h2 class="k-headline stroke-text" data-text="LOUD.">LOUD.</h2>
+                        <h2 class="k-headline solid-text">ARCHITECTURE.</h2>
+                        
+                        <p class="k-lead">
+                            Code shouldn't whisper. It should roar. High-performance caching, edge compute, and non-blocking I/O. I build systems that scream across the wire, delivering payloads before the user even blinks.
+                        </p>
+                        
+                        <div class="k-prompts">
+                            <button class="k-action-btn" onclick="insertPrompt('Explain edge compute like an aggressive poster')">
+                                [ EDGE.COMPUTE ]
+                            </button>
+                            <button class="k-action-btn" onclick="insertPrompt('Draw a flowchart of high-speed Redis caching')">
+                                [ REDIS.CACHE ]
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="k-response hidden" id="responseDisplay">
+                    <div class="k-status-bar">
+                        <span class="k-icon pulse-fast">⚡</span>
+                        <span id="responseStatus">PARSING PAYLOAD...</span>
+                    </div>
+                    
+                    <div class="k-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="k-footer">
+            <div class="k-input-tray">
+                <textarea id="promptInput" rows="1" placeholder="INJECT YOUR QUERY..."></textarea>
+                <button id="submitBtn" class="k-submit">GO>_</button>
+            </div>
+            
+            <div class="k-telemetry">
+                <span id="rateLimitStatus">REQ/M: 5/5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

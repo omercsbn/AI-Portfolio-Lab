@@ -1,0 +1,172 @@
+/* MICROBIOLOGY THEME */
+:root {
+    --b-bg: #eef2f5; /* Clinical white/grey */
+    --b-text: #2c3e50; /* Deep blue/grey text */
+    --b-brand: #34495e;
+    --b-accent: #27ae60; /* Biological green */
+    --b-warn: #e74c3c; /* Mutation/Error red */
+    --b-glass: rgba(255, 255, 255, 0.7);
+    --font-head: 'Overpass', sans-serif;
+    --font-data: 'Space Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--b-bg);
+    color: var(--b-text);
+    font-family: var(--font-head);
+    font-size: 16px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    /* Subtle grid representing a microscope slide */
+    background-image: 
+        linear-gradient(rgba(44, 62, 80, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44, 62, 80, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* 3D Canvas (Petri Dish) */
+#bio-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1; pointer-events: none;
+    mix-blend-mode: multiply; /* Helps the cells blend into the slide */
+}
+
+/* Glass Overlay simulating the cover slip */
+.glass-layer {
+    position: absolute; top: 2%; left: 2%; width: 96%; height: 96%;
+    border-radius: 50%; /* Make the whole view feel circular if desired, or keep square */
+    z-index: 2; pointer-events: none;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    background: radial-gradient(circle at center, transparent 40%, rgba(44,62,80,0.05) 100%);
+    border-radius: 20px;
+}
+
+/* Microscope Vignette (Optical darkening at edges) */
+.microscope-vignette {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 100; pointer-events: none;
+    background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.3) 100%);
+}
+
+/* UI Layer */
+.lab-ui {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%; pointer-events: none; padding: 40px;
+}
+.lab-ui > * { pointer-events: auto; }
+
+/* Header */
+.b-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 20px; border-bottom: 1px dashed var(--b-brand);
+}
+.b-brand h1 { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--b-brand); letter-spacing: 2px;}
+.b-subtitle { font-family: var(--font-data); font-size: 0.8rem; letter-spacing: 1px; color: #7f8c8d;}
+
+.b-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 8px;}
+.b-status { font-family: var(--font-data); font-size: 0.9rem; font-weight: bold; color: var(--b-accent);}
+.pulse { animation: pulseAnim 2s infinite; }
+@keyframes pulseAnim { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+.b-btn {
+    background: var(--b-glass); border: 1px solid var(--b-brand); color: var(--b-brand);
+    font-family: var(--font-data); font-size: 0.8rem; padding: 4px 12px; cursor: pointer; transition: 0.2s;
+    border-radius: 12px; backdrop-filter: blur(4px);
+}
+.b-btn:hover { background: var(--b-brand); color: #fff; }
+
+/* Main Content Area */
+.b-main { flex-grow: 1; display: flex; justify-content: flex-start; overflow: hidden; position: relative;}
+.b-scroller { width: 100%; max-width: 650px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 40px 20px 40px 0;}
+.b-scroller::-webkit-scrollbar { display: none; }
+
+.b-hero { margin-bottom: 40px;}
+.clinical-box {
+    background: var(--b-glass); border: 1px solid rgba(44,62,80,0.2);
+    padding: 30px; border-radius: 20px; backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.b-headline {
+    font-family: var(--font-head); font-size: 3rem; line-height: 1.1; margin-bottom: 20px;
+    font-weight: 700; color: var(--b-brand); letter-spacing: -1px;
+}
+.b-lead { font-size: 1.1rem; line-height: 1.6; color: #34495e; margin-bottom: 30px;}
+
+.b-prompts { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill-btn {
+    background: rgba(44,62,80,0.05); border: 1px solid rgba(44,62,80,0.2);
+    color: var(--b-brand); font-family: var(--font-data); font-size: 0.85rem; font-weight: bold;
+    padding: 10px 20px; cursor: pointer; transition: 0.3s; border-radius: 20px;
+}
+.pill-btn:hover { background: var(--b-accent); color: #fff; border-color: var(--b-accent); transform: scale(1.05); }
+
+/* Response Section */
+.b-response { margin: 2rem 0; background: var(--b-glass); border: 1px solid rgba(44,62,80,0.2); border-radius: 20px; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden;}
+.b-response.hidden { display: none; }
+
+.b-status-bar {
+    padding: 12px 20px; background: rgba(39, 174, 96, 0.1); border-bottom: 1px solid rgba(39, 174, 96, 0.3);
+    display: flex; align-items: center; gap: 10px; font-family: var(--font-data); font-weight: bold; color: var(--b-accent); font-size: 0.9rem;
+}
+.dna-icon { animation: spin 4s linear infinite; display: inline-block;}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.b-content { padding: 30px; text-align: left; }
+
+/* Markdown Overrides - Clinical */
+.markdown-body { color: var(--b-text); font-size: 1.05rem; line-height: 1.6; }
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-head); font-weight: 700; font-size: 1.8rem; color: var(--b-brand); margin: 2rem 0 1rem; padding-bottom: 5px; border-bottom: 2px solid rgba(44,62,80,0.1);}
+.markdown-body h3 { font-family: var(--font-head); font-weight: 700; color: #7f8c8d; font-size: 1.3rem; margin-top: 1.5rem;}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body a { color: var(--b-accent); text-decoration: none; border-bottom: 1px dashed var(--b-accent); transition: 0.2s;}
+.markdown-body a:hover { color: #fff; background: var(--b-accent); }
+.markdown-body ul { margin-left: 20px; }
+.markdown-body ul li { margin-bottom: 5px; }
+.markdown-body ul li::marker { content: '○ '; color: var(--b-accent); font-size: 1.2em;}
+
+.markdown-body pre { background: rgba(255,255,255,0.8); border: 1px solid #bdc3c7; border-radius: 10px; padding: 1.5rem; margin: 2rem 0; overflow-x: auto;}
+.markdown-body code { background: rgba(44,62,80,0.05); padding: 2px 6px; font-family: var(--font-data); font-size: 0.85em; color: var(--b-warn); border-radius: 4px;}
+.markdown-body pre code { background: transparent; border: none; padding: 0; color: var(--b-brand);}
+
+.mermaid { background: transparent; padding: 1rem; margin: 2rem 0; display: flex; justify-content: center;}
+.mermaid * { font-family: var(--font-head) !important;}
+
+/* Footer Input */
+.b-footer { border-top: 1px dashed var(--b-brand); padding-top: 20px; width: 100%; max-width: 650px;}
+.b-input-vial {
+    display: flex; align-items: stretch; background: var(--b-glass); border: 1px solid var(--b-brand);
+    border-radius: 30px; padding: 5px 5px 5px 20px; transition: 0.3s; backdrop-filter: blur(10px);
+}
+.b-input-vial:focus-within { border-color: var(--b-accent); box-shadow: 0 0 15px rgba(39, 174, 96, 0.2);}
+
+textarea {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: var(--b-brand); font-family: var(--font-head); font-size: 1.1rem;
+    padding: 10px 0; resize: none; max-height: 120px; line-height: 1.5;
+}
+textarea::placeholder { color: #95a5a6; }
+
+.b-submit {
+    background: var(--b-brand); color: #fff; border: none; border-radius: 25px;
+    padding: 0 25px; font-family: var(--font-data); font-weight: bold; font-size: 0.9rem;
+    cursor: pointer; transition: 0.2s;
+}
+.b-submit:hover { background: var(--b-accent); }
+
+.b-telemetry { margin-top: 15px; font-size: 0.75rem; color: #7f8c8d; font-family: var(--font-data); padding-left: 15px;}
+.b-telemetry .error { color: var(--b-warn); font-weight: bold;}
+
+@media (max-width: 768px) {
+    .glass-layer { display: none; }
+    .lab-ui { padding: 20px; }
+    .b-header { flex-direction: column; gap: 10px;}
+    .b-nav { align-items: flex-start;}
+    .b-headline { font-size: 2.2rem; }
+    .b-input-vial { flex-direction: column; border-radius: 15px; padding: 15px;}
+    .b-submit { padding: 15px; margin-top: 10px; border-radius: 10px;}
+}

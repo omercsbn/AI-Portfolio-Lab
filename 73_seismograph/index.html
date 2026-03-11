@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN_GEO // SEISMIC_MONITOR</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Utilitarian, old-school scientific fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <!-- Simplex noise for generating smooth seismograph tremors -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+
+    <div class="monitor-background"></div>
+
+    <div class="drum-container">
+        
+        <!-- The UI looks like a sturdy scientific instrument panel -->
+        <div class="instrument-panel" id="mainPanel">
+            
+            <header class="eq-header">
+                <div class="eq-branding">
+                    <h1 class="eq-logo">SABUN_GEO</h1>
+                    <span class="eq-model">FAULT_LINE MONITOR MK_IV</span>
+                </div>
+                
+                <div class="eq-status">
+                    <span class="eq-label">MAGNITUDE</span>
+                    <span id="magReadout" class="eq-val stable">0.1</span>
+                    <button id="langToggle" class="eq-btn">[CALIBRATE: EN]</button>
+                </div>
+            </header>
+
+            <main class="eq-main">
+                
+                <!-- The live scrolling Seismograph Canvas -->
+                <div class="seismograph-wrapper">
+                    <div class="needle-arm" id="needleArm">
+                        <div class="needle-tip"></div>
+                    </div>
+                    <canvas id="seismoCanvas"></canvas>
+                    <div class="drum-shadow"></div>
+                </div>
+
+                <div class="eq-content-area">
+                    <div class="eq-scroller">
+                        
+                        <section class="eq-hero" id="heroSection">
+                            <h2 class="eq-headline">MEASURING THE<br>TREMORS.</h2>
+                            <p class="eq-lead">
+                                Software architecture is built on shifting tectonic plates. I design systems capable of withstanding massive traffic spikes, load sheer, and unpredictable user tremors without the infrastructure crumbling into the sea.
+                            </p>
+                            
+                            <div class="eq-prompts">
+                                <button class="eq-action-btn" onclick="insertPrompt('Explain disaster recovery for a database')">
+                                    [SIMULATE] DISASTER_RECOVERY
+                                </button>
+                                <button class="eq-action-btn" onclick="insertPrompt('Design a multi-region highly available system')">
+                                    [SIMULATE] HIGH_AVAILABILITY
+                                </button>
+                            </div>
+                        </section>
+
+                        <section class="eq-response hidden" id="responseDisplay">
+                            <div class="eq-status-bar">
+                                <div class="eq-alert-light" id="alertLight"></div>
+                                <span id="responseStatus">RECORDING SEISMIC EVENT...</span>
+                            </div>
+                            
+                            <div class="eq-content markdown-body" id="responseContent"></div>
+                        </section>
+                        
+                    </div>
+                </div>
+
+            </main>
+
+            <footer class="eq-controls">
+                
+                <div class="eq-input-deck">
+                    <span class="eq-label inline-label">EVENT_TRIGGER:</span>
+                    <textarea id="promptInput" rows="1" placeholder="INJECT FAULT DATA..."></textarea>
+                    
+                    <button class="eq-submit-btn" id="submitBtn">
+                        INITIATE RUPTURE
+                    </button>
+                </div>
+                
+                <div class="eq-telemetry">
+                    <span>SENSOR_LIFESPAN: <span id="rateLimitStatus" class="eq-val">5/5 EVENTS</span></span>
+                </div>
+                
+            </footer>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

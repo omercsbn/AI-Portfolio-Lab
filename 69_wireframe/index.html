@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/// WIREFRAME</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Utilitarian, mono-spaced and stark sans fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Work+Sans:wght@300;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS Rendered "Graph Paper" Background -->
+    <div class="wf-grid-bg"></div>
+
+    <div class="wf-container">
+        
+        <!-- UI Frame - looks like a CAD tool / blueprint bounding box -->
+        <div class="wf-frame">
+            
+            <header class="wf-header">
+                <div class="wf-crosshair top-left"></div>
+                <div class="wf-crosshair top-right"></div>
+                
+                <div class="wf-brand">
+                    <span class="wf-label">NODE:</span>
+                    <h1>ÖMERCAN_SABUN</h1>
+                    <span class="wf-dim">[ARCH_ENGINEER]</span>
+                </div>
+                
+                <div class="wf-status-box">
+                    <span class="wf-label">LATENCY_MS:</span>
+                    <span id="systemStatus" class="wf-val blink">0.42</span>
+                    <button id="langToggle" class="wf-outline-btn">[EN ]</button>
+                </div>
+            </header>
+
+            <main class="wf-main">
+                <div class="wf-scroller">
+                    
+                    <section class="wf-hero" id="heroSection">
+                        <div class="wf-measure-line horizontal">
+                            <span class="m-label">WIDTH: 100%</span>
+                        </div>
+                        
+                        <div class="wf-content-box">
+                            <h2 class="wf-headline">STRUCTURAL<br>INTEGRITY.</h2>
+                            <p class="wf-lead">
+                                Before the paint dries, the foundation must hold. I specialise in brutalist, robust backend engineering and stripping software down to its absolute, resilient core before scaling it horizontally.
+                            </p>
+                            
+                            <div class="wf-prompts">
+                                <button class="wf-action-btn" onclick="insertPrompt('Outline a minimal viable microservice architecture')">
+                                    [ EXEC: MIN_ARCH ]
+                                </button>
+                                <button class="wf-action-btn" onclick="insertPrompt('Draft a sequence diagram for a resilient login flow')">
+                                    [ RENDER: SEQ_DIAG ]
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="wf-response hidden" id="responseDisplay">
+                        <div class="wf-measure-line horizontal">
+                            <span class="m-label" id="responseStatus">STATUS: RENDER_PENDING...</span>
+                        </div>
+                        
+                        <div class="wf-output-box markdown-body" id="responseContent"></div>
+                    </section>
+
+                </div>
+                
+                <!-- Decorative Vertical Measure -->
+                <div class="wf-measure-line vertical">
+                    <span class="m-label v-label">HEIGHT: AUTO</span>
+                </div>
+            </main>
+
+            <footer class="wf-footer">
+                <div class="wf-crosshair bot-left"></div>
+                <div class="wf-crosshair bot-right"></div>
+                
+                <div class="wf-input-group">
+                    <span class="wf-label inline">INPUT_STR:</span>
+                    <textarea id="promptInput" rows="1" placeholder="ENTER DEFINITION..."></textarea>
+                    <button id="submitBtn" class="wf-solid-btn">COMPILE</button>
+                </div>
+                
+                <div class="wf-telemetry">
+                    <span class="wf-label">QUOTA_REMAINING:</span>
+                    <span id="rateLimitStatus" class="wf-val">5/5</span>
+                </div>
+            </footer>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

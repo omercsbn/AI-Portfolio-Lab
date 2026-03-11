@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN_///_1984</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Retro 80s / Outrun fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- For terrain generation -->
+    <script src="https://unpkg.com/simplex-noise@2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS Synthwave Sunset Overlays -->
+    <div class="sky-gradient"></div>
+    <div class="synth-sun"></div>
+
+    <!-- 3D Canvas (Moving Wireframe Terrain) -->
+    <canvas id="synth-canvas"></canvas>
+
+    <!-- Scanline / VHS overlay -->
+    <div class="vhs-overlay"></div>
+
+    <!-- UI Layer -->
+    <div class="synth-ui">
+        
+        <header class="w-header">
+            <div class="w-brand">
+                <h1 class="neon-text">ÖMERCAN SABUN</h1>
+                <span class="w-subtitle">NIGHTRIDER . OS</span>
+            </div>
+            <nav class="w-nav">
+                <span id="driveStatus" class="w-status">CRUISING</span>
+                <button id="langToggle" class="w-btn">FM: EN</button>
+            </nav>
+        </header>
+
+        <main class="w-main">
+            <div class="w-scroller">
+                
+                <section class="w-hero box-glow" id="heroSection">
+                    <h2 class="w-headline glow-blue">UPSCALE<br>MIGRATIONS.</h2>
+                    <p class="w-lead">
+                        Taking legacy monoliths on a midnight drive through the cloud pipeline. Fast iterations. Zero downtime. Perfect neon vibes.
+                    </p>
+                    
+                    <div class="w-prompts">
+                        <button class="synth-btn" onclick="insertPrompt('Explain Blue-Green deployments like a late night drive')">
+                            [ MIXTAPE: BLUE-GREEN ]
+                        </button>
+                        <button class="synth-btn" onclick="insertPrompt('Design a CI/CD pipeline using a Mermaid flowchart')">
+                            [ ROUTE: CI / CD ]
+                        </button>
+                    </div>
+                </section>
+
+                <section class="w-response hidden box-glow" id="responseDisplay">
+                    <div class="w-status-bar">
+                        <span class="w-icon">📼</span>
+                        <span id="responseStatus">FAST FORWARDING...</span>
+                    </div>
+                    
+                    <div class="w-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="w-footer">
+            <div class="w-input-bar box-glow">
+                <textarea id="promptInput" rows="1" placeholder="ENTER LONGITUDE..."></textarea>
+                <button id="submitBtn" class="w-submit">BOOST</button>
+            </div>
+            
+            <div class="w-telemetry">
+                <span id="rateLimitStatus">FUEL: 5/5 GALLONS</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

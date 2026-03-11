@@ -1,0 +1,176 @@
+/* SYNTHWAVE OUTRUN THEME */
+:root {
+    --w-bg: #110022; /* Deep purple night sky */
+    --w-grid: #ff007f; /* Neon pink grid */
+    --w-cyan: #00f3ff; /* Neon cyan text */
+    --w-sun-top: #ffea00; /* Yellow */
+    --w-sun-bot: #ff007f; /* Pink */
+    --w-text: #fff;
+    --font-head: 'Audiowide', cursive;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--w-bg);
+    color: var(--w-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex; justify-content: center;
+}
+
+/* Sky Background */
+.sky-gradient {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0; pointer-events: none;
+    background: linear-gradient(180deg, #090014 0%, #2b0057 40%, #ff007f 60%, #110022 65%);
+}
+
+/* The Outrun Sun */
+.synth-sun {
+    position: absolute; bottom: 40%; left: 50%; transform: translateX(-50%);
+    width: 300px; height: 300px; border-radius: 50%;
+    background: linear-gradient(180deg, var(--w-sun-top) 0%, var(--w-sun-bot) 100%);
+    box-shadow: 0 0 100px var(--w-sun-bot), 0 0 200px var(--w-sun-top);
+    z-index: 1; pointer-events: none;
+    /* CSS Sun grid lines (retro aesthetic) */
+    mask-image: repeating-linear-gradient(180deg, black 0%, black 80%, transparent 80%, transparent 100%);
+    -webkit-mask-image: repeating-linear-gradient(180deg, black 0%, black 80%, transparent 80%, transparent 100%);
+    mask-size: 100% 15px;
+    -webkit-mask-size: 100% 15px;
+}
+
+/* 3D Canvas -> Moving wireframe terrain mask */
+#synth-canvas {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 2; pointer-events: none;
+}
+
+/* VHS Overlay */
+.vhs-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 50; pointer-events: none; mix-blend-mode: overlay; opacity: 0.1;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, #000 2px, #000 4px);
+}
+
+/* UI Layer */
+.synth-ui {
+    position: relative; z-index: 10; display: flex; flex-direction: column;
+    height: 100vh; width: 100%; padding: 30px;
+    pointer-events: none; max-width: 800px;
+}
+.synth-ui > * { pointer-events: auto; }
+
+/* Neon Glow Utility */
+.box-glow {
+    background: rgba(17, 0, 34, 0.7); border: 2px solid var(--w-cyan);
+    box-shadow: 0 0 15px var(--w-cyan), inset 0 0 15px var(--w-cyan);
+    backdrop-filter: blur(5px); border-radius: 10px;
+}
+
+/* Header */
+.w-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-bottom: 20px;
+}
+.w-brand { display: flex; flex-direction: column; align-items: flex-start;}
+.w-brand h1 { font-family: var(--font-head); font-size: 3rem; color: #fff;}
+.neon-text { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--w-grid), 0 0 40px var(--w-grid), 0 0 80px var(--w-grid); }
+.glow-blue { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--w-cyan), 0 0 40px var(--w-cyan); }
+
+.w-subtitle { font-family: var(--font-head); font-size: 1.2rem; color: var(--w-cyan); letter-spacing: 5px; margin-top: -5px; text-shadow: 0 0 10px var(--w-cyan);}
+
+.w-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 8px;}
+.w-status { font-family: var(--font-head); font-size: 1.2rem; color: var(--w-sun-top); text-shadow: 0 0 10px var(--w-sun-top);}
+
+.w-btn {
+    background: transparent; border: 1px solid var(--w-grid); color: var(--w-grid);
+    font-family: var(--font-head); font-size: 0.9rem; padding: 4px 10px; cursor: pointer; transition: 0.2s; box-shadow: 0 0 10px var(--w-grid); border-radius: 4px;
+}
+.w-btn:hover { background: var(--w-grid); color: #fff;}
+
+/* Main Content Area */
+.w-main { flex-grow: 1; display: flex; justify-content: center; overflow: hidden; position: relative;}
+.w-scroller { width: 100%; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 40px 20px 40px 0;}
+.w-scroller::-webkit-scrollbar { display: none; }
+
+.w-hero { margin-bottom: 50px; padding: 40px; }
+
+.w-headline {
+    font-family: var(--font-head); font-size: 4rem; line-height: 1; margin-bottom: 20px;
+    color: #fff;
+}
+.w-lead { font-size: 1.2rem; line-height: 1.6; color: #e0e0e0; margin-bottom: 30px; font-weight: bold;}
+
+.w-prompts { display: flex; gap: 15px; flex-wrap: wrap;}
+.synth-btn {
+    background: rgba(0, 243, 255, 0.1); border: 1px solid var(--w-cyan);
+    color: var(--w-cyan); font-family: var(--font-head); font-size: 1rem;
+    padding: 10px 15px; cursor: pointer; transition: 0.3s; border-radius: 5px;
+}
+.synth-btn:hover { background: var(--w-cyan); color: var(--w-bg); box-shadow: 0 0 15px var(--w-cyan);}
+
+/* Response Section */
+.w-response { margin: 2rem 0; overflow: hidden;}
+.w-response.hidden { display: none; }
+
+.w-status-bar {
+    padding: 15px 25px; border-bottom: 2px solid var(--w-cyan);
+    display: flex; align-items: center; gap: 15px; font-family: var(--font-head); font-size: 1.2rem; color: var(--w-grid);
+}
+.w-icon { animation: spinTape 2s linear infinite; display: inline-block;}
+@keyframes spinTape { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.w-content { padding: 30px; text-align: left; }
+
+/* Markdown Overrides - Retro UI */
+.markdown-body { color: #fff; font-size: 1.1rem; line-height: 1.6;}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-head); font-size: 2.2rem; color: var(--w-sun-top); margin: 2rem 0 0.5rem; text-shadow: 0 0 10px var(--w-sun-top); text-transform: uppercase;}
+.markdown-body h3 { font-family: var(--font-head); font-size: 1.4rem; color: var(--w-grid); margin-top: 1.5rem; text-shadow: 0 0 10px var(--w-grid);}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body a { color: var(--w-cyan); text-decoration: none; border-bottom: 1px dashed var(--w-cyan); text-shadow: 0 0 5px var(--w-cyan);}
+.markdown-body a:hover { color: #fff; border-bottom: 1px solid #fff; }
+
+.markdown-body ul { margin-left: 20px; list-style-type: none; margin-bottom: 1.5rem;}
+.markdown-body ul li { margin-bottom: 10px; position: relative;}
+.markdown-body ul li::before { content: "►"; position: absolute; left: -25px; color: var(--w-cyan); text-shadow: 0 0 5px var(--w-cyan);}
+
+.markdown-body pre { background: rgba(0,0,0,0.8); border: 1px solid var(--w-cyan); padding: 1.5rem; margin: 2rem 0; overflow-x: auto; box-shadow: inset 0 0 10px var(--w-cyan); border-radius: 5px;}
+.markdown-body code { background: rgba(255, 0, 127, 0.2); padding: 2px 6px; font-family: monospace; font-size: 0.9em; color: var(--w-sun-top); border-radius: 3px;}
+.markdown-body pre code { background: transparent; padding: 0;}
+
+.mermaid { background: rgba(255,255,255,0.9); padding: 1rem; margin: 2rem 0; justify-content: center; display: flex; border: 2px solid var(--w-grid); border-radius: 5px; filter: hue-rotate(280deg);}
+
+/* Footer Input */
+.w-footer { padding-top: 20px;}
+.w-input-bar { display: flex; align-items: stretch; padding: 10px; transition: 0.3s;}
+.w-input-bar:focus-within { box-shadow: 0 0 30px var(--w-cyan), inset 0 0 15px var(--w-cyan);}
+
+textarea {
+    flex-grow: 1; border: none; outline: none; background: transparent;
+    color: #fff; font-family: var(--font-body); font-weight: bold; font-size: 1.2rem;
+    padding: 10px 15px; resize: none; max-height: 120px; line-height: 1.5;
+}
+textarea::placeholder { color: rgba(0, 243, 255, 0.4); font-family: var(--font-head);}
+
+.w-submit {
+    background: transparent; color: var(--w-grid); border: 2px solid var(--w-grid);
+    cursor: pointer; padding: 0 30px; font-family: var(--font-head); font-size: 1.5rem; transition: 0.2s; border-radius: 5px; box-shadow: 0 0 10px var(--w-grid);
+}
+.w-submit:hover { background: var(--w-grid); color: #fff;}
+
+.w-telemetry { margin-top: 10px; font-family: var(--font-head); font-size: 1rem; color: #a9a9a9; display: flex; justify-content: flex-end;}
+.w-telemetry .error { color: var(--w-sun-top); text-shadow: 0 0 10px var(--w-sun-top);}
+
+@media (max-width: 768px) {
+    .synth-ui { padding: 15px; }
+    .w-header { flex-direction: column; gap: 15px;}
+    .w-nav { align-items: flex-start;}
+    .w-headline { font-size: 2.5rem; }
+    .w-hero { padding: 20px;}
+    .synth-sun { width: 150px; height: 150px;}
+}

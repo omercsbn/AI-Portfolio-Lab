@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN /// DEEP DIVE</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Monospaced radar fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS Sonar Screen -->
+    <div class="sonar-bg">
+        <div class="sonar-grid"></div>
+        <div class="sonar-sweep"></div>
+        <!-- Ping blips injected via JS -->
+        <div id="blipContainer"></div>
+    </div>
+    
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
+
+    <div class="sub-container">
+        
+        <!-- Framing overlay to look like a submarine porthole / terminal -->
+        <div class="sub-frame">
+            
+            <header class="u-header">
+                <div class="u-brand">
+                    <h1>[ÖMERCAN_SABUN]</h1>
+                    <span class="u-subtitle">DEPTH: 10,000M</span>
+                </div>
+                
+                <div class="u-status-box">
+                    <span class="u-val" id="systemStatus">PING_RECEIVING</span>
+                    <button id="langToggle" class="u-btn">[EN ]</button>
+                </div>
+            </header>
+
+            <main class="u-main">
+                <div class="u-scroller">
+                    
+                    <section class="u-hero" id="heroSection">
+                        <h2 class="u-headline blur-text">DEEP DIVE DEPLOY.</h2>
+                        <p class="u-lead typewriter">
+                            Diving beneath the surface layers to map the unseen architecture. I navigate high-pressure 
+                            environments to deliver payloads safely from local networks to the deep cloud.
+                        </p>
+                        
+                        <div class="u-prompts">
+                            <button class="u-action" onclick="insertPrompt('Explain Kubernetes pods navigating high traffic like a submarine')">
+                                > TRANSMIT: K8S_ANALOGY
+                            </button>
+                            <button class="u-action" onclick="insertPrompt('Map a request lifecycle as a Mermaid sequence diagram')">
+                                > SONAR: REQ_LIFECYCLE
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="u-response hidden" id="responseDisplay">
+                        <div class="u-status-bar">
+                            <span class="u-icon blink-fast">O</span>
+                            <span id="responseStatus">DECRYPTING SIGNAL...</span>
+                        </div>
+                        
+                        <!-- CRT glow applied to the response block -->
+                        <div class="u-content markdown-body" id="responseContent"></div>
+                    </section>
+
+                </div>
+            </main>
+
+            <footer class="u-footer">
+                <div class="u-input-group">
+                    <span class="u-prompt-char">></span>
+                    <textarea id="promptInput" rows="1" placeholder="ENTER COORDINATES..."></textarea>
+                    <button id="submitBtn" class="u-submit">PING</button>
+                </div>
+                
+                <div class="u-telemetry">
+                    <span>BATTERY: <span id="rateLimitStatus">5/5 PINGS</span></span>
+                </div>
+            </footer>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

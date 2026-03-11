@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan Sabun // Sacred Geometry</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Gothic & Elegant Serif Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Crimson+Pro:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- CSS God Rays Overlay -->
+    <div class="god-rays"></div>
+
+    <!-- 3D Canvas (Stained Glass Window Geometry) -->
+    <canvas id="glass-canvas"></canvas>
+
+    <!-- UI Layer -->
+    <div class="cathedral-ui">
+        
+        <header class="c-header">
+            <div class="c-brand">
+                <h1>Ömercan Sabun</h1>
+                <span class="c-subtitle">Architect of the Digital Aether</span>
+            </div>
+            <nav class="c-nav">
+                <span id="lightStatus" class="c-status">LUX: STEADY</span>
+                <button id="langToggle" class="c-btn">LINGUA.EN</button>
+            </nav>
+        </header>
+
+        <main class="c-main">
+            <div class="c-scroller">
+                
+                <section class="c-hero" id="heroSection">
+                    <div class="ornate-box">
+                        <div class="box-corner tl"></div><div class="box-corner tr"></div>
+                        <div class="box-corner bl"></div><div class="box-corner br"></div>
+                        
+                        <h2 class="c-headline">SACRED<br>GEOMETRY.</h2>
+                        <p class="c-lead">
+                            To build a system that lasts a millennium, one must respect the foundational patterns of computation. Like the master masons of old, I construct cloud architectures where every microservice serves a higher, unified light.
+                        </p>
+                        
+                        <div class="c-prompts">
+                            <button class="gothic-btn" onclick="insertPrompt('Illuminate the concept of Immutable Infrastructure')">
+                                ✣ ILLUMINATE: IMMUTABILITY
+                            </button>
+                            <button class="gothic-btn" onclick="insertPrompt('Draft a blueprint (flowchart) for a fault-tolerant sacrament (database)')">
+                                ✣ DRAFT: SACRAMENT
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="c-response hidden" id="responseDisplay">
+                    <div class="c-status-bar">
+                        <span class="c-icon spin-slow">✦</span>
+                        <span id="responseStatus">CHANNELLING LIGHT...</span>
+                        <span class="c-icon spin-slow">✦</span>
+                    </div>
+                    
+                    <div class="c-content markdown-body" id="responseContent"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="c-footer">
+            <div class="c-input-altar">
+                <textarea id="promptInput" rows="1" placeholder="Speak your query into the void..."></textarea>
+                <button id="submitBtn" class="c-submit">INVOKE</button>
+            </div>
+            
+            <div class="c-telemetry">
+                <span id="rateLimitStatus">DIVINE SPARKS: 5/5</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Heavy dust particle overlay -->
+    <div class="motes-of-dust"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+/* CASSETTE TAPE PLAYER THEME */
+:root {
+    --ct-bg: #1a1a1a; /* Dark plastic casing */
+    --ct-metal: #a9a9a9; /* Aluminum panels */
+    --ct-red: #ff3333; /* Record button / VU peaks */
+    --ct-green: #33ff33; /* LCD / VU normal */
+    --ct-lcd: #0a1f0f; /* LCD Background */
+    --ct-tape: #cc9966; /* Cassette label */
+    --font-lcd: 'Share Tech Mono', monospace;
+    --font-label: 'Archivo Black', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #0d0d0d;
+    color: var(--ct-metal);
+    font-family: var(--font-lcd);
+    font-size: 16px;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* Brushed Metal / Woodgrain Desk Background */
+.deck-background {
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0; pointer-events: none;
+    background: repeating-linear-gradient(90deg, #111 0px, #1a1a1a 2px, #111 4px);
+}
+
+/* Main UI Frame Container */
+.deck-container {
+    position: relative; z-index: 10; width: 100%; max-width: 900px;
+    padding: 20px; display: flex; flex-direction: column;
+}
+
+/* The physical tape deck casing */
+.cassette-deck {
+    width: 100%; background: var(--ct-bg);
+    border: 4px solid #333; border-radius: 10px;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.8), inset 2px 2px 10px rgba(255,255,255,0.1);
+    display: flex; flex-direction: column; overflow: hidden;
+}
+
+/* Header / Status LCD */
+.tape-header {
+    background: var(--ct-metal); padding: 20px; border-bottom: 4px solid #111;
+    display: flex; justify-content: space-between; align-items: center;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, transparent 50%);
+}
+
+.tape-branding { display: flex; flex-direction: column;}
+.logo { font-family: var(--font-label); font-size: 2.5rem; color: #222; letter-spacing: -2px; line-height: 1;}
+.model { font-family: var(--font-lcd); font-size: 0.8rem; color: #444; font-weight: bold;}
+
+.lcd-screen {
+    background: var(--ct-lcd); border: 4px solid #222; border-radius: 5px;
+    padding: 10px 20px; display: flex; flex-direction: column; align-items: center;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8); min-width: 250px;
+}
+.lcd-text { font-size: 1.5rem; color: var(--ct-green); text-shadow: 0 0 5px var(--ct-green); margin-bottom: 5px;}
+
+.vu-meter { width: 100%; height: 20px; display: flex; flex-direction: column; gap: 4px;}
+.bar { width: 100%; height: 8px; background: rgba(51, 255, 51, 0.2); position: relative; overflow: hidden;}
+.bar::after {
+    content: ""; position: absolute; top: 0; left: 0; height: 100%; width: 0%;
+    /* Gradient mapping audio levels */
+    background: linear-gradient(90deg, var(--ct-green) 70%, yellow 85%, var(--ct-red) 100%);
+    transition: width 0.1s ease-out;
+}
+/* JS handles widths */
+
+.deck-small-btn {
+    background: #222; color: var(--ct-metal); border: 2px solid #111;
+    font-family: var(--font-lcd); font-size: 0.8rem; padding: 2px 8px; cursor: pointer;
+    border-radius: 3px; position: absolute; top: 10px; right: 10px; box-shadow: 0 2px 0 #000;
+}
+.deck-small-btn:active { transform: translateY(2px); box-shadow: none; }
+
+.speaker-grill { width: 50px; height: 50px; background: radial-gradient(#222 2px, transparent 3px); background-size: 8px 8px;}
+
+/* Main Tape Deck Area */
+.tape-main {
+    flex-grow: 1; padding: 30px; display: flex; gap: 30px;
+    background: linear-gradient(180deg, #111 0%, #222 100%);
+}
+
+/* Left: The Cassette Graphic in its window */
+.cassette-tape {
+    flex: 0 0 320px; height: 200px;
+    background: #ccc; border: 4px solid #222; border-radius: 12px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    position: relative; box-shadow: inset 5px 5px 15px rgba(0,0,0,0.4), 0 10px 20px rgba(0,0,0,0.5);
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+}
+.tape-window {
+    width: 280px; height: 100px; background: #111; border-radius: 20px; border: 2px solid #444;
+    display: flex; justify-content: space-between; align-items: center; padding: 0 15px; position: relative;
+    box-shadow: inset 0 0 20px #000; overflow: hidden;
+}
+
+.spool { width: 60px; height: 60px; background: #ecf0f1; border-radius: 50%; display: flex; justify-content: center; align-items: center; position: relative;}
+.gear-teeth { width: 25px; height: 25px; border-radius: 50%; border: 4px dashed #333; position: absolute;}
+.spin { animation: spoolSpin 3s linear infinite; }
+@keyframes spoolSpin { to { transform: rotate(360deg); } }
+
+/* The actual "tape" wound around the spool */
+.tape-roll { position: absolute; border-radius: 50%; background: #222; border: 1px solid #111;}
+.l-roll { width: 90px; height: 90px; } /* Full start */
+.r-roll { width: 50px; height: 50px; } /* Empty start */
+
+.tape-bridge {
+    position: absolute; bottom: -45px; left: 50%; transform: translateX(-50%);
+    width: 220px; height: 50px; background: var(--ct-tape); border-radius: 10px 10px 0 0;
+    display: flex; align-items: flex-start; justify-content: center; padding-top: 5px;
+    border: 1px solid #8e6840; box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+}
+.cassette-label { font-family: var(--font-label); font-size: 1.2rem; color: #222; text-decoration: underline;}
+
+/* Right: The content output (Printed lyrics layout) */
+.tape-content-area {
+    flex-grow: 1; height: 400px; background: #fff; border-radius: 5px; border: 2px solid #111;
+    overflow: hidden; display: flex; position: relative;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+/* Paper texture */
+.tape-content-area::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; opacity: 0.4; background-image: radial-gradient(#ccc 1px, transparent 1px); background-size: 5px 5px; pointer-events: none;}
+
+.c-scroller { width: 100%; height: 100%; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #222 transparent; padding: 30px; position: relative; z-index: 5;}
+
+.c-headline { font-family: var(--font-label); font-size: 3.5rem; color: #222; line-height: 0.9; margin-bottom: 20px;}
+.c-lead { font-family: var(--font-lcd); font-size: 1.2rem; line-height: 1.5; color: #444; margin-bottom: 30px;}
+
+.c-prompts { display: flex; flex-direction: column; gap: 10px; }
+.c-action-btn {
+    background: #000; border: none; color: #fff; font-family: var(--font-lcd); font-size: 1.1rem;
+    padding: 10px 15px; cursor: pointer; text-align: left; transition: 0.2s; border-radius: 3px;
+}
+.c-action-btn:hover { background: var(--ct-red); padding-left: 25px;}
+
+.c-response { margin-top: 10px;}
+.c-response.hidden { display: none; }
+.c-status-bar { font-family: var(--font-label); font-size: 1.5rem; color: #bdc3c7; background: #222; padding: 10px 20px; border-radius: 5px; margin-bottom: 25px; display: inline-block;}
+.c-icon { display: inline-block; animation: playPulse 1s infinite alternate; color: var(--ct-green);}
+@keyframes playPulse { to { opacity: 0.5; color: var(--ct-red); } }
+
+/* Markdown Styling - Ink Print */
+.markdown-body { color: #111; font-size: 1.1rem; line-height: 1.6;}
+.markdown-body h1, .markdown-body h2 { font-family: var(--font-label); font-size: 2rem; color: #000; margin: 1.5rem 0 0.5rem; text-transform: uppercase; border-bottom: 4px solid #000;}
+.markdown-body h3 { font-family: var(--font-label); font-size: 1.4rem; color: #333; margin-top: 1rem;}
+.markdown-body p { margin-bottom: 1rem; }
+.markdown-body a { color: var(--ct-red); text-decoration: underline; font-weight: bold;}
+
+.markdown-body ul { margin-left: 20px; margin-bottom: 1.5rem; list-style-type: square;}
+
+.markdown-body pre { background: #f0f0f0; border: 2px dashed #000; padding: 1rem; margin: 1.5rem 0; overflow-x: auto;}
+.markdown-body code { background: #ddd; padding: 2px 4px; font-family: monospace; font-size: 0.9em; font-weight: bold;}
+.markdown-body pre code { background: transparent; padding: 0;}
+
+.mermaid { background: #fff; padding: 1rem; margin: 1.5rem 0; border: 2px solid #000; display: flex; justify-content: center;}
+
+/* Footer - Physical Buttons */
+.tape-controls {
+    background: var(--ct-metal); padding: 25px; border-top: 4px solid #111;
+    display: flex; justify-content: space-between; align-items: flex-end;
+}
+
+.input-deck { display: flex; align-items: center; gap: 10px; flex-grow: 1; max-width: 400px;}
+.mic-jack { width: 40px; height: 40px; background: #111; border-radius: 50%; border: 4px solid #555; position: relative; color: #111; font-size: 0.6rem; font-family: var(--font-label); text-align: center; line-height: 50px;}
+.mic-jack::after { content: ""; position: absolute; top: 12px; left: 12px; width: 8px; height: 8px; background: #000; border-radius: 50%;}
+
+textarea {
+    flex-grow: 1; border: 2px solid #333; background: #fff; border-radius: 3px;
+    color: #111; font-family: var(--font-lcd); font-size: 1.2rem;
+    padding: 10px; outline: none; resize: none; min-height: 45px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+}
+textarea:focus { border-color: var(--ct-red); }
+
+.physical-buttons { display: flex; gap: 10px;}
+.deck-btn {
+    background: transparent; border: none; cursor: pointer; position: relative;
+    width: 80px; height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+    font-family: var(--font-label); font-size: 0.8rem; color: #222;
+}
+.deck-btn .btn-top {
+    position: absolute; top: 0; left: 0; width: 100%; height: 35px; border-radius: 5px;
+    background: #444; border: 2px solid #111; border-bottom: 8px solid #222;
+    transition: 0.1s; z-index: 2;
+}
+.btn-record .btn-top { background: var(--ct-red); border-bottom-color: #990000;}
+.deck-btn:active .btn-top, .deck-btn.pressed .btn-top { top: 10px; border-bottom-width: 2px; }
+.deck-btn span { position: relative; z-index: 1;}
+
+.tape-telemetry { font-family: var(--font-lcd); font-size: 1.2rem; color: #444; font-weight: bold;}
+.error { color: var(--ct-red); }
+
+/* Static Noise Overlay (Triggered by JS) */
+.static-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 100; pointer-events: none; opacity: 0;
+    background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+    mix-blend-mode: overlay;
+}
+.static-overlay.active { opacity: 0.4; }
+
+@media (max-width: 768px) {
+    .deck-container { padding: 10px; }
+    .tape-main { flex-direction: column; padding: 15px; }
+    .tape-content-area { height: 300px; }
+    .tape-controls { flex-direction: column; align-items: stretch; gap: 15px;}
+    .input-deck { max-width: 100%; }
+    .physical-buttons { justify-content: center; }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ömercan's Scrapbook</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Handwritten and typewriter fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+    <!-- Corkboard Background -->
+    <div class="corkboard-bg"></div>
+
+    <!-- UI Layer -->
+    <div class="scrapbook-container">
+        
+        <!-- Pinned Header Note -->
+        <header class="p-header note-paper">
+            <div class="pin"></div>
+            <h1>Hi, I'm Ömercan!</h1>
+            <p class="p-subtitle">Software crafter, bug squasher, coffee drinker.</p>
+            <button id="langToggle" class="p-btn">Language: EN</button>
+            <div class="tape top-center"></div>
+        </header>
+
+        <main class="p-main">
+            <!-- Dynamic scattered "polaroids" container injected via JS -->
+            <div class="photo-scatter" id="bgPhotos"></div>
+
+            <div class="p-scroller">
+                
+                <section class="p-hero polaroid main-polaroid" id="heroSection">
+                    <div class="tape top-left"></div>
+                    <div class="polaroid-image hero-img-bg">
+                        <!-- Placeholder for a styled profile pic/avatar silhouette -->
+                        <div class="doodle-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <h2 class="p-headline">BUILDING WITH SOUL</h2>
+                        <p class="p-lead">
+                            Code isn't just logic; it's a craft. I love leaving things cleaner than I found them, documenting my journey, and turning complex server architectures into easy-to-read stories. Take a look around my mind's scrapbook.
+                        </p>
+                        
+                        <div class="p-prompts">
+                            <button class="doodle-btn" onclick="insertPrompt('Write a fun story about deploying code on a Friday night')">
+                                Drop a memory...
+                            </button>
+                            <button class="doodle-btn" onclick="insertPrompt('Sketch a diagram showing how you handle bugs (Mermaid)')">
+                                Sketch a bug hunt...
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="p-response hidden polaroid reply-polaroid" id="responseDisplay">
+                    <div class="tape top-right"></div>
+                    <div class="polaroid-image response-bg">
+                        <div class="p-status-bar">
+                            <span class="p-icon throb">✍️</span>
+                            <span id="responseStatus" class="handwritten-status">Jotting that down...</span>
+                        </div>
+                        <div class="p-content markdown-body" id="responseContent"></div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="p-footer">
+            <div class="p-input-note note-paper">
+                <div class="pin red-pin"></div>
+                <textarea id="promptInput" rows="1" placeholder="Write me a note..."></textarea>
+                <div class="note-actions">
+                    <span id="rateLimitStatus" class="p-telemetry">Pages left: 5/5</span>
+                    <button id="submitBtn" class="p-submit">STICK IT</button>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

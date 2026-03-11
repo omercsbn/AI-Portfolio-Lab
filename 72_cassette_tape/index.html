@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABUN /// MIXTAPE SIDE A</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Retro LCD and blocky fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Archivo+Black&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+    <div class="deck-background"></div>
+
+    <div class="deck-container">
+        
+        <!-- The Cassette Deck UI -->
+        <div class="cassette-deck">
+            
+            <header class="tape-header">
+                <div class="speaker-grill left"></div>
+                
+                <div class="tape-branding">
+                    <h1 class="logo">SABUN_AUDIO</h1>
+                    <span class="model">MODEL: FULL-STACK / STEREO DECK</span>
+                </div>
+                
+                <div class="lcd-screen">
+                    <span id="systemStatus" class="lcd-text">READY_</span>
+                    <button id="langToggle" class="deck-small-btn">TAPE: EN</button>
+                    <div class="vu-meter">
+                        <div class="bar l-bar" id="vuLeft"></div>
+                        <div class="bar r-bar" id="vuRight"></div>
+                    </div>
+                </div>
+                
+                <div class="speaker-grill right"></div>
+            </header>
+
+            <main class="tape-main">
+                
+                <!-- Physical-looking cassette tape spinning logic -->
+                <div class="cassette-tape">
+                    <div class="tape-window">
+                        <div class="spool left-spool" id="spoolL">
+                            <div class="tape-roll l-roll"></div>
+                            <div class="gear-teeth"></div>
+                        </div>
+                        <div class="tape-bridge">
+                            <span class="cassette-label">SIDE A: DEPLOYMENT</span>
+                        </div>
+                        <div class="spool right-spool" id="spoolR">
+                            <div class="tape-roll r-roll"></div>
+                            <div class="gear-teeth"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tape-content-area">
+                    <div class="c-scroller">
+                        
+                        <section class="c-hero" id="heroSection">
+                            <h2 class="c-headline">PRESS PLAY ON<br>PRODUCTION.</h2>
+                            <p class="c-lead">
+                                High fidelity code. No hiss, no static, just pure, clean architecture. I write robust software that hits all the right frequencies, deploying seamlessly across environments. 
+                            </p>
+                            
+                            <div class="c-prompts">
+                                <button class="c-action-btn" onclick="insertPrompt('Explain clean code principles')">
+                                    [TRACK 1: CLEAN.CODE]
+                                </button>
+                                <button class="c-action-btn" onclick="insertPrompt('Draw a system design architecture as a Mermaid diagram')">
+                                    [TRACK 2: SYS.DESIGN]
+                                </button>
+                            </div>
+                        </section>
+
+                        <section class="c-response hidden" id="responseDisplay">
+                            <div class="c-status-bar">
+                                <span class="c-icon" id="playIcon">▶</span>
+                                <span id="responseStatus">PLAYING BACK TAPE...</span>
+                            </div>
+                            
+                            <div class="c-content markdown-body" id="responseContent"></div>
+                        </section>
+                        
+                    </div>
+                </div>
+
+            </main>
+
+            <footer class="tape-controls">
+                
+                <div class="input-deck">
+                    <div class="mic-jack">MIC IN</div>
+                    <textarea id="promptInput" rows="1" placeholder="SPEAK INTO MIC..."></textarea>
+                </div>
+                
+                <div class="physical-buttons">
+                    <!-- Physical play/record buttons -->
+                    <button class="deck-btn btn-record" id="submitBtn">
+                        <div class="btn-top"></div>
+                        <span>[REC/●]</span>
+                    </button>
+                    <button class="deck-btn btn-play" id="playDummyBtn">
+                        <div class="btn-top"></div>
+                        <span>[PLAY/▶]</span>
+                    </button>
+                    <button class="deck-btn btn-stop" id="stopDummyBtn">
+                        <div class="btn-top"></div>
+                        <span>[STOP/■]</span>
+                    </button>
+                </div>
+                
+                <div class="tape-telemetry">
+                    <span>LENGTH: <span id="rateLimitStatus">5/5 TRACKS</span></span>
+                </div>
+                
+            </footer>
+            
+        </div>
+    </div>
+
+    <!-- Static noise sound effect mapped visually -->
+    <div class="static-overlay" id="staticOverlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
