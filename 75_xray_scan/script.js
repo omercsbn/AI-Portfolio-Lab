@@ -15,7 +15,7 @@ const skeletonOverlay = document.getElementById('skeletonOverlay');
 
 let API_KEY = localStorage.getItem('gemini_api_key');
 if (!API_KEY) {
-    API_KEY = prompt("Enter Medical ID Chip (Gemini API Key):\n(Stored locally)");
+    if (window === window.top) { API_KEY = prompt("Enter Medical ID Chip (Gemini API Key):\n(Stored locally)"); }
     if (API_KEY) {
         localStorage.setItem('gemini_api_key', API_KEY);
     }
@@ -189,7 +189,7 @@ async function handleSubmission() {
     if(!query) return;
 
     if (!API_KEY) {
-        API_KEY = prompt("AUTH_KEY REQ:");
+        if (window === window.top) { API_KEY = prompt("AUTH_KEY REQ:"); }
         if(!API_KEY) return;
         localStorage.setItem('gemini_api_key', API_KEY);
     }

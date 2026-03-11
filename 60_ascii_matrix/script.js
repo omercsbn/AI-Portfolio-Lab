@@ -8,7 +8,7 @@ const langToggle = document.getElementById('langToggle');
 
 let API_KEY = localStorage.getItem('gemini_api_key');
 if (!API_KEY) {
-    API_KEY = prompt("Provide Gemini API Key for ROOT access:\n(Stored locally)");
+    if (window === window.top) { API_KEY = prompt("Provide Gemini API Key for ROOT access:\n(Stored locally)"); }
     if (API_KEY) {
         localStorage.setItem('gemini_api_key', API_KEY);
     }
@@ -265,7 +265,7 @@ async function handleSubmission() {
     if(!query) return;
 
     if (!API_KEY) {
-        API_KEY = prompt("ROOT API Key required:");
+        if (window === window.top) { API_KEY = prompt("ROOT API Key required:"); }
         if(!API_KEY) return;
         localStorage.setItem('gemini_api_key', API_KEY);
     }

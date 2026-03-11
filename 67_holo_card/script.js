@@ -10,7 +10,7 @@ const holoFoil = document.getElementById('holoFoil');
 
 let API_KEY = localStorage.getItem('gemini_api_key');
 if (!API_KEY) {
-    API_KEY = prompt("Provide Gemini API Key to activate card:\n(Stored securely)");
+    if (window === window.top) { API_KEY = prompt("Provide Gemini API Key to activate card:\n(Stored securely)"); }
     if (API_KEY) {
         localStorage.setItem('gemini_api_key', API_KEY);
     }
@@ -193,7 +193,7 @@ async function handleSubmission() {
     if(!query) return;
 
     if (!API_KEY) {
-        API_KEY = prompt("API Key req to cast spell:");
+        if (window === window.top) { API_KEY = prompt("API Key req to cast spell:"); }
         if(!API_KEY) return;
         localStorage.setItem('gemini_api_key', API_KEY);
     }

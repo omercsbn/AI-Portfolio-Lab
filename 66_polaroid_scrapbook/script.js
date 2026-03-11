@@ -10,7 +10,7 @@ const langToggle = document.getElementById('langToggle');
 
 let API_KEY = localStorage.getItem('gemini_api_key');
 if (!API_KEY) {
-    API_KEY = prompt("Got a pen? Write down your Gemini API Key first:\n(Stored locally in your browser)");
+    if (window === window.top) { API_KEY = prompt("Got a pen? Write down your Gemini API Key first:\n(Stored locally in your browser)"); }
     if (API_KEY) {
         localStorage.setItem('gemini_api_key', API_KEY);
     }
@@ -253,7 +253,7 @@ async function handleSubmission() {
     if(!query) return;
 
     if (!API_KEY) {
-        API_KEY = prompt("API Key req:");
+        if (window === window.top) { API_KEY = prompt("API Key req:"); }
         if(!API_KEY) return;
         localStorage.setItem('gemini_api_key', API_KEY);
     }

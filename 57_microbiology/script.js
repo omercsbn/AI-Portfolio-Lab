@@ -12,7 +12,7 @@ const statusBar = document.querySelector('.b-status-bar');
 
 let API_KEY = localStorage.getItem('gemini_api_key');
 if (!API_KEY) {
-    API_KEY = prompt("Please enter your Gemini API Key to use this portfolio piece:\n(Your key is stored locally in your browser)");
+    if (window === window.top) { API_KEY = prompt("Please enter your Gemini API Key to use this portfolio piece:\n(Your key is stored locally in your browser)"); }
     if (API_KEY) {
         localStorage.setItem('gemini_api_key', API_KEY);
     }
@@ -312,7 +312,7 @@ async function handleSubmission() {
     if(!query) return;
 
     if (!API_KEY) {
-        API_KEY = prompt("API Key required:");
+        if (window === window.top) { API_KEY = prompt("API Key required:"); }
         if(!API_KEY) return;
         localStorage.setItem('gemini_api_key', API_KEY);
     }

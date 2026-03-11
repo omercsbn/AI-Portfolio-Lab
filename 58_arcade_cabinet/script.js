@@ -11,7 +11,7 @@ const creditStatus = document.getElementById('creditStatus');
 
 let API_KEY = localStorage.getItem('gemini_api_key');
 if (!API_KEY) {
-    API_KEY = prompt("Please enter your Gemini API Key to play:\n(Stored locally in your browser)");
+    if (window === window.top) { API_KEY = prompt("Please enter your Gemini API Key to play:\n(Stored locally in your browser)"); }
     if (API_KEY) {
         localStorage.setItem('gemini_api_key', API_KEY);
     }
@@ -272,7 +272,7 @@ async function handleSubmission() {
     if(!query) return;
 
     if (!API_KEY) {
-        API_KEY = prompt("API Key required (Insert Coin):");
+        if (window === window.top) { API_KEY = prompt("API Key required (Insert Coin):"); }
         if(!API_KEY) return;
         localStorage.setItem('gemini_api_key', API_KEY);
     }
