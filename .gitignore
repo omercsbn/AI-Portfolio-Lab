@@ -1,0 +1,28 @@
+# Environment variables and secrets
+.env
+.env.*
+*.env
+
+# Key scrubbing scripts
+scrub_keys.py
+scrub_keys.*
+
+# API keys and secrets
+secrets/
+*.key
+*.pem
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Node
+node_modules/
+package-lock.json
+
+# Logs
+*.log
